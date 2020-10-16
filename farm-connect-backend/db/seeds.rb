@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Farmer.create(first_name: "Jeff", last_name: "Druff", email: "j@druff.com", state: "North Carolina")
+Farmer.create(first_name: "Lisa", last_name: "Vikes", email: "l@vikes.com", state: "Iowa")
+
+Prospect.create(first_name: "Sue", last_name: "May", email: "s@may.com", state: "Indiana")
+Prospect.create(first_name: "Ann", last_name: "Moe", email: "a@moe.com", state: "Kansas")
+puts "Completed!"
