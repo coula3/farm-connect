@@ -1,0 +1,8 @@
+class CreateProspects < ActiveRecord::Migration[6.0]
+  def change
+    create_table :prospects do |t|
+
+      t.timestamps
+    end
+  end
+end

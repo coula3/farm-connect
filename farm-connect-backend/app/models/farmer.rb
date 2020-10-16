@@ -1,0 +1,2 @@
+class Farmer < ApplicationRecord
+end
