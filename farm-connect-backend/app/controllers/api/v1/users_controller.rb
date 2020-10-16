@@ -1,4 +1,6 @@
 class Api::V1::UsersController < ApplicationController
+    skip_before_action :authorized, only: [:create]
+
     def show
         user = User.find_by(id: params[:id])
         render json: UserSerializer.new(user)
@@ -7,5 +9,20 @@ class Api::V1::UsersController < ApplicationController
     def index
         users = User.all
         render json: UserSerializer.new(users)
+    end
+
+    def create
+        @user = User.new(user_params)
+        if @user.save
+            @token = encode_token({user_id: @user.id})
+            render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+        else
+            render json: { messages: @user.errors.full_messages.join(" ")}, status: :not_acceptable
+        end
+    end
+
+    private
+    def user_params
+        params.require(:user).permit(:type, :first_name, :last_name, :state, :email, :password)
     end
 end
