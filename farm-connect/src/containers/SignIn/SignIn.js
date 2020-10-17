@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SignIn extends Component {
     state = {
@@ -43,12 +44,13 @@ class SignIn extends Component {
 
     render() {
         return (
-            <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px"}}>
-                <form style={{padding: 10, marginBottom: "10px"}} onSubmit={this.handleSubmit}>
+            <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
+                <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
                     <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <button>Sign In</button>
                 </form>
+                <Link to="/signup">Sign Up</Link>
             </div>
         )
     }
