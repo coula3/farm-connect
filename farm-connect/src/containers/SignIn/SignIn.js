@@ -30,8 +30,13 @@ class SignIn extends Component {
         })
         .then(response => response.json())
         .then(json => {
-            localStorage.setItem('jwt_token', json.jwt);
-            console.log(json);
+            if(json.jwt){
+                localStorage.setItem('jwt_token', json.jwt);
+                this.props.history.push(`/main`);
+                console.log(json)
+            } else {
+                console.log(json)
+            }
         })
 
         this.setState({
