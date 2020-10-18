@@ -1,13 +1,6 @@
 const initialState = {
     userId: "",
-    userAttributes: {
-        firstName: "",
-        lastName: "",
-        dateOfBirth: "",
-        email: "",
-        password: "",
-        type: ""
-    },
+    userAttributes: {},
     isLoading: false,
     isAuthenticated: false
 }
