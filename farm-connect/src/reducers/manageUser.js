@@ -28,6 +28,14 @@ const manageUser = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "SIGN_OUT_USER":
+            return {
+                ...state,
+                userId: "",
+                userAttributes: {},
+                isAuthenticated: false
+            }
+
         default:
             return state
     }
