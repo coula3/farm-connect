@@ -58,12 +58,12 @@ class SignUp extends Component {
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <div>
                         <div style={{display: "inline", marginRight: 15}}>
-                            <label htmlFor="Farmer">Farmer</label>
-                            <input type="radio" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
+                            <label htmlFor="farmer">Farmer</label>
+                            <input type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
                         </div>
                         <div style={{display: "inline", marginRight: 15}}>
-                            <label htmlFor="Prospect">Prospect</label>
-                            <input type="radio" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
+                            <label htmlFor="prospect">Prospect</label>
+                            <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
                     </div>
                     <br />
