@@ -1,4 +1,4 @@
-const signInUser = (payload, ownProps) => {
+export const signInUser = (payload, ownProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING"});
         fetch(`http://localhost:3000/api/v1/signin`, {
@@ -26,4 +26,9 @@ const signInUser = (payload, ownProps) => {
     }
 }
 
-export default signInUser;
+export const signOutUser = () => {
+    return (dispatch) => {
+        dispatch({type: "SIGN_OUT_USER"});
+        localStorage.removeItem('jwt_token');
+    }
+}
