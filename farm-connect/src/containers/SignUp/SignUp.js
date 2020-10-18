@@ -19,13 +19,38 @@ class SignUp extends Component {
                 ...this.state.user,
                 [e.target.name]: e.target.value
             }
-        }, ()=> console.log(this.state))
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(`http://localhost:3000/api/v1/users`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+        })
+        .then(response => response.json())
+        .then(json => console.log('Success:', json))
+
+        this.setState({
+            user: {
+                firstName: "",
+                lastName: "",
+                dateOfBirth: "",
+                email: "",
+                password: "",
+                type: ""
+            }
+        })
     }
 
     render(){
         return(
             <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
-                <form style={{padding: 10, marginBottom: "5px"}}>
+                <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
                     <p><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
                     <p><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
                     <p><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
