@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_024040) do
+ActiveRecord::Schema.define(version: 2020_10_19_205405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "commodities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "connects", force: :cascade do |t|
     t.bigint "farmer_id", null: false
@@ -27,6 +33,29 @@ ActiveRecord::Schema.define(version: 2020_10_16_024040) do
   create_table "farmers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_interests_on_listing_id"
+    t.index ["user_id"], name: "index_interests_on_user_id"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "commodity_id", null: false
+    t.datetime "list_date"
+    t.datetime "est_availability"
+    t.string "available"
+    t.string "measure"
+    t.float "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commodity_id"], name: "index_listings_on_commodity_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "prospects", force: :cascade do |t|
@@ -48,4 +77,8 @@ ActiveRecord::Schema.define(version: 2020_10_16_024040) do
 
   add_foreign_key "connects", "farmers"
   add_foreign_key "connects", "prospects"
+  add_foreign_key "interests", "listings"
+  add_foreign_key "interests", "users"
+  add_foreign_key "listings", "commodities"
+  add_foreign_key "listings", "users"
 end
