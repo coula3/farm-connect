@@ -5,7 +5,7 @@ const HeadNavBar = (props) => {
     return (
         <div style={{marginBottom:"15px"}}>
             <span style={{marginRight: "15px"}}>{props.userAttributes.first_name} {props.userAttributes.last_name}</span>
-            <Link onClick={props.userSignOut} to="/signout">Sign Out</Link>
+            <Link to="/signout" onClick={props.userSignOut}>Sign Out</Link>
         </div>
     )
 }
