@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signUpUser } from '../../actions/userActions';
 
 class SignUp extends Component {
     state = {
@@ -25,15 +27,7 @@ class SignUp extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:3000/api/v1/users`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state)
-        })
-        .then(response => response.json())
-        .then(json => console.log('Success:', json))
+       this.props.signUpUser(this.state)
 
         this.setState({
             user: {
@@ -75,4 +69,19 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+const mapStateToProps = (state) => {
+    return {
+        userId: state.userId,
+        userAttributes: state.userAttributes,
+        isLoading: state.isLoading,
+        isAuthenticated: state.isAuthenticated
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        signUpUser: (payload) => dispatch(signUpUser(payload, ownProps))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
