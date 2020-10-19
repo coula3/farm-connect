@@ -13,7 +13,7 @@ const manageUser = (state = initialState, action) => {
                 isLoading: true
             }
 
-        case "LOGIN_SUCCESS":
+        case "SIGN_UP_OR_LOGIN_SUCCESS":
             return {
                 ...state,
                 userId: action.user.data.id,
@@ -22,7 +22,7 @@ const manageUser = (state = initialState, action) => {
                 isAuthenticated: true
             }
 
-        case "LOGIN_FAILURE":
+        case "SIGN_UP_OR_LOGIN_FAILURE":
             return {
                 ...state,
                 isLoading: false
