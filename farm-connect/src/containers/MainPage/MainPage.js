@@ -1,14 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SideNavBar from '../../components/SideNavBar/SideNavBar';
-import UserProfile from '../../components/UserProfile/UserProfile';
 
 class MainPage extends React.Component {
     render (){
         return (
-            <div>
+            <div style={{width: "60%", display: "inline", float: "left"}}>
                 <h3>Main Page</h3>
-                <SideNavBar />
             </div>
         )
     }
