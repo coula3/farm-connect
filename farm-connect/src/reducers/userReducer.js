@@ -5,7 +5,7 @@ const initialState = {
     isAuthenticated: false
 }
 
-const manageUser = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case "LOADING":
             return {
@@ -42,4 +42,4 @@ const manageUser = (state = initialState, action) => {
 
 }
 
-export default manageUser;
+export default userReducer;
