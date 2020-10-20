@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :farmers
       resources :prospects
       resources :connects
+      resources :listings
     end
   end
 end
