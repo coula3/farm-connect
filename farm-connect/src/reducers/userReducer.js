@@ -28,7 +28,7 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
-        case "SIGN_OUT_USER":
+        case "SIGN_OUT":
             return {
                 ...state,
                 userId: "",
