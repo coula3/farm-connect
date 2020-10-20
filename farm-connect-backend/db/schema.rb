@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_205405) do
     t.bigint "commodity_id", null: false
     t.datetime "list_date"
     t.datetime "est_availability"
-    t.string "available"
+    t.boolean "available", default: false
     t.string "measure"
     t.float "quantity"
     t.datetime "created_at", precision: 6, null: false

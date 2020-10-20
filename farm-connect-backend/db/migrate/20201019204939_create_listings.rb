@@ -5,7 +5,7 @@ class CreateListings < ActiveRecord::Migration[6.0]
       t.references :commodity, null: false, foreign_key: true
       t.datetime :list_date
       t.datetime :est_availability
-      t.string :available
+      t.boolean :available, default: false
       t.string :measure
       t.float :quantity
 
