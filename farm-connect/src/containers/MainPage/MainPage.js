@@ -1,11 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchListings } from '../../actions/listingsActions';
+import Listings from '../../components/Listings/Listings';
 
 class MainPage extends React.Component {
+    componentDidMount(){
+       this.props.fetchListings();
+    }
+
     render (){
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
-                <h3>Main Page</h3>
+                <Listings listings={this.props.listings}/>
             </div>
         )
     }
@@ -13,9 +19,15 @@ class MainPage extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        userId: state.userId,
-        userAttributes: state.userAttributes
+        isLoading: state.listings.isLoading,
+        listings: state.listings.listings
     }
 }
 
-export default connect(mapStateToProps)(MainPage);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchListings: () => dispatch(fetchListings())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
