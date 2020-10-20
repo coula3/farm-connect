@@ -43,3 +43,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jwt'
 gem 'fast_jsonapi'
 gem 'figaro'
+gem 'activerecord-import'
