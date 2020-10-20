@@ -56,7 +56,7 @@ export const signInUser = (payload, ownProps) => {
 
 export const signOutUser = () => {
     return (dispatch) => {
-        dispatch({type: "SIGN_OUT_USER"});
+        dispatch({type: "SIGN_OUT"});
         localStorage.removeItem('jwt_token');
     }
 }
