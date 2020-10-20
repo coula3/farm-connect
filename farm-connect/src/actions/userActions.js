@@ -1,6 +1,6 @@
 export const signUpUser = (payload, ownProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING"});
+        dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users`, {
             method: "POST",
             headers: {
@@ -19,7 +19,7 @@ export const signUpUser = (payload, ownProps) => {
                 ownProps.history.push(`/main`);
                 console.log(json.user)
             } else {
-                dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"})
+                dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
                 console.log(json)
             }
         })
@@ -28,7 +28,7 @@ export const signUpUser = (payload, ownProps) => {
 
 export const signInUser = (payload, ownProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING"});
+        dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/signin`, {
             method: "POST",
             headers: {

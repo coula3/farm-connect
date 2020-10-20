@@ -5,7 +5,7 @@ const initialState = {
 
 const manageListings = (state = initialState, action) => {
     switch (action.type) {
-        case "LOADING":
+        case "LOADING_LISTINGS":
             return {
                 ...state,
                 isLoading: true
