@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
 class CreateListing extends Component {
+    currentDate = new Date();
+    stringCurrentDate = this.currentDate.getFullYear() +"-"+ (this.currentDate.getMonth()+1) +"-"+ this.currentDate.getDate();
+
     state = {
-        listDate: "",
+        listDate: this.stringCurrentDate,
         commodity: "",
         estAvailability: "",
         measure: "",
