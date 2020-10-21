@@ -51,7 +51,7 @@ class CreateListing extends Component {
                 </p> 
                 <p>
                     <label>Quantity </label>
-                    <input name="quantity" type="number" value={this.state.quantity} onChange={this.handleChange} />
+                    <input name="quantity" type="number" min="0" value={this.state.quantity} onChange={this.handleChange} />
                 </p>
                 <p>
                     <label>Available </label> 
