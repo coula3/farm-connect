@@ -6,14 +6,14 @@ import SignOut from '../../components/SignOut/SignOut';
 import MainPage from '../../containers/MainPage/MainPage';
 import CreateListing from '../../containers/CreateListing/CreateListing';
 
-const Routes = () => {
+const Routes = (props) => {
     return (
         <Switch>
             <Route exact path="/" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signout" component={SignOut} />
             <Route path="/main" render={routerProps => <MainPage {...routerProps} />} /> }
-            <Route path="/listings/new" component={CreateListing} />
+            <Route path="/listings/new" render={routerProps => <CreateListing {...routerProps} commodities={props.commodities}/> }  />
         </Switch>
     )
 }
