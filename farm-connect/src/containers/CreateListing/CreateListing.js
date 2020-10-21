@@ -13,11 +13,16 @@ class CreateListing extends Component {
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        }, ()=> console.log(this.state))
+        })
     }
 
     render(){
         const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
+        const commoditiesList = ["--please choose--"];
+        this.props.commodities.map(commodity => {
+            return commoditiesList.push(commodity.attributes.name)
+        })
+
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <h3>Create Listing</h3>
@@ -27,8 +32,10 @@ class CreateListing extends Component {
                 </p>
                 <p>
                     <label>Commodity </label> 
-                    <select name="commodities" id="commodity-select">
-                    <option value="">--please choose--</option>
+                    <select name="commodity" id="commodity-select" value={this.state.commodity} onChange={this.handleChange}>
+                        { commoditiesList.map((commodity, idx) =>
+                            (<option key={idx} value={commodity}>{commodity}</option>))
+                        }
                     </select>
                 </p>
                 <p>
@@ -38,7 +45,7 @@ class CreateListing extends Component {
                 <p>
                     <label>Measure </label>
                     <select name="measure" value={this.state.measure} onChange={this.handleChange}>
-                       {measuresList.map((measure, idx) => 
+                       {measuresList.map((measure, idx) =>
                        (<option key={idx} value={measure}>{measure}</option>))}
                     </select>
                 </p> 
