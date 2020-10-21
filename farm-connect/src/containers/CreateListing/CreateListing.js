@@ -11,11 +11,23 @@ class CreateListing extends Component {
         measure: "",
         quantity: "",
         available: "No"
-
     }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.setState({
+            listDate: this.stringCurrentDate,
+            commodity: "",
+            estAvailability: "",
+            measure: "",
+            quantity: "",
+            available: "No"
         })
     }
 
@@ -23,13 +35,13 @@ class CreateListing extends Component {
         const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const commoditiesList = ["--please choose--"];
         this.props.commodities.map(commodity => {
-            return commoditiesList.push(commodity.attributes.name)
+            return commoditiesList.push(commodity.attributes.name);
         })
 
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <h3>Create Listing</h3>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <p>
                         <label>List Date </label> 
                         <input name="listDate" type="date" value={this.state.listDate} onChange={this.handleChange} />
