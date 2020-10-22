@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createListing } from '../../actions/listingsActions';
 
 class CreateListing extends Component {
     currentDate = new Date();
@@ -26,6 +28,9 @@ class CreateListing extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+
+        const payload = {listing: {...this.state.listing, userId: this.props.userId}};
+        this.props.createListing(payload);
 
         this.setState({
             listing: {
@@ -92,4 +97,17 @@ class CreateListing extends Component {
     }
 }
 
-export default CreateListing;
+const mapStateToProps = (state) => {
+    return {
+        userId: state.user.userId,
+        listing: state.listings.listing
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createListing: (payload) => dispatch(createListing(payload))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateListing);
