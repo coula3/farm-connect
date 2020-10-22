@@ -1,10 +1,24 @@
 const initialState = {
     isLoading: false,
-    listings: []
+    listings: [],
+    listing: ""
 }
 
 const manageListings = (state = initialState, action) => {
     switch (action.type) {
+        case "LOADING_LISTING":
+            return {
+                ...state,
+                isLoading: true
+            }
+
+        case "CREATE_NEW_LISTING":
+            return {
+                ...state,
+                listing: action.listing,
+                isLoading: false
+            }
+
         case "LOADING_LISTINGS":
             return {
                 ...state,
