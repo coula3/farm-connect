@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchListings } from '../../actions/listingsActions';
 import Listings from '../../components/Listings/Listings';
+import Loader from '../../components/Loader/Loader';
+import { fetchListings } from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
 
 class MainPage extends React.Component {
@@ -13,7 +14,10 @@ class MainPage extends React.Component {
     render (){
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
-                <Listings listings={this.props.listings}/>
+                { this.props.isLoading ?
+                    <Loader /> :
+                    <Listings listings={this.props.listings}/>
+                }
             </div>
         )
     }
