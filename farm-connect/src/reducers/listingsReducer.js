@@ -4,7 +4,7 @@ const initialState = {
     listing: ""
 }
 
-const manageListings = (state = initialState, action) => {
+const listingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case "LOADING_LISTING":
             return {
@@ -37,4 +37,4 @@ const manageListings = (state = initialState, action) => {
     }
 }
 
-export default manageListings;
+export default listingsReducer;
