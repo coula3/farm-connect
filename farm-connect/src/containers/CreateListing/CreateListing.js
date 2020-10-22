@@ -1,33 +1,41 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class CreateListing extends Component {
     currentDate = new Date();
     stringCurrentDate = this.currentDate.getFullYear() +"-"+ (this.currentDate.getMonth()+1) +"-"+ this.currentDate.getDate();
 
     state = {
-        listDate: this.stringCurrentDate,
-        commodity: "",
-        estAvailability: "",
-        measure: "",
-        quantity: "",
-        available: "No"
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState({
+        listing: {
             listDate: this.stringCurrentDate,
             commodity: "",
             estAvailability: "",
             measure: "",
             quantity: "",
             available: "No"
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            listing: {
+                ...this.state.listing,
+                [e.target.name]: e.target.value
+            }
+        });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        this.setState({
+            listing: {
+                listDate: this.stringCurrentDate,
+                commodity: "",
+                estAvailability: "",
+                measure: "",
+                quantity: "",
+                available: "No"
+            }
         })
     }
 
@@ -44,11 +52,11 @@ class CreateListing extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <p>
                         <label>List Date </label> 
-                        <input name="listDate" type="date" value={this.state.listDate} onChange={this.handleChange} />
+                        <input name="listDate" type="date" value={this.state.listing.listDate} onChange={this.handleChange} />
                     </p>
                     <p>
                         <label>Commodity </label> 
-                        <select name="commodity" id="commodity-select" value={this.state.commodity} onChange={this.handleChange}>
+                        <select name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
                             { commoditiesList.map((commodity, idx) =>
                                 (<option key={idx} value={commodity}>{commodity}</option>))
                             }
@@ -56,26 +64,27 @@ class CreateListing extends Component {
                     </p>
                     <p>
                         <label>Estimated Availability </label>
-                        <input name="estAvailability" type="date" value={this.state.estAvailability} onChange={this.handleChange} />
+                        <input name="estAvailability" type="date" value={this.state.listing.estAvailability} onChange={this.handleChange} />
                     </p>
                     <p>
                         <label>Quantity </label>
-                        <input name="quantity" type="number" min="0" value={this.state.quantity} onChange={this.handleChange} />
+                        <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} />
                     </p>
                     <p>
                         <label>Measure </label>
-                        <select name="measure" value={this.state.measure} onChange={this.handleChange}>
+                        <select name="measure" value={this.state.listing.measure} onChange={this.handleChange}>
                         {measuresList.map((measure, idx) =>
                         (<option key={idx} value={measure}>{measure}</option>))}
                         </select>
                     </p> 
                     <p>
                         <label>Available </label> 
-                        <select name="available" id="available-select" value={this.state.available} onChange={this.handleChange}>
+                        <select name="available" id="available-select" value={this.state.listing.available} onChange={this.handleChange}>
                             <option value="No">No</option>
                             <option value="Yes">Yes</option>
                         </select>
                     </p>
+
                     <input type="submit" /> 
                 </form>
             </div>
