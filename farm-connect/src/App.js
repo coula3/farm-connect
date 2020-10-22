@@ -20,7 +20,7 @@ class App extends Component {
         <Router>
           <AppHeader />
           { this.props.isAuthenticated ? <HeadNavBar userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} /> :  null }
-          { this.props.isAuthenticated ? <SideNavBar userSignOut={this.handleUserSignOut} /> : null }
+          { this.props.isAuthenticated ? <SideNavBar userSignOut={this.handleUserSignOut} userAttributes={this.props.userAttributes} /> : null }
           <Routes commodities={this.props.commodities}/>
         </Router>
       </div>
