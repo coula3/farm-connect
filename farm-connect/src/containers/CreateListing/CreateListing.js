@@ -13,7 +13,8 @@ class CreateListing extends Component {
             estAvailability: "",
             measure: "",
             quantity: "",
-            available: "No"
+            available: "No",
+            suppInfo: ""
         }
     }
 
@@ -39,7 +40,8 @@ class CreateListing extends Component {
                 estAvailability: "",
                 measure: "",
                 quantity: "",
-                available: "No"
+                available: "No",
+                suppInfo: ""
             }
         })
     }
@@ -88,6 +90,10 @@ class CreateListing extends Component {
                             <option value="No">No</option>
                             <option value="Yes">Yes</option>
                         </select>
+                    </p>
+                    <p>
+                        <label style={{verticalAlign: "top"}}>Supplementary Info </label>
+                        <textarea name="suppInfo" id="suppInfo" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.suppInfo} onChange={this.handleChange}></textarea>
                     </p>
 
                     <input type="submit" /> 
