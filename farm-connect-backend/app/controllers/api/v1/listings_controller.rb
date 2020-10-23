@@ -4,6 +4,11 @@ class Api::V1::ListingsController < ApplicationController
         render json: ListingSerializer.new(listings)
     end
 
+    def show
+        listing = Listing.find_by(id: params[:id])
+        render json: ListingSerializer.new(listing)
+    end
+
     def create
         user = User.find_by(id: listing_params[:userId])
         commodity = Commodity.find_by(name: listing_params[:commodity])
