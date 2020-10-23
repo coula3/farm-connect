@@ -12,8 +12,7 @@ export const fetchListings = () => {
         dispatch({
             type: "FETCH_LISTINGS",
             listings: json.data
-        });
-        console.log(json)
+            });
         });
     }
 }
@@ -35,7 +34,25 @@ export const createListing = (payload) => {
                 type: "CREATE_NEW_LISTING",
                 listing: json.data
             });
-            console.log(json)
+        })
+    }
+}
+
+export const fetchListing = (id) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_EXISTING_LISTING"})
+        fetch(`http://localhost:3000/api/v1/listings/${id}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "FETCH_LISTING",
+                listing: json.data
+            });
         })
     }
 }
