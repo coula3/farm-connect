@@ -14,7 +14,7 @@ const SideNavBar = (props) => {
         <div>
             <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
                 <br />
-                <p><Link to="/main">Home</Link></p>
+                <p><Link to="/listings">Listings</Link></p>
                 { renderCreateListingLink() }
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
