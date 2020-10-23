@@ -15,7 +15,7 @@ const Listing = (props) => {
                     <p><label>Quantity: </label>{props.listing.attributes.quantity}</p>
                     <p><label>Measure: </label>{props.listing.attributes.measure}</p>
                     <label>Supplementary Information</label>
-                    <p>{props.listing.attributes.suppInfo}</p>
+                    <p>{props.listing.attributes.supp_info}</p>
                     <br />
                     <p><label>Interests: </label>{props.listing.attributes.interests.length}</p>
                     
