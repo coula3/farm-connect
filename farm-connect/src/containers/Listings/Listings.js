@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
-import { fetchListings } from '../../actions/listingsActions';
+import { fetchListings, fetchListing } from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +9,10 @@ class Listings extends React.Component {
     componentDidMount(){
        this.props.fetchListings();
        this.props.fetchCommodities();
+    }
+
+    handleClick = (id) => {
+        this.props.fetchListing(id)
     }
 
     render (){
@@ -37,7 +41,7 @@ class Listings extends React.Component {
                         <tbody>
                             <tr>
                                 <td>{listing.id}</td>
-                                <td><Link to={`/listings/${listing.id}`}>{listDate}</Link></td>
+                                <td><Link to={`/listings/${listing.id}`} onClick={(e) => this.handleClick(listing.id)}>{listDate}</Link></td>
                                 <td>{commodity}</td>
                                 <td>{availabilityDate}</td>
                                 <td>{fullName}</td>
@@ -65,14 +69,16 @@ const mapStateToProps = (state) => {
     return {
         isLoading: state.listings.isLoading,
         listings: state.listings.listings,
-        commodities: state.commodities.commodities
+        commodities: state.commodities.commodities,
+        listing: state.listings.listing
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchListings: () => dispatch(fetchListings()),
-        fetchCommodities: (id) => dispatch(fetchCommodities(id))
+        fetchCommodities: () => dispatch(fetchCommodities()),
+        fetchListing: (id) => dispatch(fetchListing(id))
     }
 }
 
