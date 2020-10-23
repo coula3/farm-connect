@@ -4,7 +4,7 @@ import listingsReducer from './listingsReducer';
 import commoditiesReducer from './commoditiesReducer';
 
 const rootReducer = combineReducers({
-    user: userReducer,
+    currentUser: userReducer,
     listings: listingsReducer,
     commodities: commoditiesReducer
 })

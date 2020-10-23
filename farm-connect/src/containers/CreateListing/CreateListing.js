@@ -112,7 +112,7 @@ class CreateListing extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        userId: state.user.userId,
+        userId: state.currentUser.userId,
         listing: state.listings.listing
     };
 }

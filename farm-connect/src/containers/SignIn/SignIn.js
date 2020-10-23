@@ -49,10 +49,10 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        userId: state.user.userId,
-        userAttributes: state.user.userAttributes,
-        isLoading: state.user.isLoading,
-        isAuthenticated: state.user.isAuthenticated
+        userId: state.currentUser.userId,
+        userAttributes: state.currentUser.userAttributes,
+        isLoading: state.currentUser.isLoading,
+        isAuthenticated: state.currentUser.isAuthenticated
     }
 }
 

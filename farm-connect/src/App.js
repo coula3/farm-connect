@@ -30,8 +30,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userAttributes: state.user.userAttributes,
-    isAuthenticated: state.user.isAuthenticated,
+    userAttributes: state.currentUser.userAttributes,
+    isAuthenticated: state.currentUser.isAuthenticated,
     commodities: state.commodities.commodities,
     listing: state.listings.listing,
     isLoading: state.listings.isLoading
