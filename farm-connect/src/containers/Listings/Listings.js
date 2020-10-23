@@ -19,7 +19,6 @@ class Listings extends React.Component {
         const listings = this.props.listings.map(listing => {
             const listDate = listing.attributes.list_date.slice(0, 10);
             const fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
-            const availabilityDate = listing.attributes.est_availability.slice(0, 10);
             const commodity = listing.attributes.commodity.name
             let available;
             listing.attributes.available ? available = "Yes" : available = "No";
@@ -32,7 +31,6 @@ class Listings extends React.Component {
                                 <th>List ID</th>
                                 <th>List Date</th>
                                 <th>Commodity</th>
-                                <th>Est Availability</th>
                                 <th>Farmer</th>
                                 <th>Available</th>
                                 <th>Interests</th>
@@ -43,7 +41,6 @@ class Listings extends React.Component {
                                 <td>{listing.id}</td>
                                 <td><Link to={`/listings/${listing.id}`} onClick={(e) => this.handleClick(listing.id)}>{listDate}</Link></td>
                                 <td>{commodity}</td>
-                                <td>{availabilityDate}</td>
                                 <td>{fullName}</td>
                                 <td>{available}</td>
                                 <td>{listing.attributes.interests.length}</td>
