@@ -5,6 +5,7 @@ import SignIn from '../../containers/SignIn/SignIn';
 import SignOut from '../../components/SignOut/SignOut';
 import CreateListing from '../../containers/CreateListing/CreateListing';
 import Listings from '../../containers/Listings/Listings';
+import Listing from '../../components/Listing/Listing';
 
 const Routes = (props) => {
     return (
@@ -12,8 +13,9 @@ const Routes = (props) => {
             <Route exact path="/" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signout" component={SignOut} />
-            <Route path="/listings" component={Listings} />
-            <Route path="/listings/new" render={routerProps => <CreateListing {...routerProps} commodities={props.commodities} /> } />
+            <Route exact path="/listings" component={Listings} />
+            <Route exact path="/listings/new" render={routerProps => <CreateListing {...routerProps} commodities={props.commodities} /> } />
+            <Route path="/listings/:id" render={ routerProps => <Listing {...routerProps} listing={props.listing} isLoading={props.isLoading} /> } />
         </Switch>
     )
 }

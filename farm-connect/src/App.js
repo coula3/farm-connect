@@ -21,7 +21,7 @@ class App extends Component {
           <AppHeader />
           { this.props.isAuthenticated ? <HeadNavBar userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} /> :  null }
           { this.props.isAuthenticated ? <SideNavBar userSignOut={this.handleUserSignOut} userAttributes={this.props.userAttributes} /> : null }
-          <Routes commodities={this.props.commodities}/>
+          <Routes commodities={this.props.commodities} listing={this.props.listing} isLoading={this.props.isLoading} />
         </Router>
       </div>
     );
@@ -32,7 +32,9 @@ const mapStateToProps = (state) => {
   return {
     userAttributes: state.user.userAttributes,
     isAuthenticated: state.user.isAuthenticated,
-    commodities: state.commodities.commodities
+    commodities: state.commodities.commodities,
+    listing: state.listings.listing,
+    isLoading: state.listings.isLoading
   }
 }
 
