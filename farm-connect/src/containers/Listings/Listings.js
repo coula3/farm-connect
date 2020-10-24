@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { fetchListings, fetchListing } from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
+import { fetchFarmer } from '../../actions/farmersActions';
 import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
@@ -15,10 +16,15 @@ class Listings extends React.Component {
         this.props.fetchListing(id)
     }
 
+    handleFetchFarmer = (id) => {
+        this.props.fetchFarmer(id);
+    }
+
     render (){
         const listings = this.props.listings.map(listing => {
             const listDate = listing.attributes.list_date.slice(0, 10);
             const fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
+            const userId = listing.attributes.user.id
             const commodity = listing.attributes.commodity.name
             let available;
             listing.attributes.available ? available = "Yes" : available = "No";
@@ -41,7 +47,7 @@ class Listings extends React.Component {
                                 <td>{listing.id}</td>
                                 <td><Link to={`/listings/${listing.id}`} onClick={(e) => this.handleClick(listing.id)}>{listDate}</Link></td>
                                 <td>{commodity}</td>
-                                <td>{fullName}</td>
+                                <td><Link to={`/farmers/${userId}`} onClick={(id) => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
                                 <td>{available}</td>
                                 <td>{listing.attributes.interests.length}</td>
                             </tr>
@@ -75,7 +81,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchListings: () => dispatch(fetchListings()),
         fetchCommodities: () => dispatch(fetchCommodities()),
-        fetchListing: (id) => dispatch(fetchListing(id))
+        fetchListing: (id) => dispatch(fetchListing(id)),
+        fetchFarmer: (id) => dispatch(fetchFarmer(id))
     }
 }
 
