@@ -18,7 +18,7 @@ const Routes = (props) => {
             <Route path="/signout" component={SignOut} />
             <Route exact path="/listings" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing {...routerProps} commodities={props.commodities} /> } />
-            <Route exact path="/listings/:id" render={ routerProps => <Listing {...routerProps} listing={props.listing} isLoading={props.isLoading} userId={props.userId} /> } />
+            <Route exact path="/listings/:id" render={ routerProps => <Listing {...routerProps} listing={props.listing} isLoading={props.isLoading} userId={props.userId} removeUserListingInterest={(listingId, interestId) => props.removeUserListingInterest(listingId, interestId)} /> } />
             <Route path="/farmers/:id" render={ routerProps => <FarmerProfile { ...routerProps} farmer={props.farmer} isLoadingFarmer={props.isLoadingFarmer} /> } />
             <Route path="/users/:id" render={ routerProps => <CurrentUser {...routerProps} userId={props.userId} userAttributes={props.userAttributes} /> } />
             <Route exact path="/listings/:id/edit" component={EditListing} />
