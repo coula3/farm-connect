@@ -6,6 +6,7 @@ import SignOut from '../../components/SignOut/SignOut';
 import CreateListing from '../../containers/CreateListing/CreateListing';
 import Listings from '../../containers/Listings/Listings';
 import Listing from '../../components/Listing/Listing';
+import UserProfile from '../../components/UserProfile/UserProfile';
 import FarmerProfile from '../../components/FarmerProfile/FarmerProfile';
 
 const Routes = (props) => {
@@ -17,7 +18,8 @@ const Routes = (props) => {
             <Route exact path="/listings" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing {...routerProps} commodities={props.commodities} /> } />
             <Route path="/listings/:id" render={ routerProps => <Listing {...routerProps} listing={props.listing} isLoading={props.isLoading} /> } />
-            <Route path="/farmers/:id" render={ routerProps => <FarmerProfile { ...routerProps} test={props.test} farmer={props.farmer} isLoadingFarmer={props.isLoadingFarmer} /> } />
+            <Route path="/farmers/:id" render={ routerProps => <FarmerProfile { ...routerProps} farmer={props.farmer} isLoadingFarmer={props.isLoadingFarmer} /> } />
+            <Route path="/users/:id" render={ routerProps => <UserProfile {...routerProps} userId={props.userId} userAttributes={props.userAttributes} /> } />
         </Switch>
     )
 }
