@@ -11,12 +11,13 @@ const Listing = (props) => {
         }
     }
 
-    const handleClick = (currentUserId, listingUserId) => {
+    const handleRemoveUserListingInterest = (currentUserId, listingUserId, listingId, listingInterests) => {
+        const interest = listingInterests.find(interest => interest.user_id === parseInt(currentUserId))
 
         if(parseInt(currentUserId) !== listingUserId){
-            console.log(listingUserId)
+            interest ? props.removeUserListingInterest(listingId, interest.id) : console.log("add interest")
         } else {
-            console.log("own listing")
+            // do nothing
         }
     }
 
@@ -45,8 +46,7 @@ const Listing = (props) => {
                     <label>Supplementary Information</label>
                     <p>{props.listing.attributes.supp_info}</p>
                     <br />
-                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
-                    <p style={{color:"red"}} onClick={() => handleClick(props.userId, props.listing.attributes.user.id)}>Click to Test</p>
+                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleRemoveUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
                     <br />
 
                     {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
