@@ -59,7 +59,7 @@ class Listings extends React.Component {
 
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
-                { this.props.isLoading ?
+                { this.props.isLoadingListings ?
                     <Loader /> :
                     listings
                 }
@@ -70,7 +70,7 @@ class Listings extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.listings.isLoading,
+        isLoadingListings: state.listings.isLoadingListings,
         listings: state.listings.listings,
         commodities: state.commodities.commodities,
         listing: state.listings.listing

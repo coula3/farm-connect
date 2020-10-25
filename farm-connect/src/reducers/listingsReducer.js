@@ -1,5 +1,6 @@
 const initialState = {
     isLoading: false,
+    isLoadingListings: false,
     listings: [],
     listing: ""
 }
@@ -22,14 +23,14 @@ const listingsReducer = (state = initialState, action) => {
         case "LOADING_LISTINGS":
             return {
                 ...state,
-                isLoading: true
+                isLoadingListings: true
             };
             
         case "FETCH_LISTINGS":
             return {
                 ...state,
                 listings: action.listings,
-                isLoading: false
+                isLoadingListings: false
             }
 
         case "LOADING_EXISTING_LISTING":
