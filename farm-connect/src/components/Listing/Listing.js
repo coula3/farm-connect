@@ -12,6 +12,7 @@ const Listing = (props) => {
     }
 
     const handleClick = (currentUserId, listingUserId) => {
+
         if(parseInt(currentUserId) !== listingUserId){
             console.log(listingUserId)
         } else {
@@ -20,8 +21,13 @@ const Listing = (props) => {
     }
 
     const setHeartColor = (currentUserId, listingInterests) => {
-        const matchId = listingInterests.find(e => e.user_id === parseInt(currentUserId))
+        const matchId = listingInterests.find(interest => interest.user_id === parseInt(currentUserId))
         return matchId ? "#3a5f0b" : ""
+    }
+
+    const selectHeartType = (currentUserId, listingInterests) => {
+        const matchId = listingInterests.find(interest => interest.user_id === parseInt(currentUserId))
+        return matchId ? "♥" : "♡"
     }
 
     return (
@@ -39,7 +45,7 @@ const Listing = (props) => {
                     <label>Supplementary Information</label>
                     <p>{props.listing.attributes.supp_info}</p>
                     <br />
-                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}}>♡</label>{props.listing.attributes.interests.length}</p>
+                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
                     <p style={{color:"red"}} onClick={() => handleClick(props.userId, props.listing.attributes.user.id)}>Click to Test</p>
                     <br />
 
