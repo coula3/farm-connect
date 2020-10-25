@@ -8,6 +8,7 @@ import Listings from '../../containers/Listings/Listings';
 import Listing from '../../components/Listing/Listing';
 import CurrentUser from '../CurrentUser/CurrentUser';
 import FarmerProfile from '../../components/FarmerProfile/FarmerProfile';
+import EditListing from '../../containers/EditListing/EditListing';
 
 const Routes = (props) => {
     return (
@@ -17,9 +18,10 @@ const Routes = (props) => {
             <Route path="/signout" component={SignOut} />
             <Route exact path="/listings" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing {...routerProps} commodities={props.commodities} /> } />
-            <Route path="/listings/:id" render={ routerProps => <Listing {...routerProps} listing={props.listing} isLoading={props.isLoading} /> } />
+            <Route exact path="/listings/:id" render={ routerProps => <Listing {...routerProps} listing={props.listing} isLoading={props.isLoading} userId={props.userId} /> } />
             <Route path="/farmers/:id" render={ routerProps => <FarmerProfile { ...routerProps} farmer={props.farmer} isLoadingFarmer={props.isLoadingFarmer} /> } />
             <Route path="/users/:id" render={ routerProps => <CurrentUser {...routerProps} userId={props.userId} userAttributes={props.userAttributes} /> } />
+            <Route exact path="/listings/:id/edit" component={EditListing} />
         </Switch>
     )
 }
