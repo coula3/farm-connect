@@ -1,6 +1,6 @@
 const initialState = {
     farmer: {},
-    isLoading: false
+    isLoadingFarmer: false
 }
 
 const farmersReducer = (state = initialState, action) => {
@@ -8,14 +8,14 @@ const farmersReducer = (state = initialState, action) => {
         case "LOADING_FARMER":
             return {
                 ...state,
-                isLoading: true
+                isLoadingFarmer: true
             }
 
         case "FETCH_FARMER":
             return {
                 ...state,
                 farmer: action.farmer,
-                isLoading: false
+                isLoadingFarmer: false
             }
 
         default:
