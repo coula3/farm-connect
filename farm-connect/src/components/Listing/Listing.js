@@ -11,6 +11,19 @@ const Listing = (props) => {
         }
     }
 
+    const handleClick = (currentUserId, listingUserId) => {
+        if(parseInt(currentUserId) !== listingUserId){
+            console.log(listingUserId)
+        } else {
+            console.log("own listing")
+        }
+    }
+
+    const setHeartColor = (currentUserId, listingInterests) => {
+        const matchId = listingInterests.find(e => e.user_id === parseInt(currentUserId))
+        return matchId ? "#3a5f0b" : ""
+    }
+
     return (
         <div>
             { props.isLoading ?
@@ -26,7 +39,8 @@ const Listing = (props) => {
                     <label>Supplementary Information</label>
                     <p>{props.listing.attributes.supp_info}</p>
                     <br />
-                    <p><label>Interests: </label>{props.listing.attributes.interests.length}</p>
+                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}}>♡</label>{props.listing.attributes.interests.length}</p>
+                    <p style={{color:"red"}} onClick={() => handleClick(props.userId, props.listing.attributes.user.id)}>Click to Test</p>
                     <br />
 
                     {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
