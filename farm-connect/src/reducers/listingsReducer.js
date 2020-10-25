@@ -45,6 +45,13 @@ const listingsReducer = (state = initialState, action) => {
                 listing: action.listing,
                 isLoading: false
             }
+
+        case "REMOVE_USER_LISTING_INTEREST":
+            return {
+                ...state,
+                listing: action.listing,
+                isLoading: false
+            }
     
         default:
             return state

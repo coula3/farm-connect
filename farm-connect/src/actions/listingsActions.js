@@ -57,3 +57,24 @@ export const fetchListing = (id) => {
         })
     }
 }
+
+export const removeUserListingInterest = (listingId, payload) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_EXISTING_LISTING"});
+        fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "REMOVE_USER_LISTING_INTEREST",
+                listing: json.data
+            });
+        })
+    }
+}
