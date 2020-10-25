@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserProfile = (props) => {
+const CurrentUser = (props) => {
     return (
         <div style={{width: "60%", display: "inline", float: "left"}}>
             <p><label>ID: </label>{props.userId}</p>
@@ -11,4 +11,4 @@ const UserProfile = (props) => {
     )
 }
 
-export default UserProfile;
+export default CurrentUser;
