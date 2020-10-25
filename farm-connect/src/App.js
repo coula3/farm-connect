@@ -19,8 +19,16 @@ class App extends Component {
         <Router>
           <AppHeader />
           { this.props.isAuthenticated ? <HeadNavBar userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} /> :  null }
-          { this.props.isAuthenticated ? <SideNavBar userSignOut={this.handleUserSignOut} userAttributes={this.props.userAttributes} /> : null }
-          <Routes commodities={this.props.commodities} listing={this.props.listing} isLoading={this.props.isLoading} farmer={this.props.farmer} isLoadingFarmer={this.props.isLoadingFarmer} />
+          { this.props.isAuthenticated ? <SideNavBar userSignOut={this.handleUserSignOut} userId={this.props.userId} userAttributes={this.props.userAttributes} /> : null }
+          <Routes
+            userId={this.props.userId}
+            userAttributes={this.props.userAttributes}
+            commodities={this.props.commodities}
+            listing={this.props.listing}
+            isLoading={this.props.isLoading}
+            farmer={this.props.farmer}
+            isLoadingFarmer={this.props.isLoadingFarmer}
+          />
         </Router>
       </div>
     );
@@ -29,6 +37,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    userId: state.currentUser.userId,
     userAttributes: state.currentUser.userAttributes,
     isAuthenticated: state.currentUser.isAuthenticated,
     commodities: state.commodities.commodities,
