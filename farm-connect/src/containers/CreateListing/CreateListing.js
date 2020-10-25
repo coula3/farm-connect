@@ -117,9 +117,9 @@ const mapStateToProps = (state) => {
     };
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        createListing: (payload) => dispatch(createListing(payload))
+        createListing: (payload) => dispatch(createListing(payload, ownProps))
     };
 }
 

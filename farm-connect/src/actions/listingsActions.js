@@ -17,7 +17,7 @@ export const fetchListings = () => {
     }
 }
 
-export const createListing = (payload) => {
+export const createListing = (payload, ownProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_NEW_LISTING"})
         fetch(`http://localhost:3000/api/v1/listings`, {
@@ -34,6 +34,7 @@ export const createListing = (payload) => {
                 type: "CREATE_NEW_LISTING",
                 listing: json.data
             });
+            ownProps.history.push(`/listings`);
         })
     }
 }
