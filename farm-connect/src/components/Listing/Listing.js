@@ -1,7 +1,16 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
+import { Link } from 'react-router-dom';
 
 const Listing = (props) => {
+    const renderEditLink = (currentUserId, listingUserId, listingId) => {
+        if(parseInt(currentUserId) === listingUserId){
+            return <Link to={`/listings/${listingId}/edit`}>Edit Listing</Link>
+        } else {
+            return null
+        }
+    }
+
     return (
         <div>
             { props.isLoading ?
@@ -18,7 +27,9 @@ const Listing = (props) => {
                     <p>{props.listing.attributes.supp_info}</p>
                     <br />
                     <p><label>Interests: </label>{props.listing.attributes.interests.length}</p>
-                    
+                    <br />
+
+                    {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
                 </div>
             }
         </div>
