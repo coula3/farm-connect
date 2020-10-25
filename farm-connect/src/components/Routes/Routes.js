@@ -17,7 +17,7 @@ const Routes = (props) => {
             <Route exact path="/listings" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing {...routerProps} commodities={props.commodities} /> } />
             <Route path="/listings/:id" render={ routerProps => <Listing {...routerProps} listing={props.listing} isLoading={props.isLoading} /> } />
-            <Route path="/farmers/:id" component={FarmerProfile} />
+            <Route path="/farmers/:id" render={ routerProps => <FarmerProfile { ...routerProps} test={props.test} farmer={props.farmer} isLoadingFarmer={props.isLoadingFarmer} /> } />
         </Switch>
     )
 }
