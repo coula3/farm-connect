@@ -11,7 +11,7 @@ const Listing = (props) => {
         }
     }
 
-    const handleRemoveUserListingInterest = (currentUserId, listingUserId, listingId, listingInterests) => {
+    const handleUpdateUserListingInterest = (currentUserId, listingUserId, listingId, listingInterests) => {
         const interest = listingInterests.find(interest => interest.user_id === parseInt(currentUserId))
 
         if(parseInt(currentUserId) !== listingUserId){
@@ -46,7 +46,7 @@ const Listing = (props) => {
                     <label>Supplementary Information</label>
                     <p>{props.listing.attributes.supp_info}</p>
                     <br />
-                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleRemoveUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
+                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
                     <br />
 
                     {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
