@@ -17,10 +17,8 @@ export const signUpUser = (payload, ownProps) => {
                 });
                 localStorage.setItem('jwt_token', json.jwt);
                 ownProps.history.push(`/listings`);
-                console.log(json.user)
             } else {
                 dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
-                console.log(json)
             }
         })
     }
@@ -45,10 +43,8 @@ export const signInUser = (payload, ownProps) => {
                 });
                 localStorage.setItem('jwt_token', json.jwt);
                 ownProps.history.push(`/listings`);
-                console.log(json.user)
             } else {
-                dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"})
-                console.log(json)
+                dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
             }
         })
     }

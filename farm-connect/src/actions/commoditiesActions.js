@@ -13,7 +13,6 @@ export const fetchCommodities = () => {
                 type: "FETCH_COMMODITIES",
                 commodities: json.data
             });
-            console.log(json)
         })
     }
 }
