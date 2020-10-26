@@ -8,6 +8,7 @@ import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import { signOutUser } from './actions/userActions';
 import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions'
+import RightSide from './components/RightSide/RightSide';
 
 class App extends Component {
   handleUserSignOut = () => {
@@ -40,8 +41,9 @@ class App extends Component {
             isLoadingFarmer={this.props.isLoadingFarmer}
             removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
-          />
-        </Router>
+            />
+          </Router>
+          { this.props.isAuthenticated ? <RightSide /> : null }
       </div>
     );
   }
