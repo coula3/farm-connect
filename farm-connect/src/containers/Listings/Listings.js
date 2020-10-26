@@ -62,7 +62,10 @@ class Listings extends React.Component {
                 { this.props.isLoadingListings ?
                     <Loader /> :
                     <>
-                    <h4 style={{color: "#3a5f0b"}}>{this.props.listings.length} Open Listings</h4>
+                    { this.props.listings.length > 0 ?
+                        <h4 style={{color: "#3a5f0b"}}>{this.props.listings.length} {this.props.listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
+                        <h4 style={{color: "#3a5f0b"}}>No Open Listing</h4>
+                    }
                     {listings}
                     </>
                 }
