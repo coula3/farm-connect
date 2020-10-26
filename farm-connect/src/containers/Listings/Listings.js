@@ -34,7 +34,7 @@ class Listings extends React.Component {
                     <table style={{width: "100%"}}>
                         <thead>
                             <tr>
-                                <th>List ID</th>
+                                <th></th>
                                 <th>List Date</th>
                                 <th>Commodity</th>
                                 <th>Farmer</th>
@@ -45,11 +45,12 @@ class Listings extends React.Component {
                         <tbody>
                             <tr>
                                 <td>{listing.id}</td>
-                                <td><Link to={`/listings/${listing.id}`} onClick={(e) => this.handleClick(listing.id)}>{listDate}</Link></td>
+                                <td><Link to={`/listings/${listing.id}`} onClick={() => this.handleClick(listing.id)}>{listDate}</Link></td>
                                 <td>{commodity}</td>
-                                <td><Link to={`/farmers/${userId}`} onClick={(id) => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
+                                <td><Link to={`/farmers/${userId}`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
                                 <td>{available}</td>
                                 <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
+                                <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
                             </tr>
                         </tbody>
                     </table>
