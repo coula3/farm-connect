@@ -1,12 +1,19 @@
 import React from 'react';
 
-const RightSection = () => {
+const RightSide = (props) => {
+    const prospects = props.prospects.map((prospect) => {
+        return (
+            <ul style={{listStyle:"none", paddingLeft:0}}>
+                <li>{prospect.id} - {prospect.attributes.first_name} {prospect.attributes.last_name}</li>
+            </ul>
+        )
+    })
+
     return (
         <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
-            Right Side Component!
+            {prospects}
         </div>
     )
-
 }
 
-export default RightSection;
+export default RightSide;
