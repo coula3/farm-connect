@@ -4,12 +4,14 @@ import Loader from '../../components/Loader/Loader';
 import { fetchListings, fetchListing } from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
 import { fetchFarmer } from '../../actions/farmersActions';
+import { fetchProspects } from '../../actions/prospectsActions';
 import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
     componentDidMount(){
        this.props.fetchListings();
        this.props.fetchCommodities();
+       this.props.fetchProspects();
     }
 
     handleClick = (id) => {
@@ -98,7 +100,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchListings: () => dispatch(fetchListings()),
         fetchCommodities: () => dispatch(fetchCommodities()),
         fetchListing: (id) => dispatch(fetchListing(id)),
-        fetchFarmer: (id) => dispatch(fetchFarmer(id))
+        fetchFarmer: (id) => dispatch(fetchFarmer(id)),
+        fetchProspects: () => dispatch(fetchProspects())
     }
 }
 
