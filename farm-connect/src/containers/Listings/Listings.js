@@ -49,7 +49,7 @@ class Listings extends React.Component {
                                 <td>{commodity}</td>
                                 <td><Link to={`/farmers/${userId}`} onClick={(id) => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
                                 <td>{available}</td>
-                                <td>{listing.attributes.interests.length}</td>
+                                <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
                             </tr>
                         </tbody>
                     </table>
