@@ -24,10 +24,19 @@ class Listings extends React.Component {
         const listings = this.props.listings.map(listing => {
             const listDate = listing.attributes.list_date.slice(0, 10);
             const fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
-            const userId = listing.attributes.user.id
-            const commodity = listing.attributes.commodity.name
+            const userId = listing.attributes.user.id;
+            const commodity = listing.attributes.commodity.name;
             let available;
             listing.attributes.available ? available = "Yes" : available = "No";
+            let listingId;
+
+            if(listing.id < 10){
+                listingId = "00" + listing.id;
+            } else if (listing.id > 9 && listing.id < 100){
+                listingId = "0" + listing.id;
+            } else {
+                listingId = listing.id;
+            }
             
             return (
                 <div key={listing.id}>
@@ -44,7 +53,7 @@ class Listings extends React.Component {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{listing.id}</td>
+                                <td>{listingId}</td>
                                 <td><Link to={`/listings/${listing.id}`} onClick={() => this.handleClick(listing.id)}>{listDate}</Link></td>
                                 <td>{commodity}</td>
                                 <td><Link to={`/farmers/${userId}`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
