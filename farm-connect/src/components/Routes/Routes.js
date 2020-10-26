@@ -26,7 +26,8 @@ const Routes = (props) => {
                 listing={props.listing}
                 isLoading={props.isLoading}
                 userId={props.userId}
-                removeUserListingInterest={(listingId, interestId) => props.removeUserListingInterest(listingId, interestId)} /> }
+                removeUserListingInterest={(listingId, interestId) => props.removeUserListingInterest(listingId, interestId)}
+                addUserListingInterest={(currentUserId, listingId) => props.addUserListingInterest(currentUserId, listingId)} /> }
                 />
             <Route path="/farmers/:id" render={ routerProps => <FarmerProfile
                 { ...routerProps}

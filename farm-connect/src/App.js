@@ -7,7 +7,7 @@ import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import { signOutUser } from './actions/userActions';
-import { removeUserListingInterest } from './actions/listingsActions'
+import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions'
 
 class App extends Component {
   handleUserSignOut = () => {
@@ -17,6 +17,10 @@ class App extends Component {
   handleRemoveUserListingInterest = (listingId, interestId) => {
     const payload = {listing: {interestId: interestId}};
     this.props.removeUserListingInterest(listingId, payload);
+  }
+
+  handleAddUserListingInterest = (currentUserId, listingId) => {
+    this.props.addUserListingInterest(currentUserId, listingId)
   }
 
   render(){
@@ -35,6 +39,7 @@ class App extends Component {
             farmer={this.props.farmer}
             isLoadingFarmer={this.props.isLoadingFarmer}
             removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
+            addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
           />
         </Router>
       </div>
@@ -58,7 +63,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signOutUser: () => dispatch(signOutUser()),
-    removeUserListingInterest: (listingId, payload) => dispatch(removeUserListingInterest(listingId, payload))
+    removeUserListingInterest: (listingId, payload) => dispatch(removeUserListingInterest(listingId, payload)),
+    addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId))
   };
 }
 
