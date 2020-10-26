@@ -61,7 +61,10 @@ class Listings extends React.Component {
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 { this.props.isLoadingListings ?
                     <Loader /> :
-                    listings
+                    <>
+                    <h4 style={{color: "#3a5f0b"}}>{this.props.listings.length} Open Listings</h4>
+                    {listings}
+                    </>
                 }
             </div>
         )
