@@ -21,14 +21,19 @@ class Api::V1::ListingsController < ApplicationController
 
     def update
         listing = Listing.find_by(id: params[:id].to_i)
-        interest = listing.interests.find_by(id: listing_params[:interestId])
-        interest.destroy
+
+        if listing_params[:interestId]
+            interest = listing.interests.find_by(id: listing_params[:interestId])
+            interest.destroy
+        end
+
+        interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
 
         render json: ListingSerializer.new(listing)
     end
 
     private
     def listing_params
-        params.require(:listing).permit(:listDate, :commodity, :estAvailability, :measure, :quantity, :available, :suppInfo, :userId, :interestId)
+        params.require(:listing).permit(:listDate, :commodity, :estAvailability, :measure, :quantity, :available, :suppInfo, :userId, :interestId, :currentUserId)
     end
 end
