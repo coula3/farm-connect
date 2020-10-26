@@ -53,8 +53,8 @@ class Listings extends React.Component {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{listingId}</td>
-                                <td><Link to={`/listings/${listing.id}`} onClick={() => this.handleClick(listing.id)}>{listDate}</Link></td>
+                                <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{listingId}</Link></td>
+                                <td>{listDate}</td>
                                 <td>{commodity}</td>
                                 <td><Link to={`/farmers/${userId}`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
                                 <td>{available}</td>
