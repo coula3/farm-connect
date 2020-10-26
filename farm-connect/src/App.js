@@ -43,7 +43,7 @@ class App extends Component {
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
             />
           </Router>
-          { this.props.isAuthenticated ? <RightSide /> : null }
+          { this.props.isAuthenticated ? <RightSide isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} /> : null }
       </div>
     );
   }
@@ -58,7 +58,9 @@ const mapStateToProps = (state) => {
     isLoading: state.listings.isLoading,
     listing: state.listings.listing,
     isLoadingFarmer: state.farmers.isLoadingFarmer,
-    farmer: state.farmers.farmer
+    farmer: state.farmers.farmer,
+    isLoadingProspects: state.prospects.isLoadingProspects,
+    prospects: state.prospects.prospects
   }
 }
 
