@@ -78,3 +78,24 @@ export const removeUserListingInterest = (listingId, payload) => {
         })
     }
 }
+
+export const addUserListingInterest = (currentUserId, listingId) => {
+ return (dispatch) => {
+        dispatch({type: "LOADING_NEW_INTEREST_ON_LISTING"});
+        fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            },
+            body: JSON.stringify({listing: {currentUserId: currentUserId}})
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "ADD_NEW_INTEREST_TO_LISTING",
+                listing: json.data
+            })
+        })
+    }
+}

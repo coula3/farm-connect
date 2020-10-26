@@ -52,7 +52,19 @@ const listingsReducer = (state = initialState, action) => {
                 listing: action.listing,
                 isLoading: false
             }
+
+        case "LOADING_NEW_INTEREST_ON_LISTING":
+            return {
+                ...state,
+                isLoading: true
+            }
     
+        case "ADD_NEW_INTEREST_TO_LISTING":
+            return {
+                ...state,
+                listing: action.listing,
+                isLoading: false
+            }
         default:
             return state
     }
