@@ -41,8 +41,7 @@ const Listing = (props) => {
                     <p><label>Farmer: </label>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</p> 
                     <p><label>Commodity: </label>{props.listing.attributes.commodity.name}</p>
                     <p><label>Estimated Availability: </label>{props.listing.attributes.est_availability.slice(0, 10)}</p>
-                    <p><label>Quantity: </label>{props.listing.attributes.quantity}</p>
-                    <p><label>Measure: </label>{props.listing.attributes.measure}</p>
+                    <p><label>Quantity: </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure += "s" : props.listing.attributes.measure}</p>
                     <label>Supplementary Information</label>
                     <p>{props.listing.attributes.supp_info}</p>
                     <br />
