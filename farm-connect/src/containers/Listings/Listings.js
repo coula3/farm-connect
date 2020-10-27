@@ -25,8 +25,10 @@ class Listings extends React.Component {
     render (){
         let baseListings;
 
-        if(this.props.match.path.includes(":id")){
+        if(this.props.match.path.includes("users")){
             baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId))
+        } else if (this.props.match.path.includes("farmers")) {
+            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.match.params.id))
         } else {
             baseListings = this.props.listings
         }
@@ -66,7 +68,7 @@ class Listings extends React.Component {
                                 <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{listingId}</Link></td>
                                 <td>{listDate}</td>
                                 <td>{commodity}</td>
-                                <td><Link to={`/farmers/${userId}`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
+                                <td><Link to={`/farmers/${userId}/listings`}>{fullName}</Link></td>
                                 <td>{available}</td>
                                 <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
                                 <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
