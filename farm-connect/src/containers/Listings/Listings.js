@@ -23,7 +23,15 @@ class Listings extends React.Component {
     }
 
     render (){
-        const listings = this.props.listings.map(listing => {
+        let baseListings;
+
+        if(this.props.match.path.includes(":id")){
+            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId))
+        } else {
+            baseListings = this.props.listings
+        }
+
+        const listings = baseListings.map(listing => {
             const listDate = listing.attributes.list_date.slice(0, 10);
             const fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
             const userId = listing.attributes.user.id;
@@ -75,7 +83,7 @@ class Listings extends React.Component {
                     <Loader /> :
                     <>
                     { this.props.listings.length > 0 ?
-                        <h4 style={{color: "#3a5f0b"}}>{this.props.listings.length} {this.props.listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
+                        <h4 style={{color: "#3a5f0b"}}>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
                         <h4 style={{color: "#3a5f0b"}}>No Open Listing</h4>
                     }
                     {listings}
@@ -88,6 +96,7 @@ class Listings extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        userId: state.currentUser.userId,
         isLoadingListings: state.listings.isLoadingListings,
         listings: state.listings.listings,
         commodities: state.commodities.commodities,
