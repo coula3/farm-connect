@@ -40,10 +40,12 @@ class App extends Component {
             userId={this.props.userId}
             userAttributes={this.props.userAttributes}
             commodities={this.props.commodities}
-            listing={this.props.listing}
             isLoading={this.props.isLoading}
-            farmer={this.props.farmer}
+            listing={this.props.listing}
             isLoadingFarmer={this.props.isLoadingFarmer}
+            farmer={this.props.farmer}
+            isLoadingProspect={this.props.isLoadingProspect}
+            prospect={this.props.prospect}
             removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
           />
@@ -68,7 +70,9 @@ const mapStateToProps = (state) => {
     isLoadingFarmer: state.farmers.isLoadingFarmer,
     farmer: state.farmers.farmer,
     isLoadingProspects: state.prospects.isLoadingProspects,
-    prospects: state.prospects.prospects
+    prospects: state.prospects.prospects,
+    isLoadingProspect: state.prospects.isLoadingProspect,
+    prospect: state.prospects.prospect
   }
 }
 
