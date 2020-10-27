@@ -35,6 +35,7 @@ class Listings extends React.Component {
 
         const listings = baseListings.map(listing => {
             const listDate = listing.attributes.list_date.slice(0, 10);
+            const firstName = listing.attributes.user.first_name;
             const fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
             const userId = listing.attributes.user.id;
             const commodity = listing.attributes.commodity.name;
@@ -69,8 +70,8 @@ class Listings extends React.Component {
                                 <td>{listDate}</td>
                                 <td>{commodity}</td>
                                 { !this.props.match.path.endsWith(":id/listings") ?
-                                    <td><Link to={`/farmers/${userId}/listings`}>{fullName}</Link></td> :
-                                    <td><Link to={`/farmers/${userId}`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
+                                    <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td> :
+                                    <td><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></td>
                                 }
                                 <td>{available}</td>
                                 <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
