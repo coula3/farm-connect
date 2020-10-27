@@ -1,4 +1,5 @@
 const initialState = {
+    isLoadingProspect: false,
     isLoadingProspects: false,
     prospects: []
 }
@@ -16,6 +17,19 @@ const prospectsReducer = (state=initialState, action) => {
                 ...state,
                 prospects: action.prospects,
                 isLoadingProspects: false
+            }
+
+        case "LOADING_PROSPECT":
+            return {
+                ...state,
+                isLoadingProspect: true
+            }
+
+        case "FETCH_PROSPECT":
+            return {
+                ...state,
+                prospect: action.prospect,
+                isLoadingProspect: false
             }
 
         default:

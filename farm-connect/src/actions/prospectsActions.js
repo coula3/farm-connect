@@ -17,3 +17,23 @@ export const fetchProspects = () => {
         })
     }
 }
+
+export const fetchProspect = (id) => {
+  return (dispatch) => {
+    dispatch({type: "LOADING_PROSPECT"});
+    fetch(`http://localhost:3000/api/v1/prospects/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+      }
+    })
+    .then(response => response.json())
+    .then(json => {
+      dispatch({
+        type: "FETCH_PROSPECT",
+        prospect: json.data
+      });
+    })
+  }
+}
