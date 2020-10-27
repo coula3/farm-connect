@@ -35,7 +35,7 @@ const Routes = (props) => {
                 farmer={props.farmer}
                 isLoadingFarmer={props.isLoadingFarmer} /> }
             />
-            <Route path="/users/:id" render={ routerProps => <CurrentUser
+            <Route exact path="/users/:id" render={ routerProps => <CurrentUser
                 {...routerProps}
                 userId={props.userId}
                 userAttributes={props.userAttributes} /> }
@@ -46,6 +46,7 @@ const Routes = (props) => {
                 isLoadingProspect={props.isLoadingProspect}
                 prospect={props.prospect} />}
             />
+            <Route path="/users/:id/listings" component={Listings}/>
         </Switch>
     )
 }
