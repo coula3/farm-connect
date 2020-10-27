@@ -41,9 +41,9 @@ class App extends Component {
             isLoadingFarmer={this.props.isLoadingFarmer}
             removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
-            />
-          </Router>
+          />
           { this.props.isAuthenticated ? <RightSide isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} /> : null }
+          </Router>
       </div>
     );
   }
