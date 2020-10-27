@@ -22,17 +22,10 @@ ActiveRecord::Schema.define(version: 2020_10_22_053236) do
   end
 
   create_table "connects", force: :cascade do |t|
-    t.bigint "farmer_id", null: false
-    t.bigint "prospect_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["farmer_id"], name: "index_connects_on_farmer_id"
-    t.index ["prospect_id"], name: "index_connects_on_prospect_id"
-  end
-
-  create_table "farmers", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_connects_on_user_id"
   end
 
   create_table "interests", force: :cascade do |t|
@@ -59,11 +52,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_053236) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-  create_table "prospects", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "type"
     t.string "first_name"
@@ -76,8 +64,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_053236) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "connects", "farmers"
-  add_foreign_key "connects", "prospects"
+  add_foreign_key "connects", "users"
   add_foreign_key "interests", "listings"
   add_foreign_key "interests", "users"
   add_foreign_key "listings", "commodities"
