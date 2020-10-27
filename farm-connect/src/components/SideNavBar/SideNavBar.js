@@ -17,6 +17,7 @@ const SideNavBar = (props) => {
                 <p><Link to="/listings">Listings</Link></p>
                 { renderCreateListingLink() }
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
+                <p><Link to={`/users/${props.userId}/listings`}>My Listings</Link></p>
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
 
