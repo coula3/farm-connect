@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RightSide = (props) => {
     const prospects = props.prospects.map((prospect) => {
         return (
-            <ul style={{listStyle:"none", paddingLeft:0}}>
-                <li>{prospect.id} - {prospect.attributes.first_name} {prospect.attributes.last_name}</li>
+            <ul style={{listStyle:"none", paddingLeft:0}} key={prospect.id}>
+                <li>{prospect.id} - <Link to={`/prospects/${prospect.id}`} onClick={()=>props.fetchProspect(prospect.id)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
             </ul>
         )
     })
