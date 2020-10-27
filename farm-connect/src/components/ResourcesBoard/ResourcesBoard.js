@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const RightSide = (props) => {
+const ResourcesBoard = (props) => {
     const prospects = props.prospects.map((prospect) => {
         return (
             <ul style={{listStyle:"none", paddingLeft:0}} key={prospect.id}>
@@ -17,4 +17,4 @@ const RightSide = (props) => {
     )
 }
 
-export default RightSide;
+export default ResourcesBoard;

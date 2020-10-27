@@ -9,7 +9,7 @@ import Routes from './components/Routes/Routes';
 import { signOutUser } from './actions/userActions';
 import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
-import RightSide from './components/RightSide/RightSide';
+import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 
 class App extends Component {
   handleUserSignOut = () => {
@@ -56,7 +56,7 @@ class App extends Component {
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
           />
           { this.props.isAuthenticated ?
-            <RightSide isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
+            <ResourcesBoard isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
             null
           }
           </Router>
