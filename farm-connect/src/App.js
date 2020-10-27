@@ -7,7 +7,8 @@ import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import { signOutUser } from './actions/userActions';
-import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions'
+import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions';
+import { fetchProspect } from './actions/prospectsActions';
 import RightSide from './components/RightSide/RightSide';
 
 class App extends Component {
@@ -21,7 +22,11 @@ class App extends Component {
   }
 
   handleAddUserListingInterest = (currentUserId, listingId) => {
-    this.props.addUserListingInterest(currentUserId, listingId)
+    this.props.addUserListingInterest(currentUserId, listingId);
+  }
+
+  fetchProspect = (id) => {
+    this.props.fetchProspect(id);
   }
 
   render(){
@@ -42,7 +47,10 @@ class App extends Component {
             removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
           />
-          { this.props.isAuthenticated ? <RightSide isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} /> : null }
+          { this.props.isAuthenticated ?
+            <RightSide isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
+            null
+          }
           </Router>
       </div>
     );
@@ -68,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     signOutUser: () => dispatch(signOutUser()),
     removeUserListingInterest: (listingId, payload) => dispatch(removeUserListingInterest(listingId, payload)),
-    addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId))
+    addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId)),
+    fetchProspect: (id) => dispatch(fetchProspect(id))
   };
 }
 
