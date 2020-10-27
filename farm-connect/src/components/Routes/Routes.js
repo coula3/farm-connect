@@ -30,7 +30,7 @@ const Routes = (props) => {
                 removeUserListingInterest={(listingId, interestId) => props.removeUserListingInterest(listingId, interestId)}
                 addUserListingInterest={(currentUserId, listingId) => props.addUserListingInterest(currentUserId, listingId)} /> }
             />
-            <Route path="/farmers/:id" render={ routerProps => <FarmerProfile
+            <Route exact path="/farmers/:id" render={ routerProps => <FarmerProfile
                 { ...routerProps}
                 farmer={props.farmer}
                 isLoadingFarmer={props.isLoadingFarmer} /> }
@@ -47,6 +47,7 @@ const Routes = (props) => {
                 prospect={props.prospect} />}
             />
             <Route path="/users/:id/listings" component={Listings}/>
+            <Route path="/farmers/:id/listings" component={Listings} />
         </Switch>
     )
 }
