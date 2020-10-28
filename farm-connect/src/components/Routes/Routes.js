@@ -34,7 +34,8 @@ const Routes = (props) => {
                 { ...routerProps}
                 farmer={props.farmer}
                 isLoadingFarmer={props.isLoadingFarmer}
-                userAttributes={props.userAttributes} /> }
+                userAttributes={props.userAttributes}
+                userId={props.userId} /> }
             />
             <Route exact path="/users/:id" render={ routerProps => <CurrentUser
                 {...routerProps}
