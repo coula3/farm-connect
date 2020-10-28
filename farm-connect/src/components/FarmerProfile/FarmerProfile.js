@@ -4,7 +4,12 @@ import Loader from '../Loader/Loader';
 const FarmerProfile = (props) => {
     const isConnected = props.userAttributes.connects.find(connect => {
         return connect.id === parseInt(props.farmer.id);
-    })
+    });
+
+    const isCurrentUser = (farmerId) => {
+        console.log("userID:", props.userId, "farmerId:", farmerId)
+        return props.userId === farmerId;
+    }
 
     return (
         <div style={{width: "60%", display: "inline", float: "left"}}>
@@ -13,9 +18,12 @@ const FarmerProfile = (props) => {
                 <div>
                     <br />
                     Farmer
-                    { !isConnected ?
-                        <div style={{paddingTop:15}}><button>Connect</button></div> :
-                        <div style={{paddingTop:15}}><button>Unconnect</button></div>
+                    {!isCurrentUser(props.farmer.id) ?
+                        !isConnected ?
+                            <div style={{paddingTop:15}}><button>Connect</button></div> :
+                            <div style={{paddingTop:15}}><button>Unconnect</button></div>
+                    :
+                        null
                     }
 
                     <p><label>Farmer ID: </label>{props.farmer.id}</p>
