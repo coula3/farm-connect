@@ -43,6 +43,7 @@ class App extends Component {
             null
           }
           <Routes
+            isAuthenticated={this.props.isAuthenticated}
             userId={this.props.userId}
             userAttributes={this.props.userAttributes}
             commodities={this.props.commodities}
