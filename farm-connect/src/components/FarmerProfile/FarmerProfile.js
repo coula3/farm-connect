@@ -2,7 +2,8 @@ import React from 'react';
 import Loader from '../Loader/Loader';
 
 const FarmerProfile = (props) => {
-    const isConnected = props.userAttributes.connects.find(connect => {
+    const consolidatedConnects = [ ...props.userAttributes.connects, ...props.userAttributes.inverse_connects ];
+    const isConnected = consolidatedConnects.find(connect => {
         return connect.id === parseInt(props.farmer.id);
     });
 
