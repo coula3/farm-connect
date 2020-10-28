@@ -7,7 +7,6 @@ const FarmerProfile = (props) => {
     });
 
     const isCurrentUser = (farmerId) => {
-        console.log("userID:", props.userId, "farmerId:", farmerId)
         return props.userId === farmerId;
     }
 
@@ -20,7 +19,7 @@ const FarmerProfile = (props) => {
                     Farmer
                     {!isCurrentUser(props.farmer.id) ?
                         !isConnected ?
-                            <div style={{paddingTop:15}}><button>Connect</button></div> :
+                            <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}}>Connect</button></div> :
                             <div style={{paddingTop:15}}><button>Unconnect</button></div>
                     :
                         null
