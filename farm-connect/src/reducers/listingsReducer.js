@@ -46,6 +46,19 @@ const listingsReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "LOADING_EDITED_LISTING":
+            return {
+                ...state,
+                isLoading: true
+            }
+
+        case "EDIT_LISTING":
+            return {
+                ...state,
+                listing: action.listing,
+                isLoading: false
+            }
+
         case "REMOVE_USER_LISTING_INTEREST":
             return {
                 ...state,
@@ -65,6 +78,7 @@ const listingsReducer = (state = initialState, action) => {
                 listing: action.listing,
                 isLoading: false
             }
+
         default:
             return state
     }
