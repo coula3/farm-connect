@@ -10,7 +10,8 @@ class EditListing extends Component {
             measure: "",
             quantity: "",
             available: "",
-            suppInfo: ""
+            suppInfo: "",
+            closeList: ""
         }
     }
 
@@ -26,6 +27,8 @@ class EditListing extends Component {
     render(){
         const measuresList = ["bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const listDate = this.props.listing.attributes.list_date;
+        const currentDate = new Date();
+        const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
         let available;
 
         if(this.props.listing.attributes.available){
@@ -76,6 +79,11 @@ class EditListing extends Component {
                         <p>
                             <label style={{verticalAlign: "top"}}>Supplementary Info </label >
                             <textarea name="suppInfo" id="suppInfo" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.suppInfo ? this.state.listing.suppInfo : this.props.listing.attributes.supp_info} onChange={this.handleChange}></textarea>
+                        </p>
+
+                        <p>
+                            <label>Close List </label>
+                            <input type="checkbox" name="closeList" id="closeList" value={stringCurrentDate} checked={this.state.listing.closeList === stringCurrentDate} onChange={this.handleChange}/>
                         </p>
 
                         <p><input type="submit" /></p>

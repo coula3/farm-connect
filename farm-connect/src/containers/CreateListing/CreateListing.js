@@ -14,8 +14,7 @@ class CreateListing extends Component {
             measure: "",
             quantity: "",
             available: "No",
-            suppInfo: "",
-            closeList: ""
+            suppInfo: ""
         }
     }
 
@@ -42,8 +41,7 @@ class CreateListing extends Component {
                 measure: "",
                 quantity: "",
                 available: "No",
-                suppInfo: "",
-                closeList: ""
+                suppInfo: ""
             }
         })
     }
@@ -98,12 +96,8 @@ class CreateListing extends Component {
                         <textarea name="suppInfo" id="suppInfo" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.suppInfo} onChange={this.handleChange}></textarea>
                         <label> {255-this.state.listing.suppInfo.length}</label>
                     </p>
-                    <p>
-                        <label>Close List </label>
-                        <input type="checkbox" name="closeList" id="closeList" value={this.stringCurrentDate} onChange={this.handleChange} checked={this.state.listing.closeList === this.stringCurrentDate} />
-                    </p>
 
-                    <input type="submit" /> 
+                    <p><input type="submit" /></p>
                 </form>
             </div>
         )
