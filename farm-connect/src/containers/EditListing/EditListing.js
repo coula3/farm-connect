@@ -7,12 +7,12 @@ class EditListing extends Component {
     state = {
         listing: {
             commodity: "",
-            estAvailability: "",
+            availability: "",
             measure: "",
             quantity: "",
             available: "",
-            suppInfo: "",
-            closeListing: ""
+            infomation: "",
+            closed: ""
         }
     }
 
@@ -58,7 +58,7 @@ class EditListing extends Component {
                     <Loader /> :
                     <form onSubmit={this.handleSubmit}>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
-                        <p><label><strong>Listing Date</strong> {this.getListingDate(this.props.listing.attributes.list_date)}</label></p>
+                        <p><label><strong>Listing Date</strong> {this.getListingDate(this.props.listing.attributes.date)}</label></p>
                         <p>Commodity:
                             <select name="commodity" value={this.state.listing.commodity ? this.state.listing.commodity : this.props.listing.attributes.commodity.name} onChange={this.handleChange}>
                                 { this.props.commodities.map((commodity, idx) =>
@@ -68,7 +68,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>Est. Availability:
-                            <input type="date" name="estAvailability" value={this.state.listing.estAvailability ? this.state.listing.estAvailability ? this.state.listing.estAvailability.slice(0, 10) : null : this.props.listing.attributes.est_availability ? this.props.listing.attributes.est_availability.slice(0, 10) : null} onChange={this.handleChange} />
+                            <input type="date" name="availability" value={this.state.listing.availability ? this.state.listing.availability ? this.state.listing.availability.slice(0, 10) : null : this.props.listing.attributes.availability ? this.props.listing.attributes.availability.slice(0, 10) : null} onChange={this.handleChange} />
                         </p>
 
                         <p>Quantity:
@@ -92,12 +92,12 @@ class EditListing extends Component {
 
                         <p>
                             <label style={{verticalAlign: "top"}}>Supplementary Info </label >
-                            <textarea name="suppInfo" id="suppInfo" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.suppInfo ? this.state.listing.suppInfo : this.props.listing.attributes.supp_info} onChange={this.handleChange}></textarea>
+                            <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.information ? this.state.listing.information : this.props.listing.attributes.information} onChange={this.handleChange}></textarea>
                         </p>
 
                         <p>
                             <label>Close Listing </label>
-                            <input type="checkbox" name="closeListing" id="closeListing" value={stringCurrentDate} checked={this.state.listing.closeListing === stringCurrentDate} onChange={this.handleChange}/>
+                            <input type="checkbox" name="closed" id="closeListing" value={stringCurrentDate} checked={this.state.listing.closed === stringCurrentDate} onChange={this.handleChange}/>
                         </p>
 
                         <p><input type="submit" /></p>

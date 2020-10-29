@@ -8,13 +8,13 @@ class CreateListing extends Component {
 
     state = {
         listing: {
-            listDate: this.stringCurrentDate,
+            date: this.stringCurrentDate,
             commodity: "",
-            estAvailability: "",
+            availability: "",
             measure: "",
             quantity: "",
             available: "No",
-            suppInfo: ""
+            information: ""
         }
     }
 
@@ -35,13 +35,13 @@ class CreateListing extends Component {
 
         this.setState({
             listing: {
-                listDate: this.stringCurrentDate,
+                date: this.stringCurrentDate,
                 commodity: "",
-                estAvailability: "",
+                availability: "",
                 measure: "",
                 quantity: "",
                 available: "No",
-                suppInfo: ""
+                information: ""
             }
         })
     }
@@ -59,7 +59,7 @@ class CreateListing extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <p>
                         <label>List Date </label> 
-                        <input name="listDate" type="date" value={this.state.listing.listDate} onChange={this.handleChange} />
+                        <input name="date" type="date" value={this.state.listing.date} onChange={this.handleChange} />
                     </p>
                     <p>
                         <label>Commodity </label> 
@@ -71,7 +71,7 @@ class CreateListing extends Component {
                     </p>
                     <p>
                         <label>Estimated Availability </label>
-                        <input name="estAvailability" type="date" value={this.state.listing.estAvailability} onChange={this.handleChange} />
+                        <input name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
                     </p>
                     <p>
                         <label>Quantity </label>
@@ -93,8 +93,8 @@ class CreateListing extends Component {
                     </p>
                     <p>
                         <label style={{verticalAlign: "top"}}>Supplementary Info </label>
-                        <textarea name="suppInfo" id="suppInfo" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.suppInfo} onChange={this.handleChange}></textarea>
-                        <label> {255-this.state.listing.suppInfo.length}</label>
+                        <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.information} onChange={this.handleChange}></textarea>
+                        <label> {255-this.state.listing.information.length}</label>
                     </p>
 
                     <p><input type="submit" /></p>

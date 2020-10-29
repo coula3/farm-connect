@@ -38,7 +38,7 @@ class Listings extends React.Component {
         let userId;
 
         const listings = baseListings.map(listing => {
-            const listDate = listing.attributes.list_date.slice(0, 10);
+            const listDate = listing.attributes.date.slice(0, 10);
             firstName = listing.attributes.user.first_name;
             fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
             userId = listing.attributes.user.id;

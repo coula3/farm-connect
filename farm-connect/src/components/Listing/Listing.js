@@ -37,13 +37,13 @@ const Listing = (props) => {
                 <Loader /> :
                 <div style={{width: "60%", display: "inline", float: "left"}}>
                     <p><label>List ID: </label>{props.listing.id}</p>
-                    <p><label>List Date: </label>{props.listing.attributes.list_date.slice(0, 10)}</p>
+                    <p><label>List Date: </label>{props.listing.attributes.date.slice(0, 10)}</p>
                     <p><label>Farmer: </label>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</p> 
                     <p><label>Commodity: </label>{props.listing.attributes.commodity.name}</p>
-                    <p><label>Estimated Availability: </label>{props.listing.attributes.est_availability ? props.listing.attributes.est_availability.slice(0, 10) : null}</p>
+                    <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? props.listing.attributes.availability.slice(0, 10) : null}</p>
                     <p><label>Quantity: </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}</p>
                     <label>Supplementary Information</label>
-                    <p>{props.listing.attributes.supp_info}</p>
+                    <p>{props.listing.attributes.inforomation}</p>
                     <br />
                     <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
                     <br />
