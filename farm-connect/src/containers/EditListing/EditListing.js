@@ -30,18 +30,18 @@ class EditListing extends Component {
         this.props.editListing(this.props.listing.id, this.state.listing);
     }
 
+    getListingDate = (listingDate) => {
+        return `${listingDate.slice(5, 7)}/${listingDate.slice(8, 10)}/${listingDate.slice(0, 4)}`;
+    }
+
+    convertToYesNo = (trueFalseValue) => {
+        return trueFalseValue ? "Yes" : "No";
+    }
+
     render(){
         const measuresList = ["bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
-        const listDate = this.props.listing.attributes.list_date;
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
-        let available;
-
-        if(this.props.listing.attributes.available){
-            available = "Yes";
-        } else {
-            available = "No";
-        }
 
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
@@ -50,7 +50,7 @@ class EditListing extends Component {
                     <Loader /> :
                     <form onSubmit={this.handleSubmit}>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
-                        <p><label><strong>Listing Date</strong> {`${listDate.slice(5, 7)}/${listDate.slice(8, 10)}/${listDate.slice(0, 4)}`}</label></p>
+                        <p><label><strong>Listing Date</strong> {this.getListingDate(this.props.listing.attributes.list_date)}</label></p>
                         <p>Commodity:
                             <select name="commodity" value={this.state.listing.commodity ? this.state.listing.commodity : this.props.listing.attributes.commodity.name} onChange={this.handleChange}>
                                 { this.props.commodities.map((commodity, idx) =>
@@ -76,7 +76,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>Availabe:
-                            <select name="available" value={this.state.listing.available ? this.state.listing.available : available} onChange={this.handleChange}>
+                            <select name="available" value={this.state.listing.available ? this.state.listing.available : this.convertToYesNo(this.props.listing.attributes.available)} onChange={this.handleChange}>
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
