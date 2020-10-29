@@ -25,12 +25,13 @@ class EditListing extends Component {
 
     render(){
         const measuresList = ["bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
+        const listDate = this.props.listing.attributes.list_date;
         let available;
 
         if(this.props.listing.attributes.available){
-            available = "Yes"
+            available = "Yes";
         } else {
-            available = "No"
+            available = "No";
         }
 
         return (
@@ -40,6 +41,7 @@ class EditListing extends Component {
                     <Loader /> :
                     <form>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
+                        <p><label><strong>Listing Date</strong> {`${listDate.slice(5, 7)}/${listDate.slice(8, 10)}/${listDate.slice(0, 4)}`}</label></p>
                         <p>Commodity:
                             <select name="commodity" value={this.state.listing.commodity ? this.state.listing.commodity : this.props.listing.attributes.commodity.name} onChange={this.handleChange}>
                                 { this.props.commodities.map((commodity, idx) =>
