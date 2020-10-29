@@ -3,6 +3,26 @@ import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 
 class EditListing extends Component {
+    state = {
+        listing: {
+            commodity: "",
+            estAvailability: "",
+            measure: "",
+            quantity: "",
+            available: "No",
+            suppInfo: ""
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            listing: {
+                ...this.state.listing,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
     render(){
         const measuresList = ["bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         let available;
@@ -21,7 +41,7 @@ class EditListing extends Component {
                     <form>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
                         <p>Commodity:
-                            <select name="commodity" value={this.props.listing.attributes.commodity.name} >
+                            <select name="commodity" value={this.props.listing.attributes.commodity.name} onChange={this.handleChange}>
                                 { this.props.commodities.map((commodity, idx) =>
                                     <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
                                 }
@@ -29,15 +49,15 @@ class EditListing extends Component {
                         </p>
 
                         <p>Est. Availability:
-                            <input type="date" name="estAvailability" value={this.props.listing.attributes.est_availability.slice(0, 10)} />
+                            <input type="date" name="estAvailability" value={this.props.listing.attributes.est_availability.slice(0, 10)} onChange={this.handleChange} />
                         </p>
 
                         <p>Quantity:
-                            <input type="number" name="quantity" value={this.props.listing.attributes.quantity ? this.props.listing.attributes.quantity : ""} />
+                            <input type="number" name="quantity" value={this.props.listing.attributes.quantity ? this.props.listing.attributes.quantity : ""} onChange={this.handleChange} />
                         </p>
 
                         <p>Measure:
-                            <select name="measure" value={this.props.listing.attributes.measure}>
+                            <select name="measure" value={this.props.listing.attributes.measure} onChange={this.handleChange}>
                                 { measuresList.map((measure, idx) =>
                                     <option key={idx} value={measure}>{measure}</option>)
                                 }
@@ -45,15 +65,15 @@ class EditListing extends Component {
                         </p>
 
                         <p>Availabe:
-                            <select name="available" value={available}>
+                            <select name="available" value={available} onChange={this.handleChange}>
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
                         </p>
 
                         <p>
-                            <label style={{verticalAlign: "top"}}>Supplementary Info </label>
-                            <textarea name="suppInfo" id="suppInfo" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.props.listing.attributes.supp_info ? this.props.listing.attributes.supp_info : ""}></textarea>
+                            <label style={{verticalAlign: "top"}}>Supplementary Info </label >
+                            <textarea name="suppInfo" id="suppInfo" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.props.listing.attributes.supp_info ? this.props.listing.attributes.supp_info : ""} onChange={this.handleChange}></textarea>
                         </p>
 
                         <p><input type="submit" /></p>
