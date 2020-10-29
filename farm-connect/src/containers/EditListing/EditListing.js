@@ -117,9 +117,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        editListing: (listingId, payload) => dispatch(editListing(listingId, payload))
+        editListing: (listingId, payload) => dispatch(editListing(listingId, payload, ownProps))
     }
 }
 
