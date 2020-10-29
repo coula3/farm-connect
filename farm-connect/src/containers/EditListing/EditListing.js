@@ -60,7 +60,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>Est. Availability:
-                            <input type="date" name="estAvailability" value={this.state.listing.estAvailability ? this.state.listing.estAvailability.slice(0, 10) : this.props.listing.attributes.est_availability.slice(0, 10)} onChange={this.handleChange} />
+                            <input type="date" name="estAvailability" value={this.state.listing.estAvailability ? this.state.listing.estAvailability ? this.state.listing.estAvailability.slice(0, 10) : null : this.props.listing.attributes.est_availability ? this.props.listing.attributes.est_availability.slice(0, 10) : null} onChange={this.handleChange} />
                         </p>
 
                         <p>Quantity:
