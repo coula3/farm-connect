@@ -36,10 +36,10 @@ const Listing = (props) => {
     }
 
     return (
-        <div>
+        <div style={{width: "60%", display: "inline", float: "left"}}>
             { props.isLoading ?
                 <Loader /> :
-                <div style={{width: "60%", display: "inline", float: "left"}}>
+                <div>
                     <p><label>List ID: </label>{props.listing.id}</p>
                     <p><label>List Date: </label>{props.listing.attributes.date.slice(0, 10)}</p>
                     <p><label>Farmer: </label>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</p> 
