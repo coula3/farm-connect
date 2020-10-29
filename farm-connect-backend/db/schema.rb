@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_050316) do
+ActiveRecord::Schema.define(version: 2020_10_29_190340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,15 +40,15 @@ ActiveRecord::Schema.define(version: 2020_10_29_050316) do
   create_table "listings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "commodity_id", null: false
-    t.datetime "list_date"
-    t.datetime "est_availability"
+    t.datetime "date"
+    t.datetime "availability"
     t.boolean "available", default: false
     t.string "measure"
     t.float "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "supp_info"
-    t.datetime "close_listing"
+    t.string "information"
+    t.datetime "closed"
     t.index ["commodity_id"], name: "index_listings_on_commodity_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end

@@ -1,4 +1,4 @@
 class ListingSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :user_id, :commodity_id, :list_date, :est_availability, :available, :measure, :quantity, :supp_info, :close_listing, :user, :commodity, :interests
+  attributes :user_id, :commodity_id, :date, :availability, :available, :measure, :quantity, :information, :closed, :user, :commodity, :interests
 end
