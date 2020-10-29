@@ -13,7 +13,7 @@ class Api::V1::ListingsController < ApplicationController
         user = User.find_by(id: listing_params[:userId])
         commodity = Commodity.find_by(name: listing_params[:commodity])
 
-        listing = user.listings.create(commodity_id: commodity.id, list_date: listing_params[:listDate], est_availability: listing_params[:estAvailability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, supp_info: listing_params[:suppInfo])
+        listing = user.listings.create(commodity_id: commodity.id, date: listing_params[:date], availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
 
         render json: ListingSerializer.new(listing)
     end
@@ -28,7 +28,7 @@ class Api::V1::ListingsController < ApplicationController
             interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
         else
             commodity = Commodity.find_by(name: listing_params[:commodity])
-            listing.update(commodity_id: commodity.id, est_availability: listing_params[:estAvailability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, supp_info: listing_params[:suppInfo], close_listing: listing_params[:closeListing])
+            listing.update(commodity_id: commodity.id, availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[information], closed: listing_params[:closed])
         end
 
         render json: ListingSerializer.new(listing)
@@ -36,7 +36,7 @@ class Api::V1::ListingsController < ApplicationController
 
     private
     def listing_params
-        params.require(:listing).permit(:listDate, :commodity, :estAvailability, :measure, :quantity, :available, :suppInfo, :closeListing, :userId, :interestId, :currentUserId)
+        params.require(:listing).permit(:date, :commodity, :availability, :measure, :quantity, :available, :information, :closed, :userId, :interestId, :currentUserId)
     end
 
     def available
