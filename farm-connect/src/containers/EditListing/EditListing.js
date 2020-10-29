@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
+import { editListing } from '../../actions/listingsActions';
 
 class EditListing extends Component {
     state = {
@@ -21,7 +22,12 @@ class EditListing extends Component {
                 ...this.state.listing,
                 [e.target.name]: e.target.value
             }
-        })
+        });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.editListing(this.props.listing.id, this.state.listing);
     }
 
     render(){
@@ -42,7 +48,7 @@ class EditListing extends Component {
                 <h2>Edit Listing</h2>
                 { this.props.isLoading ?
                     <Loader /> :
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
                         <p><label><strong>Listing Date</strong> {`${listDate.slice(5, 7)}/${listDate.slice(8, 10)}/${listDate.slice(0, 4)}`}</label></p>
                         <p>Commodity:
@@ -102,4 +108,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(EditListing);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        editListing: (listingId, payload) => dispatch(editListing(listingId, payload))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditListing);
