@@ -11,7 +11,7 @@ class EditListing extends Component {
             measure: "",
             quantity: "",
             available: "",
-            infomation: "",
+            information: "",
             closed: ""
         }
     }

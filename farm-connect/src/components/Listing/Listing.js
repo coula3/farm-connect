@@ -43,7 +43,7 @@ const Listing = (props) => {
                     <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? props.listing.attributes.availability.slice(0, 10) : null}</p>
                     <p><label>Quantity: </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}</p>
                     <label>Supplementary Information</label>
-                    <p>{props.listing.attributes.inforomation}</p>
+                    <p>{props.listing.attributes.information}</p>
                     <br />
                     <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
                     <br />
