@@ -46,7 +46,7 @@ class EditListing extends Component {
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <h2>Edit Listing</h2>
-                { this.props.isLoading ?
+                { this.props.isLoadingEditedListing ?
                     <Loader /> :
                     <form onSubmit={this.handleSubmit}>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
@@ -104,7 +104,8 @@ const mapStateToProps = (state) => {
     return {
         listing: state.listings.listing,
         commodities: state.commodities.commodities,
-        isLoading: state.commodities.isLoading
+        isLoading: state.commodities.isLoading,
+        isLoadingEditedListing: state.listings.isLoading
     }
 }
 
