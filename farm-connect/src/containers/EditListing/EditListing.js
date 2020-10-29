@@ -11,7 +11,7 @@ class EditListing extends Component {
             quantity: "",
             available: "",
             suppInfo: "",
-            closeList: ""
+            closeListing: ""
         }
     }
 
@@ -82,8 +82,8 @@ class EditListing extends Component {
                         </p>
 
                         <p>
-                            <label>Close List </label>
-                            <input type="checkbox" name="closeList" id="closeList" value={stringCurrentDate} checked={this.state.listing.closeList === stringCurrentDate} onChange={this.handleChange}/>
+                            <label>Close Listing </label>
+                            <input type="checkbox" name="closeListing" id="closeListing" value={stringCurrentDate} checked={this.state.listing.closeListing === stringCurrentDate} onChange={this.handleChange}/>
                         </p>
 
                         <p><input type="submit" /></p>
