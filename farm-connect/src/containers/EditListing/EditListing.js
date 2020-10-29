@@ -38,8 +38,16 @@ class EditListing extends Component {
         return trueFalseValue ? "Yes" : "No";
     }
 
+    getMeasuresList = (selectedMeasure) => {
+        const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
+        if(selectedMeasure){
+            return measuresList.slice(1);
+        } else {
+            return measuresList;
+        }
+    }
+
     render(){
-        const measuresList = ["bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
 
@@ -69,7 +77,7 @@ class EditListing extends Component {
 
                         <p>Measure:
                             <select name="measure" value={this.state.listing.measure ? this.state.listing.measure : this.props.listing.attributes.measure} onChange={this.handleChange}>
-                                { measuresList.map((measure, idx) =>
+                                { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
                                     <option key={idx} value={measure}>{measure}</option>)
                                 }
                             </select>
