@@ -58,7 +58,7 @@ export const fetchListing = (id) => {
     }
 }
 
-export const editListing = (listingId, payload) => {
+export const editListing = (listingId, payload, ownProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_EDITED_LISTING"});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
@@ -75,6 +75,7 @@ export const editListing = (listingId, payload) => {
                 type: "EDIT_LISTING",
                 listing: json.data
             });
+            ownProps.history.push(`/listings/${listingId}`)
         })
     }
 }
