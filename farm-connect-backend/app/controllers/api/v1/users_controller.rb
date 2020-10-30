@@ -25,7 +25,13 @@ class Api::V1::UsersController < ApplicationController
         connect = Connection.find_by(user_id: params[:id], connect_id: params[:farmerId]) || Connection.find_by(user_id: params[:farmerId], connect_id: params[:id])
         user = User.find_by(id: params[:id])
 
-        if connect
+        if user_params.keys.include?("firstName") || user_params.keys.include?("lastName")
+            user.update(first_name: user_params[:firstName]) if user_params[:firstName].present?
+            user.update(last_name: user_params[:lastName]) if user_params[:lastName].present?
+            user.update(date_of_birth: user_params[:dateOfBirth]) if user_params[:dateOfBirth].present?
+            user.update(email: user_params[:email]) if user_params[:email].present?
+            render json: UserSerializer.new(user)
+        elsif connect
             connect.destroy
             render json: UserSerializer.new(user)
         else
