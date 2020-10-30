@@ -50,7 +50,7 @@ export const signInUser = (payload, ownProps) => {
     }
 }
 
-export const editUser = (userId, payload) => {
+export const editUser = (userId, payload, ownProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users/${userId}`, {
@@ -67,6 +67,7 @@ export const editUser = (userId, payload) => {
                 type: "EDIT_USER",
                 user: json.data
             });
+            ownProps.history.push(`/users/${userId}`)
         })
     }
 }

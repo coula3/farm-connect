@@ -49,9 +49,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProp = (dispatch) => {
+const mapDispatchToProp = (dispatch, ownProps) => {
     return {
-        editUser: (userId, payload) => dispatch(editUser(userId, payload))
+        editUser: (userId, payload) => dispatch(editUser(userId, payload, ownProps))
     }
 }
 
