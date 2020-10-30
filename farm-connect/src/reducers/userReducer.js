@@ -36,6 +36,14 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "UNCONNECT_USERS":
+            return {
+                ...state,
+                userId: action.user.id,
+                userAttributes: action.user.attributes,
+                isLoading: false
+            }
+
         case "SIGN_OUT":
             return {
                 ...state,
