@@ -28,13 +28,14 @@ class Api::V1::ListingsController < ApplicationController
             interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
         else
             update_keys_array = listing_params.keys.select {|key| listing_params[key].present?}
-
             if listing_params[:commodity].present?
                 commodity = Commodity.find_by(name: listing_params[:commodity])
                 listing.update(commodity_id: commodity.id)
-                update_keys_array.slice(1..-1).each {|e| listing.update("#{e}": listing_params[e])}
+                update_closed_column(listing)
+                update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
             else
-                update_keys_array.each {|e| listing.update("#{e}": listing_params[e])}
+                update_closed_column(listing)
+                update_keys_array.slice(0..-2).each {|e| listing.update("#{e}": listing_params[e])}
             end
         end
         render json: ListingSerializer.new(listing)
@@ -47,5 +48,11 @@ class Api::V1::ListingsController < ApplicationController
 
     def available
         listing_params[:available] == "Yes" ? true : false
+    end
+
+    def update_closed_column(listing)
+        if listing_params[:closed].present?
+            listing.update(closed: Time.now)
+        end
     end
 end
