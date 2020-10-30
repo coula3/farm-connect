@@ -6,7 +6,7 @@ import AppHeader from './components/AppHeader/AppHeader';
 import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
-import { signOutUser, connectUsers } from './actions/userActions';
+import { signOutUser, connectUsers, unConnectUsers } from './actions/userActions';
 import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
@@ -31,6 +31,10 @@ class App extends Component {
 
   handleConnectUsers = (currentUserId, farmerId) => {
     this.props.connectUsers(currentUserId, farmerId);
+  }
+
+  handleUnconnectUsers = (currentUserId, farmerId) => {
+    this.props.unConnectUsers(currentUserId, farmerId)
   }
 
   render(){
@@ -60,6 +64,7 @@ class App extends Component {
             removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
             connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
+            unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
           />
           { this.props.isAuthenticated ?
             <ResourcesBoard isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
@@ -94,7 +99,8 @@ const mapDispatchToProps = (dispatch) => {
     removeUserListingInterest: (listingId, payload) => dispatch(removeUserListingInterest(listingId, payload)),
     addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId)),
     fetchProspect: (id) => dispatch(fetchProspect(id)),
-    connectUsers: (currentUserId, farmerId) => dispatch(connectUsers(currentUserId, farmerId))
+    connectUsers: (currentUserId, farmerId) => dispatch(connectUsers(currentUserId, farmerId)),
+    unConnectUsers: (currentUserId, farmerId) => dispatch(unConnectUsers(currentUserId, farmerId))
   };
 }
 
