@@ -6,7 +6,7 @@ import AppHeader from './components/AppHeader/AppHeader';
 import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
-import { signOutUser } from './actions/userActions';
+import { signOutUser, connectUsers } from './actions/userActions';
 import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
@@ -27,6 +27,10 @@ class App extends Component {
 
   fetchProspect = (id) => {
     this.props.fetchProspect(id);
+  }
+
+  handleConnectUsers = (currentUserId, farmerId) => {
+    this.props.connectUsers(currentUserId, farmerId);
   }
 
   render(){
@@ -55,6 +59,7 @@ class App extends Component {
             prospect={this.props.prospect}
             removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
             addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
+            connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
           />
           { this.props.isAuthenticated ?
             <ResourcesBoard isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
@@ -88,7 +93,8 @@ const mapDispatchToProps = (dispatch) => {
     signOutUser: () => dispatch(signOutUser()),
     removeUserListingInterest: (listingId, payload) => dispatch(removeUserListingInterest(listingId, payload)),
     addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId)),
-    fetchProspect: (id) => dispatch(fetchProspect(id))
+    fetchProspect: (id) => dispatch(fetchProspect(id)),
+    connectUsers: (currentUserId, farmerId) => dispatch(connectUsers(currentUserId, farmerId))
   };
 }
 
