@@ -50,6 +50,27 @@ export const signInUser = (payload, ownProps) => {
     }
 }
 
+export const editUser = (userId, payload) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_USER"});
+        fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "EDIT_USER",
+                user: json.data
+            });
+        })
+    }
+}
+
 export const connectUsers = (currentUserId, farmerId) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
