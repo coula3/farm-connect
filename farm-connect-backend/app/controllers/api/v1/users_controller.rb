@@ -21,6 +21,12 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find_by(id: params[:id])
+        user.connections.create(connect_id: params[:farmerId])
+        render json: UserSerializer.new(user)
+    end
+
     private
     def user_params
         params.require(:user).permit(:type, :firstName, :lastName, :dateOfBirth, :state, :email, :password)
