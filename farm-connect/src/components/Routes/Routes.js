@@ -10,6 +10,7 @@ import CurrentUser from '../CurrentUser/CurrentUser';
 import FarmerProfile from '../../components/FarmerProfile/FarmerProfile';
 import EditListing from '../../containers/EditListing/EditListing';
 import ProspectProfile from '../ProspectProfile/ProspectProfile';
+import EditUser from '../../containers/EditUser/EditUser';
 
 const Routes = (props) => {
     return (
@@ -52,6 +53,7 @@ const Routes = (props) => {
             />
             <Route path="/users/:id/listings" component={Listings}/>
             <Route path="/farmers/:id/listings" component={Listings} />
+            <Route path="/users/:id/edit" component={EditUser} />
         </Switch>
     )
 }
