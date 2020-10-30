@@ -15,7 +15,7 @@ const FarmerProfile = (props) => {
         if(e.target.innerText === "Connect"){
             props.connectUsers(userId, farmerId);
         } else {
-            console.log(e.target.innerText)
+            props.unConnectUsers(userId, farmerId);
         }
     }
 
@@ -29,7 +29,7 @@ const FarmerProfile = (props) => {
                     {!isCurrentUser(props.farmer.id) ?
                         !isConnected ?
                             <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Connect</button></div> :
-                            <div style={{paddingTop:15}}><button>Unconnect</button></div>
+                            <div style={{paddingTop:15}}><button onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
                     :
                         null
                     }
