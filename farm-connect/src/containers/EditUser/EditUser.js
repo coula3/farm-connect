@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class EditUser extends Component {
-
     state = {
         user: {
             firstName: "",
@@ -15,10 +15,10 @@ class EditUser extends Component {
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <form style={{padding: 10, marginBottom: "5px"}} >
-                    <p><input type="text" name="firstName" /></p>
-                    <p><input type="text" name="lastName" /></p>
-                    <p><input type="date" name="dateOfBirth" /></p>
-                    <p><input type="text" name="email" /></p>
+                    <p><input type="text" name="firstName" value={this.props.userAttributes.first_name} /></p>
+                    <p><input type="text" name="lastName" value={this.props.userAttributes.last_name} /></p>
+                    <p><input type="date" name="dateOfBirth" value={this.props.userAttributes.date_of_birth.slice(0, 10)} /></p>
+                    <p><input type="text" name="email" value={this.props.userAttributes.email} /></p>
                     <br />
                     <button>Update</button>
                 </form>
@@ -27,4 +27,11 @@ class EditUser extends Component {
     }
 }
 
-export default EditUser;
+const mapStateToProps = (state) => {
+    return {
+        userAttributes: state.currentUser.userAttributes
+    }
+
+}
+
+export default connect(mapStateToProps)(EditUser);
