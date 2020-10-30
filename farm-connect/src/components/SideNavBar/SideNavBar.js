@@ -21,9 +21,9 @@ const SideNavBar = (props) => {
                 { renderFarmerUsersLinks() }
                 <br />
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
+                <p><Link to={`/users/${props.userId}/edit`}>Edit Profile</Link></p>
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
-
             </div>
         </div>
     )
