@@ -1,6 +1,6 @@
 class Api::V1::ListingsController < ApplicationController
     def index
-        listings = Listing.all
+        listings = Listing.where(closed: nil)
         render json: ListingSerializer.new(listings)
     end
 
