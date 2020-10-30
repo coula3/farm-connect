@@ -50,6 +50,26 @@ export const signInUser = (payload, ownProps) => {
     }
 }
 
+export const connectUsers = (currentUserId, farmerId) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_USER"});
+        fetch(`http://localhost:3000/api/v1/users/${currentUserId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            },
+            body: JSON.stringify({farmerId: farmerId})
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({type: "CONNECT_USERS",
+                user: json.data
+            })
+        })
+    }
+}
+
 export const signOutUser = () => {
     return (dispatch) => {
         dispatch({type: "SIGN_OUT"});
