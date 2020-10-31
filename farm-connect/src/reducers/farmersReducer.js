@@ -1,5 +1,6 @@
 const initialState = {
     farmer: {},
+    photo: null,
     isLoadingFarmer: false
 }
 
@@ -15,6 +16,7 @@ const farmersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 farmer: action.farmer,
+                photo: action.photo,
                 isLoadingFarmer: false
             }
 

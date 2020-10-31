@@ -11,8 +11,9 @@ export const fetchFarmer = (id) => {
         .then(json => {
             dispatch({
                 type: "FETCH_FARMER",
-                farmer: json.data
-            })
+                farmer: json.user.data,
+                photo: json.photo
+            });
         })
     }
 }
