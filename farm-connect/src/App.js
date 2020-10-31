@@ -43,7 +43,7 @@ class App extends Component {
         <Router>
           <AppHeader />
           { this.props.isAuthenticated ?
-            <HeadNavBar userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} /> :
+            <HeadNavBar userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} userPhoto={this.props.userPhoto} /> :
             null
           }
           { this.props.isAuthenticated ?
@@ -91,7 +91,8 @@ const mapStateToProps = (state) => {
     prospects: state.prospects.prospects,
     isLoadingProspect: state.prospects.isLoadingProspect,
     prospect: state.prospects.prospect,
-    farmerPhoto: state.farmers.photo
+    farmerPhoto: state.farmers.photo,
+    userPhoto: state.currentUser.photo
   }
 }
 
