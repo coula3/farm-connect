@@ -1,6 +1,7 @@
 const initialState = {
     userId: "",
     userAttributes: {},
+    photo: null,
     isLoading: false,
     isAuthenticated: false
 }
@@ -18,6 +19,7 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 userId: action.user.data.id,
                 userAttributes: action.user.data.attributes,
+                photo: action.photo,
                 isLoading: false,
                 isAuthenticated: true
             }
@@ -57,6 +59,7 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 userId: "",
                 userAttributes: {},
+                photo: null,
                 isAuthenticated: false
             }
 

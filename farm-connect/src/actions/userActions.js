@@ -39,7 +39,8 @@ export const signInUser = (payload, ownProps) => {
             if(json.jwt){
                 dispatch({
                     type: "SIGN_UP_OR_LOGIN_SUCCESS",
-                    user: json.user
+                    user: json.user,
+                    photo: json.photo
                 });
                 localStorage.setItem('jwt_token', json.jwt);
                 ownProps.history.push(`/listings`);
