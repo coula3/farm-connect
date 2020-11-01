@@ -39,8 +39,8 @@ const Routes = (props) => {
                 userAttributes={props.userAttributes}
                 userId={props.userId}
                 farmerPhoto={props.farmerPhoto}
-                connectUsers={(currentUserId, farmerId) => props.connectUsers(currentUserId, farmerId)}
-                unConnectUsers={(currentUserId, farmerId) => props.unConnectUsers(currentUserId, farmerId)} /> }
+                connectUsers={(currentUserId, connectId) => props.connectUsers(currentUserId, connectId)}
+                unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} /> }
             />
             <Route exact path="/users/:id" render={ routerProps => <CurrentUser
                 {...routerProps}

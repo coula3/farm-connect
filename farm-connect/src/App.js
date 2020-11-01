@@ -29,12 +29,12 @@ class App extends Component {
     this.props.fetchProspect(id);
   }
 
-  handleConnectUsers = (currentUserId, farmerId) => {
-    this.props.connectUsers(currentUserId, farmerId);
+  handleConnectUsers = (currentUserId, connectId) => {
+    this.props.connectUsers(currentUserId, connectId);
   }
 
-  handleUnconnectUsers = (currentUserId, farmerId) => {
-    this.props.unConnectUsers(currentUserId, farmerId)
+  handleUnconnectUsers = (currentUserId, connectId) => {
+    this.props.unConnectUsers(currentUserId, connectId)
   }
 
   render(){
@@ -104,8 +104,8 @@ const mapDispatchToProps = (dispatch) => {
     removeUserListingInterest: (listingId, payload) => dispatch(removeUserListingInterest(listingId, payload)),
     addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId)),
     fetchProspect: (id) => dispatch(fetchProspect(id)),
-    connectUsers: (currentUserId, farmerId) => dispatch(connectUsers(currentUserId, farmerId)),
-    unConnectUsers: (currentUserId, farmerId) => dispatch(unConnectUsers(currentUserId, farmerId))
+    connectUsers: (currentUserId, connectId) => dispatch(connectUsers(currentUserId, connectId)),
+    unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId))
   };
 }
 

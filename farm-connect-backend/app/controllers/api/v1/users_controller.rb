@@ -23,17 +23,17 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update
-        connect = Connection.find_by(user_id: params[:id], connect_id: params[:farmerId]) || Connection.find_by(user_id: params[:farmerId], connect_id: params[:id])
+        connect = Connection.find_by(user_id: params[:id], connect_id: params[:connectId]) || Connection.find_by(user_id: params[:connectId], connect_id: params[:id])
         user = User.find_by(id: params[:id])
 
-        if !params.keys.include?("farmerId")
+        if !params.keys.include?("connectId")
             update_user_profile(user)
             render json: UserSerializer.new(user)
         elsif connect
             connect.destroy
             render json: UserSerializer.new(user)
         else
-            user.connections.create(connect_id: params[:farmerId])
+            user.connections.create(connect_id: params[:connectId])
             render json: UserSerializer.new(user)
         end
     end

@@ -73,7 +73,7 @@ export const editUser = (userId, payload, ownProps) => {
     }
 }
 
-export const connectUsers = (currentUserId, farmerId) => {
+export const connectUsers = (currentUserId, connectId) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users/${currentUserId}`, {
@@ -82,7 +82,7 @@ export const connectUsers = (currentUserId, farmerId) => {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             },
-            body: JSON.stringify({farmerId: farmerId})
+            body: JSON.stringify({connectId: connectId})
         })
         .then(response => response.json())
         .then(json => {
@@ -94,7 +94,7 @@ export const connectUsers = (currentUserId, farmerId) => {
     }
 }
 
-export const unConnectUsers = (currentUserId, farmerId) => {
+export const unConnectUsers = (currentUserId, connectId) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users/${currentUserId}`, {
@@ -103,7 +103,7 @@ export const unConnectUsers = (currentUserId, farmerId) => {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             },
-            body: JSON.stringify({farmerId: farmerId})
+            body: JSON.stringify({connectId: connectId})
         })
         .then(response => response.json())
         .then(json => {
