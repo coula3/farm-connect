@@ -27,8 +27,10 @@ class Listings extends React.Component {
 
         if(this.props.match.path.includes("users")){
             baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId))
-        } else if (this.props.match.path.includes("farmers")) {
+        } else if (this.props.match.path.includes("/farmers/")) {
             baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.match.params.id))
+        } else if (this.props.match.path.endsWith("/other-farmers")) {
+            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id !== parseInt(this.props.userId))
         } else {
             baseListings = this.props.listings
         }
