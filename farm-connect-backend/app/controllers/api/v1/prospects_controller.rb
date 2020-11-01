@@ -1,6 +1,9 @@
 class Api::V1::ProspectsController < ApplicationController
     def show
         prospect = Prospect.find_by(id: params[:id])
+        @image = rails_blob_path(prospect.photo) if prospect.photo.attached?
+        prospect.image = @image
+
         render json: ProspectSerializer.new(prospect)
     end
 
