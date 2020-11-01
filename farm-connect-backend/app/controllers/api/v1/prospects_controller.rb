@@ -6,6 +6,13 @@ class Api::V1::ProspectsController < ApplicationController
 
     def index
         prospects = Prospect.all
-        render json: ProspectSerializer.new(prospects)
+
+        prospects_with_images = prospects.map do |prospect|
+            @image = prospect.photo.attached? ? rails_blob_path(prospect.photo) : ""
+            prospect.image = @image
+            prospect
+        end
+
+        render json: ProspectSerializer.new(prospects_with_images)
     end
 end
