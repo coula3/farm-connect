@@ -46,7 +46,7 @@ class Listings extends React.Component {
             userId = listing.attributes.user.id;
             const commodity = listing.attributes.commodity.name;
             let available;
-            listing.attributes.available ? available = "Yes" : available = "No";
+            listing.attributes.available ? available = "✓" : available = "";
             let listingId;
 
             if(listing.id < 10){
@@ -82,7 +82,7 @@ class Listings extends React.Component {
                                     <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td> :
                                     null
                                 }
-                                <td>{available}</td>
+                                <td style={{color:"#3a5f0b", fontSize:18}}>{available}</td>
                                 <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
                                 <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
                             </tr>
