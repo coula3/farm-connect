@@ -51,3 +51,9 @@
 #     filename: "img3.png",
 #     content_type: "application/png"
 # )
+
+User.find(11).photo.attach(
+    io: File.open("./public/img4.png"),
+    filename: "img4.png",
+    content_type: "application/png"
+)
