@@ -38,13 +38,13 @@ const FarmerProfile = (props) => {
                         null
                     }
                     <br />
-                    <div>
+                    <div style={{margin:"auto", height:180, width:150}}>
                         {props.farmerPhoto ?
-                            <img src={farmerPhoto(props.farmerPhoto)} alt="user avatar" style={{height:350, width:300}} /> :
-                            <img src={avatar} alt="anonymous avatar" style={{height:100, width:100}} />
+                            <img src={farmerPhoto(props.farmerPhoto)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :
+                            <img src={avatar} alt="anonymous avatar" style={{width:"100%", height:"100%"}} />
                         }
                     </div>
-                    <p><label>Farmer ID: </label>{props.farmer.id}</p>
+                    <p style={{marginTop:"15px"}}><label>Farmer ID: </label>{props.farmer.id}</p>
                     <p><label>Name: </label>{props.farmer.attributes.first_name} {props.farmer.attributes.last_name}</p>
                     <p><label>eMail: </label>{props.farmer.attributes.email}</p>
                     <br />

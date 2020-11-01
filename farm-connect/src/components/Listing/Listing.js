@@ -31,8 +31,8 @@ const Listing = (props) => {
         return matchId ? "♥" : "♡"
     }
 
-    const convertToYesNo = (trueFalseValue) => {
-        return trueFalseValue ? "Yes" : "No";
+    const convertTrueToYes = (trueFalseValue) => {
+        return trueFalseValue ? "Yes" : null;
     }
 
     return (
@@ -46,7 +46,7 @@ const Listing = (props) => {
                     <p><label>Commodity: </label>{props.listing.attributes.commodity.name}</p>
                     <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? props.listing.attributes.availability.slice(0, 10) : null}</p>
                     {props.listing.attributes.available ?
-                        <p><label>Available: </label>{convertToYesNo(props.listing.attributes.available)}</p> :
+                        <p><label>Available: </label>{convertTrueToYes(props.listing.attributes.available)}</p> :
                         null
                     }
                     <p><label>Quantity: </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}</p>
