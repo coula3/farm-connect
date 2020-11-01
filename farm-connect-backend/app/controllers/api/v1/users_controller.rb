@@ -27,10 +27,7 @@ class Api::V1::UsersController < ApplicationController
         user = User.find_by(id: params[:id])
 
         if !params.keys.include?("farmerId")
-            user.update(first_name: user_params[:firstName]) if user_params[:firstName].present?
-            user.update(last_name: user_params[:lastName]) if user_params[:lastName].present?
-            user.update(date_of_birth: user_params[:dateOfBirth]) if user_params[:dateOfBirth].present?
-            user.update(email: user_params[:email]) if user_params[:email].present?
+            update_user_profile(user)
             render json: UserSerializer.new(user)
         elsif connect
             connect.destroy
@@ -44,5 +41,12 @@ class Api::V1::UsersController < ApplicationController
     private
     def user_params
         params.require(:user).permit(:type, :firstName, :lastName, :dateOfBirth, :state, :email, :password)
+    end
+
+    def update_user_profile(user)
+        user.update(first_name: user_params[:firstName]) if user_params[:firstName].present?
+        user.update(last_name: user_params[:lastName]) if user_params[:lastName].present?
+        user.update(date_of_birth: user_params[:dateOfBirth]) if user_params[:dateOfBirth].present?
+        user.update(email: user_params[:email]) if user_params[:email].present?
     end
 end
