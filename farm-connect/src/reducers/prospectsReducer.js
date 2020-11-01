@@ -1,7 +1,8 @@
 const initialState = {
     isLoadingProspect: false,
     isLoadingProspects: false,
-    prospects: []
+    prospects: [],
+    prospect: {}
 }
 
 const prospectsReducer = (state=initialState, action) => {
