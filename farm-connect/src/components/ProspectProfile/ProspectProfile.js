@@ -14,6 +14,10 @@ const ProspectProfile = (props) => {
         return `http://localhost:3000/${prospectPhoto}`;
     }
 
+    const isCurrentUser = (prospectId) => {
+        return props.userId === prospectId;
+    }
+
     const connectUnconnectUsers = (e, userId, prospectId) => {
         if(e.target.innerText === "Connect"){
             props.connectUsers(userId, prospectId);
@@ -28,9 +32,12 @@ const ProspectProfile = (props) => {
                 <Loader /> :
                 <div>
                     <h3>Prospect</h3>
-                    {!isConnected(props.prospect.id) ?
-                        <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
-                        <div style={{paddingTop:15}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}><button>Unconnect</button></div>
+                    {!isCurrentUser(props.prospect.id) ?
+                        !isConnected(props.prospect.id) ?
+                            <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
+                            <div style={{paddingTop:15}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}><button>Unconnect</button></div>
+                    :
+                        null
                     }
                     <br />
                     <div style={{margin:"auto", height:180, width:150}}>
