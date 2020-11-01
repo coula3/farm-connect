@@ -33,3 +33,21 @@
 # listing3 = farmers.second.listings.create(commodity_id: wheat.id, list_date: Time.now)
 # listing4 = farmers.last.listings.create(commodity_id: tomatoes.id, list_date: Time.now)
 # puts "listings.create succesful!" if Listing.all.size > 0
+
+# User.find(2).photo.attach(
+#     io: File.open("./public/img1.png"),
+#     filename: "img1.png",
+#     content_type: "application/png"
+# )
+
+# User.find(3).photo.attach(
+#     io: File.open("./public/img2.png"),
+#     filename: "img2.png",
+#     content_type: "application/png"
+# )
+
+# User.find(7).photo.attach(
+#     io: File.open("./public/img3.png"),
+#     filename: "img3.png",
+#     content_type: "application/png"
+# )
