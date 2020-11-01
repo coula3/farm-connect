@@ -52,7 +52,10 @@ const Routes = (props) => {
                 {...routerProps}
                 isLoadingProspect={props.isLoadingProspect}
                 prospect={props.prospect}
-                userAttributes={props.userAttributes} />}
+                userId={props.userId}
+                userAttributes={props.userAttributes}
+                connectUsers={(currentUserId, connectId) => props.connectUsers(currentUserId, connectId)}
+                unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} />}
             />
             <Route path="/users/:id/listings" component={Listings}/>
             <Route path="/farmers/:id/listings" component={Listings} />
