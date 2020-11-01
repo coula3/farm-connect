@@ -51,7 +51,8 @@ const Routes = (props) => {
             <Route path="/prospects/:id" render={(routerProps) => <ProspectProfile
                 {...routerProps}
                 isLoadingProspect={props.isLoadingProspect}
-                prospect={props.prospect} />}
+                prospect={props.prospect}
+                userAttributes={props.userAttributes} />}
             />
             <Route path="/users/:id/listings" component={Listings}/>
             <Route path="/farmers/:id/listings" component={Listings} />
