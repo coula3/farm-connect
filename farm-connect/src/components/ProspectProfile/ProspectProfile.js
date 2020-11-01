@@ -7,7 +7,7 @@ const ProspectProfile = (props) => {
             { props.isLoadingProspect ?
                 <Loader /> :
                 <div>
-                    Prospect
+                    <h3>Prospect</h3>
                     <p><label>Prospect ID: </label>{props.prospect.id}</p>
                     <p><label>Name: </label>{props.prospect.attributes.first_name} {props.prospect.attributes.last_name}</p>
                     <p><label>eMail: </label>{props.prospect.attributes.email}</p>
