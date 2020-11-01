@@ -46,31 +46,33 @@ class App extends Component {
             <HeadNavBar userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} userPhoto={this.props.userPhoto} /> :
             null
           }
-          { this.props.isAuthenticated ?
-            <SideNavBar userSignOut={this.handleUserSignOut} userId={this.props.userId} userAttributes={this.props.userAttributes} /> :
-            null
-          }
-          <Routes
-            isAuthenticated={this.props.isAuthenticated}
-            userId={this.props.userId}
-            userAttributes={this.props.userAttributes}
-            commodities={this.props.commodities}
-            isLoading={this.props.isLoading}
-            listing={this.props.listing}
-            isLoadingFarmer={this.props.isLoadingFarmer}
-            farmer={this.props.farmer}
-            isLoadingProspect={this.props.isLoadingProspect}
-            prospect={this.props.prospect}
-            farmerPhoto={this.props.farmerPhoto}
-            removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
-            addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
-            connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
-            unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
-          />
-          { this.props.isAuthenticated ?
-            <ResourcesBoard isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
-            null
-          }
+          <div style={{clear:"both"}}>
+            { this.props.isAuthenticated ?
+              <SideNavBar userSignOut={this.handleUserSignOut} userId={this.props.userId} userAttributes={this.props.userAttributes} /> :
+              null
+            }
+            <Routes
+              isAuthenticated={this.props.isAuthenticated}
+              userId={this.props.userId}
+              userAttributes={this.props.userAttributes}
+              commodities={this.props.commodities}
+              isLoading={this.props.isLoading}
+              listing={this.props.listing}
+              isLoadingFarmer={this.props.isLoadingFarmer}
+              farmer={this.props.farmer}
+              isLoadingProspect={this.props.isLoadingProspect}
+              prospect={this.props.prospect}
+              farmerPhoto={this.props.farmerPhoto}
+              removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
+              addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
+              connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
+              unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
+            />
+            { this.props.isAuthenticated ?
+              <ResourcesBoard isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
+              null
+            }
+          </div>
           </Router>
       </div>
     );
