@@ -19,6 +19,7 @@ const Routes = (props) => {
             <Route path="/signup" component={SignUp} />
             <Route path="/signout" component={SignOut} />
             <Route exact path="/listings" component={Listings} />
+            <Route exact path="/listings/other-farmers" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing
                 {...routerProps}
                 commodities={props.commodities} /> }

@@ -6,8 +6,9 @@ const SideNavBar = (props) => {
         if(props.userAttributes.type === "Farmer"){
             return (
                 <>
-                    <p><Link to="/listings/new">Create Listing</Link></p>
+                    <p><Link to="/listings/other-farmers">Listings - Others</Link></p>
                     <p><Link to={`/users/${props.userId}/listings`}>My Listings</Link></p>
+                    <p><Link to="/listings/new">Create Listing</Link></p>
                 </>
             )
         }
