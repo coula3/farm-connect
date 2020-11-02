@@ -11,7 +11,8 @@ class CreateListing extends Component {
             quantity: "",
             available: "No",
             information: ""
-        }
+        },
+        maxInfoCharacters: 255
     }
 
     handleChange = (e) => {
@@ -84,8 +85,8 @@ class CreateListing extends Component {
                     </p>
                     <p>
                         <label style={{verticalAlign: "top"}}>Supplementary Info </label>
-                        <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.information} onChange={this.handleChange}></textarea>
-                        <label> {255-this.state.listing.information.length}</label>
+                        <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
+                        <label> {this.state.maxInfoCharacters - this.state.listing.information.length}</label>
                     </p>
 
                     <p><input type="submit" /></p>
