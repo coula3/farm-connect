@@ -12,7 +12,8 @@ class CreateListing extends Component {
             available: "No",
             information: ""
         },
-        maxInfoCharacters: 255
+        maxInfoCharacters: 255,
+        disableMeasure: true
     }
 
     handleChange = (e) => {
@@ -42,6 +43,17 @@ class CreateListing extends Component {
         })
     }
 
+    enableDisableMeasure = () => {
+        if(parseInt(this.state.listing.quantity) > 0){
+            return this.setState({disableMeasure: false})
+        } else {
+            return this.setState({
+                listing: {...this.state.listing,
+                measure: ""},
+                disableMeasure: true})
+        }
+    }
+
     render(){
         const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const commoditiesList = ["--please choose--"];
@@ -67,11 +79,11 @@ class CreateListing extends Component {
                     </p>
                     <p>
                         <label>Quantity </label>
-                        <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} />
+                        <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onBlur={this.enableDisableMeasure}/>
                     </p>
                     <p>
                         <label>Measure </label>
-                        <select name="measure" value={this.state.listing.measure} onChange={this.handleChange}>
+                        <select name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
                         {measuresList.map((measure, idx) =>
                         (<option key={idx} value={measure}>{measure}</option>))}
                         </select>
