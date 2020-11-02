@@ -45,7 +45,8 @@ const Routes = (props) => {
             <Route exact path="/users/:id" render={ routerProps => <CurrentUser
                 {...routerProps}
                 userId={props.userId}
-                userAttributes={props.userAttributes} /> }
+                userAttributes={props.userAttributes}
+                userPhoto={props.userPhoto} /> }
             />
             <Route exact path="/listings/:id/edit" component={EditListing} />
             <Route path="/prospects/:id" render={(routerProps) => <ProspectProfile

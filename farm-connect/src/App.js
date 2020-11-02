@@ -63,6 +63,7 @@ class App extends Component {
               isLoadingProspect={this.props.isLoadingProspect}
               prospect={this.props.prospect}
               farmerPhoto={this.props.farmerPhoto}
+              userPhoto={this.props.userPhoto}
               removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
               addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
               connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
@@ -94,7 +95,8 @@ const mapStateToProps = (state) => {
     isLoadingProspect: state.prospects.isLoadingProspect,
     prospect: state.prospects.prospect,
     farmerPhoto: state.farmers.photo,
-    userPhoto: state.currentUser.photo
+    userPhoto: state.currentUser.photo,
+    isLoadingUser: state.currentUser.isLoading
   }
 }
 
