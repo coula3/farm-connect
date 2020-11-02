@@ -11,7 +11,7 @@ class Listings extends React.Component {
     componentDidMount(){
        this.props.fetchListings();
        this.props.fetchCommodities();
-       this.props.fetchProspects();
+       this.props.fetchProspects(this.props.userId);
     }
 
     handleClick = (id) => {
@@ -131,7 +131,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchCommodities: () => dispatch(fetchCommodities()),
         fetchListing: (id) => dispatch(fetchListing(id)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
-        fetchProspects: () => dispatch(fetchProspects())
+        fetchProspects: (userId) => dispatch(fetchProspects(userId))
     }
 }
 

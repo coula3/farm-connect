@@ -1,7 +1,7 @@
-export const fetchProspects = () => {
+export const fetchProspects = (userId) => {
   return (dispatch) => {
     dispatch({type: "LOADING_PROSPECTS"});
-    fetch(`http://localhost:3000/api/v1/prospects`, {
+    fetch(`http://localhost:3000/api/v1/prospects?id=${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
