@@ -34,7 +34,7 @@ export const createListing = (payload, ownProps) => {
                 type: "CREATE_NEW_LISTING",
                 listing: json.data
             });
-            ownProps.history.push(`/listings`);
+            ownProps.history.push(`/listings/${json.data.id}`);
         })
     }
 }
