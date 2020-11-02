@@ -3,12 +3,8 @@ import { connect } from 'react-redux';
 import { createListing } from '../../actions/listingsActions';
 
 class CreateListing extends Component {
-    currentDate = new Date();
-    stringCurrentDate = this.currentDate.getFullYear() +"-"+ (this.currentDate.getMonth()+1) +"-"+ this.currentDate.getDate();
-
     state = {
         listing: {
-            date: this.stringCurrentDate,
             commodity: "",
             availability: "",
             measure: "",
@@ -35,7 +31,6 @@ class CreateListing extends Component {
 
         this.setState({
             listing: {
-                date: this.stringCurrentDate,
                 commodity: "",
                 availability: "",
                 measure: "",
@@ -57,10 +52,6 @@ class CreateListing extends Component {
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <h3>Create Listing</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <p>
-                        <label>List Date </label> 
-                        <input name="date" type="date" value={this.state.listing.date} onChange={this.handleChange} />
-                    </p>
                     <p>
                         <label>Commodity </label> 
                         <select name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>

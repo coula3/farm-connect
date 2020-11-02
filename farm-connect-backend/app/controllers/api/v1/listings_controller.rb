@@ -13,7 +13,7 @@ class Api::V1::ListingsController < ApplicationController
         user = User.find_by(id: listing_params[:userId])
         commodity = Commodity.find_by(name: listing_params[:commodity])
 
-        listing = user.listings.create(commodity_id: commodity.id, date: listing_params[:date], availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
+        listing = user.listings.create(commodity_id: commodity.id, date: Time.now, availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
 
         render json: ListingSerializer.new(listing)
     end
@@ -43,7 +43,7 @@ class Api::V1::ListingsController < ApplicationController
 
     private
     def listing_params
-        params.require(:listing).permit(:date, :commodity, :availability, :measure, :quantity, :available, :information, :closed, :userId, :interestId, :currentUserId)
+        params.require(:listing).permit(:commodity, :availability, :measure, :quantity, :available, :information, :closed, :userId, :interestId, :currentUserId)
     end
 
     def available
