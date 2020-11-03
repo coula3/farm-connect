@@ -1,12 +1,20 @@
 import React from 'react';
 
 const ErrorMessages = (props) => {
+    const errorList = (errorMessages) => {
+        return errorMessages.map((message, idx) => {
+            return <ul key={idx}>
+                <li style={{width:"60%", margin:"auto", backgroundColor:"#f2eeed", borderRadius:"15px", listStyle:"none", padding:5}}>{message}</li>
+            </ul>
+        })
+    }
+
     return (
         <>
             {
-                props.message ?
-                <div style={{width:"60%", margin:"auto", backgroundColor:"#f2eeed", borderRadius:"15px", padding:5}}>{props.message}</div> :
-                null
+                props.messages ?
+                    <>{errorList(props.messages)}</> :
+                    null
             }
         </>
     )        
