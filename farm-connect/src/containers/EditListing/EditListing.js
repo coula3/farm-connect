@@ -13,11 +13,13 @@ class EditListing extends Component {
             available: "",
             information: "",
             closed: ""
-        }
+        },
+        editMode: false
     }
 
     handleChange = (e) => {
         this.setState({
+            editMode: true,
             listing: {
                 ...this.state.listing,
                 [e.target.name]: e.target.value
