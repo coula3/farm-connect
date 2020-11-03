@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
+import { getDate } from '../../assets/Miscellaneous';
 
 class EditListing extends Component {
     state = {
@@ -38,10 +39,6 @@ class EditListing extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.editListing(this.props.listing.id, this.state.listing);
-    }
-
-    getListingDate = (listingDate) => {
-        return `${listingDate.slice(5, 7)}/${listingDate.slice(8, 10)}/${listingDate.slice(0, 4)}`;
     }
 
     convertToYesNo = (trueFalseValue) => {
@@ -116,7 +113,7 @@ class EditListing extends Component {
                     <Loader /> :
                     <form onSubmit={this.handleSubmit}>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
-                        <p><label><strong>Listing Date</strong> {this.getListingDate(this.props.listing.attributes.date)}</label></p>
+                        <p><label><strong>Listing Date</strong> {getDate(this.props.listing.attributes.date)}</label></p>
                         <p>Commodity:
                             <select name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onChange={this.handleChange}>
                                 { this.props.commodities.map((commodity, idx) =>

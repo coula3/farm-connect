@@ -1,6 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import { Link } from 'react-router-dom';
+import { getDate} from '../../assets/Miscellaneous';
 
 const Listing = (props) => {
     const renderEditLink = (currentUserId, listingUserId, listingId) => {
@@ -41,7 +42,7 @@ const Listing = (props) => {
                 <Loader /> :
                 <div>
                     <p><label>List ID: </label>{props.listing.id}</p>
-                    <p><label>List Date: </label>{props.listing.attributes.date.slice(0, 10)}</p>
+                    <p><label>List Date: </label>{getDate(props.listing.attributes.date)}</p>
                     <p><label>Farmer: </label>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</p> 
                     <p><label>Commodity: </label>{props.listing.attributes.commodity.name}</p>
                     <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? props.listing.attributes.availability.slice(0, 10) : null}</p>
