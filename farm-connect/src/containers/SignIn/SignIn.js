@@ -20,6 +20,12 @@ class SignIn extends Component {
         })
     }
 
+    componentDidMount(){
+        if(this.props.isAuthenticated){
+            this.props.history.push("/listings");
+        }
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
 
