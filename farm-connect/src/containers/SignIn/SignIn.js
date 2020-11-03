@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signInUser } from '../../actions/userActions';
+import ErrorMessages from '../../components/ErrorMessages/ErrorMessages';
 
 class SignIn extends Component {
     state = {
@@ -41,9 +42,18 @@ class SignIn extends Component {
         this.props.history.push("/signup")
     }
 
+    renderErrorMessages = () => {
+        if(this.props.message){
+            return <ErrorMessages message={this.props.message} />
+        } else {
+            return null
+        }
+    }
+
     render() {
         return (
-            <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
+            <div style={{margin: "auto", width: "40%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", padding:"15px 0px 15px 0px"}}>
+                {this.renderErrorMessages()}
                 <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
                     <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
@@ -60,7 +70,8 @@ const mapStateToProps = (state) => {
         userId: state.currentUser.userId,
         userAttributes: state.currentUser.userAttributes,
         isLoading: state.currentUser.isLoading,
-        isAuthenticated: state.currentUser.isAuthenticated
+        isAuthenticated: state.currentUser.isAuthenticated,
+        message: state.currentUser.message
     }
 }
 
