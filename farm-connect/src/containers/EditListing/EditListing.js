@@ -56,6 +56,10 @@ class EditListing extends Component {
         }
     }
 
+    closeListing = (closeDate) => {
+        return !this.state.listing.closed ? closeDate : ""
+    }
+
     render(){
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
@@ -106,7 +110,7 @@ class EditListing extends Component {
 
                         <p>
                             <label>Close Listing </label>
-                            <input type="checkbox" name="closed" id="closeListing" value={stringCurrentDate} checked={this.state.listing.closed === stringCurrentDate} onChange={this.handleChange}/>
+                            <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onChange={this.handleChange}/>
                         </p>
 
                         <p><input type="submit" /></p>
