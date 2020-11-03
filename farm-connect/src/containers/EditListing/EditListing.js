@@ -55,7 +55,7 @@ class EditListing extends Component {
     }
 
     getCommodity = (commodityProps) => {
-        return this.state.editMode ? this.state.listing.commodity : commodityProps
+        return this.state.editMode ? this.state.listing.commodity : commodityProps;
     }
 
     getAvailability = (availabilityProps) => {
@@ -64,42 +64,47 @@ class EditListing extends Component {
 
     getQuantity = (quantityProps) => {
         if(!this.state.editMode && !quantityProps){
-            return ""
+            return "";
         } else if (!this.state.editMode && quantityProps){
-            return quantityProps
+            return quantityProps;
         } else if(this.state.editMode && this.state.listing.quantity){
-            return this.state.listing.quantity
+            return this.state.listing.quantity;
         } else {
-            return ""
+            return "";
         }
     }
 
     getMeasure = (measureProps) => {
         if(!this.state.editMode && !measureProps){
-            return ""
+            return "";
         } else if (!this.state.editMode && measureProps){
-            return measureProps
+            return measureProps;
         } else if(this.state.editMode && this.state.listing.measure){
-            return this.state.listing.measure
+            return this.state.listing.measure;
         } else {
             return ""
         }
     }
 
     getAvailable = (availableProps) => {
-        return this.state.editMode ?  this.convertToYesNo(this.state.listing.available) : this.convertToYesNo(availableProps)
+        return this.state.editMode ?  this.convertToYesNo(this.state.listing.available) : this.convertToYesNo(availableProps);
     }
 
     getSuppInfo = (infoProps) => {
-        return this.state.editMode ?  this.state.listing.info : infoProps
+        return this.state.editMode ?  this.state.listing.info : infoProps;
     }
 
     getCharactersLength = (infoProps) => {
-        return this.state.editMode ? this.state.listing.information.length : infoProps.length
+        return this.state.editMode ? this.state.listing.information.length : infoProps.length;
     }
 
     closeListing = (closeDate) => {
-        return !this.state.listing.closed ? closeDate : ""
+        return !this.state.listing.closed ? closeDate : "";
+    }
+
+    handleCancelEdit = (e) => {
+        e.preventDefault();
+        this.props.history.push(`/listings/${this.props.listing.id}`);
     }
 
     render(){
@@ -156,7 +161,10 @@ class EditListing extends Component {
                             <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onChange={this.handleChange}/>
                         </p>
 
-                        <p><input type="submit" disabled={this.state.editMode ? false : true}/></p>
+                        <p>
+                            <input type="submit" disabled={this.state.editMode ? false : true}/>
+                            <input type="submit" value="Cancel Edit" onClick={this.handleCancelEdit} />
+                        </p>
                     </form>
                 }
             </div>
