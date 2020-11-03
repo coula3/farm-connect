@@ -22,6 +22,13 @@ class EditListing extends Component {
             editMode: true,
             listing: {
                 ...this.state.listing,
+                commodity: this.props.listing.attributes.commodity.name,
+                availability: this.props.listing.attributes.availability,
+                measure: this.props.listing.attributes.measure,
+                quantity: this.props.listing.attributes.quantity,
+                available: this.props.listing.attributes.available,
+                information: this.props.listing.attributes.information,
+                closed: this.props.listing.attributes.closed,
                 [e.target.name]: e.target.value
             }
         });
