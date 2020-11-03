@@ -56,6 +56,46 @@ class EditListing extends Component {
         }
     }
 
+    getCommodity = (commodityProps) => {
+        return this.state.editMode ? this.state.listing.commodity : commodityProps
+    }
+
+    getAvailability = (availabilityProps) => {
+        return this.state.editMode ? this.state.listing.availability.slice(0, 10) : availabilityProps.slice(0, 10)
+    }
+
+    getQuantity = (quantityProps) => {
+        if(!this.state.editMode && !quantityProps){
+            return ""
+        } else if (!this.state.editMode && quantityProps){
+            return quantityProps
+        } else if(this.state.editMode && this.state.listing.quantity){
+            return this.state.listing.quantity
+        } else {
+            return ""
+        }
+    }
+
+    getMeasure = (measureProps) => {
+        if(!this.state.editMode && !measureProps){
+            return ""
+        } else if (!this.state.editMode && measureProps){
+            return measureProps
+        } else if(this.state.editMode && this.state.listing.measure){
+            return this.state.listing.measure
+        } else {
+            return ""
+        }
+    }
+
+    getAvailable = (availableProps) => {
+        return this.state.editMode ?  this.convertToYesNo(this.state.listing.available) : this.convertToYesNo(availableProps)
+    }
+
+    getSuppInfo = (infoProps) => {
+        return this.state.editMode ?  this.state.listing.info : infoProps
+    }
+
     closeListing = (closeDate) => {
         return !this.state.listing.closed ? closeDate : ""
     }
@@ -73,7 +113,7 @@ class EditListing extends Component {
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
                         <p><label><strong>Listing Date</strong> {this.getListingDate(this.props.listing.attributes.date)}</label></p>
                         <p>Commodity:
-                            <select name="commodity" value={this.state.listing.commodity ? this.state.listing.commodity : this.props.listing.attributes.commodity.name} onChange={this.handleChange}>
+                            <select name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onChange={this.handleChange}>
                                 { this.props.commodities.map((commodity, idx) =>
                                     <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
                                 }
@@ -81,15 +121,15 @@ class EditListing extends Component {
                         </p>
 
                         <p>Est. Availability:
-                            <input type="date" name="availability" value={this.state.listing.availability ? this.state.listing.availability ? this.state.listing.availability.slice(0, 10) : "" : this.props.listing.attributes.availability ? this.props.listing.attributes.availability.slice(0, 10) : ""} onChange={this.handleChange} />
+                            <input type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onChange={this.handleChange} />
                         </p>
 
                         <p>Quantity:
-                            <input type="number" name="quantity" value={this.state.listing.quantity ? this.state.listing.quantity : this.props.listing.attributes.quantity} onChange={this.handleChange} />
+                            <input type="number" name="quantity" value={this.getQuantity(this.props.listing.attributes.quantity)} onChange={this.handleChange} />
                         </p>
 
                         <p>Measure:
-                            <select name="measure" value={this.state.listing.measure ? this.state.listing.measure : this.props.listing.attributes.measure} onChange={this.handleChange}>
+                            <select name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onChange={this.handleChange}>
                                 { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
                                     <option key={idx} value={measure}>{measure}</option>)
                                 }
@@ -97,7 +137,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>Availabe:
-                            <select name="available" value={this.state.listing.available ? this.state.listing.available : this.convertToYesNo(this.props.listing.attributes.available)} onChange={this.handleChange}>
+                            <select name="available" value={this.getAvailable(this.props.listing.attributes.available)} onChange={this.handleChange}>
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
@@ -105,7 +145,7 @@ class EditListing extends Component {
 
                         <p>
                             <label style={{verticalAlign: "top"}}>Supplementary Info </label >
-                            <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.state.listing.information ? this.state.listing.information : this.props.listing.attributes.information} onChange={this.handleChange}></textarea>
+                            <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onChange={this.handleChange}></textarea>
                         </p>
 
                         <p>
