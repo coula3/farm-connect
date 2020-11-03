@@ -28,7 +28,6 @@ class SignIn extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
         this.props.signInUser(this.state)
 
         this.setState({
@@ -39,6 +38,10 @@ class SignIn extends Component {
         })
     }
 
+    handleSwitchToSignUp = () => {
+        this.props.history.push("/signup")
+    }
+
     render() {
         return (
             <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
@@ -47,7 +50,7 @@ class SignIn extends Component {
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <button>Sign In</button>
                 </form>
-                <Link to="/signup">Sign Up</Link>
+                <button onClick={this.handleSwitchToSignUp}>Sign Up</button>
             </div>
         )
     }
