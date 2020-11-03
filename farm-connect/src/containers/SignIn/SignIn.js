@@ -43,9 +43,9 @@ class SignIn extends Component {
     }
 
     renderErrorMessages = () => {
-        if(this.props.message){
+        if(this.props.messages.length > 0){
             setTimeout(() => this.props.clearErrorMessages(), 3000)
-            return <ErrorMessages message={this.props.message} />
+            return <ErrorMessages messages={this.props.messages} />
         } else {
             return null
         }
@@ -72,7 +72,7 @@ const mapStateToProps = (state) => {
         userAttributes: state.currentUser.userAttributes,
         isLoading: state.currentUser.isLoading,
         isAuthenticated: state.currentUser.isAuthenticated,
-        message: state.currentUser.message
+        messages: state.currentUser.messages
     }
 }
 
