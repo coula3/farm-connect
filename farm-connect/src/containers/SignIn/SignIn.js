@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signInUser } from '../../actions/userActions';
+import { signInUser, clearErrorMessages } from '../../actions/userActions';
 import ErrorMessages from '../../components/ErrorMessages/ErrorMessages';
 
 class SignIn extends Component {
@@ -44,6 +44,7 @@ class SignIn extends Component {
 
     renderErrorMessages = () => {
         if(this.props.message){
+            setTimeout(() => this.props.clearErrorMessages(), 3000)
             return <ErrorMessages message={this.props.message} />
         } else {
             return null
@@ -77,7 +78,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        signInUser: (payload) => dispatch(signInUser(payload, ownProps))
+        signInUser: (payload) => dispatch(signInUser(payload, ownProps)),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
 
