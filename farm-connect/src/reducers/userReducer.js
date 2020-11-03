@@ -2,6 +2,7 @@ const initialState = {
     userId: "",
     userAttributes: {},
     photo: null,
+    message: "",
     isLoading: false,
     isAuthenticated: false
 }
@@ -27,6 +28,7 @@ const userReducer = (state = initialState, action) => {
         case "SIGN_UP_OR_LOGIN_FAILURE":
             return {
                 ...state,
+                message: action.message,
                 isLoading: false
             }
 
