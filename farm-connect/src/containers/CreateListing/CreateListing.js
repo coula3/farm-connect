@@ -79,7 +79,7 @@ class CreateListing extends Component {
                     </p>
                     <p>
                         <label>Quantity </label>
-                        <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onBlur={this.enableDisableMeasure}/>
+                        <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/>
                     </p>
                     <p>
                         <label>Measure </label>
