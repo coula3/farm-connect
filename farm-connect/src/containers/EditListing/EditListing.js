@@ -156,7 +156,7 @@ class EditListing extends Component {
                             <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onChange={this.handleChange}/>
                         </p>
 
-                        <p><input type="submit" /></p>
+                        <p><input type="submit" disabled={this.state.editMode ? false : true}/></p>
                     </form>
                 }
             </div>
