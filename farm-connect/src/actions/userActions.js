@@ -47,7 +47,7 @@ export const signInUser = (payload, ownProps) => {
             } else {
                 dispatch({
                     type: "SIGN_UP_OR_LOGIN_FAILURE",
-                    message: json.message
+                    messages: json.messages
                 });
                 ownProps.history.push("/");
             }

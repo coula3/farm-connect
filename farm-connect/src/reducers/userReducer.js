@@ -2,7 +2,7 @@ const initialState = {
     userId: "",
     userAttributes: {},
     photo: null,
-    message: "",
+    messages: [],
     isLoading: false,
     isAuthenticated: false
 }
@@ -28,13 +28,13 @@ const userReducer = (state = initialState, action) => {
         case "SIGN_UP_OR_LOGIN_FAILURE":
             return {
                 ...state,
-                message: action.message,
+                messages: action.messages,
                 isLoading: false
             }
         case "CLEAR_ERROR_MESSAGES":
             return {
                 ...state,
-                message: ""
+                messages: []
             }
 
         case "EDIT_USER":
