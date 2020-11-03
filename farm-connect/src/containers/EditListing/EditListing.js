@@ -14,7 +14,8 @@ class EditListing extends Component {
             information: "",
             closed: ""
         },
-        editMode: false
+        editMode: false,
+        maxInfoCharacters: 255
     }
 
     handleChange = (e) => {
@@ -96,6 +97,10 @@ class EditListing extends Component {
         return this.state.editMode ?  this.state.listing.info : infoProps
     }
 
+    getCharactersLength = (infoProps) => {
+        return this.state.editMode ? this.state.listing.information.length : infoProps.length
+    }
+
     closeListing = (closeDate) => {
         return !this.state.listing.closed ? closeDate : ""
     }
@@ -146,6 +151,7 @@ class EditListing extends Component {
                         <p>
                             <label style={{verticalAlign: "top"}}>Supplementary Info </label >
                             <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onChange={this.handleChange}></textarea>
+                            <label> {this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
                         </p>
 
                         <p>
