@@ -31,6 +31,11 @@ const userReducer = (state = initialState, action) => {
                 message: action.message,
                 isLoading: false
             }
+        case "CLEAR_ERROR_MESSAGES":
+            return {
+                ...state,
+                message: ""
+            }
 
         case "EDIT_USER":
             return {
