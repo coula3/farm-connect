@@ -144,7 +144,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>Quantity:
-                            <input type="number" name="quantity" value={this.getQuantity(this.props.listing.attributes.quantity)} onClick={this.handleSwitchState} onChange={this.handleChange} />
+                            <input type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                         </p>
 
                         <p>Measure:
