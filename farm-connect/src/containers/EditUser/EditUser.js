@@ -14,25 +14,29 @@ class EditUser extends Component {
     }
 
     handleSwitchState = () => {
-        this.setState({
-            editMode: true,
-            user: {
-                ...this.state.user,
-                firstName: this.props.userAttributes.first_name,
-                lastName: this.props.userAttributes.last_name,
-                dateOfBirth: this.props.userAttributes.date_of_birth.slice(0, 10),
-                email: this.props.userAttributes.email
-            }
-        })
+        if(!this.state.editMode){
+            this.setState({
+                editMode: true,
+                user: {
+                    ...this.state.user,
+                    firstName: this.props.userAttributes.first_name,
+                    lastName: this.props.userAttributes.last_name,
+                    dateOfBirth: this.props.userAttributes.date_of_birth.slice(0, 10),
+                    email: this.props.userAttributes.email
+                }
+            })
+        }
     }
 
     handleChange = (e) => {
-        this.setState({
-            user: {
-                ...this.state.user,
-                [e.target.name]: e.target.value
-            }
-        })
+        if(this.state.editMode){
+            this.setState({
+                user: {
+                    ...this.state.user,
+                    [e.target.name]: e.target.value
+                }
+            })
+        }
     }
 
     handleSubmit = (e) => {
