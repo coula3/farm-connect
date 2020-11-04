@@ -18,7 +18,10 @@ export const signUpUser = (payload, ownProps) => {
                 localStorage.setItem('jwt_token', json.jwt);
                 ownProps.history.push(`/listings`);
             } else {
-                dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
+                dispatch({
+                    type: "SIGN_UP_OR_LOGIN_FAILURE",
+                    messages: json.messages
+                });
             }
         })
     }
