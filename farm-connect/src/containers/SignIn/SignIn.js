@@ -39,15 +39,16 @@ class SignIn extends Component {
     }
 
     handleSwitchToSignUp = () => {
-        this.props.history.push("/signup")
+        this.props.clearErrorMessages();
+        this.props.history.push("/signup");
     }
 
     renderErrorMessages = () => {
         if(this.props.messages.length > 0){
-            setTimeout(() => this.props.clearErrorMessages(), 3000)
+            setTimeout(() => this.props.clearErrorMessages(), 3000);
             return <ErrorMessages messages={this.props.messages} />
         } else {
-            return null
+            return null;
         }
     }
 
