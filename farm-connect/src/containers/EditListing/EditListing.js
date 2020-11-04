@@ -99,7 +99,12 @@ class EditListing extends Component {
     }
 
     getAvailable = (availableProps) => {
-        return this.state.editMode ?  this.convertToYesNo(this.state.listing.available) : this.convertToYesNo(availableProps);
+        return this.state.editMode ?
+            (this.state.listing.available === "Yes" || this.state.listing.available === "No" ?
+                this.state.listing.available :
+                this.convertToYesNo(this.state.listing.available)
+                ) :
+            this.convertToYesNo(availableProps);
     }
 
     getSuppInfo = (infoProps) => {
