@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signUpUser } from '../../actions/userActions';
+import { signUpUser, clearErrorMessages } from '../../actions/userActions';
+import ErrorMessages from '../../components/ErrorMessages/ErrorMessages';
 
 class SignUp extends Component {
     state = {
@@ -43,9 +44,22 @@ class SignUp extends Component {
         this.props.history.push("/")
     }
 
+    renderErrorMessages = () => {
+        if(this.props.messages.length > 0){
+            setTimeout(() => this.props.clearErrorMessages(), 3000)
+            return (<>
+                        <br />
+                        <ErrorMessages messages={this.props.messages} />
+                    </>)
+        } else {
+            return null
+        }
+    }
+
     render(){
         return(
             <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
+                {this.renderErrorMessages()}
                 <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
                     <p><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
                     <p><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
@@ -76,13 +90,15 @@ const mapStateToProps = (state) => {
         userId: state.currentUser.userId,
         userAttributes: state.currentUser.userAttributes,
         isLoading: state.currentUser.isLoading,
-        isAuthenticated: state.currentUser.isAuthenticated
+        isAuthenticated: state.currentUser.isAuthenticated,
+        messages: state.currentUser.messages
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        signUpUser: (payload) => dispatch(signUpUser(payload, ownProps))
+        signUpUser: (payload) => dispatch(signUpUser(payload, ownProps)),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
 
