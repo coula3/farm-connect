@@ -170,12 +170,12 @@ class EditListing extends Component {
 
                         <p>
                             <label>Close Listing </label>
-                            <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onClick={this.handleSwitchState} onChange={this.handleChange}/>
+                            <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onFocus={this.handleSwitchState} onChange={this.handleChange}/>
                         </p>
 
                         <p>
                             <input type="submit" disabled={this.state.editMode ? false : true}/>
-                            <input type="submit" value="Cancel Edit" onClick={this.handleCancelEdit} />
+                            <input type="submit" value="Cancel" onClick={this.handleCancelEdit} />
                         </p>
                     </form>
                 }
