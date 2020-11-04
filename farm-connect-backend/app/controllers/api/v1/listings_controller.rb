@@ -43,6 +43,7 @@ class Api::V1::ListingsController < ApplicationController
             end
         end
         listing.update(measure: nil) if !listing.quantity
+        listing.update(available: available)
         render json: ListingSerializer.new(listing)
     end
 
