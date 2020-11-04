@@ -19,21 +19,33 @@ class EditListing extends Component {
         maxInfoCharacters: 255
     }
 
+    handleSwitchState = () => {
+        if(!this.state.editMode){
+            this.setState({
+                editMode: true,
+                listing: {
+                    ...this.state.listing,
+                    commodity: this.props.listing.attributes.commodity.name,
+                    availability: this.props.listing.attributes.availability,
+                    measure: this.props.listing.attributes.measure,
+                    quantity: this.props.listing.attributes.quantity,
+                    available: this.props.listing.attributes.available,
+                    information: this.props.listing.attributes.information,
+                    closed: this.props.listing.attributes.closed
+                }
+            })
+        }
+    }
+
     handleChange = (e) => {
-        this.setState({
-            editMode: true,
-            listing: {
+        if(this.state.editMode){
+            this.setState({
+                listing: {
                 ...this.state.listing,
-                commodity: this.props.listing.attributes.commodity.name,
-                availability: this.props.listing.attributes.availability,
-                measure: this.props.listing.attributes.measure,
-                quantity: this.props.listing.attributes.quantity,
-                available: this.props.listing.attributes.available,
-                information: this.props.listing.attributes.information,
-                closed: this.props.listing.attributes.closed,
                 [e.target.name]: e.target.value
-            }
-        });
+                }
+            })
+        }
     }
 
     handleSubmit = (e) => {
@@ -120,7 +132,7 @@ class EditListing extends Component {
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
                         <p><label><strong>Listing Date</strong> {getDate(this.props.listing.attributes.date)}</label></p>
                         <p>Commodity:
-                            <select name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onChange={this.handleChange}>
+                            <select name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                 { this.props.commodities.map((commodity, idx) =>
                                     <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
                                 }
@@ -128,15 +140,15 @@ class EditListing extends Component {
                         </p>
 
                         <p>Est. Availability:
-                            <input type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onChange={this.handleChange} />
+                            <input type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
                         </p>
 
                         <p>Quantity:
-                            <input type="number" name="quantity" value={this.getQuantity(this.props.listing.attributes.quantity)} onChange={this.handleChange} />
+                            <input type="number" name="quantity" value={this.getQuantity(this.props.listing.attributes.quantity)} onClick={this.handleSwitchState} onChange={this.handleChange} />
                         </p>
 
                         <p>Measure:
-                            <select name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onChange={this.handleChange}>
+                            <select name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                 { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
                                     <option key={idx} value={measure}>{measure}</option>)
                                 }
@@ -144,7 +156,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>Availabe:
-                            <select name="available" value={this.getAvailable(this.props.listing.attributes.available)} onChange={this.handleChange}>
+                            <select name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
@@ -152,13 +164,13 @@ class EditListing extends Component {
 
                         <p>
                             <label style={{verticalAlign: "top"}}>Supplementary Info </label >
-                            <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onChange={this.handleChange}></textarea>
+                            <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
                             <label> {this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
                         </p>
 
                         <p>
                             <label>Close Listing </label>
-                            <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onChange={this.handleChange}/>
+                            <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onClick={this.handleSwitchState} onChange={this.handleChange}/>
                         </p>
 
                         <p>
