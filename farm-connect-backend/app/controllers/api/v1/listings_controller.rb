@@ -27,7 +27,7 @@ class Api::V1::ListingsController < ApplicationController
         elsif listing_params[:currentUserId]
             interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
         else
-            update_keys_array = listing_params.keys.select {|key| listing_params[key].present?}
+            update_keys_array = listing_params.keys
             if listing_params[:commodity].present?
                 commodity = Commodity.find_by(name: listing_params[:commodity])
                 listing.update(commodity_id: commodity.id)
@@ -35,9 +35,14 @@ class Api::V1::ListingsController < ApplicationController
                 update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
             else
                 update_closed_column(listing)
-                update_keys_array.slice(0..-2).each {|e| listing.update("#{e}": listing_params[e])}
+                if update_keys_array.length > 1
+                    update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
+                else
+                    update_keys_array.each {|e| listing.update("#{e}": listing_params[e])}
+                end
             end
         end
+        listing.update(measure: nil) if !listing.quantity
         render json: ListingSerializer.new(listing)
     end
 
