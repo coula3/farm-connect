@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signInUser, clearErrorMessages } from '../../actions/userActions';
-import ErrorMessages from '../../components/ErrorMessages/ErrorMessages';
+// import ErrorMessages from '../../components/ErrorMessages/ErrorMessages';
 
 class SignIn extends Component {
     state = {
@@ -43,23 +43,18 @@ class SignIn extends Component {
         this.props.history.push("/signup");
     }
 
-    renderErrorMessages = () => {
-        if(this.props.messages.length > 0){
-            setTimeout(() => this.props.clearErrorMessages(), 3000);
-            return <ErrorMessages messages={this.props.messages} />
-        } else {
-            return null;
-        }
+    clearErrorMessages = () => {
+        setTimeout(() => this.props.clearErrorMessages(), 3000);
     }
 
     render() {
         return (
             <div style={{margin: "auto", width: "40%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", padding:"15px 0px 15px 0px"}}>
-                {this.renderErrorMessages()}
                 <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
                     <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
-                    <button>Sign In</button>
+                    <p style={{fontSize:12, marginTop:0, color:"red"}}>{this.props.errorMessages.length > 0 ? this.props.errorMessages[0] : ""}</p>
+                    <button style={{marginTop:15}}>Sign In</button>
                 </form>
                 <button onClick={this.handleSwitchToSignUp}>Sign Up</button>
             </div>
@@ -73,7 +68,7 @@ const mapStateToProps = (state) => {
         userAttributes: state.currentUser.userAttributes,
         isLoading: state.currentUser.isLoading,
         isAuthenticated: state.currentUser.isAuthenticated,
-        messages: state.currentUser.messages
+        errorMessages: state.errorMessages.errorMessages
     }
 }
 
