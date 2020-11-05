@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signInUser, clearErrorMessages } from '../../actions/userActions';
-// import ErrorMessages from '../../components/ErrorMessages/ErrorMessages';
+import { signInUser } from '../../actions/userActions';
+import { clearErrorMessages } from '../../actions/errorActions';
 
 class SignIn extends Component {
     state = {
@@ -54,7 +54,7 @@ class SignIn extends Component {
                     <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <p style={{fontSize:12, marginTop:0, color:"red"}}>{this.props.errorMessages.length > 0 ? this.props.errorMessages[0] : ""}</p>
-                    <button style={{marginTop:15}}>Sign In</button>
+                    <button style={{marginTop:15}} onClick={this.clearErrorMessages}>Sign In</button>
                 </form>
                 <button onClick={this.handleSwitchToSignUp}>Sign Up</button>
             </div>
