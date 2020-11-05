@@ -179,7 +179,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>
-                            <input type="submit" disabled={this.state.editMode ? false : true}/>
+                            <input type="submit" value="Update" disabled={this.state.editMode ? false : true}/>
                             <input type="submit" value="Cancel" onClick={this.handleCancelEdit} />
                         </p>
                     </form>
