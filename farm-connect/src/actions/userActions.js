@@ -124,12 +124,6 @@ export const unConnectUsers = (currentUserId, connectId) => {
     }
 }
 
-export const clearErrorMessages = () => {
-    return (dispatch) => {
-        dispatch({type: "CLEAR_ERROR_MESSAGES"})
-    }
-}
-
 export const signOutUser = () => {
     return (dispatch) => {
         dispatch({type: "SIGN_OUT"});
