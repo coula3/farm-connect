@@ -8,7 +8,7 @@ class Api::V1::ProspectsController < ApplicationController
     end
 
     def index
-        prospects = Prospect.all.where.not(id: params[:id]).shuffle
+        prospects = Prospect.where.not(id: params[:id]).shuffle
 
         prospects_with_images = prospects.map do |prospect|
             @image = prospect.photo.attached? ? rails_blob_path(prospect.photo) : ""
