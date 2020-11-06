@@ -6,6 +6,7 @@ import { fetchCommodities } from '../../actions/commoditiesActions';
 import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
+import { clearErrorMessages } from '../../actions/errorActions';
 import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
@@ -14,6 +15,7 @@ class Listings extends React.Component {
        this.props.fetchCommodities();
        this.props.fetchProspects(this.props.userId);
        this.props.fetchListingsInterests();
+       this.props.clearErrorMessages();
     }
 
     handleClick = (id) => {
@@ -134,7 +136,8 @@ const mapDispatchToProps = (dispatch) => {
         fetchListing: (id) => dispatch(fetchListing(id)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
         fetchProspects: (userId) => dispatch(fetchProspects(userId)),
-        fetchListingsInterests: () => dispatch(fetchListingsInterests())
+        fetchListingsInterests: () => dispatch(fetchListingsInterests()),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
 

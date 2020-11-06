@@ -43,10 +43,6 @@ class SignIn extends Component {
         this.props.history.push("/signup");
     }
 
-    clearErrorMessages = () => {
-        setTimeout(() => this.props.clearErrorMessages(), 3000);
-    }
-
     render() {
         return (
             <div style={{margin: "auto", width: "40%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", padding:"15px 0px 15px 0px"}}>
@@ -54,7 +50,7 @@ class SignIn extends Component {
                     <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <p style={{fontSize:12, marginTop:0, color:"red"}}>{this.props.errorMessages.length > 0 ? this.props.errorMessages[0] : ""}</p>
-                    <button style={{marginTop:15}} onClick={this.clearErrorMessages}>Sign In</button>
+                    <button style={{marginTop:15}}>Sign In</button>
                 </form>
                 <button onClick={this.handleSwitchToSignUp}>Sign Up</button>
             </div>
