@@ -52,6 +52,13 @@ class SignUp extends Component {
         }
     }
 
+    typeErrorMessage = () => {
+        const type = this.props.errorMessages.filter( msg => msg.startsWith("Type"));
+        if(type.length > 0){
+            return <span style={{fontSize:10, color:"red"}}>selection of Farmer or Prospect required</span>
+        }
+    }
+
     render(){
         return(
             <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
@@ -71,6 +78,7 @@ class SignUp extends Component {
                             <label htmlFor="prospect">Prospect</label>
                             <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
+                        <p style={{margin:"0px"}}>{this.typeErrorMessage()}</p>
                     </div>
                     <br />
                     <button>Sign Up</button>
