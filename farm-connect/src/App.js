@@ -70,7 +70,12 @@ class App extends Component {
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
             />
             { this.props.isAuthenticated ?
-              <ResourcesBoard isLoadingProspects={this.props.isLoadingProspects} prospects={this.props.prospects} fetchProspect={(id) => this.fetchProspect(id)}/> :
+              <ResourcesBoard
+                isLoadingProspects={this.props.isLoadingProspects}
+                prospects={this.props.prospects}
+                fetchProspect={(id) => this.fetchProspect(id)}
+                listingsInterests={this.props.listingsInterests}
+              /> :
               null
             }
           </div>
@@ -96,7 +101,8 @@ const mapStateToProps = (state) => {
     prospect: state.prospects.prospect,
     farmerPhoto: state.farmers.photo,
     userPhoto: state.currentUser.photo,
-    isLoadingUser: state.currentUser.isLoading
+    isLoadingUser: state.currentUser.isLoading,
+    listingsInterests: state.interests.listingsInterests
   }
 }
 

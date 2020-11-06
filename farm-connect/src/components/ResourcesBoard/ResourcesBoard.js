@@ -5,7 +5,7 @@ import ListingsInterests from '../ListingsInterests/ListingsInterests';
 const ResourcesBoard = (props) => {
     return (
         <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
-            <ListingsInterests />
+            <ListingsInterests {...props} />
             <Prospects {...props} />
         </div>
     )
