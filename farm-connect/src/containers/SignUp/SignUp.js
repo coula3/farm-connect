@@ -45,6 +45,10 @@ class SignUp extends Component {
         this.props.history.push("/");
     }
 
+    clearErrorMessages = () => {
+        setTimeout(() => this.props.clearErrorMessages(), 3000);
+    }
+
     firstNameErrorMessage = () => {
         const firstName = this.props.errorMessages.filter( msg => msg.startsWith("First name"));
         if(firstName.length > 0){
@@ -119,7 +123,7 @@ class SignUp extends Component {
                         <p style={{margin:"0px"}}>{this.typeErrorMessage()}</p>
                     </div>
                     <br />
-                    <button>Sign Up</button>
+                    <button onClick={this.clearErrorMessages}>Sign Up</button>
                 </form>
                 <button onClick={this.handleSwitchToSignIn}>Sign In</button>
             </div>
