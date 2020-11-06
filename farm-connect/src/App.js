@@ -9,6 +9,7 @@ import Routes from './components/Routes/Routes';
 import { signOutUser, connectUsers, unConnectUsers } from './actions/userActions';
 import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
+import { fetchListing } from './actions/listingsActions'
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 
 class App extends Component {
@@ -75,6 +76,7 @@ class App extends Component {
                 prospects={this.props.prospects}
                 fetchProspect={(id) => this.fetchProspect(id)}
                 listingsInterests={this.props.listingsInterests}
+                fetchListing={(id) => this.props.fetchListing(id)}
               /> :
               null
             }
@@ -113,7 +115,8 @@ const mapDispatchToProps = (dispatch) => {
     addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId)),
     fetchProspect: (id) => dispatch(fetchProspect(id)),
     connectUsers: (currentUserId, connectId) => dispatch(connectUsers(currentUserId, connectId)),
-    unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId))
+    unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
+    fetchListing: (id) => dispatch(fetchListing(id))
   };
 }
 
