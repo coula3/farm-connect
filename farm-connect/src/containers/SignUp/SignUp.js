@@ -68,6 +68,13 @@ class SignUp extends Component {
         }
     }
 
+    emailErrorMessage = () => {
+        const email = this.props.errorMessages.filter(msg => msg.startsWith("Email"));
+        if(email.length > 0){
+            return "email required"
+        }
+    }
+
     typeErrorMessage = () => {
         const type = this.props.errorMessages.filter(msg => msg.startsWith("Type"));
         if(type.length > 0){
@@ -85,7 +92,8 @@ class SignUp extends Component {
                     <p style={{margin:"0px", fontSize:10, color:"red"}}>{this.lastNameErrorMessage()}</p>
                     <p style={{marginBottom:0}}><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
                     <p style={{margin:"0px", fontSize:10, color:"red"}}>{this.dateOfBirthErrorMessage()}</p>
-                    <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
+                    <p style={{marginBottom:0}}><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
+                    <p style={{margin:"0px", fontSize:10, color:"red"}}>{this.emailErrorMessage()}</p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <div>
                         <div style={{display: "inline", marginRight: 15}}>
