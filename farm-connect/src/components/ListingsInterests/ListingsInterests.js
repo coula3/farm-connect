@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ListingsInterests = (props) => {
     const listingsInterests = props.listingsInterests.map((listing, idx) => {
         return (
             <ul style={{listStyle:"none", paddingLeft:"0px"}} key={idx}>
-                <li>{listing[0]} - {listing[2]} ({listing[1]})</li>
+                <li><Link to={`/listings/${listing[0]}`} onClick={() => props.fetchListing(listing[0])}>{listing[0]}</Link> - {listing[2]} ({listing[1]})</li>
             </ul>
         )
     })
