@@ -70,8 +70,12 @@ class SignUp extends Component {
 
     emailErrorMessage = () => {
         const email = this.props.errorMessages.filter(msg => msg.startsWith("Email"));
-        if(email.length > 0){
+        if(email.length > 0 && email[0].endsWith("blank")){
             return "email required"
+        } else if(email.length > 0 && email[0].endsWith("invalid")){
+            return "email is invalid"
+        } else if(email.length > 0 && email[0].endsWith("been taken")){
+            return "email unavailable";
         }
     }
 
