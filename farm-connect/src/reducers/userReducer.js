@@ -2,7 +2,6 @@ const initialState = {
     userId: "",
     userAttributes: {},
     photo: null,
-    messages: [],
     isLoading: false,
     isAuthenticated: false
 }
@@ -68,7 +67,6 @@ const userReducer = (state = initialState, action) => {
         default:
             return state
     }
-
 }
 
 export default userReducer;
