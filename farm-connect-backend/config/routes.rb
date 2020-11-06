@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :listings
       resources :commodities
       resources :prospects
+      resources :interests
     end
   end
 end
