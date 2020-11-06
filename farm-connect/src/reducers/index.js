@@ -5,6 +5,7 @@ import commoditiesReducer from './commoditiesReducer';
 import farmersReducer from './farmersReducer';
 import prospectsReducer from './prospectsReducer';
 import { errorsReducer } from './errorsReducer';
+import { interestsReducer } from './interestsReducer';
 
 const rootReducer = combineReducers({
     currentUser: userReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     commodities: commoditiesReducer,
     farmers: farmersReducer,
     prospects: prospectsReducer,
+    interests: interestsReducer,
     errorMessages: errorsReducer
 })
 
