@@ -11,7 +11,7 @@ export const errorsReducer = (state=initialState, action) => {
         case "CLEAR_ERROR_MESSAGES":
             return {
                 ...state,
-                messages: []
+                errorMessages: []
             }
 
         default:
