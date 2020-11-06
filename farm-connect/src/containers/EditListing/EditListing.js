@@ -124,6 +124,10 @@ class EditListing extends Component {
         this.props.history.push(`/listings/${this.props.listing.id}`);
     }
 
+    closeListingWarning = () => {
+        return this.state.listing.closed ? "Be aware that closed listing would not be re-opened" : null
+    }
+
     render(){
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
@@ -177,6 +181,8 @@ class EditListing extends Component {
                             <label>Close Listing </label>
                             <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onFocus={this.handleSwitchState} onChange={this.handleChange}/>
                         </p>
+
+                        <p style={{color:"red", fontSize:12}}>{this.closeListingWarning()}</p>
 
                         <p>
                             <input type="submit" value="Update" disabled={this.state.editMode ? false : true}/>
