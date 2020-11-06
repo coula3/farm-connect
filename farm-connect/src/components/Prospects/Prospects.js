@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import avatar from '../../assets/avatar.png';
+import Loader from '../Loader/Loader';
 
 const Prospects = (props) => {
     const prospectPhoto = (image) => {
@@ -24,8 +25,11 @@ const Prospects = (props) => {
     })
 
     return (
-        <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
-            {prospects}
+        <div style={{width: "15%", display: "inline"}}>
+            { props.isLoadingProspects ?
+                <Loader /> :
+                prospects
+            }
         </div>
     )
 }
