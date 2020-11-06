@@ -61,8 +61,10 @@ class SignUp extends Component {
 
     dateOfBirthErrorMessage = () => {
         const dateOfBirth = this.props.errorMessages.filter(msg => msg.startsWith("Date"));
-        if(dateOfBirth.length > 0){
+        if(dateOfBirth.length > 0 && dateOfBirth[0].endsWith("blank")){
             return "date of birth required";
+        } else if(dateOfBirth.length > 0 && dateOfBirth[0].endsWith("least 13 years")){
+            return "age must be least 13 years";
         }
     }
 
