@@ -48,7 +48,14 @@ class SignUp extends Component {
     firstNameErrorMessage = () => {
         const firstName = this.props.errorMessages.filter( msg => msg.startsWith("First name"));
         if(firstName.length > 0){
-            return <span style={{fontSize:10, color:"red"}}>first name required</span>
+            return "first name required"
+        }
+    }
+
+    lastNameErrorMessage = () => {
+        const lastName = this.props.errorMessages.filter( msg => msg.startsWith("Last name"));
+        if(lastName.length > 0){
+            return "last name required"
         }
     }
 
@@ -64,8 +71,9 @@ class SignUp extends Component {
             <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
                 <form style={{padding: 10, marginBottom:"5px"}} onSubmit={this.handleSubmit}>
                     <p style={{marginBottom:0}}><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px"}}>{this.firstNameErrorMessage()}</p>
-                    <p><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
+                    <p style={{margin:"0px", fontSize:10, color:"red"}}>{this.firstNameErrorMessage()}</p>
+                    <p style={{marginBottom:0}}><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
+                    <p style={{margin:"0px", fontSize:10, color:"red"}}>{this.lastNameErrorMessage()}</p>
                     <p><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
                     <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
