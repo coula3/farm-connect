@@ -77,6 +77,7 @@ class App extends Component {
                 fetchProspect={(id) => this.fetchProspect(id)}
                 listingsInterests={this.props.listingsInterests}
                 fetchListing={(id) => this.props.fetchListing(id)}
+                isLoadingInterests={this.props.isLoadingInterests}
               /> :
               null
             }
@@ -104,7 +105,8 @@ const mapStateToProps = (state) => {
     farmerPhoto: state.farmers.photo,
     userPhoto: state.currentUser.photo,
     isLoadingUser: state.currentUser.isLoading,
-    listingsInterests: state.interests.listingsInterests
+    listingsInterests: state.interests.listingsInterests,
+    isLoadingInterests: state.interests.isLoadingInterests
   }
 }
 
