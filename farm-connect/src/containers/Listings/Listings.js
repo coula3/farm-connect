@@ -11,11 +11,13 @@ import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
     componentDidMount(){
-       this.props.fetchListings();
-       this.props.fetchCommodities();
-       this.props.fetchProspects(this.props.userId);
-       this.props.fetchListingsInterests();
-       this.props.clearErrorMessages();
+        this.props.fetchListings();
+        this.props.fetchCommodities();
+        this.props.fetchProspects(this.props.userId);
+        this.props.fetchListingsInterests();
+        if(this.props.errorMessages.length > 0){
+            this.props.clearErrorMessages();
+        }
     }
 
     handleClick = (id) => {
@@ -125,7 +127,8 @@ const mapStateToProps = (state) => {
         isLoadingListings: state.listings.isLoadingListings,
         listings: state.listings.listings,
         commodities: state.commodities.commodities,
-        listing: state.listings.listing
+        listing: state.listings.listing,
+        errorMessages: state.errorMessages.errorMessages
     }
 }
 
