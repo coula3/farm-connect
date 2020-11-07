@@ -1,6 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
+import { getDate } from '../../assets/Miscellaneous';
 
 const CurrentUser = (props) => {
     const userPhoto = (userPhoto) => {
@@ -19,10 +20,10 @@ const CurrentUser = (props) => {
                     }
                 </div>
                 <p><label>ID: </label>{props.userId}</p>
-                <p><label>Date of Birth: </label>{props.userAttributes.date_of_birth.slice(0, 10)}</p>
+                <p><label>Date of Birth: </label>{getDate(props.userAttributes.date_of_birth)}</p>
                 <p><label>eMail: </label>{props.userAttributes.email}</p>
                 <br />
-                <p><label>Joined: </label>{props.userAttributes.created_at.slice(0, 10)}</p>
+                <p><label>Joined: </label>{getDate(props.userAttributes.created_at)}</p>
             </div>
             }
         </div>

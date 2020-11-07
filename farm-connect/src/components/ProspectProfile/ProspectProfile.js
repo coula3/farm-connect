@@ -1,6 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
+import { getDate } from '../../assets/Miscellaneous';
 
 const ProspectProfile = (props) => {
     const consolidatedConnects = [ ...props.userAttributes.connects, ...props.userAttributes.inverse_connects ];
@@ -50,7 +51,7 @@ const ProspectProfile = (props) => {
                     <p><label>Name: </label>{props.prospect.attributes.first_name} {props.prospect.attributes.last_name}</p>
                     <p><label>eMail: </label>{props.prospect.attributes.email}</p>
                     <br />
-                    <p><label>Joined: </label>{props.prospect.attributes.created_at.slice(0, 10)}</p>
+                    <p><label>Joined: </label>{getDate(props.prospect.attributes.created_at)}</p>
                 </div>
             }
         </div>

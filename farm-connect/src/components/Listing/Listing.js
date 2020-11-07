@@ -45,7 +45,7 @@ const Listing = (props) => {
                     <p><label>List Date: </label>{getDate(props.listing.attributes.date)}</p>
                     <p><label>Farmer: </label>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</p> 
                     <p><label>Commodity: </label>{props.listing.attributes.commodity.name}</p>
-                    <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? props.listing.attributes.availability.slice(0, 10) : null}</p>
+                    <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? getDate(props.listing.attributes.availability) : null}</p>
                     {props.listing.attributes.available ?
                         <p><label>Available: </label>{convertTrueToYes(props.listing.attributes.available)}</p> :
                         null
