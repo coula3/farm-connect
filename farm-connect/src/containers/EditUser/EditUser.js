@@ -49,19 +49,19 @@ class EditUser extends Component {
     }
 
     getFirstName = (firstNameProps) => {
-        return this.state.user.firstName ? this.state.user.firstName : firstNameProps
+        return this.state.editMode ? this.state.user.firstName : firstNameProps;
     }
 
     getLastName = (lastNameProps) => {
-        return this.state.user.lastName ? this.state.user.lastName : lastNameProps
+        return this.state.editMode ? this.state.user.lastName : lastNameProps;
     }
 
     getDateOfBirth = (dateOfBirthProps) => {
-        return this.state.user.dateOfBirth ? this.state.user.dateOfBirth : dateOfBirthProps
+        return this.state.editMode ? this.state.user.dateOfBirth : dateOfBirthProps.slice(0, 10);
     }
 
     getEmail = (emailProps) => {
-        return this.state.user.email ? this.state.user.email : emailProps
+        return this.state.editMode ? this.state.user.email : emailProps;
     }
 
     render(){
