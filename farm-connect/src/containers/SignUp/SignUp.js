@@ -95,7 +95,7 @@ class SignUp extends Component {
 
     render(){
         return(
-            <div style={{margin: "auto", width: "30%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
+            <div style={{margin: "auto", width: "40%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
                 <form style={{padding: 10, marginBottom:"5px"}} onSubmit={this.handleSubmit}>
                     <p style={{marginBottom:0}}><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
                     <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.firstNameErrorMessage()}</p>
