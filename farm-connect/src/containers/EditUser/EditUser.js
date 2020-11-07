@@ -48,14 +48,30 @@ class EditUser extends Component {
         this.props.history.push(`/users/${this.props.userId}`)
     }
 
+    getFirstName = (firstNameProps) => {
+        return this.state.user.firstName ? this.state.user.firstName : firstNameProps
+    }
+
+    getLastName = (lastNameProps) => {
+        return this.state.user.lastName ? this.state.user.lastName : lastNameProps
+    }
+
+    getDateOfBirth = (dateOfBirthProps) => {
+        return this.state.user.dateOfBirth ? this.state.user.dateOfBirth : dateOfBirthProps
+    }
+
+    getEmail = (emailProps) => {
+        return this.state.user.email ? this.state.user.email : emailProps
+    }
+
     render(){
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
-                    <p><input type="text" name="firstName" value={this.state.user.firstName ? this.state.user.firstName : this.props.userAttributes.first_name} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p><input type="text" name="lastName" value={this.state.user.lastName ? this.state.user.lastName : this.props.userAttributes.last_name} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth ? this.state.user.dateOfBirth : this.props.userAttributes.date_of_birth.slice(0, 10)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
-                    <p><input type="text" name="email" value={this.state.user.email ? this.state.user.email : this.props.userAttributes.email} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p><input type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p><input type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
+                    <p><input type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <br />
                     <button disabled={!this.state.editMode}>Update</button>
                     <button onClick={this.handleCancelEdit}>Cancel Edit</button>
