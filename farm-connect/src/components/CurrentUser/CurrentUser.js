@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
 import { getDate } from '../../assets/Miscellaneous';
@@ -24,6 +25,8 @@ const CurrentUser = (props) => {
                 <p><label>eMail: </label>{props.userAttributes.email}</p>
                 <br />
                 <p><label>Joined: </label>{getDate(props.userAttributes.created_at)}</p>
+                <br />
+                <p><Link to={`/users/${props.userId}/edit`}>Edit Profile</Link></p>
             </div>
             }
         </div>
