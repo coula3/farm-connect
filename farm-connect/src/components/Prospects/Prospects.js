@@ -28,7 +28,10 @@ const Prospects = (props) => {
         <div style={{width: "15%", display: "inline"}}>
             { props.isLoadingProspects ?
                 <Loader /> :
-                prospects
+                <>
+                    <h5>Suggested Prospects</h5>
+                    {prospects}
+                </>
             }
         </div>
     )
