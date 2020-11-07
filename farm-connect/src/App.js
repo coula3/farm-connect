@@ -44,7 +44,7 @@ class App extends Component {
         <Router>
           <AppHeader />
           { this.props.isAuthenticated ?
-            <HeadNavBar userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} userPhoto={this.props.userPhoto} /> :
+            <HeadNavBar userId={this.props.userId} userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} userPhoto={this.props.userPhoto} /> :
             null
           }
           <div style={{clear:"both"}}>
