@@ -44,6 +44,10 @@ class EditUser extends Component {
         this.props.editUser(this.props.userId, this.state)
     }
 
+    handleCancelEdit = () => {
+        this.props.history.push(`/users/${this.props.userId}`)
+    }
+
     render(){
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
@@ -54,6 +58,7 @@ class EditUser extends Component {
                     <p><input type="text" name="email" value={this.state.user.email ? this.state.user.email : this.props.userAttributes.email} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <br />
                     <button>Update</button>
+                    <button onClick={this.handleCancelEdit}>Cancel Edit</button>
                 </form>
             </div>
         )
