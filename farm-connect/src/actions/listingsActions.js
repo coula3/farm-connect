@@ -1,3 +1,5 @@
+import { fetchListingsInterests } from './interestsActions';
+
 export const fetchListings = () => {
  return (dispatch) => {
     dispatch({type: "LOADING_LISTINGS"});
@@ -101,6 +103,7 @@ export const removeUserListingInterest = (listingId, payload) => {
                 type: "REMOVE_USER_LISTING_INTEREST",
                 listing: json.data
             });
+            dispatch(fetchListingsInterests());
         })
     }
 }
@@ -122,6 +125,7 @@ export const addUserListingInterest = (currentUserId, listingId) => {
                 type: "ADD_NEW_INTEREST_TO_LISTING",
                 listing: json.data
             })
+            dispatch(fetchListingsInterests());
         })
     }
 }
