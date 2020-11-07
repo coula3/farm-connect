@@ -7,7 +7,7 @@ import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { padListingId } from '../../assets/Miscellaneous';
+import { padIds } from '../../assets/Miscellaneous';
 import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
@@ -82,7 +82,7 @@ class Listings extends React.Component {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{padListingId(listing.id)}</Link></td>
+                                <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{padIds(listing.id)}</Link></td>
                                 <td>{listDate}</td>
                                 <td>{commodity}</td>
                                 { !this.props.match.path.endsWith(":id/listings") ?

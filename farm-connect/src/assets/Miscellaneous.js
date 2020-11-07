@@ -5,12 +5,12 @@ export const getDate = (sourceDate) => {
     return `${months[date.getMonth()].slice(0, 3)} ${sourceDate.slice(8, 10)}, ${sourceDate.slice(0, 4)}`;
 }
 
-export const padListingId = (listingId) => {
-    if(listingId < 10){
-        return "00" + listingId;
-    } else if (listingId > 9 && listingId < 100){
-        return "0" + listingId;
+export const padIds = (id) => {
+    if(id < 10){
+        return "00" + id;
+    } else if (id > 9 && id < 100){
+        return "0" + id;
     } else {
-        return listingId;
+        return id;
     }
 }
