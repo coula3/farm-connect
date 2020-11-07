@@ -7,6 +7,7 @@ import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
+import { padListingId } from '../../assets/Miscellaneous';
 import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
@@ -55,13 +56,13 @@ class Listings extends React.Component {
             listing.attributes.available ? available = "✓" : available = "";
             let listingId;
 
-            if(listing.id < 10){
-                listingId = "00" + listing.id;
-            } else if (listing.id > 9 && listing.id < 100){
-                listingId = "0" + listing.id;
-            } else {
-                listingId = listing.id;
-            }
+            // if(listing.id < 10){
+            //     listingId = "00" + listing.id;
+            // } else if (listing.id > 9 && listing.id < 100){
+            //     listingId = "0" + listing.id;
+            // } else {
+            //     listingId = listing.id;
+            // }
 
             return (
                 <div key={listing.id}>
@@ -81,7 +82,7 @@ class Listings extends React.Component {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{listingId}</Link></td>
+                                <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{padListingId(listing.id)}</Link></td>
                                 <td>{listDate}</td>
                                 <td>{commodity}</td>
                                 { !this.props.match.path.endsWith(":id/listings") ?
