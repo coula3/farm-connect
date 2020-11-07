@@ -56,14 +56,6 @@ class Listings extends React.Component {
             listing.attributes.available ? available = "✓" : available = "";
             let listingId;
 
-            // if(listing.id < 10){
-            //     listingId = "00" + listing.id;
-            // } else if (listing.id > 9 && listing.id < 100){
-            //     listingId = "0" + listing.id;
-            // } else {
-            //     listingId = listing.id;
-            // }
-
             return (
                 <div key={listing.id}>
                     <table style={{width: "100%"}}>
