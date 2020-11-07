@@ -57,7 +57,7 @@ class EditUser extends Component {
                     <p><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth ? this.state.user.dateOfBirth : this.props.userAttributes.date_of_birth.slice(0, 10)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
                     <p><input type="text" name="email" value={this.state.user.email ? this.state.user.email : this.props.userAttributes.email} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <br />
-                    <button>Update</button>
+                    <button disabled={!this.state.editMode}>Update</button>
                     <button onClick={this.handleCancelEdit}>Cancel Edit</button>
                 </form>
             </div>
