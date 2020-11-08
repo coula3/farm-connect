@@ -32,11 +32,18 @@ export const createListing = (payload, ownProps) => {
         })
         .then(response => response.json())
         .then(json => {
-            dispatch({
-                type: "CREATE_NEW_LISTING",
-                listing: json.data
-            });
-            ownProps.history.push(`/listings/${json.data.id}`);
+            if(json.data){
+                dispatch({
+                    type: "CREATE_NEW_LISTING",
+                    listing: json.data
+                });
+                ownProps.history.push(`/listings/${json.data.id}`);
+            } else {
+                dispatch({
+                    type: "ADD_ERROR_MESSAGES",
+                    errorMessages: json.messages
+                });
+            }
         })
     }
 }
