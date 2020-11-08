@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createListing } from '../../actions/listingsActions';
+import { clearErrorMessages } from '../../actions/errorActions';
 
 class CreateListing extends Component {
     state = {
@@ -14,6 +15,10 @@ class CreateListing extends Component {
         },
         maxInfoCharacters: 255,
         disableMeasure: true
+    }
+
+    componentWillUnmount(){
+        this.props.clearErrorMessages();
     }
 
     handleChange = (e) => {
@@ -144,7 +149,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        createListing: (payload) => dispatch(createListing(payload, ownProps))
+        createListing: (payload) => dispatch(createListing(payload, ownProps)),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     };
 }
 
