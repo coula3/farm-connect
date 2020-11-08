@@ -50,7 +50,7 @@ class CreateListing extends Component {
 
     enableDisableMeasure = () => {
         if(parseInt(this.state.listing.quantity) > 0){
-            return this.setState({disableMeasure: false})
+            return this.setState({disableMeasure: false});
         } else {
             return this.setState({
                 listing: {...this.state.listing,
@@ -71,7 +71,7 @@ class CreateListing extends Component {
         if(availability.length > 0 && availability[0].endsWith("blank")){
             return "availability required";
         } else if(availability.length > 0 && availability[0].endsWith("today")){
-            return "availability must not be before today"
+            return "availability must not be before today";
         }
     }
 
