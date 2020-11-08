@@ -54,7 +54,6 @@ class Listings extends React.Component {
             const commodity = listing.attributes.commodity.name;
             let available;
             listing.attributes.available ? available = "✓" : available = "";
-            let listingId;
 
             return (
                 <div key={listing.id}>
