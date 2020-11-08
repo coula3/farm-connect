@@ -21,7 +21,7 @@ class Api::V1::ListingsController < ApplicationController
                 render json: {messages: listing.errors.full_messages}
             end
         else
-            render json: {messages: "Commodity can't be blank"}
+            render json: {messages: ["Commodity can't be blank"]}
         end
 
     end
