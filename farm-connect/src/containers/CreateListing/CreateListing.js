@@ -63,8 +63,10 @@ class CreateListing extends Component {
 
     availabilityErrorMessage = () => {
         const availability = this.props.errorMessages.filter( msg => msg.startsWith("Availability"));
-        if(availability.length > 0){
+        if(availability.length > 0 && availability[0].endsWith("blank")){
             return "availability required";
+        } else if(availability.length > 0 && availability[0].endsWith("today")){
+            return "availability must not be before today"
         }
     }
 
