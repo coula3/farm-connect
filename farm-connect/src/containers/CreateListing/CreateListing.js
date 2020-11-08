@@ -18,7 +18,9 @@ class CreateListing extends Component {
     }
 
     componentWillUnmount(){
-        this.props.clearErrorMessages();
+        if(this.props.errorMessages.length > 0){
+            this.props.clearErrorMessages();
+        }
     }
 
     handleChange = (e) => {
