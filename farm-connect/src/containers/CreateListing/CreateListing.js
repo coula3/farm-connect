@@ -54,6 +54,13 @@ class CreateListing extends Component {
         }
     }
 
+    commodityErrorMessage = () => {
+        const commodity = this.props.errorMessages.filter( msg => msg.startsWith("Commodity"));
+        if(commodity.length > 0){
+            return "commodity required";
+        }
+    }
+
     render(){
         const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const commoditiesList = ["--please choose--"];
@@ -65,7 +72,7 @@ class CreateListing extends Component {
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <h3>Create Listing</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <p>
+                    <p style={{marginBottom:0}}>
                         <label>Commodity </label> 
                         <select name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
                             { commoditiesList.map((commodity, idx) =>
@@ -73,6 +80,7 @@ class CreateListing extends Component {
                             }
                         </select>
                     </p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.commodityErrorMessage()}</p>
                     <p>
                         <label>Estimated Availability </label>
                         <input name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
@@ -111,7 +119,8 @@ class CreateListing extends Component {
 const mapStateToProps = (state) => {
     return {
         userId: state.currentUser.userId,
-        listing: state.listings.listing
+        listing: state.listings.listing,
+        errorMessages: state.errorMessages.errorMessages
     };
 }
 
