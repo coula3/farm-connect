@@ -18,10 +18,10 @@ class Api::V1::ListingsController < ApplicationController
             if listing.save
                 render json: ListingSerializer.new(listing)
             else
-                render json: {message: listing.errors.full_messages}
+                render json: {messages: listing.errors.full_messages}
             end
         else
-            render json: {message: "Commodity can't be blank"}
+            render json: {messages: "Commodity can't be blank"}
         end
 
     end
