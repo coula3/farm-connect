@@ -61,6 +61,13 @@ class CreateListing extends Component {
         }
     }
 
+    availabilityErrorMessage = () => {
+        const availability = this.props.errorMessages.filter( msg => msg.startsWith("Availability"));
+        if(availability.length > 0){
+            return "availability required";
+        }
+    }
+
     render(){
         const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const commoditiesList = ["--please choose--"];
@@ -81,10 +88,11 @@ class CreateListing extends Component {
                         </select>
                     </p>
                     <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.commodityErrorMessage()}</p>
-                    <p>
+                    <p style={{marginBottom:0}}>
                         <label>Estimated Availability </label>
                         <input name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
                     </p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.availabilityErrorMessage()}</p>
                     <p>
                         <label>Quantity </label>
                         <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/>
