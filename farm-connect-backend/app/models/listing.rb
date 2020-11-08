@@ -1,5 +1,3 @@
-# require 'time'
-
 class Listing < ApplicationRecord
   belongs_to :user
   belongs_to :commodity
