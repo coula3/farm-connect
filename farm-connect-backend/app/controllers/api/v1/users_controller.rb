@@ -27,8 +27,11 @@ class Api::V1::UsersController < ApplicationController
         user = User.find_by(id: params[:id])
 
         if !params.keys.include?("connectId")
-            update_user_profile(user)
-            render json: UserSerializer.new(user)
+            if update_user_profile(user)
+                render json: UserSerializer.new(user)
+            else
+                render json: {message: user.errors.full_messages}
+            end
         elsif connect
             connect.destroy
             render json: UserSerializer.new(user)
