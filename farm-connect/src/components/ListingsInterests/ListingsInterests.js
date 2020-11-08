@@ -17,7 +17,7 @@ const ListingsInterests = (props) => {
             { props.isLoadingInterests ?
                 <Loader /> :
                 <>
-                    <h5>High Interest Listings</h5>
+                    <h5 style={{color:"#3a5f0b", marginBottom:"0px"}}>High Interest Listings</h5>
                     {listingsInterests}
                 </>
             }

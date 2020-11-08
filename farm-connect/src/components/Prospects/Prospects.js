@@ -29,7 +29,7 @@ const Prospects = (props) => {
             { props.isLoadingProspects ?
                 <Loader /> :
                 <>
-                    <h5>Suggested Prospects</h5>
+                    <h5 style={{color:"#3a5f0b", marginBottom:"0px"}}>Suggested Prospects</h5>
                     {prospects}
                 </>
             }
