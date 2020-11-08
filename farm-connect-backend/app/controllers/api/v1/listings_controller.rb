@@ -13,9 +13,17 @@ class Api::V1::ListingsController < ApplicationController
         user = User.find_by(id: listing_params[:userId])
         commodity = Commodity.find_by(name: listing_params[:commodity])
 
-        listing = user.listings.create(commodity_id: commodity.id, date: Time.now, availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
+        if commodity
+            listing = user.listings.build(commodity_id: commodity.id, date: Time.now, availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
+            if listing.save
+                render json: ListingSerializer.new(listing)
+            else
+                render json: {message: listing.errors.full_messages}
+            end
+        else
+            render json: {message: "Commodity can't be blank"}
+        end
 
-        render json: ListingSerializer.new(listing)
     end
 
     def update
