@@ -68,6 +68,13 @@ class CreateListing extends Component {
         }
     }
 
+    measureErrorMessage = () => {
+        const measure = this.props.errorMessages.filter( msg => msg.startsWith("Measure"));
+        if(measure.length > 0){
+            return "measure required";
+        }
+    }
+
     render(){
         const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const commoditiesList = ["--please choose--"];
@@ -97,13 +104,14 @@ class CreateListing extends Component {
                         <label>Quantity </label>
                         <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/>
                     </p>
-                    <p>
+                    <p style={{marginBottom:0}}>
                         <label>Measure </label>
                         <select name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
                         {measuresList.map((measure, idx) =>
                         (<option key={idx} value={measure}>{measure}</option>))}
                         </select>
                     </p> 
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.measureErrorMessage()}</p>
                     <p>
                         <label>Available </label> 
                         <select name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
