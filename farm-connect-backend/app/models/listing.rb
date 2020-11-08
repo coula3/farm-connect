@@ -1,3 +1,5 @@
+# require 'time'
+
 class Listing < ApplicationRecord
   belongs_to :user
   belongs_to :commodity
@@ -9,7 +11,7 @@ class Listing < ApplicationRecord
   validate :availability_not_before_today
 
   def availability_not_before_today
-    if availability.present? && availability < Time.now
+    if availability.present? && availability < Date.today
         errors.add(:availability, "must not be before today")
     end
   end
