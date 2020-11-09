@@ -18,7 +18,7 @@ const SideNavBar = (props) => {
         if(props.userAttributes.type === "Farmer"){
             return (
                 <>
-                    <p><Link to="/listings/other-farmers" onClick={handleClick}>Listings - Others</Link></p>
+                    <p><Link to="/listings/other-farmers" onClick={handleClick}>Other Farmers</Link></p>
                     <br />
                     <span>My Listings</span>
                     <p><Link to={`/users/${props.userId}/listings`} onClick={handleClick}>Open</Link></p>
@@ -36,7 +36,6 @@ const SideNavBar = (props) => {
             <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
                 <br />
                 {createListing()}
-                <br />
                 <p><Link to="/listings" onClick={handleClick}>Listings</Link></p>
                 { renderFarmerUsersLinks() }
                 <br />
