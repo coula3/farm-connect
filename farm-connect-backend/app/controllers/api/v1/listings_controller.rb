@@ -26,7 +26,7 @@ class Api::V1::ListingsController < ApplicationController
                 render json: {messages: listing.errors.full_messages}
             end
         else
-            render json: {messages: ["Commodity can't be blank"]}
+            check_attributes_presence(commodity)
         end
 
     end
@@ -72,6 +72,14 @@ class Api::V1::ListingsController < ApplicationController
     def update_closed_column(listing)
         if listing_params[:closed].present?
             listing.update(closed: Time.now)
+        end
+    end
+
+    def check_attributes_presence(commodity)
+        if !commodity && listing_params[:availability].present?
+            render json: {messages: ["Commodity can't be blank"]}
+        elsif !commodity && !listing_params[:availability].present?
+            render json: {messages: ["Commodity can't be blank", "Availability can't be blank"]}
         end
     end
 end
