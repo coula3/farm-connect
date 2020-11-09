@@ -22,7 +22,10 @@ const SideNavBar = (props) => {
                     <br />
                     <span>My Listings</span>
                     <p><Link to={`/users/${props.userId}/listings`} onClick={handleClick}>Open</Link></p>
-                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => {props.fetchUserClosedListings(props); props.listingsUnrendered()}}>Closed</Link></p>
+                    { props.location.pathname === "/listings" || props.location.pathname === "/listings/other-farmers" || props.location.pathname === `/users/${props.userId}/closed-listings` || props.location.pathname === `/users/${props.userId}/listings` ?
+                        <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => {props.fetchUserClosedListings(props); props.listingsUnrendered()}}>Closed</Link></p> :
+                        null
+                    }
                 </>
             )
         }
