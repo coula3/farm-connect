@@ -73,11 +73,11 @@ export const editUser = (userId, payload, ownProps) => {
         })
         .then(response => response.json())
         .then(json => {
-            dispatch({
-                type: "EDIT_USER",
-                user: json.data
-            });
-            ownProps.history.push(`/users/${userId}`)
+                dispatch({
+                    type: "EDIT_USER",
+                    user: json.user
+                });
+                ownProps.history.push(`/users/${userId}`);
         })
     }
 }

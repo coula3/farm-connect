@@ -34,24 +34,24 @@ const userReducer = (state = initialState, action) => {
         case "EDIT_USER":
             return {
                 ...state,
-                userId: action.user.id,
-                userAttributes: action.user.attributes,
+                userId: action.user.data.id,
+                userAttributes: action.user.data.attributes,
                 isLoading: false
             }
 
         case "CONNECT_USERS":
             return {
                 ...state,
-                userId: action.user.id,
-                userAttributes: action.user.attributes,
+                userId: action.user.data.id,
+                userAttributes: action.user.data.attributes,
                 isLoading: false
             }
 
         case "UNCONNECT_USERS":
             return {
                 ...state,
-                userId: action.user.id,
-                userAttributes: action.user.attributes,
+                userId: action.user.data.id,
+                userAttributes: action.user.data.attributes,
                 isLoading: false
             }
 
