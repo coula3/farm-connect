@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editUser } from '../../actions/userActions';
+import * as messages from '../../assets/userErrors';
 
 class EditUser extends Component {
     state = {
@@ -69,10 +70,14 @@ class EditUser extends Component {
         return (
             <div style={{width: "60%", display: "inline", float: "left"}}>
                 <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
-                    <p><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p><input type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p><input type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
-                    <p><input type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p style={{marginBottom:0}}><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.firstNameError(this.props.errorMessages)}</p>
+                    <p style={{marginBottom:0}}><input type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.lastNameError(this.props.errorMessages)}</p>
+                    <p style={{marginBottom:0}}><input type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.dateOfBirthError(this.props.errorMessages)}</p>
+                    <p style={{marginBottom:0}}><input type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.emailError(this.props.errorMessages)}</p>
                     <br />
                     <button disabled={!this.state.editMode}>Update</button>
                     <button onClick={this.handleCancelEdit}>Cancel Edit</button>
@@ -85,7 +90,8 @@ class EditUser extends Component {
 const mapStateToProps = (state) => {
     return {
         userId: state.currentUser.userId,
-        userAttributes: state.currentUser.userAttributes
+        userAttributes: state.currentUser.userAttributes,
+        errorMessages: state.errorMessages.errorMessages
     }
 }
 
