@@ -61,6 +61,7 @@ const Routes = (props) => {
             <Route path="/users/:id/listings" component={Listings}/>
             <Route path="/farmers/:id/listings" component={Listings} />
             <Route path="/users/:id/edit" component={EditUser} />
+            <Route path="/users/:id/closed-listings" component={Listings}/>
         </Switch>
     )
 }
