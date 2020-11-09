@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const SideNavBar = (props) => {
+    const handleClick = () => {
+        props.listingsRendered();
+    }
+
     const createListing = () => {
         if(props.userAttributes.type === "Farmer"){
             return <p><Link to="/listings/new">Create Listing</Link></p>
@@ -11,11 +15,11 @@ const SideNavBar = (props) => {
         if(props.userAttributes.type === "Farmer"){
             return (
                 <>
-                    <p><Link to="/listings/other-farmers">Listings - Others</Link></p>
+                    <p><Link to="/listings/other-farmers" onClick={handleClick}>Listings - Others</Link></p>
                     <br />
                     <span>My Listings</span>
-                    <p><Link to={`/users/${props.userId}/listings`}>Open</Link></p>
-                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => {props.fetchUserClosedListings(props); props.listingsRendered()}}>Closed</Link></p>
+                    <p><Link to={`/users/${props.userId}/listings`} onClick={handleClick}>Open</Link></p>
+                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => {props.fetchUserClosedListings(props); props.listingsUnrendered()}}>Closed</Link></p>
                 </>
             )
         }
@@ -27,7 +31,7 @@ const SideNavBar = (props) => {
                 <br />
                 {createListing()}
                 <br />
-                <p><Link to="/listings">Listings</Link></p>
+                <p><Link to="/listings" onClick={handleClick}>Listings</Link></p>
                 { renderFarmerUsersLinks() }
                 <br />
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
