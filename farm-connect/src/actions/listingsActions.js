@@ -156,3 +156,9 @@ export const fetchUserClosedListings = (props) => {
         })
     }
 }
+
+export const listingsRendered = () => {
+    return (dispatch) => {
+        dispatch({type: "LISTINGS_RENDERED_ON"})
+    }
+}

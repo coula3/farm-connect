@@ -2,7 +2,8 @@ const initialState = {
     isLoading: false,
     isLoadingListings: false,
     listings: [],
-    listing: ""
+    listing: "",
+    listingsRendered: true
 }
 
 const listingsReducer = (state = initialState, action) => {
@@ -84,6 +85,12 @@ const listingsReducer = (state = initialState, action) => {
                 ...state,
                 listings: action.listings,
                 isLoadingListings: false
+            }
+
+        case "LISTINGS_RENDERED_ON":
+            return {
+                ...state,
+                listingsRendered: false
             }
 
         default:
