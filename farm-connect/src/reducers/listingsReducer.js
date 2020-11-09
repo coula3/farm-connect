@@ -79,6 +79,13 @@ const listingsReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "FETCH_USER_CLOSED_LISTINGS":
+            return {
+                ...state,
+                listings: action.listings,
+                isLoadingListings: false
+            }
+
         default:
             return state
     }

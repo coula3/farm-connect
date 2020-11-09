@@ -116,7 +116,7 @@ export const removeUserListingInterest = (listingId, payload) => {
 }
 
 export const addUserListingInterest = (currentUserId, listingId) => {
- return (dispatch) => {
+    return (dispatch) => {
         dispatch({type: "LOADING_NEW_INTEREST_ON_LISTING"});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
@@ -133,6 +133,26 @@ export const addUserListingInterest = (currentUserId, listingId) => {
                 listing: json.data
             })
             dispatch(fetchListingsInterests());
+        })
+    }
+}
+
+export const fetchUserClosedListings = (props) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_LISTINGS"});
+        fetch(`http://localhost:3000/api/v1/listings?id=${props.userId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "FETCH_USER_CLOSED_LISTINGS",
+                listings: json.data
+            });
         })
     }
 }
