@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
+import * as messages from '../../assets/listingErrors';
 
 class CreateListing extends Component {
     state = {
@@ -61,29 +62,6 @@ class CreateListing extends Component {
         }
     }
 
-    commodityErrorMessage = () => {
-        const commodity = this.props.errorMessages.filter( msg => msg.startsWith("Commodity"));
-        if(commodity.length > 0){
-            return "commodity required";
-        }
-    }
-
-    availabilityErrorMessage = () => {
-        const availability = this.props.errorMessages.filter( msg => msg.startsWith("Availability"));
-        if(availability.length > 0 && availability[0].endsWith("blank")){
-            return "availability required";
-        } else if(availability.length > 0 && availability[0].endsWith("today")){
-            return "availability must not be before today";
-        }
-    }
-
-    measureErrorMessage = () => {
-        const measure = this.props.errorMessages.filter( msg => msg.startsWith("Measure"));
-        if(measure.length > 0){
-            return "measure required";
-        }
-    }
-
     render(){
         const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         const commoditiesList = ["--please choose--"];
@@ -103,12 +81,12 @@ class CreateListing extends Component {
                             }
                         </select>
                     </p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.commodityErrorMessage()}</p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.commodityError(this.props.errorMessages)}</p>
                     <p style={{marginBottom:0}}>
                         <label>Estimated Availability </label>
                         <input name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
                     </p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.availabilityErrorMessage()}</p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.availabilityError(this.props.errorMessages)}</p>
                     <p>
                         <label>Quantity </label>
                         <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/>
@@ -120,7 +98,7 @@ class CreateListing extends Component {
                         (<option key={idx} value={measure}>{measure}</option>))}
                         </select>
                     </p> 
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.measureErrorMessage()}</p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.measureError(this.props.errorMessages)}</p>
                     <p>
                         <label>Available </label> 
                         <select name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
