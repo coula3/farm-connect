@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editUser } from '../../actions/userActions';
+import { clearErrorMessages } from '../../actions/errorActions';
 import * as messages from '../../assets/userErrors';
 
 class EditUser extends Component {
@@ -12,6 +13,12 @@ class EditUser extends Component {
             email: ""
         },
         editMode: false
+    }
+
+    componentWillUnmount(){
+        if(this.props.errorMessages.length > 0){
+            this.props.clearErrorMessages();
+        };
     }
 
     handleSwitchState = () => {
@@ -97,7 +104,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProp = (dispatch, ownProps) => {
     return {
-        editUser: (userId, payload) => dispatch(editUser(userId, payload, ownProps))
+        editUser: (userId, payload) => dispatch(editUser(userId, payload, ownProps)),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
 
