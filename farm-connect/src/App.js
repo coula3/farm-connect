@@ -48,7 +48,12 @@ class App extends Component {
           }
           <div style={{clear:"both"}}>
             { this.props.isAuthenticated ?
-              <SideNavBar userSignOut={this.handleUserSignOut} userId={this.props.userId} userAttributes={this.props.userAttributes} /> :
+              <SideNavBar
+                userSignOut={this.handleUserSignOut}
+                userId={this.props.userId}
+                userAttributes={this.props.userAttributes}
+                fetchUserClosedListings={(props) => this.props.fetchUserClosedListings(props)}
+              /> :
               null
             }
             <Routes
