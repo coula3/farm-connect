@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
             if update_user_profile(user)
                 render json: UserSerializer.new(user)
             else
-                render json: {message: user.errors.full_messages}
+                render json: {messages: user.errors.full_messages}
             end
         elsif connect
             connect.destroy
@@ -47,9 +47,9 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update_user_profile(user)
-        user.update(first_name: user_params[:firstName]) if user_params[:firstName].present?
-        user.update(last_name: user_params[:lastName]) if user_params[:lastName].present?
-        user.update(date_of_birth: user_params[:dateOfBirth]) if user_params[:dateOfBirth].present?
-        user.update(email: user_params[:email]) if user_params[:email].present?
+        user.update(first_name: user_params[:firstName])
+        user.update(last_name: user_params[:lastName])
+        user.update(date_of_birth: user_params[:dateOfBirth])
+        user.update(email: user_params[:email])
     end
 end
