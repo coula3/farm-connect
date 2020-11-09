@@ -7,7 +7,7 @@ import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { padIds } from '../../assets/Miscellaneous';
+import { padIds } from '../../assets/miscellaneous';
 import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {

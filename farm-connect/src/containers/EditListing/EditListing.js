@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
-import { getDate } from '../../assets/Miscellaneous';
+import { getDate } from '../../assets/miscellaneous';
 
 class EditListing extends Component {
     state = {
