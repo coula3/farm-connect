@@ -1,7 +1,12 @@
 class Api::V1::ListingsController < ApplicationController
     def index
-        listings = Listing.where(closed: nil)
-        render json: ListingSerializer.new(listings)
+        if params[:id]
+            listings = User.find(params[:id]).listings.where.not(closed: nil)
+            render json: ListingSerializer.new(listings)
+        else
+            listings = Listing.where(closed: nil)
+            render json: ListingSerializer.new(listings)
+        end
     end
 
     def show
