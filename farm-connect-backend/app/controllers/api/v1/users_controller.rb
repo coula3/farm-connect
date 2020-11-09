@@ -28,16 +28,16 @@ class Api::V1::UsersController < ApplicationController
 
         if !params.keys.include?("connectId")
             if update_user_profile(user)
-                render json: UserSerializer.new(user)
+                render json: { user: UserSerializer.new(user) }
             else
                 render json: {messages: user.errors.full_messages}
             end
         elsif connect
             connect.destroy
-            render json: UserSerializer.new(user)
+            render json: { user: UserSerializer.new(user) }
         else
             user.connections.create(connect_id: params[:connectId])
-            render json: UserSerializer.new(user)
+            render json: { user: UserSerializer.new(user) }
         end
     end
 
