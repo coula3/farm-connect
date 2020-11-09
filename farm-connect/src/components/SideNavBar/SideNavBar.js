@@ -4,6 +4,9 @@ import { Link, withRouter } from 'react-router-dom';
 const SideNavBar = (props) => {
     const handleClick = () => {
         props.listingsRendered();
+        if(!props.areListingsRendered){
+            props.fetchListings();
+        }
     }
 
     const createListing = () => {
