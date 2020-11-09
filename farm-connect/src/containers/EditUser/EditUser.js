@@ -44,7 +44,8 @@ class EditUser extends Component {
         this.props.editUser(this.props.userId, this.state)
     }
 
-    handleCancelEdit = () => {
+    handleCancelEdit = (e) => {
+        e.preventDefault();
         this.props.history.push(`/users/${this.props.userId}`)
     }
 
