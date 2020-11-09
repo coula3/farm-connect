@@ -7,7 +7,11 @@ const SideNavBar = (props) => {
             return (
                 <>
                     <p><Link to="/listings/other-farmers">Listings - Others</Link></p>
-                    <p><Link to={`/users/${props.userId}/listings`}>My Listings</Link></p>
+                    <br />
+                    <span>My Listing</span>
+                    <p><Link to={`/users/${props.userId}/listings`}>Open</Link></p>
+                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => props.fetchUserClosedListings(props)}>Closed</Link></p>
+                    <br />
                     <p><Link to="/listings/new">Create Listing</Link></p>
                 </>
             )
