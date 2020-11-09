@@ -15,7 +15,7 @@ const SideNavBar = (props) => {
                     <br />
                     <span>My Listings</span>
                     <p><Link to={`/users/${props.userId}/listings`}>Open</Link></p>
-                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => props.fetchUserClosedListings(props)}>Closed</Link></p>
+                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => {props.fetchUserClosedListings(props); props.listingsRendered()}}>Closed</Link></p>
                 </>
             )
         }
