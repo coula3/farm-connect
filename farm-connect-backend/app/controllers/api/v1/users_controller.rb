@@ -47,9 +47,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update_user_profile(user)
-        user.update(first_name: user_params[:firstName])
-        user.update(last_name: user_params[:lastName])
-        user.update(date_of_birth: user_params[:dateOfBirth])
-        user.update(email: user_params[:email])
+        user.update(first_name: user_params[:firstName]) && user.update(last_name: user_params[:lastName]) && user.update(date_of_birth: user_params[:dateOfBirth]) && user.update(email: user_params[:email])
     end
 end
