@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signUpUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
+import * as messages from '../../assets/userErrors';
 
 class SignUp extends Component {
     state = {
@@ -47,68 +48,20 @@ class SignUp extends Component {
         this.props.history.push("/");
     }
 
-    firstNameErrorMessage = () => {
-        const firstName = this.props.errorMessages.filter( msg => msg.startsWith("First name"));
-        if(firstName.length > 0){
-            return "first name required";
-        }
-    }
-
-    lastNameErrorMessage = () => {
-        const lastName = this.props.errorMessages.filter(msg => msg.startsWith("Last name"));
-        if(lastName.length > 0){
-            return "last name required";
-        }
-    }
-
-    dateOfBirthErrorMessage = () => {
-        const dateOfBirth = this.props.errorMessages.filter(msg => msg.startsWith("Date"));
-        if(dateOfBirth.length > 0 && dateOfBirth[0].endsWith("blank")){
-            return "date of birth required";
-        } else if(dateOfBirth.length > 0 && dateOfBirth[0].endsWith("least 13 years")){
-            return "age must be least 13 years";
-        }
-    }
-
-    emailErrorMessage = () => {
-        const email = this.props.errorMessages.filter(msg => msg.startsWith("Email"));
-        if(email.length > 0 && email[0].endsWith("blank")){
-            return "email required"
-        } else if(email.length > 0 && email[0].endsWith("invalid")){
-            return "email is invalid"
-        } else if(email.length > 0 && email[0].endsWith("been taken")){
-            return "email unavailable";
-        }
-    }
-
-    passwordErrorMessage = () => {
-        const password = this.props.errorMessages.filter(msg => msg.startsWith("Password"));
-        if(password.length > 0){
-            return "password required";
-        }
-    }
-
-    typeErrorMessage = () => {
-        const type = this.props.errorMessages.filter(msg => msg.startsWith("Type"));
-        if(type.length > 0){
-            return <span style={{marginTop:"0px", fontSize:12, color:"red"}}>selection of Farmer or Prospect required</span>
-        }
-    }
-
     render(){
         return(
             <div style={{margin: "auto", width: "40%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
                 <form style={{padding: 10, marginBottom:"5px"}} onSubmit={this.handleSubmit}>
                     <p style={{marginBottom:0}}><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.firstNameErrorMessage()}</p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.firstNameError(this.props.errorMessages)}</p>
                     <p style={{marginBottom:0}}><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.lastNameErrorMessage()}</p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.lastNameError(this.props.errorMessages)}</p>
                     <p style={{marginBottom:0}}><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.dateOfBirthErrorMessage()}</p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.dateOfBirthError(this.props.errorMessages)}</p>
                     <p style={{marginBottom:0}}><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{this.emailErrorMessage()}</p>
+                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.emailError(this.props.errorMessages)}</p>
                     <p style={{marginBottom:0}}><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
-                    <p style={{marginTop:"0px", fontSize:12, color:"red"}}>{this.passwordErrorMessage()}</p>
+                    <p style={{marginTop:"0px", fontSize:12, color:"red"}}>{messages.passwordError(this.props.errorMessages)}</p>
                     <div>
                         <div style={{display: "inline", marginRight: 15}}>
                             <label htmlFor="farmer">Farmer</label>
@@ -118,7 +71,7 @@ class SignUp extends Component {
                             <label htmlFor="prospect">Prospect</label>
                             <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
-                        <p style={{margin:"0px"}}>{this.typeErrorMessage()}</p>
+                        <p style={{margin:"0px"}}>{messages.typeError(this.props.errorMessages)}</p>
                     </div>
                     <br />
                     <button>Sign Up</button>
