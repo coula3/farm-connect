@@ -2,17 +2,20 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const SideNavBar = (props) => {
+    const createListing = () => {
+        if(props.userAttributes.type === "Farmer"){
+            return <p><Link to="/listings/new">Create Listing</Link></p>
+        }
+    }
     const renderFarmerUsersLinks = () => {
         if(props.userAttributes.type === "Farmer"){
             return (
                 <>
                     <p><Link to="/listings/other-farmers">Listings - Others</Link></p>
                     <br />
-                    <span>My Listing</span>
+                    <span>My Listings</span>
                     <p><Link to={`/users/${props.userId}/listings`}>Open</Link></p>
                     <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => props.fetchUserClosedListings(props)}>Closed</Link></p>
-                    <br />
-                    <p><Link to="/listings/new">Create Listing</Link></p>
                 </>
             )
         }
@@ -21,6 +24,8 @@ const SideNavBar = (props) => {
     return (
         <div>
             <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
+                <br />
+                {createListing()}
                 <br />
                 <p><Link to="/listings">Listings</Link></p>
                 { renderFarmerUsersLinks() }
