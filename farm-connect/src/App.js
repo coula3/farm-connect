@@ -7,9 +7,8 @@ import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import { signOutUser, connectUsers, unConnectUsers } from './actions/userActions';
-import { removeUserListingInterest, addUserListingInterest } from './actions/listingsActions';
+import { removeUserListingInterest, addUserListingInterest, fetchListing, fetchUserClosedListings } from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
-import { fetchListing } from './actions/listingsActions'
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 
 class App extends Component {
@@ -118,7 +117,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchProspect: (id) => dispatch(fetchProspect(id)),
     connectUsers: (currentUserId, connectId) => dispatch(connectUsers(currentUserId, connectId)),
     unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
-    fetchListing: (id) => dispatch(fetchListing(id))
+    fetchListing: (id) => dispatch(fetchListing(id)),
+    fetchUserClosedListings: (props) => dispatch(fetchUserClosedListings(props))
   };
 }
 
