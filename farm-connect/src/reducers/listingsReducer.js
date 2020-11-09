@@ -87,10 +87,16 @@ const listingsReducer = (state = initialState, action) => {
                 isLoadingListings: false
             }
 
-        case "LISTINGS_RENDERED_ON":
+        case "LISTINGS_RENDERED_OFF":
             return {
                 ...state,
                 listingsRendered: false
+            }
+
+        case "LISTINGS_RENDERED_ON":
+            return {
+                ...state,
+                listingsRendered: true
             }
 
         default:
