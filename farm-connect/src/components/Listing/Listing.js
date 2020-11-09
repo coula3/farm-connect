@@ -5,10 +5,12 @@ import { getDate} from '../../assets/Miscellaneous';
 
 const Listing = (props) => {
     const renderEditLink = (currentUserId, listingUserId, listingId) => {
-        if(parseInt(currentUserId) === listingUserId){
-            return <Link to={`/listings/${listingId}/edit`}>Edit Listing</Link>
-        } else {
-            return null
+        if(!props.listing.attributes.closed){
+            if(parseInt(currentUserId) === listingUserId){
+                return <Link to={`/listings/${listingId}/edit`}>Edit Listing</Link>
+            } else {
+                return null
+            }
         }
     }
 
