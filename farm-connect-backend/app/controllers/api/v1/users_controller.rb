@@ -27,7 +27,8 @@ class Api::V1::UsersController < ApplicationController
         user = User.find_by(id: params[:id])
 
         if !params.keys.include?("connectId")
-            if update_user_profile(user)
+            update_user_profile(user)
+            if user.save
                 render json: { user: UserSerializer.new(user) }
             else
                 render json: {messages: user.errors.full_messages}
@@ -47,6 +48,10 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update_user_profile(user)
-        user.update(first_name: user_params[:firstName]) && user.update(last_name: user_params[:lastName]) && user.update(date_of_birth: user_params[:dateOfBirth]) && user.update(email: user_params[:email])
+        user.first_name = user_params[:firstName]
+        user.last_name = user_params[:lastName]
+        user.date_of_birth = user_params[:dateOfBirth]
+        user.email = user_params[:email]
+        user
     end
 end
