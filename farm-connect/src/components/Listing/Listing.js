@@ -60,7 +60,11 @@ const Listing = (props) => {
                     <br />
 
                     {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
-                    <h5 style={{color:"red"}}>CLOSED on {getDate(props.listing.attributes.closed)}</h5>
+
+                    { props.listing.attributes.closed ?
+                        <h5 style={{color:"red"}}>CLOSED on {getDate(props.listing.attributes.closed)}</h5> :
+                        null
+                    }
                 </div>
             }
         </div>
