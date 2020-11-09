@@ -99,10 +99,16 @@ class Listings extends React.Component {
                 { this.props.isLoadingListings ?
                     <Loader /> :
                     <>
-                    { this.props.listings.length > 0 ?
-                        <h4 style={{color: "#3a5f0b"}}>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
-                        <h4 style={{color: "#3a5f0b"}}>No Open Listing</h4>
+                    { !this.props.match.path === "/users/:id/closed-listings" ?
+                        this.props.listings.length > 0 ?
+                            <h4 style={{color: "#3a5f0b"}}>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
+                            <h4 style={{color: "#3a5f0b"}}>No Open Listing</h4>
+                        :
+                        this.props.listings.length > 0 ?
+                            <h4 style={{color: "#3a5f0b"}}>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
+                            <h4 style={{color: "#3a5f0b"}}>No Closed Listing</h4>
                     }
+
                     { this.props.match.path.endsWith(":id/listings") ?
                         linkToFarmerProfile :
                         null
