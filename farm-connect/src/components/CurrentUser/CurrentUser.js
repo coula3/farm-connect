@@ -21,6 +21,7 @@ const CurrentUser = (props) => {
                     }
                 </div>
                 <p><label>ID: </label>{props.userId}</p>
+                <p><label>Name: </label>{props.userAttributes.first_name} {props.userAttributes.last_name}</p>
                 <p><label>Date of Birth: </label>{getDate(props.userAttributes.date_of_birth)}</p>
                 <p><label>eMail: </label>{props.userAttributes.email}</p>
                 <br />
