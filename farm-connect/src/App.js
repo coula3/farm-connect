@@ -7,7 +7,7 @@ import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import { signOutUser, connectUsers, unConnectUsers } from './actions/userActions';
-import { removeUserListingInterest, addUserListingInterest, fetchListing, fetchUserClosedListings } from './actions/listingsActions';
+import { removeUserListingInterest, addUserListingInterest, fetchListing, fetchUserClosedListings, listingsRendered } from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 
@@ -53,6 +53,7 @@ class App extends Component {
                 userId={this.props.userId}
                 userAttributes={this.props.userAttributes}
                 fetchUserClosedListings={(props) => this.props.fetchUserClosedListings(props)}
+                listingsRendered={() => this.props.listingsRendered()}
               /> :
               null
             }
@@ -123,7 +124,8 @@ const mapDispatchToProps = (dispatch) => {
     connectUsers: (currentUserId, connectId) => dispatch(connectUsers(currentUserId, connectId)),
     unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
     fetchListing: (id) => dispatch(fetchListing(id)),
-    fetchUserClosedListings: (props) => dispatch(fetchUserClosedListings(props))
+    fetchUserClosedListings: (props) => dispatch(fetchUserClosedListings(props)),
+    listingsRendered: () => dispatch(listingsRendered())
   };
 }
 
