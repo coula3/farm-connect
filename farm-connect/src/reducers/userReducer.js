@@ -43,7 +43,7 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userId: action.user.data.id,
-                userAttributes: action.user.attributes,
+                userAttributes: action.user.data.attributes,
                 isLoading: false
             }
 
@@ -51,7 +51,7 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userId: action.user.data.id,
-                userAttributes: action.user.attributes,
+                userAttributes: action.user.data.attributes,
                 isLoading: false
             }
 

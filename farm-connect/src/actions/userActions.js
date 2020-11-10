@@ -104,7 +104,7 @@ export const connectUsers = (currentUserId, connectId) => {
         .then(json => {
             dispatch({
                 type: "CONNECT_USERS",
-                user: json.data
+                user: json.user
             });
         })
     }
@@ -125,7 +125,7 @@ export const unConnectUsers = (currentUserId, connectId) => {
         .then(json => {
             dispatch({
                 type: "UNCONNECT_USERS",
-                user: json.data
+                user: json.user
             });
         })
     }
