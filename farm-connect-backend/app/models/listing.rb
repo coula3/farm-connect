@@ -16,7 +16,7 @@ class Listing < ApplicationRecord
   end
 
   def require_measure
-    if quantity && quantity > -1 && !measure.present?
+    if quantity && quantity > 0 && !measure.present?
       errors.add(:measure, "can't be blank")
     end
   end
