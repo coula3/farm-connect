@@ -21,6 +21,7 @@ class Api::V1::ListingsController < ApplicationController
         if commodity
             listing = user.listings.build(commodity_id: commodity.id, date: Time.now, availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
             if listing.save
+                check_available(listing)
                 render json: ListingSerializer.new(listing)
             else
                 render json: {messages: listing.errors.full_messages}
@@ -57,6 +58,7 @@ class Api::V1::ListingsController < ApplicationController
         end
         listing.update(measure: nil) if !listing.quantity
         listing.update(available: available)
+        check_available(listing)
         render json: ListingSerializer.new(listing)
     end
 
@@ -81,5 +83,10 @@ class Api::V1::ListingsController < ApplicationController
         elsif !commodity && !listing_params[:availability].present?
             render json: {messages: ["Commodity can't be blank", "Availability can't be blank"]}
         end
+    end
+
+    def check_available(listing)
+        listing.update(available: true) if listing.availability && listing.availability == Date.today && !listing.available
+        listing.update(available: false) if listing.availability && listing.availability > Date.today && listing.available
     end
 end
