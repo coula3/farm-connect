@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
 import { getDate } from '../../assets/miscellaneous';
+import * as messages from '../../assets/listingErrors';
 
 class EditListing extends Component {
     state = {
@@ -200,7 +201,8 @@ const mapStateToProps = (state) => {
         listing: state.listings.listing,
         commodities: state.commodities.commodities,
         isLoading: state.commodities.isLoading,
-        isLoadingEditedListing: state.listings.isLoading
+        isLoadingEditedListing: state.listings.isLoading,
+        errorMessages: state.errorMessages.errorMessages
     }
 }
 
