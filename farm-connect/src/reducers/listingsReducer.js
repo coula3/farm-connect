@@ -14,6 +14,12 @@ const listingsReducer = (state = initialState, action) => {
                 isLoading: true
             }
 
+        case "LOADING_NEW_LISTING":
+            return {
+                ...state,
+                isLoading:true
+            }
+
         case "CREATE_NEW_LISTING":
             return {
                 ...state,
