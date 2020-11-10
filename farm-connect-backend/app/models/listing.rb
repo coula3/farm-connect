@@ -6,12 +6,12 @@ class Listing < ApplicationRecord
   validates :availability, presence: true
   validates :quantity, numericality: { greater_than: -1, allow_nil: true, message: "quantity must be a positive value" }
   validates :information, length: { maximum: 255 }
-  validate :availability_not_before_today
+  validate :past_availability
   validate :require_measure
 
-  def availability_not_before_today
-    if availability.present? && availability < Date.today
-        errors.add(:availability, "must not be before today")
+  def past_availability
+    if availability_changed? && availability.present? && availability < Date.today
+        errors.add(:availability, "cannot be in the past")
     end
   end
 
