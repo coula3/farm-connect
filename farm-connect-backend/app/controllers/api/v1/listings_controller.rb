@@ -59,7 +59,12 @@ class Api::V1::ListingsController < ApplicationController
         listing.update(measure: nil) if !listing.quantity
         listing.update(available: available)
         check_available(listing)
-        render json: ListingSerializer.new(listing)
+
+        if listing.errors.size == 0
+            render json: ListingSerializer.new(listing)
+        else
+            render json: {messages: listing.errors.full_messages}
+        end
     end
 
     private
