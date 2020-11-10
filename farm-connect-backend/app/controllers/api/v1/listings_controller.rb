@@ -56,7 +56,7 @@ class Api::V1::ListingsController < ApplicationController
                 end
             end
         end
-        listing.update(measure: nil) if listing.quantity == 0
+        listing.update(quantity: nil, measure: nil) if !listing.quantity || listing.quantity == 0
         listing.update(available: available)
         check_available(listing)
 
