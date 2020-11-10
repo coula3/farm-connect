@@ -44,9 +44,7 @@ class Listings extends React.Component {
             baseListings = this.props.listings
         }
 
-        let firstName;
-        let fullName;
-        let userId;
+        let firstName, fullName, userId;
 
         const listings = baseListings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
