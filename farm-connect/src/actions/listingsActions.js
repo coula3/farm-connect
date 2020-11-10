@@ -80,14 +80,21 @@ export const editListing = (listingId, payload, ownProps) => {
         })
         .then(response => response.json())
         .then(json => {
-            dispatch({
-                type: "EDIT_LISTING",
-                listing: json.data
-            });
-            if(json.data.attributes.closed){
-                ownProps.history.push(`/listings`);
+            if(json.data){
+                dispatch({
+                    type: "EDIT_LISTING",
+                    listing: json.data
+                });
+                if(json.data.attributes.closed){
+                    ownProps.history.push(`/listings`);
+                } else {
+                ownProps.history.push(`/listings/${listingId}`);
+                }
             } else {
-            ownProps.history.push(`/listings/${listingId}`);
+                dispatch({
+                    type: "ADD_ERROR_MESSAGES",
+                    errorMessages: json.messages
+                });
             }
         })
     }
