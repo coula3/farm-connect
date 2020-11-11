@@ -149,13 +149,15 @@ class EditListing extends Component {
                             </select>
                         </p>
 
-                        <p>Est. Availability:
+                        <p style={{marginBottom:0}}>Est. Availability:
                             <input type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
                         </p>
+                        <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.availabilityError(this.props.errorMessages)}</p>
 
-                        <p>Quantity:
+                        <p style={{marginBottom:0}}>Quantity:
                             <input type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                         </p>
+                        <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.quantityError(this.props.errorMessages)}</p>
 
                         <p>Measure:
                             <select name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
