@@ -63,7 +63,7 @@ class Listings extends React.Component {
                                 <th></th>
                                 <th>List Date</th>
                                 <th>Commodity</th>
-                                { !this.props.match.path.endsWith(":id/listings") ?
+                                { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ?
                                     <th>Farmer</th> :
                                     null
                                 }
@@ -76,7 +76,7 @@ class Listings extends React.Component {
                                 <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{padIds(listing.id)}</Link></td>
                                 <td>{listDate}</td>
                                 <td>{commodity}</td>
-                                { !this.props.match.path.endsWith(":id/listings") ?
+                                { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ?
                                     <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td> :
                                     null
                                 }
