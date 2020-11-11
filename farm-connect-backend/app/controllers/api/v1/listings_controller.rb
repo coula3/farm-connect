@@ -97,9 +97,9 @@ class Api::V1::ListingsController < ApplicationController
 
     def update_remaining_columns(update_keys_array)
         if update_keys_array.length > 1
-            update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
+            update_keys_array.slice(1..-2).each {|params_key| listing.update("#{params_key}": listing_params[params_key])}
         else
-            update_keys_array.each {|e| listing.update("#{e}": listing_params[e])}
+            update_keys_array.each {|params_key| listing.update("#{params_key}": listing_params[params_key])}
         end
     end
 
@@ -115,6 +115,6 @@ class Api::V1::ListingsController < ApplicationController
         commodity = Commodity.find_by(name: listing_params[:commodity])
         listing.update(commodity_id: commodity.id)
         update_closed_column(listing)
-        update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
+        update_keys_array.slice(1..-2).each {|params_key| listing.update("#{params_key}": listing_params[params_key])}
     end
 end
