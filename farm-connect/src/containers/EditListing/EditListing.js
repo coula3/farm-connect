@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
+import { clearErrorMessages } from '../../actions/errorActions';
 import { getDate } from '../../assets/miscellaneous';
 import * as messages from '../../assets/listingErrors';
 
@@ -18,6 +19,12 @@ class EditListing extends Component {
         },
         editMode: false,
         maxInfoCharacters: 255
+    }
+
+    componentWillUnmount(){
+        if(this.props.errorMessages[0]){
+            this.props.clearErrorMessages();
+        }
     }
 
     handleSwitchState = () => {
@@ -210,7 +217,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        editListing: (listingId, payload) => dispatch(editListing(listingId, payload, ownProps))
+        editListing: (listingId, payload) => dispatch(editListing(listingId, payload, ownProps)),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
 
