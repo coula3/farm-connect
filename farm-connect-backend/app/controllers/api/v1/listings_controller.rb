@@ -52,12 +52,7 @@ class Api::V1::ListingsController < ApplicationController
             end
         end
         courtesy_updates(listing)
-
-        if listing.errors.size == 0
-            render json: ListingSerializer.new(listing)
-        else
-            render json: {messages: listing.errors.full_messages}
-        end
+        return_json(listing)
     end
 
     private
@@ -108,6 +103,14 @@ class Api::V1::ListingsController < ApplicationController
             update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
         else
             update_keys_array.each {|e| listing.update("#{e}": listing_params[e])}
+        end
+    end
+
+    def return_json(listing)
+        if listing.errors.size == 0
+            render json: ListingSerializer.new(listing)
+        else
+            render json: {messages: listing.errors.full_messages}
         end
     end
 end
