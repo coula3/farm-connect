@@ -55,9 +55,7 @@ class Api::V1::ListingsController < ApplicationController
                 end
             end
         end
-        listing.update(quantity: nil, measure: nil) if !listing.quantity || listing.quantity == 0
-        listing.update(available: available)
-        check_available(listing)
+        courtesy_updates(listing)
 
         if listing.errors.size == 0
             render json: ListingSerializer.new(listing)
@@ -87,6 +85,12 @@ class Api::V1::ListingsController < ApplicationController
         elsif !commodity && !listing_params[:availability].present?
             render json: {messages: ["Commodity can't be blank", "Availability can't be blank"]}
         end
+    end
+
+    def courtesy_updates(listing)
+        listing.update(quantity: nil, measure: nil) if !listing.quantity || listing.quantity == 0
+        listing.update(available: available)
+        check_available(listing)
     end
 
     def check_available(listing)
