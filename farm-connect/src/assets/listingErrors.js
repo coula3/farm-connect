@@ -14,6 +14,13 @@ export const availabilityError = (errorMessages) => {
     }
 };
 
+export const quantityError = (errorMessages) => {
+    const quantity = errorMessages.filter( msg => msg.startsWith("Quantity"));
+    if(quantity[0] && quantity[0].endsWith("value")){
+        return "quantity must be a positive value";
+    }
+};
+
 export const measureError = (errorMessages) => {
     const measure = errorMessages.filter( msg => msg.startsWith("Measure"));
     if(measure.length > 0){
