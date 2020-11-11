@@ -42,10 +42,7 @@ class Api::V1::ListingsController < ApplicationController
         else
             update_keys_array = listing_params.keys
             if listing_params[:commodity].present?
-                commodity = Commodity.find_by(name: listing_params[:commodity])
-                listing.update(commodity_id: commodity.id)
-                update_closed_column(listing)
-                update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
+                update_all_columns(listing, update_keys_array)
             else
                 update_closed_column(listing)
                 update_remaining_columns(update_keys_array)
@@ -112,5 +109,12 @@ class Api::V1::ListingsController < ApplicationController
         else
             render json: {messages: listing.errors.full_messages}
         end
+    end
+
+    def update_all_columns(listing, update_keys_array)
+        commodity = Commodity.find_by(name: listing_params[:commodity])
+        listing.update(commodity_id: commodity.id)
+        update_closed_column(listing)
+        update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
     end
 end
