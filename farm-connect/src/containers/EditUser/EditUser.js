@@ -16,9 +16,7 @@ class EditUser extends Component {
     }
 
     componentWillUnmount(){
-        if(this.props.errorMessages.length > 0){
-            this.props.clearErrorMessages();
-        };
+        this.props.errorMessages.length > 0 && this.props.clearErrorMessages();
     }
 
     handleSwitchState = () => {
