@@ -48,11 +48,7 @@ class Api::V1::ListingsController < ApplicationController
                 update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
             else
                 update_closed_column(listing)
-                if update_keys_array.length > 1
-                    update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
-                else
-                    update_keys_array.each {|e| listing.update("#{e}": listing_params[e])}
-                end
+                update_remaining_columns(update_keys_array)
             end
         end
         courtesy_updates(listing)
@@ -105,5 +101,13 @@ class Api::V1::ListingsController < ApplicationController
 
     def remove_interest(listing)
         interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
+    end
+
+    def update_remaining_columns(update_keys_array)
+        if update_keys_array.length > 1
+            update_keys_array.slice(1..-2).each {|e| listing.update("#{e}": listing_params[e])}
+        else
+            update_keys_array.each {|e| listing.update("#{e}": listing_params[e])}
+        end
     end
 end
