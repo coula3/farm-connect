@@ -36,8 +36,7 @@ class Api::V1::ListingsController < ApplicationController
         listing = Listing.find_by(id: params[:id].to_i)
 
         if listing_params[:interestId]
-            interest = listing.interests.find_by(id: listing_params[:interestId])
-            interest.destroy
+            add_interest(listing)
         elsif listing_params[:currentUserId]
             interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
         else
@@ -93,5 +92,10 @@ class Api::V1::ListingsController < ApplicationController
     def check_available(listing)
         listing.update(available: true) if listing.availability && listing.availability == Date.today && !listing.available
         listing.update(available: false) if listing.availability && listing.availability > Date.today && listing.available
+    end
+
+    def add_interest(listing)
+        interest = listing.interests.find_by(id: listing_params[:interestId])
+        interest.destroy
     end
 end
