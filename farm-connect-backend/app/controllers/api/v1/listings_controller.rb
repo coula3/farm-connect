@@ -38,7 +38,7 @@ class Api::V1::ListingsController < ApplicationController
         if listing_params[:interestId]
             add_interest(listing)
         elsif listing_params[:currentUserId]
-            interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
+            remove_interest(listing)
         else
             update_keys_array = listing_params.keys
             if listing_params[:commodity].present?
@@ -97,5 +97,9 @@ class Api::V1::ListingsController < ApplicationController
     def add_interest(listing)
         interest = listing.interests.find_by(id: listing_params[:interestId])
         interest.destroy
+    end
+
+    def remove_interest(listing)
+        interest = listing.interests.create(user_id: listing_params[:currentUserId]) if listing_params[:currentUserId]
     end
 end
