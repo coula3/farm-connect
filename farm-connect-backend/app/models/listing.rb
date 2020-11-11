@@ -4,7 +4,7 @@ class Listing < ApplicationRecord
   has_many :interests
 
   validates :availability, presence: true
-  validates :quantity, numericality: { greater_than: -1, allow_nil: true, message: "quantity must be a positive value" }
+  validates :quantity, numericality: { greater_than: 0, allow_nil: true, message: "must be a positive value" }
   validates :information, length: { maximum: 255 }
   validate :past_availability
   validate :require_measure
