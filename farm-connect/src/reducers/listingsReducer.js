@@ -17,7 +17,7 @@ const listingsReducer = (state = initialState, action) => {
         case "LOADING_NEW_LISTING":
             return {
                 ...state,
-                isLoading:true
+                isLoading: true
             }
 
         case "CREATE_NEW_LISTING":
@@ -63,6 +63,12 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 listing: action.listing,
+                isLoading: false
+            }
+
+        case "CLEAR_LOADING":
+            return {
+                ...state,
                 isLoading: false
             }
 

@@ -95,6 +95,7 @@ export const editListing = (listingId, payload, ownProps) => {
                     type: "ADD_ERROR_MESSAGES",
                     errorMessages: json.messages
                 });
+                dispatch({type: "CLEAR_LOADING"});
             }
         })
     }
