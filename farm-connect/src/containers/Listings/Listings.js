@@ -58,7 +58,13 @@ class Listings extends React.Component {
             baseListings = this.props.listings
         }
 
-        let firstName, fullName, userId;
+        let firstName, fullName, userId, listingsCategory;
+
+        if(this.props.match.path === "/listings"){
+            listingsCategory = "All Farmers"
+        } else if(this.props.match.path === "/listings/other-farmers"){
+            listingsCategory = "Other Farmers"
+        }
 
         const listings = baseListings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
@@ -120,7 +126,7 @@ class Listings extends React.Component {
                             <h4 style={{color: "#3a5f0b"}}>{listings.length} {listings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
                             <h4 style={{color: "#3a5f0b"}}>No Closed Listing</h4>
                     }
-
+                    <h5>{listingsCategory}</h5>
                     { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
                         linkToFarmerProfile :
                         null
