@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
-import { fetchListings, fetchListing } from '../../actions/listingsActions';
+import { fetchListings, fetchListing, fetchUserClosedListings, listingsRendered, listingsUnrendered } from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
 import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
@@ -12,12 +12,29 @@ import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
     componentDidMount(){
-        this.props.fetchListings();
-        this.props.fetchCommodities();
-        this.props.fetchProspects(this.props.userId);
-        this.props.fetchListingsInterests();
+        this.stageComponent();
+
         if(this.props.errorMessages.length > 0){
             this.props.clearErrorMessages();
+        }
+    }
+
+    stageComponent = () => {
+        if(this.props.areListingsRendered || this.props.match.path !== "/users/:id/closed-listings"){
+            this.props.fetchListings();
+            this.props.fetchCommodities();
+            this.props.fetchProspects(this.props.userId);
+            this.props.fetchListingsInterests();
+        }
+    }
+
+    componentDidUpdate(){
+        if(!this.props.areListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
+            this.props.listingsRendered();
+            this.stageComponent();
+        } else if (this.props.areListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
+            this.props.listingsUnrendered();
+            this.props.fetchUserClosedListings(this.props.userId);
         }
     }
 
@@ -126,7 +143,8 @@ const mapStateToProps = (state) => {
         listings: state.listings.listings,
         commodities: state.commodities.commodities,
         listing: state.listings.listing,
-        errorMessages: state.errorMessages.errorMessages
+        errorMessages: state.errorMessages.errorMessages,
+        areListingsRendered: state.listings.areListingsRendered
     }
 }
 
@@ -138,7 +156,10 @@ const mapDispatchToProps = (dispatch) => {
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
         fetchProspects: (userId) => dispatch(fetchProspects(userId)),
         fetchListingsInterests: () => dispatch(fetchListingsInterests()),
-        clearErrorMessages: () => dispatch(clearErrorMessages())
+        clearErrorMessages: () => dispatch(clearErrorMessages()),
+        fetchUserClosedListings: (userId) => dispatch(fetchUserClosedListings(userId)),
+        listingsRendered: () => dispatch(listingsRendered()),
+        listingsUnrendered: () => dispatch(listingsUnrendered())
     }
 }
 
