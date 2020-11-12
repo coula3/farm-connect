@@ -1,11 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const NoMatch = () => {
+const NoMatch = (props) => {
     return (
-        <h3>
-            404 - Not found
-        </h3>
+        <h4>
+            404 - Pathname <span style={{color:"red"}}>"{props.location.pathname}"</span> not found
+        </h4>
     )
 }
 
-export default NoMatch;
+export default withRouter(NoMatch);
