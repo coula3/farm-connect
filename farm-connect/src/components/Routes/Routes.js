@@ -11,6 +11,7 @@ import FarmerProfile from '../../components/FarmerProfile/FarmerProfile';
 import EditListing from '../../containers/EditListing/EditListing';
 import ProspectProfile from '../ProspectProfile/ProspectProfile';
 import EditUser from '../../containers/EditUser/EditUser';
+import NoMatch from '../NoMatch/NoMatch';
 
 const Routes = (props) => {
     return (
@@ -62,6 +63,7 @@ const Routes = (props) => {
             <Route path="/farmers/:id/listings" component={Listings} />
             <Route path="/users/:id/edit" component={EditUser} />
             <Route path="/users/:id/closed-listings" component={Listings}/>
+            <Route component={NoMatch} />
         </Switch>
     )
 }
