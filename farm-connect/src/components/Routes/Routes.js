@@ -17,8 +17,8 @@ const Routes = (props) => {
     return (
         <Switch>
             <Route exact path="/" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signout" component={SignOut} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signout" component={SignOut} />
             <Route exact path="/listings" component={Listings} />
             <Route exact path="/listings/other-farmers" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing
@@ -50,7 +50,7 @@ const Routes = (props) => {
                 userPhoto={props.userPhoto} /> }
             />
             <Route exact path="/listings/:id/edit" component={EditListing} />
-            <Route path="/prospects/:id" render={(routerProps) => <ProspectProfile
+            <Route exact path="/prospects/:id" render={(routerProps) => <ProspectProfile
                 {...routerProps}
                 isLoadingProspect={props.isLoadingProspect}
                 prospect={props.prospect}
@@ -59,10 +59,10 @@ const Routes = (props) => {
                 connectUsers={(currentUserId, connectId) => props.connectUsers(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} />}
             />
-            <Route path="/users/:id/listings" component={Listings}/>
-            <Route path="/farmers/:id/listings" component={Listings} />
-            <Route path="/users/:id/edit" component={EditUser} />
-            <Route path="/users/:id/closed-listings" component={Listings}/>
+            <Route exact path="/users/:id/listings" component={Listings}/>
+            <Route exact path="/farmers/:id/listings" component={Listings} />
+            <Route exact path="/users/:id/edit" component={EditUser} />
+            <Route exact path="/users/:id/closed-listings" component={Listings}/>
             <Route component={NoMatch} />
         </Switch>
     )
