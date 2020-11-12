@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import avatar from '../../assets/avatar.png';
 import Loader from '../Loader/Loader';
 
-const Prospects = (props) => {
+const SuggestedProspects = (props) => {
     const prospectPhoto = (image) => {
         return `http://localhost:3000/${image}`;
     }
@@ -37,4 +37,4 @@ const Prospects = (props) => {
     )
 }
 
-export default Prospects;
+export default SuggestedProspects;
