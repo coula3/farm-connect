@@ -53,7 +53,7 @@ class App extends Component {
                 userId={this.props.userId}
                 userAttributes={this.props.userAttributes}
                 areListingsRendered={this.props.areListingsRendered}
-                fetchUserClosedListings={(props) => this.props.fetchUserClosedListings(props)}
+                fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
                 listingsRendered={() => this.props.listingsRendered()}
                 listingsUnrendered={() => this.props.listingsUnrendered()}
                 fetchListings={() => this.props.fetchListings()}

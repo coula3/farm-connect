@@ -145,10 +145,10 @@ export const addUserListingInterest = (currentUserId, listingId) => {
     }
 }
 
-export const fetchUserClosedListings = (props) => {
+export const fetchUserClosedListings = (userId) => {
     return (dispatch) => {
         dispatch({type: "LOADING_LISTINGS"});
-        fetch(`http://localhost:3000/api/v1/listings?id=${props.userId}`, {
+        fetch(`http://localhost:3000/api/v1/listings?id=${userId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
