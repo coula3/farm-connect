@@ -12,11 +12,11 @@ import { Link } from 'react-router-dom';
 
 class Listings extends React.Component {
     componentDidMount(){
-        this.stageComponent();
+        this.stageApplication();
         this.props.errorMessages.length > 0 && this.props.clearErrorMessages();
     }
 
-    stageComponent = () => {
+    stageApplication = () => {
         if(this.props.areListingsRendered || this.props.match.path !== "/users/:id/closed-listings"){
             this.props.fetchListings();
             this.props.fetchCommodities();
@@ -28,7 +28,7 @@ class Listings extends React.Component {
     componentDidUpdate(){
         if(!this.props.areListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
             this.props.listingsRendered();
-            this.stageComponent();
+            this.stageApplication();
         } else if (this.props.areListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
             this.props.listingsUnrendered();
             this.props.fetchUserClosedListings(this.props.userId);
