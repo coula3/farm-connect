@@ -13,10 +13,7 @@ import { Link } from 'react-router-dom';
 class Listings extends React.Component {
     componentDidMount(){
         this.stageComponent();
-
-        if(this.props.errorMessages.length > 0){
-            this.props.clearErrorMessages();
-        }
+        this.props.errorMessages.length > 0 && this.props.clearErrorMessages();
     }
 
     stageComponent = () => {
