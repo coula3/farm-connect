@@ -1,5 +1,5 @@
 import React from 'react';
-import logoSrc from '../../assets/farm-connect-logo.png'
+import logoSrc from '../../assets/farmConnectLogo.png'
 
 const AppHeader = () => {
     return(
