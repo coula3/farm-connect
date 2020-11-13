@@ -61,6 +61,15 @@ export const signInUser = (payload, ownProps) => {
 }
 
 export const editUser = (userId, payload, ownProps) => {
+    const bodyData = {
+        user: {
+            firstName: payload.user.firstName,
+            lastName: payload.user.lastName,
+            dateOfBirth: payload.user.dateOfBirth,
+            email: payload.user.email
+        }
+    }
+
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users/${userId}`, {
@@ -69,7 +78,7 @@ export const editUser = (userId, payload, ownProps) => {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(bodyData)
         })
         .then(response => response.json())
         .then(json => {
@@ -78,7 +87,11 @@ export const editUser = (userId, payload, ownProps) => {
                     type: "EDIT_USER",
                     user: json.user
                 });
-                ownProps.history.push(`/users/${userId}`);
+                if(Object.keys(payload.user.photo).length === 0){
+                    ownProps.history.push(`/users/${userId}`);
+                } else {
+                    uploadPhotos(payload.user.photo, userId, ownProps);
+                }
             } else {
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",
@@ -87,6 +100,23 @@ export const editUser = (userId, payload, ownProps) => {
             }
         })
     }
+}
+
+export const uploadPhotos = (photo, userId, ownProps) => {
+    const formData = new FormData();
+    formData.append('file', photo);
+
+    fetch(`http://localhost:3000/api/v1/photos/${userId}`, {
+        method: "PATCH",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(json => {
+        ownProps.history.push(`/users/${userId}`);
+    })
 }
 
 export const connectUsers = (currentUserId, connectId) => {
