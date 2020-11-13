@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :commodities
       resources :prospects
       resources :interests
+      resources :photos
     end
   end
 end
