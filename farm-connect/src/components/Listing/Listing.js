@@ -45,7 +45,7 @@ const Listing = (props) => {
                 <div>
                     <p><label>List ID: </label>{props.listing.id}</p>
                     <p><label>List Date: </label>{getDate(props.listing.attributes.date)}</p>
-                    <p><label>Farmer: </label>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</p> 
+                    <p><label>Farmer: </label><Link to={`/farmers/${props.listing.attributes.user.id}`} onClick={() => props.fetchFarmer(props.listing.attributes.user.id)}>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</Link></p>
                     <p><label>Commodity: </label>{props.listing.attributes.commodity.name}</p>
                     <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? getDate(props.listing.attributes.availability) : null}</p>
                     {props.listing.attributes.available ?
