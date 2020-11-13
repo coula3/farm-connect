@@ -113,7 +113,7 @@ class Listings extends React.Component {
         const linkToFarmerProfile = <div style={{marginBottom:20}}><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></div>
 
         return (
-            <div style={{width: "60%", display: "inline", float: "left"}}>
+            <div style={{width: "65%", display: "inline", float: "left"}}>
                 { this.props.isLoadingListings ?
                     <Loader /> :
                     <>
