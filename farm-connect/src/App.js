@@ -47,7 +47,7 @@ class App extends Component {
             <HeadNavBar userId={this.props.userId} userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} userPhoto={this.props.userPhoto} /> :
             null
           }
-          <div style={{clear:"both"}}>
+          <div style={{clear:"both", margin:"auto", width:"90%"}}>
             { this.props.isAuthenticated ?
               <SideNavBar
                 userSignOut={this.handleUserSignOut}
