@@ -16,8 +16,12 @@ const SuggestedProspects = (props) => {
         }
     }
 
-    const handleClick = (prospect) =>{
-        props.fetchProspect(prospect.id);
+    const handleClick = (prospect) => {
+        const pathArray = props.location.pathname.split("/")
+        const pathProspectId = pathArray[pathArray.length - 1]
+        if(pathProspectId !== prospect.id){
+            props.fetchProspect(prospect.id);
+        }
     }
 
     const prospects = props.prospects.map((prospect) => {
