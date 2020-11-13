@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import SuggestedProspects from '../SuggestedProspects/SuggestedProspects';
 import ListingsInterests from '../ListingsInterests/ListingsInterests';
 
@@ -11,4 +12,4 @@ const ResourcesBoard = (props) => {
     )
 }
 
-export default ResourcesBoard;
+export default withRouter(ResourcesBoard);
