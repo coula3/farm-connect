@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import * as messages from '../../assets/userErrors';
+import * as messages from '../../utils/errorsUtils/userErrors';
 
 class EditUser extends Component {
     state = {

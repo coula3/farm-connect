@@ -4,7 +4,7 @@ import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { getDate } from '../../utils/miscellaneousUtils';
-import * as messages from '../../assets/listingErrors';
+import * as messages from '../../utils/errorsUtils/listingErrors';
 
 class EditListing extends Component {
     state = {

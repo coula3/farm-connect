@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import * as messages from '../../assets/listingErrors';
+import * as messages from '../../utils/errorsUtils/listingErrors';
 
 class CreateListing extends Component {
     state = {
