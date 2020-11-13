@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
 import { getDate } from '../../assets/miscellaneous';
@@ -48,6 +49,7 @@ const FarmerProfile = (props) => {
                     <p style={{marginTop:"15px"}}><label>Farmer ID: </label>{props.farmer.id}</p>
                     <p><label>Name: </label>{props.farmer.attributes.first_name} {props.farmer.attributes.last_name}</p>
                     <p><label>eMail: </label>{props.farmer.attributes.email}</p>
+                    <p><Link to={`/farmers/${props.farmer.id}/listings`}>Listings</Link></p>
                     <br />
                     <p><label>Joined: </label>{getDate(props.farmer.attributes.created_at)}</p>
                 </div>
