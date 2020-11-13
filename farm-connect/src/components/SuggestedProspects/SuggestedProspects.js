@@ -16,10 +16,14 @@ const SuggestedProspects = (props) => {
         }
     }
 
+    const handleClick = (prospect) =>{
+        props.fetchProspect(prospect.id);
+    }
+
     const prospects = props.prospects.map((prospect) => {
         return (
             <ul style={{listStyle:"none", paddingLeft:0}} key={prospect.id}>
-                <li><Link to={`/prospects/${prospect.id}`} onClick={()=>props.fetchProspect(prospect.id)}>{image(prospect.attributes.image)}</Link> <Link to={`/prospects/${prospect.id}`} onClick={()=>props.fetchProspect(prospect.id)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
+                <li><Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{image(prospect.attributes.image)}</Link> <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
             </ul>
         )
     })
