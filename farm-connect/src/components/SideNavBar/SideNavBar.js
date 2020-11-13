@@ -37,7 +37,6 @@ const SideNavBar = (props) => {
                 {createListing()}
                 <p><Link to="/listings" onClick={handleClick}>Listings</Link></p>
                 { renderFarmerUsersLinks() }
-                {/* <p><Link to={`/users/${props.userId}/edit`}>Edit Profile</Link></p> */}
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
             </div>
