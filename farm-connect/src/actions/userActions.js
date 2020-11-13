@@ -87,10 +87,10 @@ export const editUser = (userId, payload, ownProps) => {
                     type: "EDIT_USER",
                     user: json.user
                 });
-                if(Object.keys(payload.user.photo).length === 0){
+                if(!payload.user.photo.name){
                     ownProps.history.push(`/users/${userId}`);
                 } else {
-                    uploadPhotos(payload.user.photo, userId, ownProps);
+                    dispatch(uploadPhotos(payload.user.photo, userId, ownProps));
                 }
             } else {
                 dispatch({
@@ -106,17 +106,25 @@ export const uploadPhotos = (photo, userId, ownProps) => {
     const formData = new FormData();
     formData.append('file', photo);
 
-    fetch(`http://localhost:3000/api/v1/photos/${userId}`, {
-        method: "PATCH",
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
-        },
-        body: formData
-    })
-    .then(response => response.json())
-    .then(json => {
-        ownProps.history.push(`/users/${userId}`);
-    })
+    return (dispatch) => {
+        dispatch({type: "LOADING_USER"});
+        fetch(`http://localhost:3000/api/v1/photos/${userId}`, {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "ADD_USER_PHOTO",
+                user: json.user,
+                photo: json.photo
+            });
+            ownProps.history.push(`/users/${userId}`);
+        })
+    }
 }
 
 export const connectUsers = (currentUserId, connectId) => {
