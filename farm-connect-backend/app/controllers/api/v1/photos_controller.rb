@@ -4,8 +4,7 @@ class Api::V1::PhotosController < ApplicationController
         if params[:file]
             user.photo.attach(params[:file])
             @photo = rails_blob_path(user.photo)
-            user.update(photo: @photo)
-            render json: user
+            render json: { user: UserSerializer.new(user), photo: @photo }
         end
     end
 end
