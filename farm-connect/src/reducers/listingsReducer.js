@@ -3,7 +3,7 @@ const initialState = {
     isLoadingListings: false,
     listings: [],
     listing: "",
-    areListingsRendered: true
+    areOpenListingsRendered: true
 }
 
 const listingsReducer = (state = initialState, action) => {
@@ -102,13 +102,13 @@ const listingsReducer = (state = initialState, action) => {
         case "LISTINGS_RENDERED_OFF":
             return {
                 ...state,
-                areListingsRendered: false
+                areOpenListingsRendered: false
             }
 
         case "LISTINGS_RENDERED_ON":
             return {
                 ...state,
-                areListingsRendered: true
+                areOpenListingsRendered: true
             }
 
         default:

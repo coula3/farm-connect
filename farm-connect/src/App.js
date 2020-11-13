@@ -53,7 +53,7 @@ class App extends Component {
                 userSignOut={this.handleUserSignOut}
                 userId={this.props.userId}
                 userAttributes={this.props.userAttributes}
-                areListingsRendered={this.props.areListingsRendered}
+                areOpenListingsRendered={this.props.areOpenListingsRendered}
                 fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
                 listingsRendered={() => this.props.listingsRendered()}
                 listingsUnrendered={() => this.props.listingsUnrendered()}
@@ -117,7 +117,7 @@ const mapStateToProps = (state) => {
     isLoadingUser: state.currentUser.isLoading,
     listingsInterests: state.interests.listingsInterests,
     isLoadingInterests: state.interests.isLoadingInterests,
-    areListingsRendered: state.listings.areListingsRendered
+    areOpenListingsRendered: state.listings.areOpenListingsRendered
   }
 }
 

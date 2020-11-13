@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 const SideNavBar = (props) => {
     const handleClick = () => {
-        if(!props.areListingsRendered){
+        if(!props.areOpenListingsRendered){
             props.listingsRendered();
             props.fetchListings();
         }
