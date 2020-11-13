@@ -39,6 +39,15 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "ADD_USER_PHOTO":
+            return {
+                ...state,
+                userId: action.user.data.id,
+                userAttributes: action.user.data.attributes,
+                photo: action.photo,
+                isLoading: false
+            }
+
         case "CONNECT_USERS":
             return {
                 ...state,
