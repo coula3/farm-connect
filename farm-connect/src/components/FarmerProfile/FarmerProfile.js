@@ -27,7 +27,7 @@ const FarmerProfile = (props) => {
     }
 
     return (
-        <div style={{width: "60%", display: "inline", float: "left"}}>
+        <div style={{width: "65%", display: "inline", float: "left"}}>
             { props.isLoadingFarmer ?
                 <Loader /> :
                 <div>

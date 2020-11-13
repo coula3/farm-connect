@@ -83,7 +83,7 @@ class EditUser extends Component {
 
     render(){
         return (
-            <div style={{width: "60%", display: "inline", float: "left"}}>
+            <div style={{width: "65%", display: "inline", float: "left"}}>
                 <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
                     <p style={{marginBottom:0}}><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.firstNameError(this.props.errorMessages)}</p>

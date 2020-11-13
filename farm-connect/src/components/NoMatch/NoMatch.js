@@ -4,7 +4,7 @@ import sadEmoji from '../../assets/sadEmoji.png';
 
 const NoMatch = (props) => {
     return (
-        <div style={{width: "60%", display: "inline", float: "left"}}>
+        <div style={{width: "65%", display: "inline", float: "left"}}>
             <h4>
                 404 - Pathname <span style={{color:"red"}}>"{props.location.pathname}"</span> not found
             </h4>

@@ -39,7 +39,7 @@ const Listing = (props) => {
     }
 
     return (
-        <div style={{width: "60%", display: "inline", float: "left"}}>
+        <div style={{width: "65%", display: "inline", float: "left"}}>
             { props.isLoading ?
                 <Loader /> :
                 <div>

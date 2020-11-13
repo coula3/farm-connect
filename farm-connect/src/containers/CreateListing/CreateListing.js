@@ -70,7 +70,7 @@ class CreateListing extends Component {
         })
 
         return (
-            <div style={{width: "60%", display: "inline", float: "left"}}>
+            <div style={{width: "65%", display: "inline", float: "left"}}>
                 <h3>Create Listing</h3>
                 <form onSubmit={this.handleSubmit}>
                     <p style={{marginBottom:0}}>
