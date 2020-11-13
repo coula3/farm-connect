@@ -10,7 +10,8 @@ class EditUser extends Component {
             firstName: "",
             lastName: "",
             dateOfBirth: "",
-            email: ""
+            email: "",
+            photo: {}
         },
         editMode: false
     }
@@ -42,6 +43,15 @@ class EditUser extends Component {
                     [e.target.name]: e.target.value
                 }
             })
+
+            if(e.target.name === "photo"){
+                this.setState({
+                    user: {
+                        ...this.state.user,
+                        photo: e.target.files[0]
+                    }
+                })
+            }
         }
     }
 
@@ -83,6 +93,7 @@ class EditUser extends Component {
                     <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.dateOfBirthError(this.props.errorMessages)}</p>
                     <p style={{marginBottom:0}}><input type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.emailError(this.props.errorMessages)}</p>
+                    <p><input type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <br />
                     <button disabled={!this.state.editMode}>Update</button>
                     <button onClick={this.handleCancelEdit}>Cancel Edit</button>
