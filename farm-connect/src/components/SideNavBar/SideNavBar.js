@@ -32,12 +32,12 @@ const SideNavBar = (props) => {
         <div>
             <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
                 <br />
+                <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
+                <br />
                 {createListing()}
                 <p><Link to="/listings" onClick={handleClick}>Listings</Link></p>
                 { renderFarmerUsersLinks() }
-                <br />
-                <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
-                <p><Link to={`/users/${props.userId}/edit`}>Edit Profile</Link></p>
+                {/* <p><Link to={`/users/${props.userId}/edit`}>Edit Profile</Link></p> */}
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
             </div>
