@@ -31,7 +31,8 @@ const Routes = (props) => {
                 isLoading={props.isLoading}
                 userId={props.userId}
                 removeUserListingInterest={(listingId, interestId) => props.removeUserListingInterest(listingId, interestId)}
-                addUserListingInterest={(currentUserId, listingId) => props.addUserListingInterest(currentUserId, listingId)} /> }
+                addUserListingInterest={(currentUserId, listingId) => props.addUserListingInterest(currentUserId, listingId)}
+                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)} /> }
             />
             <Route exact path="/farmers/:id" render={ routerProps => <FarmerProfile
                 { ...routerProps}

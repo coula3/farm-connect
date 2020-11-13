@@ -9,6 +9,7 @@ import Routes from './components/Routes/Routes';
 import { signOutUser, connectUsers, unConnectUsers } from './actions/userActions';
 import { removeUserListingInterest, addUserListingInterest, fetchListing, fetchUserClosedListings, listingsRendered, listingsUnrendered, fetchListings } from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
+import { fetchFarmer } from './actions/farmersActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 
 class App extends Component {
@@ -77,6 +78,7 @@ class App extends Component {
               addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
               connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
+              fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
             />
             { this.props.isAuthenticated ?
               <ResourcesBoard
@@ -131,7 +133,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchUserClosedListings: (props) => dispatch(fetchUserClosedListings(props)),
     listingsRendered: () => dispatch(listingsRendered()),
     listingsUnrendered: () => dispatch(listingsUnrendered()),
-    fetchListings: () => dispatch(fetchListings())
+    fetchListings: () => dispatch(fetchListings()),
+    fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId))
   };
 }
 
