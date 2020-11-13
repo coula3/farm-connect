@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { getDate } from '../../assets/miscellaneous';
+import { getDate } from '../../utils/miscellaneousUtils';
 import * as messages from '../../assets/listingErrors';
 
 class EditListing extends Component {

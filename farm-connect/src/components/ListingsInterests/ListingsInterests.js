@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import { padIds } from '../../assets/miscellaneous';
+import { padIds } from '../../utils/miscellaneousUtils';
 
 const ListingsInterests = (props) => {
     const listingsInterests = props.listingsInterests.map((listing, idx) => {

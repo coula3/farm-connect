@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
-import { getDate } from '../../assets/miscellaneous';
+import { getDate } from '../../utils/miscellaneousUtils';
 
 const ProspectProfile = (props) => {
     const consolidatedConnects = [ ...props.userAttributes.connects, ...props.userAttributes.inverse_connects ];

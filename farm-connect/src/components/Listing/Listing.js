@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import { Link } from 'react-router-dom';
-import { getDate} from '../../assets/miscellaneous';
+import { getDate } from '../../utils/miscellaneousUtils';
 
 const Listing = (props) => {
     const renderEditLink = (currentUserId, listingUserId, listingId) => {

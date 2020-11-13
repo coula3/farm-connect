@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
-import { getDate } from '../../assets/miscellaneous';
+import { getDate } from '../../utils/miscellaneousUtils';
 
 const CurrentUser = (props) => {
     const userPhoto = (userPhoto) => {
