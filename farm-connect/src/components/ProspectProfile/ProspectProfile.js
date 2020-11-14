@@ -33,14 +33,6 @@ const ProspectProfile = (props) => {
                 <Loader /> :
                 <div>
                     <h3>Prospect</h3>
-                    {!isCurrentUser(props.prospect.id) ?
-                        !isConnected(props.prospect.id) ?
-                            <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
-                            <div style={{paddingTop:15}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}><button>Unconnect</button></div>
-                    :
-                        null
-                    }
-                    <br />
                     <div style={{margin:"auto", height:180, width:150}}>
                         {props.prospect.attributes.image ?
                             <img src={prospectPhoto(props.prospect.attributes.image)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :
@@ -52,6 +44,13 @@ const ProspectProfile = (props) => {
                     <p><label>eMail: </label>{props.prospect.attributes.email}</p>
                     <br />
                     <p><label>Joined: </label>{getDate(props.prospect.attributes.created_at)}</p>
+                    {!isCurrentUser(props.prospect.id) ?
+                        !isConnected(props.prospect.id) ?
+                            <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
+                            <div style={{paddingTop:15}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}><button>Unconnect</button></div>
+                    :
+                        null
+                    }
                 </div>
             }
         </div>

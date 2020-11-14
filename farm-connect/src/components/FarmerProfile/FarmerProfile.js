@@ -32,14 +32,6 @@ const FarmerProfile = (props) => {
                 <Loader /> :
                 <div>
                     <h3>Farmer</h3>
-                    {!isCurrentUser(props.farmer.id) ?
-                        !isConnected ?
-                            <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Connect</button></div> :
-                            <div style={{paddingTop:15}}><button onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
-                    :
-                        null
-                    }
-                    <br />
                     <div style={{margin:"auto", height:180, width:150}}>
                         {props.farmerPhoto ?
                             <img src={farmerPhoto(props.farmerPhoto)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :
@@ -52,6 +44,13 @@ const FarmerProfile = (props) => {
                     <p><Link to={`/farmers/${props.farmer.id}/listings`}>Listings</Link></p>
                     <br />
                     <p><label>Joined: </label>{getDate(props.farmer.attributes.created_at)}</p>
+                    {!isCurrentUser(props.farmer.id) ?
+                        !isConnected ?
+                            <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Connect</button></div> :
+                            <div style={{paddingTop:15}}><button onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
+                    :
+                        null
+                    }
                 </div>
             }
         </div>
