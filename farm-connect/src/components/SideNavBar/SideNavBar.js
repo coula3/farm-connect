@@ -37,7 +37,7 @@ const SideNavBar = (props) => {
 
     return (
         <div>
-            <div style={{width: "15%", display: "inline", float: "left", border: "solid 1px"}}>
+            <div style={{width:"15%", display:"inline", float:"left", backgroundColor:"#FFF"}}>
                 <br />
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
                 <br />

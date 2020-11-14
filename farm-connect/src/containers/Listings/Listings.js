@@ -119,18 +119,18 @@ class Listings extends React.Component {
         const linkToFarmerProfile = <div style={{marginBottom:20}}><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></div>
 
         return (
-            <div style={{width: "65%", display: "inline", float: "left"}}>
+            <div style={{width: "65%", display: "inline", float: "left", backgroundColor: "#FFF"}}>
                 { this.props.isLoadingListings ?
                     <Loader /> :
                     <>
                     { this.props.match.path !== "/users/:id/closed-listings" ?
                         this.props.listings.length > 0 ?
-                            <h4 style={{marginTop:0}}>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
-                            <h4 style={{marginTop:0}}>No Open Listing</h4>
+                            <h4>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
+                            <h4>No Open Listing</h4>
                         :
                         this.props.listings.length > 0 ?
-                            <h4 style={{marginTop:0}}>{listings.length} {listings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
-                            <h4 style={{marginTop:0}}>No Closed Listing</h4>
+                            <h4>{listings.length} {listings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
+                            <h4>No Closed Listing</h4>
                     }
                     <h4 style={{color:"#3a5f0b"}}>{listingsCategory}</h4>
                     { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
