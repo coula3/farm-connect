@@ -66,7 +66,8 @@ class Listings extends React.Component {
             listingsCategory = "Other Farmers"
         }
 
-        const listings = baseListings.map(listing => {
+        const sortedBaseListings = baseListings.sort((a, b) => a.id - b.id)
+        const listings = sortedBaseListings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
             firstName = listing.attributes.user.first_name;
             fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
