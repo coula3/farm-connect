@@ -64,7 +64,7 @@ const Routes = (props) => {
             <Route exact path="/farmers/:id/listings" component={Listings} />
             <Route exact path="/users/:id/edit" component={EditUser} />
             <Route exact path="/users/:id/closed-listings" component={Listings}/>
-            <Route component={NoMatch} />
+            <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>
     )
 }
