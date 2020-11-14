@@ -34,7 +34,7 @@ const FarmerProfile = (props) => {
             { props.isLoadingFarmer ?
                 <Loader /> :
                 <div>
-                    <h3>Farmer</h3>
+                    <h3>Farmer Profile</h3>
                     <div style={{margin:"auto", height:180, width:150}}>
                         {props.farmerPhoto ?
                             <img src={farmerPhoto(props.farmerPhoto)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :

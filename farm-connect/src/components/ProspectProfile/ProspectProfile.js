@@ -32,7 +32,7 @@ const ProspectProfile = (props) => {
             { props.isLoadingProspect ?
                 <Loader /> :
                 <div>
-                    <h3>Prospect</h3>
+                    <h3>Prospect Profile</h3>
                     <div style={{margin:"auto", height:180, width:150}}>
                         {props.prospect.attributes.image ?
                             <img src={prospectPhoto(props.prospect.attributes.image)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :
