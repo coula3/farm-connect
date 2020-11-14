@@ -61,13 +61,9 @@ export const signInUser = (payload, ownProps) => {
 }
 
 export const editUser = (userId, payload, ownProps) => {
+    const {firstName, lastName, dateOfBirth, email} = payload.user;
     const bodyData = {
-        user: {
-            firstName: payload.user.firstName,
-            lastName: payload.user.lastName,
-            dateOfBirth: payload.user.dateOfBirth,
-            email: payload.user.email
-        }
+        user: {firstName, lastName, dateOfBirth, email}
     }
 
     return (dispatch) => {
