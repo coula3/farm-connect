@@ -26,6 +26,10 @@ const FarmerProfile = (props) => {
         }
     }
 
+    const handleViewListings = () => {
+        props.history.push(`/farmers/${props.farmer.id}/listings`);
+    }
+
     return (
         <div style={{width: "65%", display: "inline", float: "left"}}>
             { props.isLoadingFarmer ?
@@ -41,7 +45,6 @@ const FarmerProfile = (props) => {
                     <p style={{marginTop:"15px"}}><label>Farmer ID: </label>{props.farmer.id}</p>
                     <p><label>Name: </label>{props.farmer.attributes.first_name} {props.farmer.attributes.last_name}</p>
                     <p><label>eMail: </label>{props.farmer.attributes.email}</p>
-                    <p><Link to={`/farmers/${props.farmer.id}/listings`}>Listings</Link></p>
                     <br />
                     <p><label>Joined: </label>{getDate(props.farmer.attributes.created_at)}</p>
                     {!isCurrentUser(props.farmer.id) ?
@@ -51,6 +54,7 @@ const FarmerProfile = (props) => {
                     :
                         null
                     }
+                    <div style={{marginTop:10}}><button style={{backgroundColor:"#3a5f0b", color:"#FFF"}} onClick={handleViewListings}>View Listings</button></div>
                 </div>
             }
         </div>
