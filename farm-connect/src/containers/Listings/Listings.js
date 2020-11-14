@@ -14,7 +14,7 @@ class Listings extends React.Component {
     componentDidMount(){
         this.stageApplication();
         !this.props.commodities[0] && this.props.fetchCommodities();
-        this.props.errorMessages.length > 0 && this.props.clearErrorMessages();
+        this.props.errorMessages[0] && this.props.clearErrorMessages();
     }
 
     stageApplication = () => {

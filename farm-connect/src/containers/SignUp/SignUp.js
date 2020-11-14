@@ -42,9 +42,7 @@ class SignUp extends Component {
     }
 
     handleSwitchToSignIn = () => {
-        if(this.props.errorMessages.length > 0){
-            this.props.clearErrorMessages();
-        }
+        this.props.errorMessages[0] && this.props.clearErrorMessages();
         this.props.history.push("/");
     }
 

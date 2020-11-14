@@ -22,9 +22,7 @@ class EditListing extends Component {
     }
 
     componentWillUnmount(){
-        if(this.props.errorMessages[0]){
-            this.props.clearErrorMessages();
-        }
+        this.props.errorMessages[0] && this.props.clearErrorMessages();
     }
 
     handleSwitchState = () => {
