@@ -75,6 +75,7 @@ class Listings extends React.Component {
             const commodity = listing.attributes.commodity.name;
             let available;
             listing.attributes.available ? available = "✓" : available = "";
+            const viewButton = parseInt(this.props.userId) === listing.attributes.user.id ? {backgroundColor:"#3a5f0b", color:"#FFF"} : null;
 
             return (
                 <tr key={listing.id}>
@@ -87,7 +88,7 @@ class Listings extends React.Component {
                     }
                     <td style={{color:"#3a5f0b", fontSize:18}}>{available}</td>
                     <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
-                    <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
+                    <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
                 </tr>
             )
         })
