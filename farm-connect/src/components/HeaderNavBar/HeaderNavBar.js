@@ -12,7 +12,7 @@ const HeadNavBar = (props) => {
     }
 
     return (
-        <div style={{marginBottom:"15px", float:"right", marginRight:"11%"}}>
+        <div style={{width:"90%", margin:"0% 5% 1% 5%", paddingRight:"15px", textAlign:"right"}}>
             {props.userPhoto ?
                 <img src={userPhoto(props.userPhoto)} alt="user avatar" style={{height:25, width:25, borderRadius:"50%", marginRight:10}} /> :
                 <img src={avatar} alt="anonymous avatar" style={{height:25, width:25, borderRadius:"50%", marginRight:10}} />
