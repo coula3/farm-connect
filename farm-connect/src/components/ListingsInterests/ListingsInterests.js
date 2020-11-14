@@ -5,7 +5,12 @@ import { padIds } from '../../utils/miscellaneousUtils';
 
 const ListingsInterests = (props) => {
     const handleClick = (listingId) => {
-        props.fetchListing(listingId)
+        const pathArray = props.location.pathname.split("/");
+        const pathListingId = pathArray[pathArray.length - 1];
+
+        if(listingId !== parseInt(pathListingId)){
+            props.fetchListing(listingId);
+        }
     }
 
     const listingsInterests = props.listingsInterests.map((listing, idx) => {
