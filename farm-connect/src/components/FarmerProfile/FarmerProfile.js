@@ -53,7 +53,7 @@ const FarmerProfile = (props) => {
                     :
                         null
                     }
-                    <div style={{marginTop:10}}><button style={{backgroundColor:"#3a5f0b", color:"#FFF"}} onClick={handleViewListings}>View Listings</button></div>
+                    <div style={{marginTop:10}}><button style={{backgroundColor:"#3a5f0b", color:"#FFF"}} onClick={handleViewListings}>View {props.farmer.attributes.first_name}'s Listings</button></div>
                 </div>
             }
         </div>
