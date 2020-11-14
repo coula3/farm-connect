@@ -7,13 +7,18 @@ import { getDate } from '../../utils/miscellaneousUtils';
 const CurrentUser = (props) => {
     const userPhoto = (userPhoto) => {
         return `http://localhost:3000/${userPhoto}`;
-     }
+    }
+
+    const handleClick = () => {
+        props.history.push(`/users/${props.userId}/edit`);
+    }
 
     return (
         <div style={{width: "65%", display: "inline", float: "left"}}>
             { props.isLoading ?
                 <Loader /> :
             <div>
+                <h3>My Profile</h3>
                 <div style={{margin:"auto", height:180, width:150}}>
                     {props.userPhoto ?
                         <img src={userPhoto(props.userPhoto)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :
@@ -26,8 +31,7 @@ const CurrentUser = (props) => {
                 <p><label>eMail: </label>{props.userAttributes.email}</p>
                 <br />
                 <p><label>Joined: </label>{getDate(props.userAttributes.created_at)}</p>
-                <br />
-                <p><Link to={`/users/${props.userId}/edit`}>Edit Profile</Link></p>
+                <div style={{marginTop:"30px"}}><button onClick={handleClick}>Edit Profile</button></div>
             </div>
             }
         </div>
