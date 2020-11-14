@@ -85,11 +85,7 @@ export const editListing = (listingId, payload, ownProps) => {
                     type: "EDIT_LISTING",
                     listing: json.data
                 });
-                if(json.data.attributes.closed){
-                    ownProps.history.push(`/listings`);
-                } else {
                 ownProps.history.push(`/listings/${listingId}`);
-                }
             } else {
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",
