@@ -9,6 +9,13 @@ const SideNavBar = (props) => {
         }
     }
 
+    const handleFetchClosedUserListings = () => {
+        if(props.areOpenListingsRendered){
+            props.listingsUnrendered();
+            props.fetchUserClosedListings(props.userId);
+        }
+    }
+
     const createListing = () => {
         if(props.userAttributes.type === "Farmer"){
             return <p><Link to="/listings/new">Create Listing</Link></p>
@@ -22,7 +29,7 @@ const SideNavBar = (props) => {
                     <br />
                     <span style={{color:"#3a5f0b"}}><strong>My Listings</strong></span>
                     <p><Link to={`/users/${props.userId}/listings`} onClick={handleFetchListings}>Open</Link></p>
-                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => {props.fetchUserClosedListings(props.userId); props.listingsUnrendered()}}>Closed</Link></p>
+                    <p><Link to={`/users/${props.userId}/closed-listings`} onClick={handleFetchClosedUserListings}>Closed</Link></p>
                 </>
             )
         }
