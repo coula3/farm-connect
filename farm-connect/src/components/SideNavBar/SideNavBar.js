@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 const SideNavBar = (props) => {
-    const handleClick = () => {
+    const handleFetchListings = () => {
         if(!props.areOpenListingsRendered){
             props.listingsRendered();
             props.fetchListings();
@@ -18,10 +18,10 @@ const SideNavBar = (props) => {
         if(props.userAttributes.type === "Farmer"){
             return (
                 <>
-                    <p><Link to="/listings/other-farmers" onClick={handleClick}>Other Farmers</Link></p>
+                    <p><Link to="/listings/other-farmers" onClick={handleFetchListings}>Other Farmers</Link></p>
                     <br />
                     <span style={{color:"#3a5f0b"}}><strong>My Listings</strong></span>
-                    <p><Link to={`/users/${props.userId}/listings`} onClick={handleClick}>Open</Link></p>
+                    <p><Link to={`/users/${props.userId}/listings`} onClick={handleFetchListings}>Open</Link></p>
                     <p><Link to={`/users/${props.userId}/closed-listings`} onClick={() => {props.fetchUserClosedListings(props.userId); props.listingsUnrendered()}}>Closed</Link></p>
                 </>
             )
@@ -35,7 +35,7 @@ const SideNavBar = (props) => {
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
                 <br />
                 {createListing()}
-                <p><Link to="/listings" onClick={handleClick}>Listings</Link></p>
+                <p><Link to="/listings" onClick={handleFetchListings}>Listings</Link></p>
                 { renderFarmerUsersLinks() }
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
