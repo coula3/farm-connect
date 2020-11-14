@@ -90,7 +90,7 @@ export const editUser = (userId, payload, ownProps) => {
                 if(!payload.user.photo.name){
                     ownProps.history.push(`/users/${userId}`);
                 } else {
-                    dispatch(uploadPhotos(payload.user.photo, userId, ownProps));
+                    dispatch(uploadPhoto(payload.user.photo, userId, ownProps));
                 }
             } else {
                 dispatch({
@@ -102,7 +102,7 @@ export const editUser = (userId, payload, ownProps) => {
     }
 }
 
-export const uploadPhotos = (photo, userId, ownProps) => {
+export const uploadPhoto = (photo, userId, ownProps) => {
     const formData = new FormData();
     formData.append('file', photo);
 
