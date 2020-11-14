@@ -136,7 +136,7 @@ class Listings extends React.Component {
                         linkToFarmerProfile :
                         null
                     }
-                    {renderListings()}
+                    {this.props.listings[0] && renderListings()}
                     </>
                 }
             </div>
