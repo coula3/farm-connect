@@ -13,13 +13,13 @@ import { Link } from 'react-router-dom';
 class Listings extends React.Component {
     componentDidMount(){
         this.stageApplication();
+        !this.props.commodities[0] && this.props.fetchCommodities();
         this.props.errorMessages.length > 0 && this.props.clearErrorMessages();
     }
 
     stageApplication = () => {
         if(this.props.areOpenListingsRendered || this.props.match.path !== "/users/:id/closed-listings"){
             this.props.fetchListings();
-            this.props.fetchCommodities();
             this.props.fetchProspects(this.props.userId);
             this.props.fetchListingsInterests();
         }
