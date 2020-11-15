@@ -129,7 +129,7 @@ class CreateListing extends Component {
                                 </tr>
                             </tbody>
                         </table>
-                        <p style={{marginTop:"25px"}}><input type="submit" /></p>
+                        <p style={{marginTop:"25px"}}><input style={{backgroundColor:"#3a5f0b", color:"#FFF"}} type="submit" /></p>
                     </form>
                 </div>
             </div>
