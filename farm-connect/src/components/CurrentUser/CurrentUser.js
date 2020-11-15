@@ -2,6 +2,7 @@ import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
 import { getDate } from '../../utils/miscellaneousUtils';
+import './CurrentUser.css';
 
 const CurrentUser = (props) => {
     const userPhoto = (userPhoto) => {
@@ -13,15 +14,15 @@ const CurrentUser = (props) => {
     }
 
     return (
-        <div style={{width: "65%", display: "inline", float: "left"}}>
+        <div className="CurrentUser_main_div">
             { props.isLoading ?
                 <Loader /> :
             <div>
                 <h3>My Profile</h3>
-                <div style={{margin:"auto", height:180, width:150}}>
+                <div id="img_div">
                     {props.userPhoto ?
-                        <img src={userPhoto(props.userPhoto)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :
-                        <img src={avatar} alt="anonymous avatar" style={{width:"100%", height:"100%"}} />
+                        <img className="current_user_img" src={userPhoto(props.userPhoto)} alt="user avatar" /> :
+                        <img className="current_user_img" src={avatar} alt="anonymous avatar" />
                     }
                 </div>
                 <p><label>ID: </label>{props.userId}</p>
@@ -30,7 +31,7 @@ const CurrentUser = (props) => {
                 <p><label>eMail: </label>{props.userAttributes.email}</p>
                 <br />
                 <p><label>Joined: </label>{getDate(props.userAttributes.created_at)}</p>
-                <div style={{marginTop:"30px"}}><button onClick={handleClick}>Edit Profile</button></div>
+                <div id="edit_btn_div"><button onClick={handleClick}>Edit Profile</button></div>
             </div>
             }
         </div>
