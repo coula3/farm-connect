@@ -13,8 +13,10 @@ const CurrentUser = (props) => {
         props.history.push(`/users/${props.userId}/edit`);
     }
 
+    const mainDivStyle = props.userAttributes.type === "Farmer" ? "CurrentFarmerUser_main_div" : "CurrentProspectUser_main_div";
+
     return (
-        <div className="CurrentUser_main_div">
+        <div className={mainDivStyle}>
             { props.isLoading ?
                 <Loader /> :
             <div>

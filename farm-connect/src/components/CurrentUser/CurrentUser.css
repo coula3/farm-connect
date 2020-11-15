@@ -1,7 +1,15 @@
-.CurrentUser_main_div {
+.CurrentFarmerUser_main_div {
     display: inline; 
     float: left;
     width: 65%;
+}
+
+.CurrentProspectUser_main_div {
+    display: inline;
+    float: left;
+    width: 65%;
+    background-color: #FFF;
+    height: 100vh;
 }
 
 #img_div {
