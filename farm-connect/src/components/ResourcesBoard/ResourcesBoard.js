@@ -2,10 +2,11 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import SuggestedProspects from '../SuggestedProspects/SuggestedProspects';
 import ListingsInterests from '../ListingsInterests/ListingsInterests';
+import './ResourcesBoard.css';
 
 const ResourcesBoard = (props) => {
     return (
-        <div style={{width: "20%", height:"100%", display: "inline", float: "left", backgroundColor: "#FFF"}}>
+        <div className="ResourcesBoard_main_div">
             <ListingsInterests {...props} />
             <SuggestedProspects {...props} />
         </div>
