@@ -2,6 +2,7 @@ import React from 'react';
 import Loader from '../Loader/Loader';
 import { Link } from 'react-router-dom';
 import { getDate } from '../../utils/miscellaneousUtils';
+import './Listing.css';
 
 const Listing = (props) => {
     const renderEditLink = (currentUserId, listingUserId, listingId) => {
@@ -39,7 +40,7 @@ const Listing = (props) => {
     }
 
     return (
-        <div style={{width: "65%", display: "inline", float: "left"}}>
+        <div className="Listing_main_div">
             { props.isLoading ?
                 <Loader /> :
                 <div>
@@ -56,13 +57,13 @@ const Listing = (props) => {
                     <label>Supplementary Information</label>
                     <p>{props.listing.attributes.information}</p>
                     <br />
-                    <p><label style={{marginRight: 2, fontSize: 30, color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
+                    <p><label id="heart_lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
                     <br />
 
                     {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
 
                     { props.listing.attributes.closed ?
-                        <h5 style={{color:"red"}}>CLOSED on {getDate(props.listing.attributes.closed)}</h5> :
+                        <h5 id="closed_listing">CLOSED on {getDate(props.listing.attributes.closed)}</h5> :
                         null
                     }
                 </div>

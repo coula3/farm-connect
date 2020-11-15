@@ -1,0 +1,14 @@
+.Listing_main_div {
+    display: inline;
+    float: left;
+    width: 65%;
+}
+
+#heart_lbl {
+    margin-right: 2px;
+    font-size: 30px;
+}
+
+#closed_listing {
+    color: red;
+}
