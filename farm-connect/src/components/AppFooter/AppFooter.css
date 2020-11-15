@@ -1,0 +1,11 @@
+.AppFooter_main_div {
+    clear: both;
+    position: fixed;
+    width: 90%;
+    margin: 0% 5% 0% 5%;
+    height: 75px;
+    bottom: 10px;
+    background-color: #FFF;
+    padding-top: 10px;
+    border-radius: 0px 0px 20px 20px;
+}
