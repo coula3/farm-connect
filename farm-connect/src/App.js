@@ -11,6 +11,7 @@ import { removeUserListingInterest, addUserListingInterest, fetchListing, fetchU
 import { fetchProspect } from './actions/prospectsActions';
 import { fetchFarmer } from './actions/farmersActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
+import AppFooter from './components/AppFooter/AppFooter';
 
 class App extends Component {
   handleUserSignOut = () => {
@@ -90,8 +91,9 @@ class App extends Component {
                 isLoadingInterests={this.props.isLoadingInterests}
               /> :
               null
-            }
-          </div>
+              }
+            </div>
+            { !this.props.isAuthenticated ? <AppFooter /> : null }
           </Router>
       </div>
     );
