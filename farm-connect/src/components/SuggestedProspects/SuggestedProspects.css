@@ -1,0 +1,14 @@
+.SuggestedProspects_main_div {
+    display: inline;
+    width: 15%;
+}
+
+h5 {
+    color: #3a5f0b;
+    margin-bottom: 0px;
+}
+
+#ul_prospects {
+    list-style: none;
+    padding-left: 0px;
+}

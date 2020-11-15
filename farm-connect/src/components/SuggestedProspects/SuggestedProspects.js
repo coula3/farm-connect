@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import avatar from '../../assets/avatar.png';
 import Loader from '../Loader/Loader';
+import './SuggestedProspects.css';
 
 const SuggestedProspects = (props) => {
     const prospectPhoto = (image) => {
@@ -26,18 +27,18 @@ const SuggestedProspects = (props) => {
 
     const prospects = props.prospects.map((prospect) => {
         return (
-            <ul style={{listStyle:"none", paddingLeft:0}} key={prospect.id}>
+            <ul id="ul_prospects" key={prospect.id}>
                 <li><Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{image(prospect.attributes.image)}</Link> <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
             </ul>
         )
     })
 
     return (
-        <div style={{width: "15%", display: "inline"}}>
+        <div className="SuggestedProspects_main_div">
             { props.isLoadingProspects ?
                 <Loader /> :
                 <>
-                    <h5 style={{color:"#3a5f0b", marginBottom:"0px"}}>Suggested Prospects</h5>
+                    <h5>Suggested Prospects</h5>
                     {prospects}
                 </>
             }
