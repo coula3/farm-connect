@@ -17,6 +17,10 @@ const FarmerProfile = (props) => {
         return props.userId === farmerId;
     }
 
+    const displayMyOrName = (farmerId) => {
+        return isCurrentUser(farmerId) ? "My Listings" : `${props.farmer.attributes.first_name}'s Listings`;
+    }
+
     const connectUnconnectUsers = (e, userId, farmerId) => {
         if(e.target.innerText === "Connect"){
             props.connectUsers(userId, farmerId);
@@ -53,7 +57,7 @@ const FarmerProfile = (props) => {
                     :
                         null
                     }
-                    <div style={{marginTop:10}}><button style={{backgroundColor:"#3a5f0b", color:"#FFF"}} onClick={handleViewListings}>View {props.farmer.attributes.first_name}'s Listings</button></div>
+                    <div style={{marginTop:10}}><button style={{backgroundColor:"#3a5f0b", color:"#FFF"}} onClick={handleViewListings}>{displayMyOrName(props.farmer.id)}</button></div>
                 </div>
             }
         </div>
