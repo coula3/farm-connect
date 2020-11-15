@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import avatar from '../../assets/avatar.png';
+import './HeaderNavBar.css';
 
 const HeadNavBar = (props) => {
     const userPhoto = (userPhoto) => {
@@ -12,14 +13,14 @@ const HeadNavBar = (props) => {
     }
 
     return (
-        <div style={{width:"90%", margin:"0% 5% 1% 5%", paddingBottom:"10px", textAlign:"right", borderRadius:"10px", backgroundColor:"#FFF"}}>
+        <div className="HeaderNavBar_main_div">
             {props.userPhoto ?
-                <img src={userPhoto(props.userPhoto)} alt="user avatar" style={{height:25, width:25, borderRadius:"50%", marginRight:10}} /> :
-                <img src={avatar} alt="anonymous avatar" style={{height:25, width:25, borderRadius:"50%", marginRight:10}} />
+                <img className="header_img" src={userPhoto(props.userPhoto)} alt="user avatar" /> :
+                <img className="header_img" src={avatar} alt="anonymous avatar" />
             }
-            <span style={{marginRight: "10px"}}><Link to={`/users/${props.userId}`} title="View Profile">{props.userAttributes.first_name} {props.userAttributes.last_name}</Link></span>
-            <span style={{padding:"1px 5px", border:"solid 2px", marginRight:"10px", borderRadius:"50%", color:"#3a5f0b", borderColor:"#3a5f0b"}}><strong>{userType(props.userAttributes.type)}</strong></span>
-            <Link to="/signout" onClick={props.userSignOut} style={{paddingRight:"15px"}}>Sign Out</Link>
+            <span id="name_span"><Link to={`/users/${props.userId}`} title="View Profile">{props.userAttributes.first_name} {props.userAttributes.last_name}</Link></span>
+            <span id="user_type_span"><strong>{userType(props.userAttributes.type)}</strong></span>
+            <Link id="padding_signout" to="/signout" onClick={props.userSignOut}>Sign Out</Link>
         </div>
     )
 }
