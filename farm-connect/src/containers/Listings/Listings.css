@@ -1,0 +1,22 @@
+.Listings_main_div {
+    display: inline;
+    float: left;
+    width: 65%;
+    background-color: #FFF;
+}
+
+.table {
+    width: 100%;
+}
+
+#category, #td_available {
+    color: #3a5f0b;
+}
+
+#td_available {
+    font-size: 18px;
+}
+
+#link_div {
+    margin-bottom: 20px;
+}

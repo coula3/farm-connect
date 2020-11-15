@@ -9,6 +9,7 @@ import { fetchListingsInterests } from '../../actions/interestsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { padIds } from '../../utils/miscellaneousUtils';
 import { Link } from 'react-router-dom';
+import './Listings.css';
 
 class Listings extends React.Component {
     componentDidMount(){
@@ -86,7 +87,7 @@ class Listings extends React.Component {
                         <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td> :
                         null
                     }
-                    <td style={{color:"#3a5f0b", fontSize:18}}>{available}</td>
+                    <td id="td_available">{available}</td>
                     <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
                     <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
                 </tr>
@@ -95,7 +96,7 @@ class Listings extends React.Component {
 
         const renderListings = () => {
             return (
-                <table style={{width: "100%"}}>
+                <table className="table">
                     <thead>
                         <tr>
                             <th></th>
@@ -116,10 +117,10 @@ class Listings extends React.Component {
             )
         }
 
-        const linkToFarmerProfile = <div style={{marginBottom:20}}><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></div>
+        const linkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></div>
 
         return (
-            <div style={{width: "65%", display: "inline", float: "left", backgroundColor: "#FFF"}}>
+            <div className="Listings_main_div">
                 { this.props.isLoadingListings ?
                     <Loader /> :
                     <>
@@ -132,7 +133,7 @@ class Listings extends React.Component {
                             <h4>{listings.length} {listings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
                             <h4>No Closed Listing</h4>
                     }
-                    <h4 style={{color:"#3a5f0b"}}>{listingsCategory}</h4>
+                    <h4 id="category">{listingsCategory}</h4>
                     { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
                         linkToFarmerProfile :
                         null
