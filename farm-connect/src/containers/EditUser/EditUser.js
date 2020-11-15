@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { editUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import * as messages from '../../utils/errorsUtils/userErrors';
+import './EditUser.css';
 
 class EditUser extends Component {
     state = {
@@ -83,16 +84,16 @@ class EditUser extends Component {
 
     render(){
         return (
-            <div style={{width: "65%", display: "inline", float: "left"}}>
-                <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
-                    <p style={{marginBottom:0}}><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.firstNameError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}><input type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.lastNameError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}><input type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.dateOfBirthError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}><input type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.emailError(this.props.errorMessages)}</p>
+            <div className="EditUser_main_div">
+                <form id="signup_form"  onSubmit={this.handleSubmit}>
+                    <p className="p_inputs"><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p className="p_errors">{messages.firstNameError(this.props.errorMessages)}</p>
+                    <p className="p_inputs"><input type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p className="p_errors">{messages.lastNameError(this.props.errorMessages)}</p>
+                    <p className="p_inputs"><input type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
+                    <p className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</p>
+                    <p className="p_inputs"><input type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
+                    <p className="p_errors">{messages.emailError(this.props.errorMessages)}</p>
                     <p><input type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <br />
                     <button disabled={!this.state.editMode}>Update</button>
