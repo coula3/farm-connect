@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { createListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import * as messages from '../../utils/errorsUtils/listingErrors';
+import './CreateListing.css';
 
 class CreateListing extends Component {
     state = {
@@ -68,10 +69,10 @@ class CreateListing extends Component {
         })
 
         return (
-            <div style={{width: "65%", display: "inline", float: "left"}}>
+            <div className="CreateListing_main_div">
                 <h3>Create Listing</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <p style={{marginBottom:0}}>
+                    <p className="p_inputs">
                         <label>Commodity </label> 
                         <select name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
                             { commoditiesList.map((commodity, idx) =>
@@ -79,24 +80,24 @@ class CreateListing extends Component {
                             }
                         </select>
                     </p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.commodityError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}>
+                    <p className="p_errors">{messages.commodityError(this.props.errorMessages)}</p>
+                    <p className="p_inputs">
                         <label>Estimated Availability </label>
                         <input name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
                     </p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.availabilityError(this.props.errorMessages)}</p>
+                    <p className="p_errors">{messages.availabilityError(this.props.errorMessages)}</p>
                     <p>
                         <label>Quantity </label>
                         <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/>
                     </p>
-                    <p style={{marginBottom:0}}>
+                    <p className="p_inputs">
                         <label>Measure </label>
                         <select name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
                         {measuresList.map((measure, idx) =>
                         (<option key={idx} value={measure}>{measure}</option>))}
                         </select>
                     </p> 
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.measureError(this.props.errorMessages)}</p>
+                    <p className="p_errors">{messages.measureError(this.props.errorMessages)}</p>
                     <p>
                         <label>Available </label> 
                         <select name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
@@ -105,7 +106,7 @@ class CreateListing extends Component {
                         </select>
                     </p>
                     <p>
-                        <label style={{verticalAlign: "top"}}>Supplementary Info </label>
+                        <label id="label_align">Supplementary Info </label>
                         <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
                         <label> {this.state.maxInfoCharacters - this.state.listing.information.length}</label>
                     </p>
