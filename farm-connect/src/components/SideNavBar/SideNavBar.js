@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import './SideNavBar.css';
 
 const SideNavBar = (props) => {
     const handleFetchListings = () => {
@@ -27,7 +28,7 @@ const SideNavBar = (props) => {
                 <>
                     <p><Link to="/listings/other-farmers" onClick={handleFetchListings}>Other Farmers</Link></p>
                     <br />
-                    <span style={{color:"#3a5f0b"}}><strong>My Listings</strong></span>
+                    <span id="header_color"><strong>My Listings</strong></span>
                     <p><Link to={`/users/${props.userId}/listings`} onClick={handleFetchListings}>Open</Link></p>
                     <p><Link to={`/users/${props.userId}/closed-listings`} onClick={handleFetchClosedUserListings}>Closed</Link></p>
                 </>
@@ -37,7 +38,7 @@ const SideNavBar = (props) => {
 
     return (
         <div>
-            <div style={{width:"15%", display:"inline", float:"left", backgroundColor:"#FFF"}}>
+            <div className="SideNavBar_main_div">
                 <br />
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
                 <br />

@@ -1,0 +1,10 @@
+.SideNavBar_main_div {
+    display: inline;
+    float: left;
+    width: 15%;
+    background-color: #FFF;
+}
+
+#header_color {
+    color: #3a5f0b;
+}
