@@ -17,3 +17,13 @@
 #label_align {
     vertical-align: top;
 }
+
+.card {
+    text-align: center;
+    border: #663300 solid 1px;
+    padding: 25px 0px 25px 0px;
+    width: 60%;
+    background-color: #FFF;
+    margin: auto;
+    box-shadow: 6px 8px #663300
+  }
