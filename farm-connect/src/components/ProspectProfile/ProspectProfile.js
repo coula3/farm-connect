@@ -2,6 +2,7 @@ import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
 import { getDate } from '../../utils/miscellaneousUtils';
+import './ProspectProfile.css';
 
 const ProspectProfile = (props) => {
     const consolidatedConnects = [ ...props.userAttributes.connects, ...props.userAttributes.inverse_connects ];
@@ -28,15 +29,15 @@ const ProspectProfile = (props) => {
     }
 
     return (
-        <div style={{width: "65%", display: "inline", float: "left"}}>
+        <div className="ProspectProfile_main_div">
             { props.isLoadingProspect ?
                 <Loader /> :
                 <div>
                     <h3>Prospect Profile</h3>
-                    <div style={{margin:"auto", height:180, width:150}}>
+                    <div id="img_div">
                         {props.prospect.attributes.image ?
-                            <img src={prospectPhoto(props.prospect.attributes.image)} alt="user avatar" style={{width:"100%", height:"100%"}} /> :
-                            <img src={avatar} alt="anonymous avatar" style={{width:"100%", height:"100%"}} />
+                            <img className="img" src={prospectPhoto(props.prospect.attributes.image)} alt="user avatar" /> :
+                            <img className="img" src={avatar} alt="anonymous avatar" />
                         }
                     </div>
                     <p><label>Prospect ID: </label>{props.prospect.id}</p>
@@ -46,8 +47,8 @@ const ProspectProfile = (props) => {
                     <p><label>Joined: </label>{getDate(props.prospect.attributes.created_at)}</p>
                     {!isCurrentUser(props.prospect.id) ?
                         !isConnected(props.prospect.id) ?
-                            <div style={{paddingTop:15}}><button style={{backgroundColor:"#3a5f0b", color:"#FFFFFF"}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
-                            <div style={{paddingTop:15}} onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}><button>Unconnect</button></div>
+                            <div className="connect_btn_div"><button id="connect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
+                            <div className="connect_btn_div" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}><button>Unconnect</button></div>
                     :
                         null
                     }
