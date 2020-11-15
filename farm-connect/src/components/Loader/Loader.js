@@ -1,9 +1,10 @@
 import React from 'react';
 import loaderSrc from '../../assets/loader.gif'
+import './Loader.css';
 
 const Loader = () => (
-    <div style={{width: "65%", display: "inline"}}>
-        <img alt="loader" src={loaderSrc} style={{width: 75}} />
+    <div className="Loader_main_div">
+        <img alt="loader" src={loaderSrc} id="img_width" />
     </div>
 )
 
