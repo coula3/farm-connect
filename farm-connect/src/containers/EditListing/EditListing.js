@@ -5,6 +5,7 @@ import { editListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { getDate } from '../../utils/miscellaneousUtils';
 import * as messages from '../../utils/errorsUtils/listingErrors';
+import './EditListing.css';
 
 class EditListing extends Component {
     state = {
@@ -139,7 +140,7 @@ class EditListing extends Component {
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
 
         return (
-            <div style={{width: "60%", display: "inline", float: "left"}}>
+            <div className="EditListing_main_div">
                 <h2>Edit Listing</h2>
                 { this.props.isLoadingEditedListing ?
                     <Loader /> :
@@ -154,15 +155,15 @@ class EditListing extends Component {
                             </select>
                         </p>
 
-                        <p style={{marginBottom:0}}>Est. Availability:
+                        <p className="p_inputs">Est. Availability:
                             <input type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
                         </p>
-                        <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.availabilityError(this.props.errorMessages)}</p>
+                        <p className="p_errors">{messages.availabilityError(this.props.errorMessages)}</p>
 
-                        <p style={{marginBottom:0}}>Quantity:
+                        <p className="p_inputs">Quantity:
                             <input type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                         </p>
-                        <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.quantityError(this.props.errorMessages)}</p>
+                        <p className="p_errors">{messages.quantityError(this.props.errorMessages)}</p>
 
                         <p>Measure:
                             <select name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
@@ -180,7 +181,7 @@ class EditListing extends Component {
                         </p>
 
                         <p>
-                            <label style={{verticalAlign: "top"}}>Supplementary Info </label >
+                            <label id="label_align">Supplementary Info </label >
                             <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
                             <label> {this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
                         </p>
@@ -190,7 +191,7 @@ class EditListing extends Component {
                             <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onFocus={this.handleSwitchState} onChange={this.handleChange}/>
                         </p>
 
-                        <p style={{color:"red", fontSize:12}}>{this.closeListingWarning()}</p>
+                        <p id="listing_close_warning">{this.closeListingWarning()}</p>
 
                         <p>
                             <input type="submit" value="Update" disabled={this.state.editMode ? false : true}/>
