@@ -3,7 +3,7 @@ import './AppFooter.css';
 
 const AppFooter = () => (
     <div className="AppFooter_main_div">
-        <small>&copy; 2020 <span id="name_span"><strong>farmConnect</strong></span></small>
+        <small>&copy; {new Date().getUTCFullYear()} <span id="name_span"><strong>farmConnect</strong></span></small>
     </div>
 )
 
