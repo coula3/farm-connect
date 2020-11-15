@@ -73,46 +73,63 @@ class CreateListing extends Component {
                 <div className="card">
                     <h3>Create Listing</h3>
                     <form onSubmit={this.handleSubmit}>
-                        <p className="p_inputs">
-                            <label>Commodity </label>
-                            <select name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
-                                { commoditiesList.map((commodity, idx) =>
-                                    (<option key={idx} value={commodity}>{commodity}</option>))
-                                }
-                            </select>
-                        </p>
-                        <p className="p_errors">{messages.commodityError(this.props.errorMessages)}</p>
-                        <p className="p_inputs">
-                            <label>Estimated Availability </label>
-                            <input name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
-                        </p>
-                        <p className="p_errors">{messages.availabilityError(this.props.errorMessages)}</p>
-                        <p>
-                            <label>Quantity </label>
-                            <input name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/>
-                        </p>
-                        <p className="p_inputs">
-                            <label>Measure </label>
-                            <select name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
-                            {measuresList.map((measure, idx) =>
-                            (<option key={idx} value={measure}>{measure}</option>))}
-                            </select>
-                        </p>
-                        <p className="p_errors">{messages.measureError(this.props.errorMessages)}</p>
-                        <p>
-                            <label>Available </label>
-                            <select name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
-                                <option value="No">No</option>
-                                <option value="Yes">Yes</option>
-                            </select>
-                        </p>
-                        <p>
-                            <label id="label_align">Supplementary Info </label>
-                            <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
-                            <label> {this.state.maxInfoCharacters - this.state.listing.information.length}</label>
-                        </p>
-
-                        <p><input type="submit" /></p>
+                        <table className="center">
+                            <tbody>
+                                <tr>
+                                    <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
+                                    <td style={{width:"65%"}}>
+                                        <select style={{width: "150px"}} name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
+                                            { commoditiesList.map((commodity, idx) =>
+                                                (<option key={idx} value={commodity}>{commodity}</option>))
+                                            }
+                                        </select>
+                                        <br />
+                                        <span className="p_errors">{messages.commodityError(this.props.errorMessages)}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability </td>
+                                    <td>
+                                        <input style={{marginTop:"10px"}} name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
+                                        <br />
+                                        <span className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity </td>
+                                    <td><input style={{marginTop:"10px"}} name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/></td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Measure </td>
+                                    <td>
+                                        <select style={{width: "150px", marginTop:"10px"}} name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
+                                            {measuresList.map((measure, idx) =>
+                                            (<option key={idx} value={measure}>{measure}</option>))}
+                                        </select>
+                                        <br />
+                                        <span className="p_errors">{messages.measureError(this.props.errorMessages)}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Available </td>
+                                    <td>
+                                        <select style={{marginTop:"10px"}}name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info </td>
+                                    <td>
+                                        <textarea style={{marginTop:"10px", padding:"8px"}} name="information" id="information" rows="8" cols="32" maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
+                                        <br />
+                                        <label> {this.state.maxInfoCharacters - this.state.listing.information.length}</label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style={{marginTop:"25px"}}><input type="submit" /></p>
                     </form>
                 </div>
             </div>
