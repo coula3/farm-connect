@@ -1,0 +1,23 @@
+.main_div {
+    margin: auto;
+    width: 40%;
+    border: solid 1px grey;
+    box-shadow: 10px 10px grey;
+    border-radius: 10px;
+    padding: 15px 0px 15px 0px;
+}
+
+#signin_form {
+    padding: 10px; 
+    margin-bottom: 5px;
+}
+
+#p_errors {
+    font-size: 12px;
+    margin-top: 0px;
+    color: red;
+}
+
+#button {
+    margin-top: 15px;
+}

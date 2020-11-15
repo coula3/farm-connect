@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signInUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
+import './SignIn.css';
 
 class SignIn extends Component {
     state = {
@@ -45,12 +46,12 @@ class SignIn extends Component {
 
     render() {
         return (
-            <div style={{margin: "auto", width: "40%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", padding:"15px 0px 15px 0px"}}>
-                <form style={{padding: 10, marginBottom: "5px"}} onSubmit={this.handleSubmit}>
+            <div className="main_div">
+                <form id="signin_form" onSubmit={this.handleSubmit}>
                     <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
-                    <p style={{fontSize:12, marginTop:0, color:"red"}}>{this.props.errorMessages.length > 0 ? this.props.errorMessages[0] : ""}</p>
-                    <button style={{marginTop:15}}>Sign In</button>
+                    <p id="p_errors">{this.props.errorMessages.length > 0 ? this.props.errorMessages[0] : ""}</p>
+                    <button id="button">Sign In</button>
                 </form>
                 <button onClick={this.handleSwitchToSignUp}>Sign Up</button>
             </div>
