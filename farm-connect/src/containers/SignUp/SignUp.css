@@ -1,0 +1,35 @@
+.main_div {
+    margin: auto;
+    width: 40%;
+    border: solid 1px grey; 
+    box-shadow: 10px 10px grey; 
+    border-radius: 10px; 
+    padding-bottom: 15px;
+}
+
+#signup_form {
+    padding: 10px; 
+    margin-bottom: 5px
+}
+
+.p_inputs {
+    margin-bottom: 0px
+}
+
+.p_errors {
+    font-size: 12px;
+    color: red
+}
+
+#global-div-type {
+    margin-top: 15px;
+}
+
+.div_type {
+    display: inline;
+    margin-right: 15px;
+}
+
+.p_error_margin {
+    margin: 0px;
+}

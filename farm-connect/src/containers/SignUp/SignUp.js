@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { signUpUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import * as messages from '../../utils/errorsUtils/userErrors';
+import './SignUp.css';
 
 class SignUp extends Component {
     state = {
@@ -48,28 +49,28 @@ class SignUp extends Component {
 
     render(){
         return(
-            <div style={{margin: "auto", width: "40%", border: "solid 1px grey", boxShadow: "10px 10px grey", borderRadius: "10px", paddingBottom: 15}}>
-                <form style={{padding: 10, marginBottom:"5px"}} onSubmit={this.handleSubmit}>
-                    <p style={{marginBottom:0}}><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.firstNameError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.lastNameError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.dateOfBirthError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
-                    <p style={{margin:"0px", fontSize:12, color:"red"}}>{messages.emailError(this.props.errorMessages)}</p>
-                    <p style={{marginBottom:0}}><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
-                    <p style={{marginTop:"0px", fontSize:12, color:"red"}}>{messages.passwordError(this.props.errorMessages)}</p>
-                    <div>
-                        <div style={{display: "inline", marginRight: 15}}>
+            <div className="main_div">
+                <form id="signup_form" onSubmit={this.handleSubmit}>
+                    <p className="p_inputs"><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
+                    <p className="p_errors p_error_margin">{messages.firstNameError(this.props.errorMessages)}</p>
+                    <p className="p_inputs"><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
+                    <p className="p_errors p_error_margin">{messages.lastNameError(this.props.errorMessages)}</p>
+                    <p className="p_inputs"><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
+                    <p className="p_errors p_error_margin">{messages.dateOfBirthError(this.props.errorMessages)}</p>
+                    <p className="p_inputs"><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
+                    <p className="p_errors p_error_margin">{messages.emailError(this.props.errorMessages)}</p>
+                    <p className="p_inputs"><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
+                    <p className="p_errors p_error_margin">{messages.passwordError(this.props.errorMessages)}</p>
+                    <div id="global-div-type">
+                        <div className="div_type">
                             <label htmlFor="farmer">Farmer</label>
                             <input type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
                         </div>
-                        <div style={{display: "inline", marginRight: 15}}>
+                        <div className="div_type div_p_inputs">
                             <label htmlFor="prospect">Prospect</label>
                             <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
-                        <p style={{margin:"0px"}}>{messages.typeError(this.props.errorMessages)}</p>
+                        <p className="p_error_margin">{messages.typeError(this.props.errorMessages)}</p>
                     </div>
                     <br />
                     <button>Sign Up</button>
