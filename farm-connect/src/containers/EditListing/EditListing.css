@@ -22,3 +22,19 @@
     color: red;
     font-size: 12px;
 }
+
+.card {
+    text-align: center;
+    border: #663300 solid 1px;
+    padding: 15px 0px 25px 0px;
+    width: 70%;
+    background-color: #FFF;
+    margin: auto;
+    box-shadow: 6px 8px #663300
+}
+
+.center {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}

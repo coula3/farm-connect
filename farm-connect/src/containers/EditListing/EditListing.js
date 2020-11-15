@@ -141,63 +141,82 @@ class EditListing extends Component {
 
         return (
             <div className="EditListing_main_div">
-                <h3>Edit Listing</h3>
                 { this.props.isLoadingEditedListing ?
                     <Loader /> :
-                    <form onSubmit={this.handleSubmit}>
+                    <div className="card">
+                        <h3>Edit Listing</h3>
                         <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
                         <p><label><strong>Listing Date</strong> {getDate(this.props.listing.attributes.date)}</label></p>
-                        <p>Commodity:
-                            <select name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
-                                { this.props.commodities.map((commodity, idx) =>
-                                    <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
-                                }
-                            </select>
-                        </p>
 
-                        <p className="p_inputs">Est. Availability:
-                            <input type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
-                        </p>
-                        <p className="p_errors">{messages.availabilityError(this.props.errorMessages)}</p>
+                        <form onSubmit={this.handleSubmit}>
+                            <table className="center">
+                                <tbody>
+                                    <tr>
+                                        <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
+                                        <td style={{width:"65%"}}>
+                                            <select style={{width: "150px"}} name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                                { this.props.commodities.map((commodity, idx) =>
+                                                    <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability</td>
+                                        <td>
+                                            <input style={{marginTop:"10px"}} type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
+                                            <br />
+                                            <span className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity</td>
+                                        <td>
+                                            <input style={{marginTop:"10px"}} type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                            <span className="p_errors">{messages.quantityError(this.props.errorMessages)}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Measure</td>
+                                        <td>
+                                            <select style={{width: "150px", marginTop:"10px"}} name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                                { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
+                                                    <option key={idx} value={measure}>{measure}</option>)
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Availabe</td>
+                                        <td>
+                                            <select style={{marginTop:"10px"}}  name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                                <option value="No">No</option>
+                                                <option value="Yes">Yes</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info</td>
+                                        <td>
+                                            <textarea style={{marginTop:"10px", padding:"8px"}} name="information" id="information" rows="8" cols="30" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
+                                            <br />
+                                            <label> {this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                        <p className="p_inputs">Quantity:
-                            <input type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
-                        </p>
-                        <p className="p_errors">{messages.quantityError(this.props.errorMessages)}</p>
+                            <p>
+                                <label>Close Listing </label>
+                                <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onFocus={this.handleSwitchState} onChange={this.handleChange}/>
+                            </p>
+                            <p id="listing_close_warning">{this.closeListingWarning()}</p>
 
-                        <p>Measure:
-                            <select name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
-                                { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
-                                    <option key={idx} value={measure}>{measure}</option>)
-                                }
-                            </select>
-                        </p>
+                            <p><input type="submit" value="Update" disabled={this.state.editMode ? false : true}/></p>
 
-                        <p>Availabe:
-                            <select name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
-                                <option value="No">No</option>
-                                <option value="Yes">Yes</option>
-                            </select>
-                        </p>
-
-                        <p>
-                            <label id="label_align">Supplementary Info </label >
-                            <textarea name="information" id="information" rows="8" cols="30" style={{padding: 8}} maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
-                            <label> {this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
-                        </p>
-
-                        <p>
-                            <label>Close Listing </label>
-                            <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onFocus={this.handleSwitchState} onChange={this.handleChange}/>
-                        </p>
-
-                        <p id="listing_close_warning">{this.closeListingWarning()}</p>
-
-                        <p>
-                            <input type="submit" value="Update" disabled={this.state.editMode ? false : true}/>
-                            <input type="submit" value="Cancel" onClick={this.handleCancelEdit} />
-                        </p>
-                    </form>
+                            <p><input type="submit" value="Cancel" onClick={this.handleCancelEdit} /></p>
+                        </form>
+                    </div>
                 }
             </div>
         )
