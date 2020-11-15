@@ -1,0 +1,33 @@
+.FarmerProfile_main_div {
+    display: inline; 
+    float: left;
+    width: 65%;
+}
+
+#img_div {
+    margin: auto;
+    height: 180px;
+    width: 150px;
+}
+
+.farmer_img {
+    width: 100%;
+    height: 100%;
+}
+
+#id_p {
+    margin-top: 15px;
+}
+
+.connect_btn_div {
+    padding-top: 15px;
+}
+
+#connect_btn, #listing_btn {
+    background-color: #3a5f0b; 
+    color: #FFF;
+}
+
+#listing_btn_div {
+    margin-top: 10px;
+}
