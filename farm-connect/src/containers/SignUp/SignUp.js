@@ -47,6 +47,10 @@ class SignUp extends Component {
         this.props.history.push("/");
     }
 
+    componentWillUnmount(){
+        this.props.errorMessages[0] && this.props.clearErrorMessages();
+    }
+
     render(){
         return(
             <div className="main_div">
