@@ -1,0 +1,18 @@
+.AppHeader_main_div {
+    width: 90%;
+    margin: 1% 5% 1% 5%;
+    padding: 1% 0% 1% 0%;
+    border-radius: 15px;
+    background-color: #FFF;
+}
+
+#logo_img {
+    height: 5%;
+    width: 5%;
+}
+
+#name_div {
+    color: #3a5f0b;
+    font-size: 50px; 
+    font-family: 'Piedra';
+}
