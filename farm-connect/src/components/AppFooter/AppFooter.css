@@ -4,8 +4,13 @@
     width: 90%;
     margin: 0% 5% 0% 5%;
     height: 75px;
-    bottom: 10px;
+    bottom: 20px;
     background-color: #FFF;
     padding-top: 10px;
     border-radius: 0px 0px 20px 20px;
+}
+
+#name_span {
+    color: #3a5f0b;
+    font-family: 'Piedra';
 }
