@@ -113,7 +113,7 @@ class CreateListing extends Component {
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Available </td>
                                     <td>
-                                        <select style={{marginTop:"10px"}}name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
+                                        <select style={{marginTop:"10px"}} name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
                                             <option value="No">No</option>
                                             <option value="Yes">Yes</option>
                                         </select>
