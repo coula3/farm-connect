@@ -126,12 +126,12 @@ class Listings extends React.Component {
                     <>
                     { this.props.match.path !== "/users/:id/closed-listings" ?
                         this.props.listings.length > 0 ?
-                            <h4>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
-                            <h4>No Open Listing</h4>
+                            <h3>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h3> :
+                            <h3>No Open Listing</h3>
                         :
                         this.props.listings.length > 0 ?
-                            <h4>{listings.length} {listings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
-                            <h4>No Closed Listing</h4>
+                            <h3>{listings.length} {listings.length > 1 ? "Closed Listings" : "Closed Listing" }</h3> :
+                            <h3>No Closed Listing</h3>
                     }
                     <h4 id="category">{listingsCategory}</h4>
                     { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?

@@ -85,6 +85,7 @@ class EditUser extends Component {
     render(){
         return (
             <div className="EditUser_main_div">
+                <h3>Edit Profile</h3>
                 <form id="signup_form"  onSubmit={this.handleSubmit}>
                     <p className="p_inputs"><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
                     <p className="p_errors">{messages.firstNameError(this.props.errorMessages)}</p>

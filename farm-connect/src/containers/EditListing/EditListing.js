@@ -141,7 +141,7 @@ class EditListing extends Component {
 
         return (
             <div className="EditListing_main_div">
-                <h2>Edit Listing</h2>
+                <h3>Edit Listing</h3>
                 { this.props.isLoadingEditedListing ?
                     <Loader /> :
                     <form onSubmit={this.handleSubmit}>
