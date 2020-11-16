@@ -1,7 +1,9 @@
 .Listings_main_div {
     display: inline;
     float: left;
-    width: 65%;
+    width: 64%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
     height: 100vh;
     background-color: #FFF;
 }
