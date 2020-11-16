@@ -23,14 +23,6 @@
     margin-top: 5px;
 }
 
-.sign_in_input {
-    width: 300px;
-    padding: 5px 10px;
-    font-size: 15px;
-    border: grey solid 1px;
-    border-radius: 5px;
-}
-
 .sign_in_button {
     width: 250px;
     font-size: 15px;
