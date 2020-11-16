@@ -43,19 +43,19 @@ const Listing = (props) => {
         <div className="Listing_main_div">
             { props.isLoading ?
                 <Loader /> :
-                <div>
+                <div className="listing_card">
                     <h3>Listing</h3>
-                    <p><label>List ID: </label>{props.listing.id}</p>
-                    <p><label>List Date: </label>{getDate(props.listing.attributes.date)}</p>
-                    <p><label>Farmer: </label><Link to={`/farmers/${props.listing.attributes.user.id}`} onClick={() => props.fetchFarmer(props.listing.attributes.user.id)}>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</Link></p>
-                    <p><label>Commodity: </label>{props.listing.attributes.commodity.name}</p>
-                    <p><label>Estimated Availability: </label>{props.listing.attributes.availability ? getDate(props.listing.attributes.availability) : null}</p>
+                    <p><label><strong>Listing ID:</strong> </label>{props.listing.id}</p>
+                    <p><label><strong>Listing Date:</strong> </label>{getDate(props.listing.attributes.date)}</p>
+                    <p><label><strong>Farmer:</strong> </label><Link to={`/farmers/${props.listing.attributes.user.id}`} onClick={() => props.fetchFarmer(props.listing.attributes.user.id)}>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</Link></p>
+                    <p><label><strong>Commodity:</strong> </label>{props.listing.attributes.commodity.name}</p>
+                    <p><label><strong>Estimated Availability:</strong> </label>{props.listing.attributes.availability ? getDate(props.listing.attributes.availability) : null}</p>
                     {props.listing.attributes.available ?
-                        <p><label>Available: </label>{convertTrueToYes(props.listing.attributes.available)}</p> :
+                        <p><label><strong>Available:</strong> </label>{convertTrueToYes(props.listing.attributes.available)}</p> :
                         null
                     }
-                    <p><label>Quantity: </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}</p>
-                    <label>Supplementary Information</label>
+                    <p><label><strong>Quantity:</strong> </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}</p>
+                    <label><strong>Supplementary Information</strong></label>
                     <p>{props.listing.attributes.information}</p>
                     <br />
                     <p><label id="heart_lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
