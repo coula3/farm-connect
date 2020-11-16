@@ -55,26 +55,26 @@ class SignUp extends Component {
         return(
             <div className="main_div">
                 <form id="signup_form" onSubmit={this.handleSubmit}>
-                    <p className="p_inputs"><input className="sign_up_in_input" type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
-                    <p className="p_errors p_error_margin">{messages.firstNameError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input className="sign_up_in_input" type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
-                    <p className="p_errors p_error_margin">{messages.lastNameError(this.props.errorMessages)}</p>
+                    <p className="inputs_p"><input className="sign_up_in_input" type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
+                    <p className="errors_p errors_p_margin">{messages.firstNameError(this.props.errorMessages)}</p>
+                    <p className="inputs_p"><input className="sign_up_in_input" type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
+                    <p className="errors_p errors_p_margin">{messages.lastNameError(this.props.errorMessages)}</p>
                     <p id="dob_p"><span id="dob_span">date of birth</span><input id="dob_input" type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
-                    <p className="p_errors p_error_margin">{messages.dateOfBirthError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
-                    <p className="p_errors p_error_margin">{messages.emailError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
-                    <p className="p_errors p_error_margin">{messages.passwordError(this.props.errorMessages)}</p>
-                    <div id="global-div-type">
-                        <div className="div_type">
+                    <p className="errors_p errors_p_margin">{messages.dateOfBirthError(this.props.errorMessages)}</p>
+                    <p className="inputs_p"><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
+                    <p className="errors_p errors_p_margin">{messages.emailError(this.props.errorMessages)}</p>
+                    <p className="inputs_p"><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
+                    <p className="errors_p errors_p_margin">{messages.passwordError(this.props.errorMessages)}</p>
+                    <div id="outer_type_div">
+                        <div className="type_div">
                             <label htmlFor="farmer">Farmer</label>
                             <input type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
                         </div>
-                        <div className="div_type div_p_inputs">
+                        <div className="type_div">
                             <label htmlFor="prospect">Prospect</label>
                             <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
-                        <p className="p_error_margin">{messages.typeError(this.props.errorMessages)}</p>
+                        <p className="errors_p_margin">{messages.typeError(this.props.errorMessages)}</p>
                     </div>
                     <br />
                     <button>Sign Up</button>

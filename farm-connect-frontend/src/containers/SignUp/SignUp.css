@@ -13,25 +13,25 @@
     margin-bottom: 5px
 }
 
-.p_inputs {
+.inputs_p {
     margin-bottom: 0px
 }
 
-.p_errors {
+.errors_p {
     font-size: 12px;
     color: red
 }
 
-#global-div-type {
+#outer_type_div {
     margin-top: 15px;
 }
 
-.div_type {
+.type_div {
     display: inline;
     margin-right: 15px;
 }
 
-.p_error_margin {
+.errors_p_margin {
     margin: 0px;
 }
 
