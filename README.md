@@ -11,13 +11,13 @@ ARCHITECTURE AND MODELS
 The app has a backend API powered by Ruby on Rails and a frontend built with HTML, CSS, React and React-Redux. The app features 7 models - Farmer, Prospect, User (STI), Listing, Commodity, Connection, Interest. 
 
 GETTING STARTED
-Fork and clone the app from Github repo git@github.com:coula3/farm-connect
-cd “farmer-connect/farm-connect-backend”’
-Run “gem install bundler”
-Run “rails db:create && rails db:migrate”
-Run “rails db:seed”
-Add JWT secret to ApplicationController
-Start the Rails Server: run “rails s”
-cd “farmer-connect/farm-connect”
-Run “npm install”
-Launch the application: “npm start”
+- Fork and clone the app from Github repo git@github.com:coula3/farm-connect
+- cd “farmer-connect/farm-connect-backend”’
+- Run “gem install bundler”
+- Run “rails db:create && rails db:migrate”
+- Run “rails db:seed”
+- Add JWT secret to ApplicationController
+- Start the Rails Server: run “rails s”
+- cd “farmer-connect/farm-connect”
+- Run “npm install”
+- Launch the application: “npm start”
