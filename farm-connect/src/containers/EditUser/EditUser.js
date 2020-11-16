@@ -85,7 +85,7 @@ class EditUser extends Component {
     render(){
         return (
             <div className="EditUser_main_div">
-                <div className="current_user_profile_card">
+                <div className="edit_user_profile_card">
                     <h3>Edit Profile</h3>
                     <form id="signup_form"  onSubmit={this.handleSubmit}>
                         <table className="center">
