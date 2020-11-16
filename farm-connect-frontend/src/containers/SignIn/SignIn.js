@@ -52,8 +52,8 @@ class SignIn extends Component {
         return (
             <div className="main_div">
                 <form id="signin_form" onSubmit={this.handleSubmit}>
-                    <p><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
-                    <p><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
+                    <p><input className="sign_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
+                    <p><input className="sign_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <p id="p_errors">{this.props.errorMessages.length > 0 ? this.props.errorMessages[0] : ""}</p>
                     <button id="button">Sign In</button>
                 </form>
