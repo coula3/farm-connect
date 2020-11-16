@@ -55,15 +55,15 @@ class SignUp extends Component {
         return(
             <div className="main_div">
                 <form id="signup_form" onSubmit={this.handleSubmit}>
-                    <p className="p_inputs"><input type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
+                    <p className="p_inputs"><input className="sign_up_in_input" type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.firstNameError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
+                    <p className="p_inputs"><input className="sign_up_in_input" type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.lastNameError(this.props.errorMessages)}</p>
                     <p className="p_inputs"><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.dateOfBirthError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
+                    <p className="p_inputs"><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.emailError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
+                    <p className="p_inputs"><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.passwordError(this.props.errorMessages)}</p>
                     <div id="global-div-type">
                         <div className="div_type">
