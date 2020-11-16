@@ -50,7 +50,7 @@ class SignIn extends Component {
 
     render() {
         return (
-            <div className="main_div">
+            <div className="SignIn_main_div">
                 <form id="signin_form" onSubmit={this.handleSubmit}>
                     <p><input className="sign_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input className="sign_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
