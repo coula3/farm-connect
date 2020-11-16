@@ -32,7 +32,7 @@ const ProspectProfile = (props) => {
         <div className="ProspectProfile_main_div">
             { props.isLoadingProspect ?
                 <Loader /> :
-                <div>
+                <div className="prospect_profile_card">
                     <h3>Prospect Profile</h3>
                     <div id="img_div">
                         {props.prospect.attributes.image ?
@@ -40,11 +40,11 @@ const ProspectProfile = (props) => {
                             <img className="img" src={avatar} alt="anonymous avatar" />
                         }
                     </div>
-                    <p><label>Prospect ID: </label>{props.prospect.id}</p>
-                    <p><label>Name: </label>{props.prospect.attributes.first_name} {props.prospect.attributes.last_name}</p>
-                    <p><label>eMail: </label>{props.prospect.attributes.email}</p>
+                    <p><label><strong>ID:</strong> </label>{props.prospect.id}</p>
+                    <p><label><strong>Name:</strong> </label>{props.prospect.attributes.first_name} {props.prospect.attributes.last_name}</p>
+                    <p><label><strong>Email:</strong> </label>{props.prospect.attributes.email}</p>
                     <br />
-                    <p><label>Joined: </label>{getDate(props.prospect.attributes.created_at)}</p>
+                    <p><label><strong>Joined:</strong> </label>{getDate(props.prospect.attributes.created_at)}</p>
                     {!isCurrentUser(props.prospect.id) ?
                         !isConnected(props.prospect.id) ?
                             <div className="connect_btn_div"><button id="connect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
