@@ -85,21 +85,54 @@ class EditUser extends Component {
     render(){
         return (
             <div className="EditUser_main_div">
-                <h3>Edit Profile</h3>
-                <form id="signup_form"  onSubmit={this.handleSubmit}>
-                    <p className="p_inputs"><input type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p className="p_errors">{messages.firstNameError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p className="p_errors">{messages.lastNameError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  /></p>
-                    <p className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <p className="p_errors">{messages.emailError(this.props.errorMessages)}</p>
-                    <p><input type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></p>
-                    <br />
-                    <button disabled={!this.state.editMode}>Update</button>
-                    <button onClick={this.handleCancelEdit}>Cancel Edit</button>
-                </form>
+                <div className="current_user_profile_card">
+                    <h3>Edit Profile</h3>
+                    <form id="signup_form"  onSubmit={this.handleSubmit}>
+                        <table className="center">
+                            <tbody>
+                                <tr>
+                                    <td style={{textAlign:"right", verticalAlign:"top"}}>First name</td>
+                                    <td>
+                                        <input style={{width: "150px", float:"left", marginLeft:"35px"}} type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <br />
+                                        <span className="p_errors">{messages.firstNameError(this.props.errorMessages)}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Last name</td>
+                                    <td>
+                                        <input style={{marginTop:"10px", width: "150px", float:"left", marginLeft:"35px"}} type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <br />
+                                        <span className="p_errors">{messages.lastNameError(this.props.errorMessages)}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Date of birth</td>
+                                    <td>
+                                        <input style={{marginTop:"10px", width: "150px", float:"left", marginLeft:"35px"}} type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  />
+                                        <br />
+                                        <span className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Email</td>
+                                    <td>
+                                        <input style={{marginTop:"10px", float:"left", marginLeft:"35px"}} type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <br />
+                                        <span className="p_errors">{messages.emailError(this.props.errorMessages)}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Add/Replace Photo</td>
+                                    <td><input style={{marginTop:"10px", float:"left", marginLeft:"35px"}} type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p><button disabled={!this.state.editMode}>Update</button></p>
+                        <p><button onClick={this.handleCancelEdit}>Cancel Edit</button></p>
+                    </form>
+                </div>
             </div>
         )
     }
