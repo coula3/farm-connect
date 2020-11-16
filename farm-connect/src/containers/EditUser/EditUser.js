@@ -123,12 +123,12 @@ class EditUser extends Component {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Add/Replace Photo</td>
+                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Upload Photo</td>
                                     <td><input style={{marginTop:"10px", float:"left", marginLeft:"35px"}} type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></td>
                                 </tr>
                             </tbody>
                         </table>
-
+                        <br />
                         <p><button disabled={!this.state.editMode}>Update</button></p>
                         <p><button onClick={this.handleCancelEdit}>Cancel Edit</button></p>
                     </form>
