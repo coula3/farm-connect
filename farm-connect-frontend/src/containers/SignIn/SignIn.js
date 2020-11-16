@@ -55,7 +55,7 @@ class SignIn extends Component {
                     <p><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <p id="errors_p">{this.props.errorMessages[0] ? "invalid username or password" : ""}</p>
-                    <button id="button" className="sign_in_button">Sign In</button>
+                    <button id="sign_in_button" className="sign_in_button">Sign In</button>
                 </form>
                 <button className="sign_up_button" onClick={this.handleSwitchToSignUp}>Sign Up</button>
                 <br />
