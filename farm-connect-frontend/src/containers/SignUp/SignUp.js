@@ -65,16 +65,17 @@ class SignUp extends Component {
                     <p className="errors_p errors_p_margin">{messages.emailError(this.props.errorMessages)}</p>
                     <p className="inputs_p"><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
                     <p className="errors_p errors_p_margin">{messages.passwordError(this.props.errorMessages)}</p>
-                    <div id="outer_type_div">
-                        <div className="type_div">
-                            <label htmlFor="farmer">Farmer</label>
+                    <div id="type_div">
+                        <div id="farmer_type_div">
+                            <label className="type_lbl" htmlFor="farmer">farmer</label>
                             <input type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
                         </div>
-                        <div className="type_div">
-                            <label htmlFor="prospect">Prospect</label>
+                        <div id="prospect_type_div">
+                            <label className="type_lbl" htmlFor="prospect">prospect</label>
                             <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
-                        <p className="errors_p_margin">{messages.typeError(this.props.errorMessages)}</p>
+
+                        <p id="type_error_p" className="errors_p_margin">{messages.typeError(this.props.errorMessages)}</p>
                     </div>
                     <br />
                     <button>Sign Up</button>
