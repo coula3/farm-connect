@@ -52,6 +52,7 @@
     height: 20px;
     margin: auto;
     margin-top: 15px;
+    margin-bottom: 20px;
     padding: 5px 10px 10px 10px;
     border: grey solid 1px;
     border-radius: 5px;
@@ -76,4 +77,8 @@
 
 #type_error_p {
     clear: both;
+}
+
+#sign_up_button {
+    margin-top: 5px;
 }

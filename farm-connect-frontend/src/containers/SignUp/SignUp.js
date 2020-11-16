@@ -75,12 +75,12 @@ class SignUp extends Component {
                             <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
 
-                        <p id="type_error_p" className="errors_p_margin">{messages.typeError(this.props.errorMessages)}</p>
+                        <p id="type_error_p">{messages.typeError(this.props.errorMessages)}</p>
                     </div>
-                    <br />
-                    <button>Sign Up</button>
+
+                    <button id="sign_up_button" className="sign_up_button">Sign Up</button>
                 </form>
-                <button onClick={this.handleSwitchToSignIn}>Sign In</button>
+                <button className="sign_in_button" onClick={this.handleSwitchToSignIn}>Sign In</button>
             </div>
         )
     }
