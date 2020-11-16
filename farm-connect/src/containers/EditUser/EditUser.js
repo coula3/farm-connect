@@ -93,7 +93,7 @@ class EditUser extends Component {
                                 <tr>
                                     <td style={{textAlign:"right", verticalAlign:"top"}}>First name</td>
                                     <td>
-                                        <input style={{width: "150px", float:"left", marginLeft:"35px"}} type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <input style={{width: "180px", float:"left", marginLeft:"35px"}} type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
                                         <span className="p_errors">{messages.firstNameError(this.props.errorMessages)}</span>
                                     </td>
@@ -101,7 +101,7 @@ class EditUser extends Component {
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Last name</td>
                                     <td>
-                                        <input style={{marginTop:"10px", width: "150px", float:"left", marginLeft:"35px"}} type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <input style={{marginTop:"10px", width: "180px", float:"left", marginLeft:"35px"}} type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
                                         <span className="p_errors">{messages.lastNameError(this.props.errorMessages)}</span>
                                     </td>
@@ -109,7 +109,7 @@ class EditUser extends Component {
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Date of birth</td>
                                     <td>
-                                        <input style={{marginTop:"10px", width: "150px", float:"left", marginLeft:"35px"}} type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  />
+                                        <input style={{marginTop:"10px", width: "180px", float:"left", marginLeft:"35px"}} type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  />
                                         <br />
                                         <span className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</span>
                                     </td>
@@ -117,7 +117,7 @@ class EditUser extends Component {
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Email</td>
                                     <td>
-                                        <input style={{marginTop:"10px", float:"left", marginLeft:"35px"}} type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <input style={{marginTop:"10px", width: "180px",float:"left", marginLeft:"35px"}} type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
                                         <span className="p_errors">{messages.emailError(this.props.errorMessages)}</span>
                                     </td>
