@@ -200,7 +200,7 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info</td>
                                         <td>
-                                            <textarea style={{marginTop:"10px", padding:"8px"}} name="information" id="information" rows="8" cols="30" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
+                                            <textarea style={{marginTop:"10px", padding:"10px"}} name="information" id="information" rows="9" cols="30" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
                                             <br />
                                             <label style={maxXterColor}>{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
                                         </td>
@@ -214,7 +214,7 @@ class EditListing extends Component {
                             </p>
                             <span id={warningMsgStyles}>{this.closeListingWarning()}</span>
 
-                            <p><input type="submit" value="Update" disabled={this.state.editMode ? false : true}/></p>
+                            <p id="p_button_update"><input type="submit" value="Update" disabled={this.state.editMode ? false : true}/></p>
 
                             <p><input type="submit" value="Cancel" onClick={this.handleCancelEdit} /></p>
                         </form>
