@@ -34,3 +34,24 @@
 .p_error_margin {
     margin: 0px;
 }
+
+#dob_p {
+    width: 300px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px 10px 10px 10px;
+    height: 20px;
+    border: grey solid 1px;
+    border-radius: 5px;
+}
+
+#dob_span {
+    color: grey;
+    padding-top: 3px;
+    font-size:"15px";
+    float: left;
+}
+
+#dob_input {
+    float: right;
+}

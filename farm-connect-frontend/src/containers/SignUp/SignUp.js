@@ -59,7 +59,7 @@ class SignUp extends Component {
                     <p className="p_errors p_error_margin">{messages.firstNameError(this.props.errorMessages)}</p>
                     <p className="p_inputs"><input className="sign_up_in_input" type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.lastNameError(this.props.errorMessages)}</p>
-                    <p className="p_inputs"><input type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
+                    <p id="dob_p"><span id="dob_span">date of birth</span><input id="dob_input" type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.dateOfBirthError(this.props.errorMessages)}</p>
                     <p className="p_inputs"><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
                     <p className="p_errors p_error_margin">{messages.emailError(this.props.errorMessages)}</p>
