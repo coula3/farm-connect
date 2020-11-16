@@ -44,6 +44,6 @@ export const passwordError = (errorMessages) => {
 export const typeError = (errorMessages) => {
     const type = errorMessages.filter(msg => msg.startsWith("Type"));
     if(type.length > 0){
-        return <span style={{marginTop:"0px", fontSize:12, color:"red"}}>selection of Farmer or Prospect required</span>
+        return <span style={{marginTop:"0px", fontSize:12, color:"red"}}>selection of farmer or prospect required</span>
     }
 }
