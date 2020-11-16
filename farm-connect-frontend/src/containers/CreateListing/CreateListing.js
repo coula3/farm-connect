@@ -67,6 +67,7 @@ class CreateListing extends Component {
         this.props.commodities.map(commodity => {
             return commoditiesList.push(commodity.attributes.name);
         })
+        const maxXterColor = this.state.maxInfoCharacters - this.state.listing.information.length <= 25 ? {color:"red"} : null;
 
         return (
             <div className="CreateListing_main_div">
@@ -124,7 +125,7 @@ class CreateListing extends Component {
                                     <td>
                                         <textarea style={{marginTop:"10px", padding:"8px"}} name="information" id="information" rows="8" cols="32" maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
                                         <br />
-                                        <label> {this.state.maxInfoCharacters - this.state.listing.information.length}</label>
+                                        <label style={maxXterColor}>{this.state.maxInfoCharacters - this.state.listing.information.length}</label>
                                     </td>
                                 </tr>
                             </tbody>

@@ -138,6 +138,7 @@ class EditListing extends Component {
     render(){
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
+        const maxXterColor = (this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)) <= 25 ? {color:"red"} : null;
 
         return (
             <div className="EditListing_main_div">
@@ -200,7 +201,7 @@ class EditListing extends Component {
                                         <td>
                                             <textarea style={{marginTop:"10px", padding:"8px"}} name="information" id="information" rows="8" cols="30" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
                                             <br />
-                                            <label> {this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
+                                            <label style={maxXterColor}>{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
                                         </td>
                                     </tr>
                                 </tbody>
