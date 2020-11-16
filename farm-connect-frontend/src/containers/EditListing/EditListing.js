@@ -139,6 +139,7 @@ class EditListing extends Component {
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
         const maxXterColor = (this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)) <= 25 ? {color:"red"} : null;
+        const warningMsgStyles = this.state.listing.closed ? "listing_close_warning" : null;
 
         return (
             <div className="EditListing_main_div">
@@ -211,7 +212,7 @@ class EditListing extends Component {
                                 <label>Close Listing </label>
                                 <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onFocus={this.handleSwitchState} onChange={this.handleChange}/>
                             </p>
-                            <p id="listing_close_warning">{this.closeListingWarning()}</p>
+                            <span id={warningMsgStyles}>{this.closeListingWarning()}</span>
 
                             <p><input type="submit" value="Update" disabled={this.state.editMode ? false : true}/></p>
 

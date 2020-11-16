@@ -19,8 +19,12 @@
 }
 
 #listing_close_warning {
-    color: red;
-    font-size: 12px;
+    background-color: #ff0000;
+    color: #FFF;
+    border-radius: 5px;
+    padding: 3px 8px;
+    display: inline-block;
+    font-size: 14px;
 }
 
 .card {
