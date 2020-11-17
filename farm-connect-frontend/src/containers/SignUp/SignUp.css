@@ -82,3 +82,13 @@
 #sign_up_button {
     margin-top: 5px;
 }
+
+#service_terms_p {
+    padding-top: 10px;
+    font-size: 10px;
+}
+
+#service_terms_link {
+    text-decoration: none;
+    color: #3a5f0b;
+}

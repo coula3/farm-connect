@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { signUpUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import * as messages from '../../utils/errorsUtils/userErrors';
@@ -78,6 +79,7 @@ class SignUp extends Component {
                         <p id="type_error_p">{messages.typeError(this.props.errorMessages)}</p>
                     </div>
 
+                    <p id="service_terms_p">By signing up, you agree to our <Link id="service_terms_link" to="/terms-of-service">Terms of Service</Link>.</p>
                     <button id="sign_up_button" className="sign_up_button">Sign Up</button>
                 </form>
                 <button className="sign_in_button" onClick={this.handleSwitchToSignIn}>Sign In</button>
