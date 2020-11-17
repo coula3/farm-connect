@@ -79,7 +79,7 @@ class Listings extends React.Component {
             const viewButton = parseInt(this.props.userId) === listing.attributes.user.id ? {backgroundColor:"#3a5f0b", color:"#FFF"} : null;
 
             return (
-                <tr key={listing.id}>
+                <tr key={listing.id} id="listings_td" className="listings_th_td">
                     <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{padIds(listing.id)}</Link></td>
                     <td>{listDate}</td>
                     <td>{commodity}</td>
@@ -98,7 +98,7 @@ class Listings extends React.Component {
             return (
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className="listings_th_td">
                             <th></th>
                             <th>List Date</th>
                             <th>Commodity</th>

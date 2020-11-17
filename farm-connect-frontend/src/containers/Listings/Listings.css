@@ -13,12 +13,11 @@
     width: 100%;
 }
 
-th, td {
-    padding: 2px 0px;
+.listings_th_td {
     border-bottom: #DCDCDC solid 1px;
 }
 
-tr:hover {
+tr#listings_td:hover {
     background-color: #dde6d5;
 }
 
