@@ -1,6 +1,6 @@
 .SignIn_main_div {
     margin: auto;
-    width: 25%;
+    width: 30%;
     border: solid 1px grey;
     box-shadow: 10px 10px grey;
     border-radius: 10px;
@@ -9,7 +9,7 @@
 }
 
 #signin_form {
-    padding: 10px; 
+    padding: 10px 0px;
     margin-bottom: 5px;
 }
 
@@ -19,25 +19,25 @@
     color: red;
 }
 
-#sign_in_button {
+#signin_button {
     margin-top: 5px;
 }
 
-.sign_in_button {
-    width: 250px;
+.signin_button {
+    width: 65%;
     font-size: 15px;
-    background-color: #dde6d5;
     padding: 5px 10px;
     border-radius: 5px;
     border: grey solid 1px;
+    background-color: #dde6d5;
 }
 
-.sign_up_button {
-    width: 250px;
+.signup_button {
+    width: 65%;
     font-size: 15px;
-    background-color: #3a5f0b;
-    color: #FFF;
-    padding: 5px 10px;
+    padding: 6px 10px;
     border-radius: 5px;
     border: grey solid 1px;
+    background-color: #3a5f0b;
+    color: #FFF;
 }
