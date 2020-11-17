@@ -21,7 +21,7 @@
     box-shadow: 6px 8px #663300;
     background-image: url('../../assets/wetLeaves.png');
     background-color: #FFF;
-    background-position: 100%;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -32,7 +32,7 @@
 }
 
 #info_p {
-    margin: 10px 115px 0px 115px;
+    margin: 10px 135px 0px 135px;
 }
 
 .color_lbl {
