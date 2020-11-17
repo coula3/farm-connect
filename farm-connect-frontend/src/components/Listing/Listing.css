@@ -34,3 +34,11 @@
 #info_p {
     margin: 10px 115px 0px 115px;
 }
+
+.color_lbl {
+    color: #663300;
+}
+
+.padding_lbl {
+    padding-right: 5px;
+}
