@@ -13,12 +13,24 @@
     color: red;
 }
 
-.listing_card {
+#listing_card {
     text-align: center;
     border: #3a5f0b solid 1px;
-    padding: 15px 0px 25px 0px;
     width: 70%;
-    background-color: #FFF;
     margin: auto;
-    box-shadow: 6px 8px #3a5f0b
+    box-shadow: 6px 8px #3a5f0b;
+    background-image: url('../../assets/wetLeaves.png');
+    background-color: #FFF;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#listing_details {
+    background:  rgba(255, 255, 255, 0.5);
+    padding: 15px 0px 25px 0px;
+}
+
+#info_p {
+    margin: 10px 115px 0px 115px;
 }
