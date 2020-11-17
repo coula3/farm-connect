@@ -1,6 +1,6 @@
 .main_div {
+    width: 30%;
     margin: auto;
-    width: 25%;
     border: solid 1px grey; 
     box-shadow: 10px 10px grey; 
     border-radius: 10px; 
@@ -9,8 +9,8 @@
 }
 
 #signup_form {
-    padding: 10px; 
-    margin-bottom: 5px
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 5px;
 }
 
 .inputs_p {
@@ -27,11 +27,11 @@
 }
 
 #dob_p {
-    width: 300px;
+    width: 84%;
     height: 20px;
     margin: auto;
     margin-top: 15px;
-    padding: 5px 10px 10px 10px;
+    padding: 2px 10px 5px 10px;
     border: grey solid 1px;
     border-radius: 5px;
 }
@@ -39,21 +39,23 @@
 #dob_span {
     color: grey;
     padding-top: 3px;
-    font-size:"15px";
+    font-size: 15px;
     float: left;
 }
 
 #dob_input {
+    width: 40%;
     float: right;
+    border: none;
 }
 
 #type_div {
-    width: 300px;
+    width: 84%;
     height: 20px;
     margin: auto;
     margin-top: 15px;
     margin-bottom: 20px;
-    padding: 5px 10px 10px 10px;
+    padding: 3px 10px 7px 10px;
     border: grey solid 1px;
     border-radius: 5px;
 }
@@ -79,8 +81,27 @@
     clear: both;
 }
 
-#sign_up_button {
+#signup_button {
     margin-top: 5px;
+}
+
+.SignUp_signup_button {
+    width: 67.5%;
+    font-size: 15px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+    background-color: #3a5f0b;
+    color: #FFF;
+}
+
+.SignUp_signin_button {
+    width: 65%;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+    background-color: #dde6d5;
 }
 
 #service_terms_p {
@@ -91,4 +112,8 @@
 #service_terms_link {
     text-decoration: none;
     color: #3a5f0b;
+}
+
+#margin_radio_input {
+    margin-top: 5px;
 }

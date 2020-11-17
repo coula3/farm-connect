@@ -69,20 +69,20 @@ class SignUp extends Component {
                     <div id="type_div">
                         <div id="farmer_type_div">
                             <label className="type_lbl" htmlFor="farmer">farmer</label>
-                            <input type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
+                            <input id="margin_radio_input" type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
                         </div>
                         <div id="prospect_type_div">
                             <label className="type_lbl" htmlFor="prospect">prospect</label>
-                            <input type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
+                            <input id="margin_radio_input" type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
 
                         <p id="type_error_p">{messages.typeError(this.props.errorMessages)}</p>
                     </div>
 
                     <p id="service_terms_p">By signing up, you agree to our <Link id="service_terms_link" to="/terms-of-service">Terms of Service</Link>.</p>
-                    <button id="sign_up_button" className="sign_up_button">Sign Up</button>
+                    <button id="signup_button" className="SignUp_signup_button">Sign Up</button>
                 </form>
-                <button className="sign_in_button" onClick={this.handleSwitchToSignIn}>Sign In</button>
+                <button className="SignUp_signin_button" onClick={this.handleSwitchToSignIn}>Sign In</button>
             </div>
         )
     }
