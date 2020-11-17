@@ -23,7 +23,7 @@
     background-color: #FFF;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
 }
 
 #listing_details {
