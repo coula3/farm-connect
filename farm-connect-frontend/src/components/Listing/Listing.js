@@ -55,9 +55,17 @@ const Listing = (props) => {
                             <p><label className="color_lbl padding_lbl"><strong>Available:</strong> </label>{convertTrueToYes(props.listing.attributes.available)}</p> :
                             null
                         }
-                        <p><label className="color_lbl padding_lbl"><strong>Quantity:</strong> </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}</p>
-                        <label className="color_lbl"><strong>Supplementary Information</strong></label>
-                        <p id="info_p">{props.listing.attributes.information}</p>
+                        { props.listing.attributes.quantity ?
+                            <p><label className="color_lbl padding_lbl"><strong>Quantity:</strong> </label>{props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}</p> :
+                            null
+                        }
+                        { props.listing.attributes.information ?
+                            <>
+                                <label className="color_lbl"><strong>Supplementary Information</strong></label>
+                                <p id="info_p">{props.listing.attributes.information}</p>
+                            </> :
+                            null
+                        }
                         <br />
                         <p><label id="heart_lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
                         <br />
