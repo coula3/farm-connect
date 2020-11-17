@@ -69,11 +69,11 @@ class SignUp extends Component {
                     <div id="type_div">
                         <div id="farmer_type_div">
                             <label className="type_lbl" htmlFor="farmer">farmer</label>
-                            <input id="margin_radio_input" type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
+                            <input className="margin_radio_input" type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
                         </div>
                         <div id="prospect_type_div">
                             <label className="type_lbl" htmlFor="prospect">prospect</label>
-                            <input id="margin_radio_input" type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
+                            <input className="margin_radio_input" type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
                         </div>
 
                         <p id="type_error_p">{messages.typeError(this.props.errorMessages)}</p>
