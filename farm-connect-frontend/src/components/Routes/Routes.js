@@ -11,6 +11,7 @@ import FarmerProfile from '../FarmerProfile/FarmerProfile';
 import EditListing from '../../containers/EditListing/EditListing';
 import ProspectProfile from '../ProspectProfile/ProspectProfile';
 import EditUser from '../../containers/EditUser/EditUser';
+import TermsOfService from '../TermsOfService/TermsOfService';
 import NoMatch from '../NoMatch/NoMatch';
 
 const Routes = (props) => {
@@ -64,6 +65,7 @@ const Routes = (props) => {
             <Route exact path="/farmers/:id/listings" component={Listings} />
             <Route exact path="/users/:id/edit" component={EditUser} />
             <Route exact path="/users/:id/closed-listings" component={Listings}/>
+            <Route exact path="/terms-of-service" component={TermsOfService} />
             <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>
     )
