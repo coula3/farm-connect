@@ -67,8 +67,9 @@ class Listings extends React.Component {
             listingsCategory = "Other Farmers"
         }
 
-        const sortedBaseListings = baseListings.sort((a, b) => a.id - b.id)
-        const listings = sortedBaseListings.map(listing => {
+        const sortedBaseListings = baseListings.sort((a, b) => a.id - b.id);
+
+        const renderListings = sortedBaseListings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
             firstName = listing.attributes.user.first_name;
             fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
@@ -94,7 +95,7 @@ class Listings extends React.Component {
             )
         })
 
-        const renderListings = () => {
+        const renderListingHeadings = () => {
             return (
                 <table className="table">
                     <thead>
@@ -112,7 +113,7 @@ class Listings extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {listings}
+                        {renderListings}
                     </tbody>
                 </table>
             )
@@ -127,11 +128,11 @@ class Listings extends React.Component {
                     <>
                     { this.props.match.path !== "/users/:id/closed-listings" ?
                         this.props.listings.length > 0 ?
-                            <h3>{listings.length} {listings.length > 1 ? "Open Listings" : "Open Listing" }</h3> :
+                            <h3>{renderListings.length} {renderListings.length > 1 ? "Open Listings" : "Open Listing" }</h3> :
                             <h3>No Open Listing</h3>
                         :
                         this.props.listings.length > 0 ?
-                            <h3>{listings.length} {listings.length > 1 ? "Closed Listings" : "Closed Listing" }</h3> :
+                            <h3>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h3> :
                             <h3>No Closed Listing</h3>
                     }
                     <h4 id="category">{listingsCategory}</h4>
@@ -139,7 +140,7 @@ class Listings extends React.Component {
                         linkToFarmerProfile :
                         null
                     }
-                    {this.props.listings[0] && renderListings()}
+                    {this.props.listings[0] && renderListingHeadings()}
                     </>
                 }
             </div>
