@@ -11,6 +11,16 @@
     box-shadow: 5px 10px 18px #663300;
 }
 
+#tos_p {
+    margin: 5px 0px;
+}
+
+#tos_link {
+    text-decoration: none;
+    color: #3a5f0b;
+    font-size: 14px;
+}
+
 #app_name_span {
     color: #3a5f0b;
     font-family: 'Piedra';
