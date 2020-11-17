@@ -9,7 +9,17 @@
 }
 
 .table {
+    border-collapse: collapse;
     width: 100%;
+}
+
+th, td {
+    padding: 2px 0px;
+    border-bottom: #DCDCDC solid 1px;
+}
+
+tr:hover {
+    background-color: #dde6d5;
 }
 
 #category, #td_available {

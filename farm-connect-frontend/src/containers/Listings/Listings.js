@@ -108,6 +108,7 @@ class Listings extends React.Component {
                             }
                             <th>Available</th>
                             <th>Interests</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
