@@ -30,33 +30,40 @@ export const signUpUser = (payload, ownProps) => {
 
 export const signInUser = (payload, ownProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_USER"});
-        fetch(`http://localhost:3000/api/v1/signin`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => response.json())
-        .then(json => {
-            if(json.jwt){
-                dispatch({
-                    type: "SIGN_UP_OR_LOGIN_SUCCESS",
-                    user: json.user,
-                    photo: json.photo
-                });
-                localStorage.setItem('jwt_token', json.jwt);
-                ownProps.history.push(`/listings`);
-            } else {
-                dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
-                dispatch({
-                    type: "ADD_ERROR_MESSAGES",
-                    errorMessages: json.messages
-                });
-                ownProps.history.push("/");
-            }
-        })
+        if(!payload.user.email || !payload.user.password){
+            dispatch({
+                type: "ADD_ERROR_MESSAGES",
+                errorMessages: "email and password required"
+            })
+        } else {
+            dispatch({type: "LOADING_USER"});
+            fetch(`http://localhost:3000/api/v1/signin`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(response => response.json())
+            .then(json => {
+                if(json.jwt){
+                    dispatch({
+                        type: "SIGN_UP_OR_LOGIN_SUCCESS",
+                        user: json.user,
+                        photo: json.photo
+                    });
+                    localStorage.setItem('jwt_token', json.jwt);
+                    ownProps.history.push(`/listings`);
+                } else {
+                    dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
+                    dispatch({
+                        type: "ADD_ERROR_MESSAGES",
+                        errorMessages: json.messages
+                    });
+                    ownProps.history.push("/");
+                }
+            })
+        }
     }
 }
 
