@@ -67,7 +67,7 @@ const Listing = (props) => {
                             null
                         }
                         <br />
-                        <p><label id="heart_lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
+                        <p className="no_select"><label id="heart_lbl" className="no_select" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
 
                         {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
 
