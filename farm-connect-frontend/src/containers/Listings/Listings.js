@@ -85,15 +85,19 @@ class Listings extends React.Component {
                     <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleFetchListing(listing.id)}>{padIds(listing.id)}</Link></td>
                     <td>{listDate}</td>
                     <td>{commodity}</td>
+
                     { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ?
                         <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td> :
                         null
                     }
+
                     { this.props.match.path !== "/users/:id/closed-listings" ?
                         <td id="td_available">{available}</td> :
                         null
                     }
+
                     <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
+
                     { this.props.match.path === "/users/:id/closed-listings" ?
                         <>
                             <td>{listing.attributes.closed ? listing.attributes.closed.slice(0, 10) : null}</td>
@@ -101,10 +105,11 @@ class Listings extends React.Component {
                         </> :
                             null
                     }
+
                     <td><button onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
                 </tr>
-            )
-        })
+            );
+        });
 
         const renderListingHeadings = () => {
             return (
@@ -114,15 +119,19 @@ class Listings extends React.Component {
                             <th></th>
                             <th>List Date</th>
                             <th>Commodity</th>
+
                             { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ?
                                 <th>Farmer</th> :
                                 null
                             }
+
                             { this.props.match.path !== "/users/:id/closed-listings" ?
                                 <th>Available</th> :
                                 null
                             }
+
                             <th>Interests</th>
+
                             { this.props.match.path === "/users/:id/closed-listings" ?
                                 <>
                                     <th>Closed</th>
@@ -130,6 +139,7 @@ class Listings extends React.Component {
                                 </> :
                                     null
                             }
+
                             <th></th>
                         </tr>
                     </thead>
@@ -147,21 +157,24 @@ class Listings extends React.Component {
                 { this.props.isLoadingListings ?
                     <Loader /> :
                     <>
-                    { this.props.match.path !== "/users/:id/closed-listings" ?
-                        this.props.listings.length > 0 ?
-                            <h3>{renderListings.length} {renderListings.length > 1 ? "Open Listings" : "Open Listing" }</h3> :
-                            <h3>No Open Listing</h3>
-                        :
-                        this.props.listings.length > 0 ?
-                            <h3>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h3> :
-                            <h3>No Closed Listing</h3>
-                    }
-                    <h4 id="category">{listingsCategory}</h4>
-                    { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
-                        renderLinkToFarmerProfile :
-                        null
-                    }
-                    {this.props.listings[0] && renderListingHeadings()}
+                        <h3 id="category">{listingsCategory}</h3>
+
+                        { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
+                            renderLinkToFarmerProfile :
+                            null
+                        }
+
+                        { this.props.match.path !== "/users/:id/closed-listings" ?
+                            this.props.listings.length > 0 ?
+                                <h4>{renderListings.length} {renderListings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
+                                <h4>No Open Listing</h4>
+                            :
+                            this.props.listings.length > 0 ?
+                                <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
+                                <h4>No Closed Listing</h4>
+                        }
+
+                        {this.props.listings[0] && renderListingHeadings()}
                     </>
                 }
             </div>
