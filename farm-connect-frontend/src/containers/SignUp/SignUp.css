@@ -39,14 +39,16 @@
 #dob_span {
     color: grey;
     padding-top: 3px;
-    font-size: 15px;
+    font-size: 17px;
     float: left;
 }
 
 #dob_input {
-    width: 40%;
+    width: 45%;
     float: right;
     border: none;
+    font-size: 17px;
+    color: grey;
 }
 
 #type_div {
@@ -63,6 +65,7 @@
 #farmer_type_div {
     display: inline;
     float: left;
+    font-size: 17px;
     color: grey;
     margin-bottom: 8px;
 }
@@ -70,6 +73,7 @@
 #prospect_type_div {
     display: inline;
     float: right;
+    font-size: 17px;
     color: grey;
 }
 
@@ -87,7 +91,7 @@
 
 .SignUp_signup_button {
     width: 67.5%;
-    font-size: 15px;
+    font-size: 17px;
     padding: 6px 10px;
     border-radius: 5px;
     border: grey solid 1px;
@@ -97,7 +101,7 @@
 
 .SignUp_signin_button {
     width: 65%;
-    font-size: 15px;
+    font-size: 17px;
     padding: 5px 10px;
     border-radius: 5px;
     border: grey solid 1px;
