@@ -60,7 +60,6 @@ export const signInUser = (payload, ownProps) => {
                         type: "ADD_ERROR_MESSAGES",
                         errorMessages: json.messages
                     });
-                    ownProps.history.push("/");
                 }
             })
         }

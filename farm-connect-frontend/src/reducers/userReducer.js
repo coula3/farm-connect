@@ -27,7 +27,6 @@ const userReducer = (state = initialState, action) => {
         case "SIGN_UP_OR_LOGIN_FAILURE":
             return {
                 ...state,
-                messages: action.messages,
                 isLoading: false
             }
 
