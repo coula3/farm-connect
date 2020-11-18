@@ -76,7 +76,10 @@ const Listing = (props) => {
                             null
                         }
                         <div style={{marginTop:"20px"}}>
-                            <button className="global_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>My Listings</button>
+                            { props.userAttributes.type === "Farmer" ?
+                                <button className="global_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>My Listings</button> :
+                                null
+                            }
                             <button className="global_btn" onClick={() => props.history.push("/listings") }>Listings</button>
                         </div>
                     </div>
