@@ -12,3 +12,11 @@ h5 {
     list-style: none;
     padding-left: 0px;
 }
+
+#user_li {
+    background-color: #EEE8AA;
+    border-radius: 6px;
+    width: 85%;
+    margin: auto;
+    padding: 5px 15px 5px 3px;
+}

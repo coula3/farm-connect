@@ -14,13 +14,17 @@ const ListingsInterests = (props) => {
         }
     }
 
+    const listStyles = (listing) => {
+        return listing[3] === parseInt(props.userId) ? "user_li" : null;
+    }
+
     const listingsInterests = props.listingsInterests.map((listing, idx) => {
         return (
             <ul id="ul_interests" key={idx}>
-                <li><Link to={`/listings/${listing[0]}`} onClick={() => handleClick(listing[0])}>{padIds(listing[0])}</Link> - {listing[2]} ({listing[1]})</li>
+    <li id={listStyles(listing)}><Link to={`/listings/${listing[0]}`} onClick={() => handleClick(listing[0])}>{padIds(listing[0])}</Link> - {listing[2]} ({listing[1]}) </li>
             </ul>
-        )
-    })
+        );
+    });
 
     return (
         <div className="ListingsInterests_main_div">
