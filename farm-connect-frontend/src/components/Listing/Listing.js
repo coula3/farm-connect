@@ -48,7 +48,7 @@ const Listing = (props) => {
                         <h3>Listing</h3>
                         <p><label className="color_lbl padding_lbl"><strong>Listing ID:</strong> </label>{props.listing.id}</p>
                         <p><label className="color_lbl padding_lbl"><strong>Listing Date:</strong> </label>{getDate(props.listing.attributes.date)}</p>
-                        <p><label className="color_lbl padding_lbl"><strong>Farmer:</strong> </label><Link to={`/farmers/${props.listing.attributes.user.id}`} onClick={() => props.fetchFarmer(props.listing.attributes.user.id)}>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</Link></p>
+                        <p><label className="color_lbl padding_lbl"><strong>Farmer:</strong> </label><Link id="name_link" to={`/farmers/${props.listing.attributes.user.id}`} onClick={() => props.fetchFarmer(props.listing.attributes.user.id)}>{props.listing.attributes.user.first_name} {props.listing.attributes.user.last_name}</Link></p>
                         <p><label className="color_lbl padding_lbl"><strong>Commodity:</strong> </label>{props.listing.attributes.commodity.name}</p>
                         <p><label className="color_lbl padding_lbl"><strong>Estimated Availability:</strong> </label>{props.listing.attributes.availability ? getDate(props.listing.attributes.availability) : null}</p>
                         {props.listing.attributes.available ?
