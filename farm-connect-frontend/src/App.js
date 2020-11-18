@@ -84,6 +84,7 @@ class App extends Component {
             { this.props.isAuthenticated ?
               <ResourcesBoard
                 isLoadingProspects={this.props.isLoadingProspects}
+                userId={this.props.userId}
                 prospects={this.props.prospects}
                 fetchProspect={(id) => this.fetchProspect(id)}
                 listingsInterests={this.props.listingsInterests}

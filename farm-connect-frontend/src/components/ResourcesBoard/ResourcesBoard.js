@@ -8,7 +8,7 @@ const ResourcesBoard = (props) => {
     return (
         <div className="ResourcesBoard_main_div">
             <ListingsInterests {...props} />
-            <SuggestedProspects {...props} />
+            <SuggestedProspects {...props} userId={props.userId}/>
         </div>
     )
 }
