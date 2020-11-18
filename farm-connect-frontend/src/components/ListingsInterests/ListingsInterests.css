@@ -20,3 +20,9 @@ h5 {
     margin: auto;
     padding: 5px 15px 5px 3px;
 }
+
+#balloon_img {
+    float: right;
+    width: 20px;
+    height: 20px;
+}
