@@ -37,7 +37,7 @@ class Listings extends React.Component {
     }
 
     handleClick = (id) => {
-        this.props.fetchListing(id)
+        this.props.fetchListing(id);
     }
 
     handleFetchFarmer = (id) => {
@@ -48,23 +48,23 @@ class Listings extends React.Component {
         let baseListings;
 
         if(this.props.match.path === "/users/:id/listings"){
-            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId))
+            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId));
         } else if (this.props.match.path.includes("/farmers/")) {		
-            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.match.params.id))
+            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.match.params.id));
         } else if (this.props.match.path.endsWith("/other-farmers")) {
-            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id !== parseInt(this.props.userId))
+            baseListings = this.props.listings.filter((listing) => listing.attributes.user_id !== parseInt(this.props.userId));
         } else if (this.props.match.path === "/users/:id/closed-listings") {
-            baseListings = this.props.listings
+            baseListings = this.props.listings;
         } else {
-            baseListings = this.props.listings
+            baseListings = this.props.listings;
         }
 
         let firstName, fullName, userId, listingsCategory;
 
         if(this.props.match.path === "/listings"){
-            listingsCategory = "All Farmers"
+            listingsCategory = "All Farmers";
         } else if(this.props.match.path === "/listings/other-farmers"){
-            listingsCategory = "Other Farmers"
+            listingsCategory = "Other Farmers";
         }
 
         const sortedBaseListings = baseListings.sort((a, b) => a.id - b.id);
@@ -140,7 +140,7 @@ class Listings extends React.Component {
             )
         }
 
-        const linkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></div>
+        const renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></div>;
 
         return (
             <div className="Listings_main_div">
@@ -158,7 +158,7 @@ class Listings extends React.Component {
                     }
                     <h4 id="category">{listingsCategory}</h4>
                     { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
-                        linkToFarmerProfile :
+                        renderLinkToFarmerProfile :
                         null
                     }
                     {this.props.listings[0] && renderListingHeadings()}
