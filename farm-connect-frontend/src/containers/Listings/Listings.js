@@ -36,7 +36,7 @@ class Listings extends React.Component {
         }
     }
 
-    handleClick = (id) => {
+    handleFetchListing = (id) => {
         this.props.fetchListing(id);
     }
 
@@ -81,8 +81,8 @@ class Listings extends React.Component {
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
 
             return (
-                <tr key={listing.id} id="listings_td" className="listings_th_td">
-                    <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleClick(listing.id)}>{padIds(listing.id)}</Link></td>
+                <tr key={listing.id} id="listings_td" className="listings_th_td" onDoubleClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>
+                    <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleFetchListing(listing.id)}>{padIds(listing.id)}</Link></td>
                     <td>{listDate}</td>
                     <td>{commodity}</td>
                     { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ?
@@ -101,7 +101,7 @@ class Listings extends React.Component {
                         </> :
                             null
                     }
-                    <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
+                    <td><button onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
                 </tr>
             )
         })
