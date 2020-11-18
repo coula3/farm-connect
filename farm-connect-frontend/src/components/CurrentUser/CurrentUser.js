@@ -33,7 +33,9 @@ const CurrentUser = (props) => {
                 <p><label><strong>Email:</strong> </label>{props.userAttributes.email}</p>
                 <br />
                 <p><label><strong>Joined:</strong> </label>{getDate(props.userAttributes.created_at)}</p>
-                <div id="edit_btn_div"><button onClick={handleClick}>Edit Profile</button></div>
+                <div>
+                    <button id="edit_btn_div" className="global_btn" onClick={handleClick}>Edit</button>
+                </div>
             </div>
             }
         </div>
