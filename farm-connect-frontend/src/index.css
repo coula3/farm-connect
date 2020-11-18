@@ -36,3 +36,8 @@ code {
   user-select: none;
   -o-user-select: none;
 }
+
+a {
+  text-decoration: none;
+  color: #3a5f0b;
+}
