@@ -75,6 +75,10 @@ const Listing = (props) => {
                             <h5 id="closed_listing">CLOSED on {getDate(props.listing.attributes.closed)}</h5> :
                             null
                         }
+                        <div style={{marginTop:"20px"}}>
+                            <button className="global_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>My Listings</button>
+                            <button className="global_btn" onClick={() => props.history.push("/listings") }>Listings</button>
+                        </div>
                     </div>
                 </div>
             }
