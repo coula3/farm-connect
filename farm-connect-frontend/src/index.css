@@ -20,3 +20,11 @@ code {
   border: grey solid 1px;
   border-radius: 5px;
 }
+
+.global_btn {
+  width: 15%;
+  padding: 6px 0px;
+  background-color: #3a5f0b;
+  color: #FFF;
+  font-size: 15px;
+}
