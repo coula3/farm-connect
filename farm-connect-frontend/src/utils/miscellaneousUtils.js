@@ -14,3 +14,5 @@ export const padIds = (id) => {
         return id;
     }
 }
+
+export const oneDay = (1000 * 60 * 60 * 24);

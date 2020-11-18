@@ -7,7 +7,7 @@ import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { padIds } from '../../utils/miscellaneousUtils';
+import { padIds, oneDay } from '../../utils/miscellaneousUtils';
 import { Link } from 'react-router-dom';
 import './Listings.css';
 
@@ -78,6 +78,7 @@ class Listings extends React.Component {
             let available;
             listing.attributes.available ? available = "✓" : available = "";
             const viewButton = parseInt(this.props.userId) === listing.attributes.user.id ? {backgroundColor:"#3a5f0b", color:"#FFF"} : null;
+            const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
 
             return (
                 <tr key={listing.id} id="listings_td" className="listings_th_td">
@@ -88,8 +89,18 @@ class Listings extends React.Component {
                         <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td> :
                         null
                     }
-                    <td id="td_available">{available}</td>
+                    { this.props.match.path !== "/users/:id/closed-listings" ?
+                        <td id="td_available">{available}</td> :
+                        null
+                    }
                     <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
+                    { this.props.match.path === "/users/:id/closed-listings" ?
+                        <>
+                            <td>{listing.attributes.closed ? listing.attributes.closed.slice(0, 10) : null}</td>
+                            <td>{(Math.floor(dateDiff * -1) + 1)}</td>
+                        </> :
+                            null
+                    }
                     <td><button onClick={() => {this.handleClick(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
                 </tr>
             )
@@ -107,8 +118,18 @@ class Listings extends React.Component {
                                 <th>Farmer</th> :
                                 null
                             }
-                            <th>Available</th>
+                            { this.props.match.path !== "/users/:id/closed-listings" ?
+                                <th>Available</th> :
+                                null
+                            }
                             <th>Interests</th>
+                            { this.props.match.path === "/users/:id/closed-listings" ?
+                                <>
+                                    <th>Closed</th>
+                                    <th>Days Listed</th>
+                                </> :
+                                    null
+                            }
                             <th></th>
                         </tr>
                     </thead>
