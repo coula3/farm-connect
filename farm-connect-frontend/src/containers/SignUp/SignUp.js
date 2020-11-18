@@ -24,12 +24,12 @@ class SignUp extends Component {
                 ...this.state.user,
                 [e.target.name]: e.target.value
             }
-        })
+        });
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signUpUser(this.state)
+        this.props.signUpUser(this.state);
 
         this.setState({
             user: {
@@ -40,17 +40,13 @@ class SignUp extends Component {
                 password: "",
                 type: ""
             }
-        })
+        });
     }
 
     handleSwitchToSignIn = () => {
         this.props.errorMessages[0] && this.props.clearErrorMessages();
         this.props.history.push("/");
     }
-
-    // componentWillUnmount(){
-    //     this.props.errorMessages[0] && this.props.clearErrorMessages();
-    // }
 
     render(){
         return(

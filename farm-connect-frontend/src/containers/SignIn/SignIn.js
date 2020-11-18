@@ -18,7 +18,7 @@ class SignIn extends Component {
                 ...this.state.user,
                 [e.target.name]: e.target.value 
             }
-        })
+        });
     }
 
     componentDidMount(){
@@ -29,24 +29,20 @@ class SignIn extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signInUser(this.state)
+        this.props.signInUser(this.state);
 
         this.setState({
             user: {
                 email: "",
                 password: ""
             }
-        })
+        });
     }
 
     handleSwitchToSignUp = () => {
         this.props.errorMessages[0] && this.props.clearErrorMessages();
         this.props.history.push("/signup");
     }
-
-    // componentWillUnmount(){
-    //     this.props.errorMessages[0] && this.props.clearErrorMessages();
-    // }
 
     render() {
         return (
