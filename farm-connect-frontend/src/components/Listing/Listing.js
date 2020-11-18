@@ -8,7 +8,7 @@ const Listing = (props) => {
     const renderEditLink = (currentUserId, listingUserId, listingId) => {
         if(!props.listing.attributes.closed){
             if(parseInt(currentUserId) === listingUserId){
-                return <Link to={`/listings/${listingId}/edit`}>Edit Listing</Link>
+                return <button className="global_btn" onClick={() => props.history.push(`/listings/${listingId}/edit`)}>Edit</button>;
             } else {
                 return null
             }
@@ -68,7 +68,6 @@ const Listing = (props) => {
                         }
                         <br />
                         <p><label id="heart_lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
-                        <br />
 
                         {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
 
