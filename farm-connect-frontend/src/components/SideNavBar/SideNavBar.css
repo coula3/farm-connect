@@ -9,3 +9,26 @@
 #header_color {
     color: #3a5f0b;
 }
+
+.listings_panel {
+    background-color: #dde6d5;
+    width: 70%;
+    margin: auto;
+}
+
+#farmers_view_padding {
+    padding: 0px 10px 10px 10px;
+}
+
+#create_listings_listings_padding {
+    padding: 10px 10px 0px 10px;
+}
+
+#oth_farmer_p {
+    margin-top: 0px;
+}
+
+#listings_link_p {
+    margin-bottom: 0px;
+    padding-bottom: 16px;
+}

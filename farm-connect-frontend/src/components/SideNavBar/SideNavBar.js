@@ -22,16 +22,16 @@ const SideNavBar = (props) => {
             return <p><Link to="/listings/new">Create Listing</Link></p>
         }
     }
-    const renderFarmerUsersLinks = () => {
+    const renderFarmerUserLinks = () => {
         if(props.userAttributes.type === "Farmer"){
             return (
-                <>
-                    <p><Link to="/listings/other-farmers" onClick={handleFetchListings}>Other Farmers</Link></p>
+                <div id="farmers_view_padding" className="listings_panel">
+                    <p id="oth_farmer_p"><Link to="/listings/other-farmers" onClick={handleFetchListings}>Other Farmers</Link></p>
                     <br />
                     <span id="header_color"><strong>My Listings</strong></span>
                     <p><Link to={`/users/${props.userId}/listings`} onClick={handleFetchListings}>Open</Link></p>
                     <p><Link to={`/users/${props.userId}/closed-listings`} onClick={handleFetchClosedUserListings}>Closed</Link></p>
-                </>
+                </div>
             )
         }
     }
@@ -42,9 +42,11 @@ const SideNavBar = (props) => {
                 <br />
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
                 <br />
-                {createListing()}
-                <p><Link to="/listings" onClick={handleFetchListings}>Listings</Link></p>
-                { renderFarmerUsersLinks() }
+                <div id="create_listings_listings_padding" className="listings_panel">
+                    {createListing()}
+                    <p id="listings_link_p"><Link to="/listings" onClick={handleFetchListings}>Listings</Link></p>
+                </div>
+                { renderFarmerUserLinks() }
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
             </div>
