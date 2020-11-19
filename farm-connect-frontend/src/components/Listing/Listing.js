@@ -39,6 +39,9 @@ const Listing = (props) => {
         return trueFalseValue ? "Yes" : null;
     }
 
+    let listingPluralized;
+    props.farmer.attributes.listings[0] ? listingPluralized = "Listings" : listingPluralized = "Listing";
+
     return (
         <div className="Listing_main_div">
             { props.isLoading ?
@@ -83,7 +86,7 @@ const Listing = (props) => {
                         }
                         <div style={{marginTop:"20px"}}>
                             { props.userAttributes.type === "Farmer" ?
-                                <button className="global_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>My Listings</button> :
+                            <button className="global_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>{listingPluralized}</button> :
                                 null
                             }
                             <button className="global_btn" onClick={() => props.history.push("/listings") }>Listings</button>
