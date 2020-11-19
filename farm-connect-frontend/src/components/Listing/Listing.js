@@ -45,6 +45,12 @@ const Listing = (props) => {
                 <Loader /> :
                 <div id="listing_card">
                     <div id="listing_details">
+                        { props.listing.attributes.interests.length >= 5 ?
+                            <div id="interest_div">
+                                <strong>HIGH INTEREST</strong>
+                            </div> :
+                            null
+                        }
                         <h3>Listing</h3>
                         <p><label className="color_lbl padding_lbl"><strong>Listing ID:</strong> </label>{props.listing.id}</p>
                         <p><label className="color_lbl padding_lbl"><strong>Listing Date:</strong> </label>{getDate(props.listing.attributes.date)}</p>
