@@ -29,6 +29,11 @@
     color: #FFF;
 }
 
+#unconnect_btn {
+    width: 22%;
+    padding: 6px 0px;
+}
+
 .prospect_profile_card {
     text-align: center;
     border: #3a5f0b solid 1px;

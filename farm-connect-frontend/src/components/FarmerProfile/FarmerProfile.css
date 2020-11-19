@@ -23,13 +23,13 @@
     padding-top: 15px;
 }
 
-#connect_btn, #listing_btn {
-    background-color: #3a5f0b; 
-    color: #FFF;
-}
-
 #listing_btn_div {
     margin-top: 10px;
+}
+
+#unconnect_btn {
+    width: 22%;
+    padding: 6px 0px;
 }
 
 #listing_btn {
