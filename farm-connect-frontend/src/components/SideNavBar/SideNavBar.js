@@ -30,7 +30,7 @@ const SideNavBar = (props) => {
                 <div id="farmers_view_padding" className="listings_panel">
                     <p id="oth_farmer_p"><Link to="/listings/other-farmers" onClick={handleFetchListings}>Other Farmers</Link></p>
                     <br />
-                    <span id="header_color"><strong>My Listings</strong></span>
+                    <span id="my_listings_span"><strong>My Listings</strong></span>
                     <p><Link to={`/users/${props.userId}/listings`} onClick={handleFetchListings}>Open</Link></p>
                     <p><Link to={`/users/${props.userId}/closed-listings`} onClick={handleFetchClosedUserListings}>Closed</Link></p>
                 </div>
