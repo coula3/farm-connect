@@ -47,8 +47,8 @@ const ProspectProfile = (props) => {
                     <p><label><strong>Joined:</strong> </label>{getDate(props.prospect.attributes.created_at)}</p>
                     {!isCurrentUser(props.prospect.id) ?
                         !isConnected(props.prospect.id) ?
-                            <div className="connect_btn_div"><button id="connect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
-                            <div className="connect_btn_div"><button onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button></div>
+                            <div className="connect_btn_div"><button id="connect_btn" className="global_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
+                            <div className="connect_btn_div"><button className="global_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button></div>
                     :
                         null
                     }
