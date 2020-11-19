@@ -48,7 +48,7 @@ const Listing = (props) => {
                 <Loader /> :
                 <div id="listing_card">
                     <div id="listing_details">
-                        { props.listing.attributes.interests.length >= 5 ?
+                        { props.listing.attributes.interests.length >= 5 && !props.listing.attributes.closed ?
                             <div id="interest_div">
                                 <strong>HIGH INTEREST</strong>
                             </div> :
