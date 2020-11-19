@@ -17,6 +17,8 @@ const SideNavBar = (props) => {
         }
     }
 
+    const totalConnects = props.userAttributes.connects.length + props.userAttributes.inverse_connects.length;
+
     const createListing = () => {
         if(props.userAttributes.type === "Farmer"){
             return <p><Link to="/listings/new">Create Listing</Link></p>
@@ -47,6 +49,8 @@ const SideNavBar = (props) => {
                     <p id="listings_link_p"><Link to="/listings" onClick={handleFetchListings}>Listings</Link></p>
                 </div>
                 { renderFarmerUserLinks() }
+                <br />
+                <p><Link to="#" id="my_connect_link">My Connects</Link><span id="my_connect_span">{totalConnects}</span></p>
                 <br />
                 <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
             </div>
