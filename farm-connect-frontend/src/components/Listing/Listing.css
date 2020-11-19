@@ -13,6 +13,10 @@
     color: red;
 }
 
+#listing_last_edit {
+    color: #000;
+}
+
 #listing_card {
     text-align: center;
     border: #3a5f0b solid 1px;

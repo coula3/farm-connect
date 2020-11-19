@@ -81,8 +81,8 @@ const Listing = (props) => {
                         {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
 
                         { props.listing.attributes.closed ?
-                            <h5 id="closed_listing">CLOSED on {getDate(props.listing.attributes.closed)}</h5> :
-                            null
+                            <h5 id="closed_listing">Closed on {getDate(props.listing.attributes.closed)}</h5> :
+                            <h5 id="listing_last_edit">Last edit on {getDate(props.listing.attributes.updated_at)}</h5>
                         }
                         <div style={{marginTop:"20px"}}>
                             { props.userAttributes.type === "Farmer" ?
