@@ -40,7 +40,7 @@ const Listing = (props) => {
     }
 
     let listingPluralized;
-    props.farmer.attributes.listings[0] ? listingPluralized = "Listings" : listingPluralized = "Listing";
+    props.userAttributes.listings.length > 1 ? listingPluralized = "My Listings" : listingPluralized = "My Listing";
 
     return (
         <div className="Listing_main_div">
