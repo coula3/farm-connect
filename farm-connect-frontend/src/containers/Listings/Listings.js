@@ -79,9 +79,10 @@ class Listings extends React.Component {
             listing.attributes.available ? available = "✓" : available = "";
             const viewButton = parseInt(this.props.userId) === listing.attributes.user.id ? {backgroundColor:"#3a5f0b", color:"#FFF"} : null;
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
+            const rowHighlight = listing.attributes.interests.length >= 5 ? "listings_td_g" : "listings_td";
 
             return (
-                <tr key={listing.id} id="listings_td" className="listings_th_td" onDoubleClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>
+                <tr key={listing.id} id={rowHighlight} className="listings_th_td" onDoubleClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>
                     <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleFetchListing(listing.id)}>{padIds(listing.id)}</Link></td>
                     <td>{listDate}</td>
                     <td>{commodity}</td>

@@ -17,8 +17,12 @@
     border-bottom: #DCDCDC solid 1px;
 }
 
-tr#listings_td:hover {
+#listings_td:hover {
     background-color: #dde6d5;
+}
+
+#listings_td_g:hover {
+    background-color: #EEE8AA;
 }
 
 #category, #td_available {
