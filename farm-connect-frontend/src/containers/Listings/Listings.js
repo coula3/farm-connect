@@ -77,7 +77,7 @@ class Listings extends React.Component {
             const commodity = listing.attributes.commodity.name;
             let available;
             listing.attributes.available ? available = "✓" : available = "";
-            const viewButton = parseInt(this.props.userId) === listing.attributes.user.id ? {backgroundColor:"#3a5f0b", color:"#FFF"} : null;
+            const viewButton = parseInt(this.props.userId) === listing.attributes.user.id ? {backgroundColor:"#3a5f0b", color:"#FFF", borderRadius:"5px"} : null;
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
             const rowHighlight = listing.attributes.interests.length >= 5 ? "listings_td_g" : "listings_td";
 

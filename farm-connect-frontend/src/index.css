@@ -27,6 +27,7 @@ code {
   background-color: #3a5f0b;
   color: #FFF;
   font-size: 15px;
+  border-radius: 5px;
 }
 
 .no_select {
