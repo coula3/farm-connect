@@ -5,7 +5,7 @@ import { getDate } from '../../utils/miscellaneousUtils';
 import './Listing.css';
 
 const Listing = (props) => {
-    const renderEditLink = (currentUserId, listingUserId, listingId) => {
+    const renderEditButton = (currentUserId, listingUserId, listingId) => {
         if(!props.listing.attributes.closed){
             if(parseInt(currentUserId) === listingUserId){
                 return <button className="global_btn" onClick={() => props.history.push(`/listings/${listingId}/edit`)}>Edit</button>;
@@ -78,7 +78,7 @@ const Listing = (props) => {
                         <br />
                         <p className="no_select"><label id="heart_lbl" className="no_select" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
 
-                        {renderEditLink(props.userId, props.listing.attributes.user.id, props.listing.id)}
+                        {renderEditButton(props.userId, props.listing.attributes.user.id, props.listing.id)}
 
                         { props.listing.attributes.closed ?
                             <h5 id="closed_listing">Closed on {getDate(props.listing.attributes.closed)}</h5> :
