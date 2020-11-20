@@ -63,7 +63,7 @@ class Api::V1::ListingsController < ApplicationController
 
     def update_closed_column(listing)
         if listing_params[:closed].present?
-            listing.update(closed: Time.now)
+            listing.update(closed: Time.now, available: false)
         end
     end
 
