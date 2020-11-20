@@ -18,11 +18,11 @@
     vertical-align: top;
 }
 
-#listing_close_warning {
-    background-color: #ff0000;
-    color: #FFF;
-    border-radius: 5px;
-    padding: 3px 8px;
+#listing_close_warning_span {
+    color:  #ff0000;
+    border-radius: 15px;
+    border: solid 1px #ff0000;
+    padding: 5px 10px;
     display: inline-block;
     font-size: 14px;
 }

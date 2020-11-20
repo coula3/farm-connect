@@ -139,7 +139,7 @@ class EditListing extends Component {
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
         const maxXterColor = (this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)) <= 25 ? {color:"red"} : null;
-        const warningMsgStyles = this.state.listing.closed ? "listing_close_warning" : null;
+        const warningMsgStyles = this.state.listing.closed ? "listing_close_warning_span" : null;
 
         return (
             <div className="EditListing_main_div">
