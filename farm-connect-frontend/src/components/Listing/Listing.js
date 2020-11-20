@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import { Link } from 'react-router-dom';
-import { getDate } from '../../utils/miscellaneousUtils';
+import { getDate, getDateTime } from '../../utils/miscellaneousUtils';
 import './Listing.css';
 
 const Listing = (props) => {
@@ -84,9 +84,9 @@ const Listing = (props) => {
                         <p className="no_select"><label id="heart_lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>{selectHeartType(props.userId, props.listing.attributes.interests)}</label>{props.listing.attributes.interests.length}</p>
 
                         { props.listing.attributes.closed ?
-                            <h5 id="closed_listing">Closed on {getDate(props.listing.attributes.closed)}</h5> :
+                            <h5 id="closed_listing">Closed on {getDateTime(props.listing.attributes.closed)}</h5> :
                             parseInt(props.userId) === props.listing.attributes.user.id ?
-                                <h5 id="listing_last_edit">Last edited on {getDate(props.listing.attributes.updated_at)}</h5> :
+                                <h5 id="listing_last_edit">Last edited on {getDateTime(props.listing.attributes.updated_at)}</h5> :
                                 null
                         }
 
