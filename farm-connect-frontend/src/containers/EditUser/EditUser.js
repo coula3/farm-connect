@@ -61,6 +61,10 @@ class EditUser extends Component {
         this.props.editUser(this.props.userId, this.state)
     }
 
+    setUpdateBtnColor = () => {
+        return this.state.editMode ? "update_btn" : "update_btn_disabled";
+    }
+
     handleCancelEdit = (e) => {
         e.preventDefault();
         this.props.history.push(`/users/${this.props.userId}`)
@@ -129,7 +133,7 @@ class EditUser extends Component {
                             </tbody>
                         </table>
                         <div style={{marginTop:"40px"}}>
-                            <button className="global_btn" disabled={!this.state.editMode}>Update</button>
+                            <button id={this.setUpdateBtnColor()} disabled={!this.state.editMode}>Update</button>
                             <br />
                             <button className="global_btn" onClick={this.handleCancelEdit}>Cancel</button>
                         </div>
