@@ -24,7 +24,7 @@ const ListingsInterests = (props) => {
     }
 
     const listHighlight = (listing) => {
-        return listing[0] === parseInt(listingPathId) ? "list_highlight_styles" : null;
+        return listing[0] === parseInt(listingPathId) && pathArray[1] === "listings" ? "list_highlight_styles" : null;
     }
 
     const listingsInterests = props.listingsInterests.map((listing, idx) => {
