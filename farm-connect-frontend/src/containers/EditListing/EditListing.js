@@ -214,9 +214,9 @@ class EditListing extends Component {
                             </p>
                             <span id={warningMsgStyles}>{this.closeListingWarning()}</span>
 
-                            <p id="p_button_update"><input type="submit" value="Update" disabled={this.state.editMode ? false : true}/></p>
+                            <p id="p_button_update"><input className="global_btn" type="submit" value="Update" disabled={this.state.editMode ? false : true}/></p>
 
-                            <p><input type="submit" value="Cancel" onClick={this.handleCancelEdit} /></p>
+                            <input className="global_btn" type="submit" value="Cancel" onClick={this.handleCancelEdit} />
                         </form>
                     </div>
                 }
