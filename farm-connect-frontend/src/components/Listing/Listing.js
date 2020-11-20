@@ -85,7 +85,9 @@ const Listing = (props) => {
 
                         { props.listing.attributes.closed ?
                             <h5 id="closed_listing">Closed on {getDate(props.listing.attributes.closed)}</h5> :
-                            <h5 id="listing_last_edit">Last edited on {getDate(props.listing.attributes.updated_at)}</h5>
+                            parseInt(props.userId) === props.listing.attributes.user.id ?
+                                <h5 id="listing_last_edit">Last edited on {getDate(props.listing.attributes.updated_at)}</h5> :
+                                null
                         }
 
                         {renderEditButton(props.userId, props.listing.attributes.user.id, props.listing.id)}
