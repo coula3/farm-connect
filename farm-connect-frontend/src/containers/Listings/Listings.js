@@ -67,7 +67,7 @@ class Listings extends React.Component {
             listingsCategory = "Other Farmers";
         }
 
-        const sortedBaseListings = baseListings.sort((a, b) => a.id - b.id);
+        const sortedBaseListings = baseListings.sort((a, b) => b.id - a.id);
 
         const renderListings = sortedBaseListings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
