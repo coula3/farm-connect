@@ -18,7 +18,7 @@ const HeadNavBar = (props) => {
                 <img className="header_img" src={userPhoto(props.userPhoto)} alt="user avatar" /> :
                 <img className="header_img" src={avatar} alt="anonymous avatar" />
             }
-            <Link id="name_link" to={`/users/${props.userId}`} title="View Profile">{props.userAttributes.first_name} {props.userAttributes.last_name}</Link>
+            <Link id="hnb_name_link" to={`/users/${props.userId}`} title="View Profile">{props.userAttributes.first_name} {props.userAttributes.last_name}</Link>
             <span id="user_type_span"><strong>{userType(props.userAttributes.type)}</strong></span>
             <Link id="signout_link" to="/signout" onClick={props.userSignOut}>Sign Out</Link>
         </div>
