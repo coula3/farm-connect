@@ -5,6 +5,11 @@ export const getDate = (sourceDate) => {
     return `${months[dateObject.getUTCMonth()].slice(0, 3)} ${sourceDate.slice(8, 10)}, ${sourceDate.slice(0, 4)}`;
 }
 
+export const getDateTime = (sourceDate) => {
+    const dateObject = new Date(sourceDate);
+    return `${months[dateObject.getUTCMonth()].slice(0, 3)} ${sourceDate.slice(8, 10)}, ${sourceDate.slice(0, 4)} ${sourceDate.slice(11, 19)}`;
+}
+
 export const padIds = (id) => {
     if(id < 10){
         return "00" + id;
