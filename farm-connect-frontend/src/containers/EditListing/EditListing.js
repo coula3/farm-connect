@@ -132,7 +132,7 @@ class EditListing extends Component {
     }
 
     closeListingWarning = () => {
-        return this.state.listing.closed ? "Be aware that closed listing would not be re-opened" : null;
+        return this.state.listing.closed ? "NOTICE: closed listing becomes uneditable" : null;
     }
 
     render(){
