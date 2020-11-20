@@ -91,46 +91,48 @@ class EditUser extends Component {
                         <table className="center">
                             <tbody>
                                 <tr>
-                                    <td style={{textAlign:"right", verticalAlign:"top"}}>First name</td>
+                                    <td style={{textAlign:"right", fontSize:"17px", verticalAlign:"top"}}>First name</td>
                                     <td>
-                                        <input style={{width: "180px", float:"left", marginLeft:"35px"}} type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <input style={{width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
                                         <span className="p_errors">{messages.firstNameError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Last name</td>
+                                    <td style={{paddingTop:"10px", fontSize:"17px", textAlign:"right", verticalAlign:"top"}}>Last name</td>
                                     <td>
-                                        <input style={{marginTop:"10px", width: "180px", float:"left", marginLeft:"35px"}} type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <input style={{marginTop:"10px", width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
                                         <span className="p_errors">{messages.lastNameError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Date of birth</td>
+                                    <td style={{paddingTop:"10px", fontSize:"17px", textAlign:"right", verticalAlign:"top"}}>Date of birth</td>
                                     <td>
-                                        <input style={{marginTop:"10px", width: "180px", float:"left", marginLeft:"35px"}} type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  />
+                                        <input style={{marginTop:"10px", width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  />
                                         <br />
                                         <span className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Email</td>
+                                    <td style={{paddingTop:"10px", fontSize:"17px", textAlign:"right", verticalAlign:"top"}}>Email</td>
                                     <td>
-                                        <input style={{marginTop:"10px", width: "180px",float:"left", marginLeft:"35px"}} type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                        <input style={{marginTop:"10px", width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
                                         <span className="p_errors">{messages.emailError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Upload Photo</td>
-                                    <td><input style={{marginTop:"10px", float:"left", marginLeft:"35px"}} type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></td>
+                                    <td style={{paddingTop:"10px", fontSize:"17px", textAlign:"right", verticalAlign:"top"}}>Upload Photo</td>
+                                    <td><input style={{marginTop:"10px", fontSize:"17px", float:"left", marginLeft:"35px"}} type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <br />
-                        <p><button disabled={!this.state.editMode}>Update</button></p>
-                        <p><button onClick={this.handleCancelEdit}>Cancel Edit</button></p>
+                        <div style={{marginTop:"40px"}}>
+                            <button className="global_btn" disabled={!this.state.editMode}>Update</button>
+                            <br />
+                            <button className="global_btn" onClick={this.handleCancelEdit}>Cancel</button>
+                        </div>
                     </form>
                 </div>
             </div>
