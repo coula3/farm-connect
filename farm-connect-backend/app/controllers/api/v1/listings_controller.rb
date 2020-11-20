@@ -77,7 +77,7 @@ class Api::V1::ListingsController < ApplicationController
 
     def courtesy_updates(listing)
         listing.update(quantity: nil, measure: nil) if !listing.quantity || listing.quantity == 0
-        listing.update(available: available)
+        listing.update(available: available) if listing_params[:available]
         check_available(listing)
     end
 
