@@ -8,9 +8,9 @@ import './ListingsInterests.css';
 const ListingsInterests = (props) => {
     const handleClick = (listingId) => {
         const pathArray = props.location.pathname.split("/");
-        const pathListingId = pathArray[pathArray.length - 1];
+        const listingPathId = pathArray[pathArray.length - 1];
 
-        if(listingId !== parseInt(pathListingId)){
+        if(listingId !== parseInt(listingPathId)){
             props.fetchListing(listingId);
         }
     }
