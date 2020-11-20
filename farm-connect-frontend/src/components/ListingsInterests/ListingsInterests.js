@@ -6,10 +6,10 @@ import balloons from '../../assets/balloons.png';
 import './ListingsInterests.css';
 
 const ListingsInterests = (props) => {
-    const handleClick = (listingId) => {
-        const pathArray = props.location.pathname.split("/");
-        const listingPathId = pathArray[pathArray.length - 1];
+    const pathArray = props.location.pathname.split("/");
+    const listingPathId = pathArray[pathArray.length - 1];
 
+    const handleClick = (listingId) => {
         if(listingId !== parseInt(listingPathId)){
             props.fetchListing(listingId);
         }
