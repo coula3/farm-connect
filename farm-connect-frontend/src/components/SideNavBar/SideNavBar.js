@@ -52,7 +52,7 @@ const SideNavBar = (props) => {
                 <br />
                 <p><Link to="#" id="my_connect_link">My Connects</Link><span id="my_connect_span">{totalConnects}</span></p>
                 <br />
-                <p><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
+                <p id="signout_p"><Link to="/signout" onClick={props.userSignOut} >Sign Out</Link></p>
             </div>
         </div>
     )
