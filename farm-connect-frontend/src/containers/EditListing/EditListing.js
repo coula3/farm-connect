@@ -126,14 +126,19 @@ class EditListing extends Component {
         return !this.state.listing.closed ? closeDate : "";
     }
 
+    closeListingWarning = () => {
+        return this.state.listing.closed ? "NOTICE: closed listing becomes uneditable" : null;
+    }
+
+    setUpdateBtnColor = () => {
+        return this.state.editMode ? "update_btn" : "update_btn_disabled";
+    }
+
     handleCancelEdit = (e) => {
         e.preventDefault();
         this.props.history.push(`/listings/${this.props.listing.id}`);
     }
 
-    closeListingWarning = () => {
-        return this.state.listing.closed ? "NOTICE: closed listing becomes uneditable" : null;
-    }
 
     render(){
         const currentDate = new Date();
@@ -214,7 +219,7 @@ class EditListing extends Component {
                             </p>
                             <span id={warningMsgStyles}>{this.closeListingWarning()}</span>
 
-                            <p id="p_button_update"><input className="global_btn" type="submit" value="Update" disabled={this.state.editMode ? false : true}/></p>
+                            <p id="p_button_update"><input className={this.setUpdateBtnColor()} type="submit" value="Update" disabled={!this.state.editMode}/></p>
 
                             <input className="global_btn" type="submit" value="Cancel" onClick={this.handleCancelEdit} />
                         </form>
