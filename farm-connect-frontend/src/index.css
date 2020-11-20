@@ -42,3 +42,19 @@ a {
   text-decoration: none;
   color: #663300;
 }
+
+.update_btn {
+  width: 17%;
+  padding: 6px 0px;
+  background-color: #3a5f0b;
+  color: #FFF;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.update_btn_disabled {
+  width: 17%;
+  padding: 6px 0px;
+  font-size: 15px;
+  border-radius: 5px;
+}

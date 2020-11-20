@@ -133,7 +133,7 @@ class EditUser extends Component {
                             </tbody>
                         </table>
                         <div style={{marginTop:"40px"}}>
-                            <button id={this.setUpdateBtnColor()} disabled={!this.state.editMode}>Update</button>
+                            <button className={this.setUpdateBtnColor()} disabled={!this.state.editMode}>Update</button>
                             <br />
                             <button className="global_btn" onClick={this.handleCancelEdit}>Cancel</button>
                         </div>
