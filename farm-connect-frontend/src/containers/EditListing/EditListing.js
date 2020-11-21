@@ -65,7 +65,7 @@ class EditListing extends Component {
     }
 
     getMeasuresList = (selectedMeasure) => {
-        const measuresList = ["--please choose--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
+        const measuresList = ["--choose measure--", "bushel", "dozen", "gram", "kilogram", "pound", "tonne", "unit"];
         if(selectedMeasure){
             return measuresList.slice(1);
         } else {
