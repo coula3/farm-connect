@@ -143,7 +143,7 @@ class EditListing extends Component {
     render(){
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
-        const maxXterColor = (this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)) <= 25 ? {color:"red"} : null;
+        const maxXterColor = (this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)) <= 25 ? "critical_color" : null;
         const warningMsgStyles = this.state.listing.closed ? "listing_close_warning_span" : null;
 
         return (
@@ -160,8 +160,8 @@ class EditListing extends Component {
                                 <tbody>
                                     <tr>
                                         <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
-                                        <td style={{width:"75%"}}>
-                                            <select style={{width: "53%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                        <td style={{width:"78%"}}>
+                                            <select style={{width: "53%", fontSize:"15px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.props.commodities.map((commodity, idx) =>
                                                     <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
                                                 }
@@ -171,7 +171,7 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability</td>
                                         <td>
-                                            <input style={{marginTop:"10px", width: "50%", fontSize:"17px", padding:"5px 0px 5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
+                                            <input style={{marginTop:"10px", width: "50%", fontSize:"15px", padding:"5px 0px 5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
                                             <br />
                                             <span className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
                                         </td>
@@ -179,24 +179,25 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity</td>
                                         <td>
-                                            <input style={{marginTop:"10px", width: "30%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                            <input style={{marginTop:"10px", width: "30%", fontSize:"15px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                             <span className="p_errors">{messages.quantityError(this.props.errorMessages)}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Measure</td>
                                         <td>
-                                            <select style={{marginTop:"10px", width: "36%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <select style={{marginTop:"10px", width: "36%", fontSize:"15px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
                                                     <option key={idx} value={measure}>{measure}</option>)
                                                 }
                                             </select>
+                                            <span className="p_errors">{messages.measureError(this.props.errorMessages)}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Availabe</td>
                                         <td>
-                                            <select style={{marginTop:"10px", width: "20%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}}  name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <select style={{marginTop:"10px", width: "20%", fontSize:"15px", padding:"5px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}}  name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 <option value="No">No</option>
                                                 <option value="Yes">Yes</option>
                                             </select>
@@ -205,9 +206,9 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info</td>
                                         <td>
-                                            <textarea style={{marginTop:"10px", fontSize:"17px", padding:"10px", float:"left", marginLeft:"18px", borderRadius:"5px"}} name="information" id="information" rows="8" cols="38" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
+                                            <textarea style={{marginTop:"10px", fontSize:"15px", padding:"10px", float:"left", marginLeft:"18px", borderRadius:"5px"}} name="information" id="information" rows="6" cols="48" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
                                             <br />
-                                            <label style={maxXterColor}>{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</label>
+                                            <span id={maxXterColor} style={{width:"50%", clear:"both", display:"inline-block"}}>{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</span>
                                         </td>
                                     </tr>
                                 </tbody>
