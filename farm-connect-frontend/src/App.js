@@ -44,11 +44,13 @@ class App extends Component {
       <div className="App">
         <Router>
           <AppHeader />
+
           { this.props.isAuthenticated ?
             <HeadNavBar userId={this.props.userId} userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} userPhoto={this.props.userPhoto} /> :
             null
           }
-          <div style={{clear:"both", margin:"auto", width:"90%"}}>
+
+          <div id="authenticated_div">
             { this.props.isAuthenticated ?
               <SideNavBar
                 userSignOut={this.handleUserSignOut}
@@ -62,6 +64,7 @@ class App extends Component {
               /> :
               null
             }
+
             <Routes
               isAuthenticated={this.props.isAuthenticated}
               userId={this.props.userId}
@@ -81,6 +84,7 @@ class App extends Component {
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
             />
+
             { this.props.isAuthenticated ?
               <ResourcesBoard
                 isLoadingProspects={this.props.isLoadingProspects}
@@ -94,6 +98,7 @@ class App extends Component {
               null
               }
             </div>
+
             { !this.props.isAuthenticated ? <AppFooter /> : null }
           </Router>
       </div>

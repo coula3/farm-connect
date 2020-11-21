@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+#authenticated_div {
+  width: 90%;
+  margin: auto;
+  clear: both;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
