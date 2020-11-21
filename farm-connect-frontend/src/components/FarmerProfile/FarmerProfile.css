@@ -28,8 +28,10 @@
 }
 
 #unconnect_btn {
-    width: 22%;
+    width: 23%;
     padding: 6px 0px;
+    font-size: 15px;
+    border-radius: 5px;
 }
 
 #listing_btn {
