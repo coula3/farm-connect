@@ -18,8 +18,8 @@ const SuggestedProspects = (props) => {
     }
 
     const handleClick = (prospect) => {
-        const pathArray = props.location.pathname.split("/")
-        const pathProspectId = pathArray[pathArray.length - 1]
+        const pathArray = props.location.pathname.split("/");
+        const pathProspectId = pathArray[pathArray.length - 1];
         if(pathProspectId !== prospect.id){
             props.fetchProspect(prospect.id);
         }

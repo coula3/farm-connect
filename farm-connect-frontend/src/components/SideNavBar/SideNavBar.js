@@ -44,11 +44,14 @@ const SideNavBar = (props) => {
                 <br />
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
                 <br />
+
                 <div id="create_listings_listings_padding" className="listings_panel">
                     {createListing()}
                     <p id="listings_link_p"><Link to="/listings" onClick={handleFetchListings}>Listings</Link></p>
                 </div>
+
                 { renderFarmerUserLinks() }
+
                 <br />
                 <p><Link to="#" id="my_connect_link">My Connects</Link><span id="my_connect_span">{totalConnects}</span></p>
                 <br />

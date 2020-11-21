@@ -7,7 +7,9 @@ const TermsOfService = (props) => (
             <button className="global_btn" onClick={() => props.history.goBack()}>Back</button>
             <button className="global_btn" onClick={() => props.history.push("/")}>Home</button>
         </div>
+
         <h3>Terms of Service</h3>
+
         <p className="tos_p">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie turpis. Nunc id mauris eget lectus congue euismod. Phasellus id urna lorem. Morbi vulputate laoreet leo at pellentesque. Pellentesque eu tincidunt ipsum. Aenean convallis dui ante, in vulputate magna tincidunt in. Aliquam lacinia interdum ipsum cursus scelerisque. Vivamus eget lacus pretium nisl cursus elementum. Etiam tincidunt elementum odio non ultricies.</p>
 
         <p className="tos_p">2. Vivamus augue nibh, ullamcorper ut nulla in, commodo gravida tellus. Morbi in auctor tellus, ac suscipit erat. Ut iaculis auctor euismod. Aenean hendrerit ligula eget vestibulum scelerisque. Sed a neque at mi tempor venenatis non et velit. Duis in nulla accumsan, sagittis diam sit amet, iaculis mauris. Etiam tristique nunc lacinia, pharetra turpis eget, lacinia mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
