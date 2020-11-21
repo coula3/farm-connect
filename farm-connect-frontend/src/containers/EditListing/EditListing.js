@@ -163,7 +163,7 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
                                         <td style={{width:"78%"}}>
-                                            <select className="commodity_select" name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <select className="commodity_select" name="commodity" disabled={this.props.listing.attributes.interests[0]} value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.props.commodities.map((commodity, idx) =>
                                                     <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
                                                 }
