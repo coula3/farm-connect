@@ -57,3 +57,8 @@
 #critical_color {
     color: #FF0000;
 }
+
+#measure_select_el {
+    width: 38%;
+    margin-left: 10%;
+}

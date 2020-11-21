@@ -92,12 +92,10 @@ a {
 }
 
 .measure_select {
-  width: 38%;
   margin-top: 10px;
   font-size: 15px;
   padding: 3px 10px;
   float: left;
-  margin-left: 10%;
   border-radius: 5px;
   border: grey solid 1px;
 }

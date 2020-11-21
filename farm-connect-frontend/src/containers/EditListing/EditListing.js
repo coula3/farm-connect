@@ -183,7 +183,7 @@ class EditListing extends Component {
                                         <td>
                                             <input className="quantity_input" type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
 
-                                            <select className="measure_select" name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <select id="measure_select_el" className="measure_select" name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
                                                     <option key={idx} value={measure}>{measure}</option>)
                                                 }
