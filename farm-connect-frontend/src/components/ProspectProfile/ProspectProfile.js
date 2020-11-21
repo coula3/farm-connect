@@ -48,7 +48,7 @@ const ProspectProfile = (props) => {
                     {!isCurrentUser(props.prospect.id) ?
                         !isConnected(props.prospect.id) ?
                             <div className="connect_btn_div"><button id="connect_btn" className="global_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
-                            <div className="connect_btn_div"><button id="unconnect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button></div>
+                            <div className="connect_btn_div"><button id="unconnect_btn" className="global_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button></div>
                     :
                         null
                     }
