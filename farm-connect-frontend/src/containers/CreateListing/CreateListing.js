@@ -85,7 +85,7 @@ class CreateListing extends Component {
                                             }
                                         </select>
                                         <br />
-                                        <span className="p_errors">{messages.commodityError(this.props.errorMessages)}</span>
+                                        <span className="p_errors errors_padding_left">{messages.commodityError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -93,7 +93,7 @@ class CreateListing extends Component {
                                     <td>
                                         <input className="availability_input" name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
                                         <br />
-                                        <span className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
+                                        <span className="p_errors errors_padding_left">{messages.availabilityError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>

@@ -14,6 +14,10 @@
     margin: 0px;
 }
 
+.errors_padding_left {
+    padding-left: 16%;
+}
+
 #label_align {
     vertical-align: top;
 }
