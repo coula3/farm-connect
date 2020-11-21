@@ -79,7 +79,7 @@ class CreateListing extends Component {
                                 <tr>
                                     <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
                                     <td style={{width:"65%"}}>
-                                        <select style={{width: "150px"}} name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
+                                        <select className="commodity_select" name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
                                             { commoditiesList.map((commodity, idx) =>
                                                 (<option key={idx} value={commodity}>{commodity}</option>))
                                             }
@@ -91,19 +91,19 @@ class CreateListing extends Component {
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability </td>
                                     <td>
-                                        <input style={{marginTop:"10px"}} name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
+                                        <input className="availability_input" name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
                                         <br />
                                         <span className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity </td>
-                                    <td><input style={{marginTop:"10px"}} name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/></td>
+                                    <td><input className="quantity_input" name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/></td>
                                 </tr>
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Measure </td>
                                     <td>
-                                        <select style={{width: "150px", marginTop:"10px"}} name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
+                                        <select id="measure_select_cl" className="measure_select" name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
                                             {measuresList.map((measure, idx) =>
                                             (<option key={idx} value={measure}>{measure}</option>))}
                                         </select>
@@ -114,7 +114,7 @@ class CreateListing extends Component {
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Available </td>
                                     <td>
-                                        <select style={{marginTop:"10px"}} name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
+                                        <select className="available_select" name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
                                             <option value="No">No</option>
                                             <option value="Yes">Yes</option>
                                         </select>
@@ -123,14 +123,14 @@ class CreateListing extends Component {
                                 <tr>
                                     <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info </td>
                                     <td>
-                                        <textarea style={{marginTop:"10px", padding:"8px"}} name="information" id="information" rows="8" cols="32" maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
+                                        <textarea className="info_textarea" name="information" id="information" rows="7" cols="40" maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
                                         <br />
                                         <label style={maxXterColor}>{this.state.maxInfoCharacters - this.state.listing.information.length}</label>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p style={{marginTop:"25px"}}><input style={{backgroundColor:"#3a5f0b", color:"#FFF"}} type="submit" /></p>
+                        <p style={{marginTop:"25px"}}><input style={{backgroundColor:"#3a5f0b", color:"#FFF"}} className="global_btn" type="submit" /></p>
                     </form>
                 </div>
             </div>

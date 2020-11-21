@@ -33,3 +33,8 @@ width: 85%;
 margin-left: auto;
 margin-right: auto;
 }
+
+#measure_select_cl {
+    width: 40%;
+    margin-left: 18px;
+}
