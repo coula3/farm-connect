@@ -152,8 +152,10 @@ class EditListing extends Component {
                     <Loader /> :
                     <div className="card">
                         <h3>Edit Listing</h3>
-                        <p><label><strong>ID</strong> {this.props.listing.id}</label></p>
-                        <p><label><strong>Listing Date</strong> {getDate(this.props.listing.attributes.date)}</label></p>
+                        <p style={{margin:"0px 0px 10px 0px"}}>
+                            <span style={{paddingRight:"30px"}}><label><strong>ID</strong> {this.props.listing.id}</label></span>
+                            <span><label><strong>Listing Date</strong> {getDate(this.props.listing.attributes.date)}</label></span>
+                        </p>
 
                         <form onSubmit={this.handleSubmit}>
                             <table className="center">
@@ -172,26 +174,27 @@ class EditListing extends Component {
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability</td>
                                         <td>
                                             <input style={{marginTop:"10px", width: "50%", fontSize:"15px", padding:"3px 0px 3px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
-                                            <br />
-                                            <span className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
+
+                                            <span id="availability_span" className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity</td>
                                         <td>
-                                            <input style={{marginTop:"10px", width: "30%", fontSize:"15px", padding:"3px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
-                                            <span className="p_errors">{messages.quantityError(this.props.errorMessages)}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Measure</td>
-                                        <td>
-                                            <select style={{marginTop:"10px", width: "36%", fontSize:"15px", padding:"3px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <input style={{marginTop:"10px", width: "35%", fontSize:"15px", padding:"4px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+
+                                            <select style={{marginTop:"10px", width: "38%", fontSize:"15px", padding:"3px 10px", float:"left", marginLeft:"10%", borderRadius:"5px", border: "grey solid 1px"}} name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
                                                     <option key={idx} value={measure}>{measure}</option>)
                                                 }
                                             </select>
-                                            <span className="p_errors">{messages.measureError(this.props.errorMessages)}</span>
+
+                                            <p style={{margin:"0px", float:"left", display:"inline-block", paddingLeft:"4%"}} className="p_errors">
+                                                {messages.quantityError(this.props.errorMessages)}
+                                            </p>
+                                            <p style={{margin:"0px", float:"right", display:"inline-block", paddingRight:"18%"}} className="p_errors">
+                                                {messages.measureError(this.props.errorMessages)}
+                                            </p>
                                         </td>
                                     </tr>
                                     <tr>

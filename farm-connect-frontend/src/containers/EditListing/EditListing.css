@@ -13,7 +13,12 @@
     color: red;
     margin: 0px;
     display: inline-block;
+    float: left;
     clear: both;
+}
+
+#availability_span {
+    padding-left: 10%;
 }
 
 #label_align {
