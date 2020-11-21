@@ -21,18 +21,21 @@ const CurrentUser = (props) => {
                 <Loader /> :
             <div className="current_user_profile_card">
                 <h3>My Profile</h3>
+
                 <div id="img_div">
                     {props.userPhoto ?
                         <img className="current_user_img" src={userPhoto(props.userPhoto)} alt="user avatar" /> :
                         <img className="current_user_img" src={avatar} alt="anonymous avatar" />
                     }
                 </div>
+
                 <p><label><strong>ID:</strong> </label>{props.userId}</p>
                 <p><label><strong>Name:</strong> </label>{props.userAttributes.first_name} {props.userAttributes.last_name}</p>
                 <p><label><strong>Date of Birth:</strong> </label>{getDate(props.userAttributes.date_of_birth)}</p>
                 <p><label><strong>Email:</strong> </label>{props.userAttributes.email}</p>
                 <br />
                 <p><label><strong>Joined:</strong> </label>{getDate(props.userAttributes.created_at)}</p>
+
                 <div>
                     <button id="edit_btn_div" className="global_btn" onClick={handleClick}>Edit</button>
                 </div>

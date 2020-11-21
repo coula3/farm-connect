@@ -34,17 +34,20 @@ const ProspectProfile = (props) => {
                 <Loader /> :
                 <div className="prospect_profile_card">
                     <h3>Prospect Profile</h3>
+
                     <div id="img_div">
                         {props.prospect.attributes.image ?
                             <img className="img" src={prospectPhoto(props.prospect.attributes.image)} alt="user avatar" /> :
                             <img className="img" src={avatar} alt="anonymous avatar" />
                         }
                     </div>
+
                     <p><label><strong>ID:</strong> </label>{props.prospect.id}</p>
                     <p><label><strong>Name:</strong> </label>{props.prospect.attributes.first_name} {props.prospect.attributes.last_name}</p>
                     <p><label><strong>Email:</strong> </label>{props.prospect.attributes.email}</p>
                     <br />
                     <p><label><strong>Joined:</strong> </label>{getDate(props.prospect.attributes.created_at)}</p>
+
                     {!isCurrentUser(props.prospect.id) ?
                         !isConnected(props.prospect.id) ?
                             <div className="connect_btn_div"><button id="connect_btn" className="global_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div> :
