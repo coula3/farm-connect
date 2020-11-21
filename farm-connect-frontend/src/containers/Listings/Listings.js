@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import { fetchListings, fetchListing, fetchUserClosedListings, listingsRendered, listingsUnrendered } from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
@@ -8,7 +9,6 @@ import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { padIds, oneDay } from '../../utils/miscellaneousUtils';
-import { Link } from 'react-router-dom';
 import './Listings.css';
 
 class Listings extends React.Component {
@@ -140,7 +140,6 @@ class Listings extends React.Component {
                                 </> :
                                     null
                             }
-
                             <th></th>
                         </tr>
                     </thead>
@@ -174,7 +173,6 @@ class Listings extends React.Component {
                                 <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
                                 <h4>No Closed Listing</h4>
                         }
-
                         {this.props.listings[0] && renderListingHeadings()}
                     </>
                 }

@@ -58,7 +58,7 @@ class EditUser extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.editUser(this.props.userId, this.state)
+        this.props.editUser(this.props.userId, this.state);
     }
 
     setUpdateBtnColor = () => {
@@ -132,6 +132,7 @@ class EditUser extends Component {
                                 </tr>
                             </tbody>
                         </table>
+
                         <div style={{marginTop:"40px"}}>
                             <button className={this.setUpdateBtnColor()} disabled={!this.state.editMode}>Update</button>
                             <br />

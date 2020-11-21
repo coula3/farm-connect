@@ -78,7 +78,7 @@ class EditListing extends Component {
     }
 
     getAvailability = (availabilityProps) => {
-        return this.state.editMode ? this.state.listing.availability.slice(0, 10) : availabilityProps.slice(0, 10)
+        return this.state.editMode ? this.state.listing.availability.slice(0, 10) : availabilityProps.slice(0, 10);
     }
 
     getQuantity = (quantityProps) => {
