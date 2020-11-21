@@ -163,7 +163,7 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
                                         <td style={{width:"78%"}}>
-                                            <select style={{width: "53%", fontSize:"15px", padding:"3px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <select className="commodity_select" name="commodity" value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.props.commodities.map((commodity, idx) =>
                                                     <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
                                                 }
@@ -173,7 +173,7 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability</td>
                                         <td>
-                                            <input style={{marginTop:"10px", width: "50%", fontSize:"15px", padding:"3px 0px 3px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
+                                            <input className="availability_input" type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
 
                                             <span id="availability_span" className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
                                         </td>
@@ -181,9 +181,9 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity</td>
                                         <td>
-                                            <input style={{marginTop:"10px", width: "35%", fontSize:"15px", padding:"4px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}} type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
+                                            <input className="quantity_input" type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
 
-                                            <select style={{marginTop:"10px", width: "38%", fontSize:"15px", padding:"3px 10px", float:"left", marginLeft:"10%", borderRadius:"5px", border: "grey solid 1px"}} name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <select className="measure_select" name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
                                                     <option key={idx} value={measure}>{measure}</option>)
                                                 }
@@ -200,7 +200,7 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Availabe</td>
                                         <td>
-                                            <select style={{marginTop:"10px", width: "20%", fontSize:"15px", padding:"3px 10px", float:"left", marginLeft:"18px", borderRadius:"5px", border: "grey solid 1px"}}  name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
+                                            <select className="available_select"  name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 <option value="No">No</option>
                                                 <option value="Yes">Yes</option>
                                             </select>
@@ -209,7 +209,7 @@ class EditListing extends Component {
                                     <tr>
                                         <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info</td>
                                         <td>
-                                            <textarea style={{marginTop:"10px", fontSize:"15px", padding:"10px", float:"left", marginLeft:"18px", borderRadius:"5px"}} name="information" id="information" rows="6" cols="48" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
+                                            <textarea className="info_textarea" name="information" id="information" rows="6" cols="48" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
                                             <br />
                                             <span id={maxXterColor} style={{width:"50%", clear:"both", display:"inline-block"}}>{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</span>
                                         </td>
