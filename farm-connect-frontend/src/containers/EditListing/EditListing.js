@@ -153,8 +153,10 @@ class EditListing extends Component {
                     <div className="card">
                         <h3>Edit Listing</h3>
                         <p id="id_date_p">
-                            <span id="id_span"><label><strong>ID</strong> {this.props.listing.id}</label></span>
-                            <span><label><strong>Listing Date</strong> {getDate(this.props.listing.attributes.date)}</label></span>
+                            <span id="el_caption_span"><label><strong>Listing ID - Date</strong></label></span>
+                            <span id="el_id_span"><strong>{this.props.listing.id}</strong></span>
+                            <span> - </span>
+                            <span id="el_date_span"> {getDate(this.props.listing.attributes.date)}</span>
                         </p>
 
                         <form onSubmit={this.handleSubmit}>

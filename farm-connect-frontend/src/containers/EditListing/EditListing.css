@@ -64,11 +64,20 @@
 }
 
 #id_date_p {
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 20px 0px;
 }
 
-#id_span {
+#el_caption_span {
     padding-right: 30px;
+}
+
+#el_id_span {
+    color: #3a5f0b;
+    padding-right: 5px;
+}
+
+#el_date_span {
+    padding-left: 5px;
 }
 
 #qty_error_p {
