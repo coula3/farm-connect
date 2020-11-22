@@ -21,6 +21,18 @@
     clear: both;
 }
 
+.name_error_padding {
+    padding-left: 35%;
+}
+
+#dob_error_padding {
+    padding-left: 30%;
+}
+
+#email_error_padding {
+    padding-left: 38%;
+}
+
 .edit_user_profile_card {
     text-align: center;
     border: #663300 solid 1px;

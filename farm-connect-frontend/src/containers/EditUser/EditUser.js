@@ -99,7 +99,7 @@ class EditUser extends Component {
                                     <td>
                                         <input style={{width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
-                                        <span className="p_errors">{messages.firstNameError(this.props.errorMessages)}</span>
+                                        <span id="" className="p_errors name_error_padding">{messages.firstNameError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -107,7 +107,7 @@ class EditUser extends Component {
                                     <td>
                                         <input style={{marginTop:"10px", width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
-                                        <span className="p_errors">{messages.lastNameError(this.props.errorMessages)}</span>
+                                        <span className="p_errors name_error_padding">{messages.lastNameError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -115,7 +115,7 @@ class EditUser extends Component {
                                     <td>
                                         <input style={{marginTop:"10px", width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  />
                                         <br />
-                                        <span className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</span>
+                                        <span id="dob_error_padding" className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -123,7 +123,7 @@ class EditUser extends Component {
                                     <td>
                                         <input style={{marginTop:"10px", width: "75%", fontSize:"17px", padding:"5px 10px", float:"left", marginLeft:"35px", borderRadius:"5px", border: "grey solid 1px"}} type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
                                         <br />
-                                        <span className="p_errors">{messages.emailError(this.props.errorMessages)}</span>
+                                        <span id="email_error_padding" className="p_errors error_padding">{messages.emailError(this.props.errorMessages)}</span>
                                     </td>
                                 </tr>
                                 <tr>
