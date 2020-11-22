@@ -77,8 +77,8 @@ class CreateListing extends Component {
                         <table className="center">
                             <tbody>
                                 <tr>
-                                    <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
-                                    <td style={{width:"65%"}}>
+                                    <td className="commodity_td">Commodity</td>
+                                    <td>
                                         <select className="commodity_select" name="commodity" id="commodity-select" value={this.state.listing.commodity} onChange={this.handleChange}>
                                             { commoditiesList.map((commodity, idx) =>
                                                 (<option key={idx} value={commodity}>{commodity}</option>))
@@ -89,7 +89,7 @@ class CreateListing extends Component {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability </td>
+                                    <td className="listing_caption_td">Estimated Availability </td>
                                     <td>
                                         <input className="availability_input" name="availability" type="date" value={this.state.listing.availability} onChange={this.handleChange} />
                                         <br />
@@ -97,13 +97,13 @@ class CreateListing extends Component {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity </td>
+                                    <td className="listing_caption_td">Quantity </td>
                                     <td><input className="quantity_input" name="quantity" type="number" min="0" value={this.state.listing.quantity} onChange={this.handleChange} onKeyUp={this.enableDisableMeasure} onMouseUp={this.enableDisableMeasure}/></td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Measure </td>
+                                    <td className="listing_caption_td">Measure </td>
                                     <td>
-                                        <select id="measure_select_cl" className="measure_select" name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
+                                        <select id="cl_measure_select" className="measure_select" name="measure" disabled={this.state.disableMeasure} value={this.state.listing.measure} onChange={this.handleChange} >
                                             {measuresList.map((measure, idx) =>
                                             (<option key={idx} value={measure}>{measure}</option>))}
                                         </select>
@@ -112,7 +112,7 @@ class CreateListing extends Component {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Available </td>
+                                    <td className="listing_caption_td">Available </td>
                                     <td>
                                         <select className="available_select" name="available" id="availableSelect" value={this.state.listing.available} onChange={this.handleChange}>
                                             <option value="No">No</option>
@@ -121,16 +121,16 @@ class CreateListing extends Component {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info </td>
+                                    <td className="listing_caption_td">Supplementary Info </td>
                                     <td>
-                                        <textarea className="info_textarea" name="information" id="information" rows="7" cols="40" maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
+                                        <textarea className="info_textarea" name="information" id="information" rows="7" cols="42" maxLength={this.state.maxInfoCharacters} value={this.state.listing.information} onChange={this.handleChange}></textarea>
                                         <br />
                                         <label style={maxXterColor}>{this.state.maxInfoCharacters - this.state.listing.information.length}</label>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p style={{marginTop:"25px"}}><input style={{backgroundColor:"#3a5f0b", color:"#FFF"}} className="global_btn" type="submit" /></p>
+                        <p id="cl_btn_p"><input id="cl_btn" className="global_btn" type="submit" /></p>
                     </form>
                 </div>
             </div>

@@ -152,8 +152,8 @@ class EditListing extends Component {
                     <Loader /> :
                     <div className="card">
                         <h3>Edit Listing</h3>
-                        <p style={{margin:"0px 0px 10px 0px"}}>
-                            <span style={{paddingRight:"30px"}}><label><strong>ID</strong> {this.props.listing.id}</label></span>
+                        <p id="id_date_p">
+                            <span id="id_span"><label><strong>ID</strong> {this.props.listing.id}</label></span>
                             <span><label><strong>Listing Date</strong> {getDate(this.props.listing.attributes.date)}</label></span>
                         </p>
 
@@ -161,8 +161,8 @@ class EditListing extends Component {
                             <table className="center">
                                 <tbody>
                                     <tr>
-                                        <td style={{marginRight:"20px", textAlign:"right", verticalAlign:"top"}}>Commodity</td>
-                                        <td style={{width:"78%"}}>
+                                        <td className="commodity_td">Commodity</td>
+                                        <td>
                                             <select className="commodity_select" name="commodity" disabled={this.props.listing.attributes.interests[0]} value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 { this.props.commodities.map((commodity, idx) =>
                                                     <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
@@ -171,7 +171,7 @@ class EditListing extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Estimated Availability</td>
+                                        <td className="listing_caption_td">Estimated Availability</td>
                                         <td>
                                             <input className="availability_input" type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
 
@@ -179,7 +179,7 @@ class EditListing extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Quantity</td>
+                                        <td className="listing_caption_td">Quantity</td>
                                         <td>
                                             <input className="quantity_input" type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
 
@@ -189,16 +189,16 @@ class EditListing extends Component {
                                                 }
                                             </select>
 
-                                            <p style={{margin:"0px", float:"left", display:"inline-block", paddingLeft:"4%"}} className="p_errors">
+                                            <p id="qty_error_p" className="p_errors">
                                                 {messages.quantityError(this.props.errorMessages)}
                                             </p>
-                                            <p style={{margin:"0px", float:"right", display:"inline-block", paddingRight:"18%"}} className="p_errors">
+                                            <p id="measure_error_p" className="p_errors">
                                                 {messages.measureError(this.props.errorMessages)}
                                             </p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Availabe</td>
+                                        <td className="listing_caption_td">Availabe</td>
                                         <td>
                                             <select className="available_select"  name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
                                                 <option value="No">No</option>
@@ -207,11 +207,11 @@ class EditListing extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style={{paddingTop:"10px", textAlign:"right", verticalAlign:"top"}}>Supplementary Info</td>
+                                        <td className="listing_caption_td">Supplementary Info</td>
                                         <td>
                                             <textarea className="info_textarea" name="information" id="information" rows="6" cols="48" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
                                             <br />
-                                            <span id={maxXterColor} style={{width:"50%", clear:"both", display:"inline-block"}}>{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</span>
+                                            <span id={maxXterColor} className="xter_span">{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</span>
                                         </td>
                                     </tr>
                                 </tbody>
