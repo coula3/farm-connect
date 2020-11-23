@@ -12,6 +12,11 @@ import { padIds, oneDay } from '../../utils/miscellaneousUtils';
 import './Listings.css';
 
 class Listings extends React.Component {
+
+    state = {
+        availableSorted: false
+    }
+
     componentDidMount(){
         this.stageApplication();
         !this.props.commodities[0] && this.props.fetchCommodities();
@@ -44,6 +49,12 @@ class Listings extends React.Component {
         this.props.fetchFarmer(id);
     }
 
+    handleClick= () => {
+        this.setState({
+            availableSorted: !this.state.availableSorted
+        })
+    }
+
     render (){
         let baseListings;
 
@@ -67,7 +78,14 @@ class Listings extends React.Component {
             listingsCategory = "Other Farmers";
         }
 
-        const sortedBaseListings = baseListings.sort((a, b) => b.id - a.id);
+        let sortedBaseListings;
+        // let baseListings = this.props.listings;
+
+        if(this.state.availableSorted){
+            sortedBaseListings = [...baseListings].sort((a, b) => b.attributes.available - a.attributes.available);
+        } else {
+            sortedBaseListings = [...baseListings].sort((a, b) => a.attributes.available - b.attributes.available);
+        }
 
         const renderListings = sortedBaseListings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
@@ -158,6 +176,8 @@ class Listings extends React.Component {
                     <Loader /> :
                     <>
                         <h3 id="category">{listingsCategory}</h3>
+
+                        <button onClick={this.handleClick}>Sort Available</button>
 
                         { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
                             renderLinkToFarmerProfile :
