@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signInUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
+import SignInForm from '../../components/SignInForm/SignInForm';
 import './SignIn.css';
 
 class SignIn extends Component {
@@ -47,14 +48,7 @@ class SignIn extends Component {
     render() {
         return (
             <div className="SignIn_main_div">
-                <form id="signin_form" onSubmit={this.handleSubmit}>
-                    <p><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
-                    <p><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
-                    <p id="errors_p">{this.props.errorMessages ? this.props.errorMessages : ""}</p>
-                    <button id="signin_button" className="signin_button">Sign In</button>
-                </form>
-                <button className="signup_button" onClick={this.handleSwitchToSignUp}>Sign Up</button>
-                <br />
+                <SignInForm email={this.state.user.email} password={this.state.user.password} handleSubmit={this.handleSubmit} handleChange={this.handleChange} handleSwitchToSignUp={this.handleSwitchToSignUp} errorMessages={this.props.errorMessages} />
             </div>
         )
     }
