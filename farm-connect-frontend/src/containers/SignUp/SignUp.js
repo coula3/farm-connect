@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { signUpUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import * as messages from '../../utils/errorsUtils/userErrors';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -51,33 +50,7 @@ class SignUp extends Component {
     render(){
         return(
             <div className="main_div">
-                <form id="signup_form" onSubmit={this.handleSubmit}>
-                    <p className="inputs_p"><input className="sign_up_in_input" type="text" name="firstName" placeholder="first name" value={this.state.user.firstName} onChange={this.handleChange} /></p>
-                    <p className="errors_p errors_p_margin">{messages.firstNameError(this.props.errorMessages)}</p>
-                    <p className="inputs_p"><input className="sign_up_in_input" type="text" name="lastName" placeholder="last name" value={this.state.user.lastName} onChange={this.handleChange} /></p>
-                    <p className="errors_p errors_p_margin">{messages.lastNameError(this.props.errorMessages)}</p>
-                    <p id="dob_p"><span id="dob_span">date of birth</span><input id="dob_input" type="date" name="dateOfBirth" value={this.state.user.dateOfBirth} onChange={this.handleChange} /></p>
-                    <p className="errors_p errors_p_margin">{messages.dateOfBirthError(this.props.errorMessages)}</p>
-                    <p className="inputs_p"><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={this.state.user.email} onChange={this.handleChange} /></p>
-                    <p className="errors_p errors_p_margin">{messages.emailError(this.props.errorMessages)}</p>
-                    <p className="inputs_p"><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={this.state.user.password} onChange={this.handleChange} /></p>
-                    <p className="errors_p errors_p_margin">{messages.passwordError(this.props.errorMessages)}</p>
-                    <div id="type_div">
-                        <div id="farmer_type_div">
-                            <label className="type_lbl" htmlFor="farmer">farmer</label>
-                            <input className="margin_radio_input" type="radio" id="farmer" name="type" value="Farmer" onChange={this.handleChange} checked={this.state.user.type === "Farmer"} />
-                        </div>
-                        <div id="prospect_type_div">
-                            <label className="type_lbl" htmlFor="prospect">prospect</label>
-                            <input className="margin_radio_input" type="radio" id="prospect" name="type"  value="Prospect" onChange={this.handleChange} checked={this.state.user.type === "Prospect"} />
-                        </div>
-
-                        <p id="type_error_p">{messages.typeError(this.props.errorMessages)}</p>
-                    </div>
-
-                    <p id="service_terms_p">By signing up, you agree to our <Link id="service_terms_link" to="/terms-of-service">Terms of Service</Link>.</p>
-                    <button id="signup_button" className="SignUp_signup_button">Sign Up</button>
-                </form>
+                <SignUpForm firstName={this.state.user.firstName} lastName={this.state.user.lastName} dateOfBirth={this.state.user.dateOfBirth} email={this.state.user.email} password={this.state.user.password} type={this.state.user.type} errorMessages={this.props.errorMessages} handleSubmit={this.handleSubmit} handleChange={this.handleChange} handleSwitchToSignUp={this.handleSwitchToSignUp} />
                 <button className="SignUp_signin_button" onClick={this.handleSwitchToSignIn}>Sign In</button>
             </div>
         )
