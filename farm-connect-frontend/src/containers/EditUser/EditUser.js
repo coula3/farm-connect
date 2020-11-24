@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import * as messages from '../../utils/errorsUtils/userErrors';
+import EditUserForm from '../../components/EditUserForm/EditUserForm';
 import './EditUser.css';
 
 class EditUser extends Component {
@@ -91,54 +91,23 @@ class EditUser extends Component {
             <div className="EditUser_main_div">
                 <div className="edit_user_profile_card">
                     <h3>Edit Profile</h3>
-                    <form id="signup_form"  onSubmit={this.handleSubmit}>
-                        <table className="center">
-                            <tbody>
-                                <tr>
-                                    <td className="caption_td">First name</td>
-                                    <td>
-                                        <input className="user_inputs" type="text" name="firstName" value={this.getFirstName(this.props.userAttributes.first_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
-                                        <br />
-                                        <span id="" className="p_errors name_error_padding">{messages.firstNameError(this.props.errorMessages)}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="caption_td td_padding">Last name</td>
-                                    <td>
-                                        <input className="user_inputs input_margin" type="text" name="lastName" value={this.getLastName(this.props.userAttributes.last_name)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
-                                        <br />
-                                        <span className="p_errors name_error_padding">{messages.lastNameError(this.props.errorMessages)}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="caption_td td_padding">Date of birth</td>
-                                    <td>
-                                        <input className="user_inputs input_margin" type="date" name="dateOfBirth" value={this.getDateOfBirth(this.props.userAttributes.date_of_birth)} onClick={this.handleSwitchState} onChange={this.handleChange}  />
-                                        <br />
-                                        <span id="dob_error_padding" className="p_errors">{messages.dateOfBirthError(this.props.errorMessages)}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="caption_td td_padding">Email</td>
-                                    <td>
-                                        <input className="user_inputs input_margin" type="text" name="email" value={this.getEmail(this.props.userAttributes.email)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
-                                        <br />
-                                        <span id="email_error_padding" className="p_errors error_padding">{messages.emailError(this.props.errorMessages)}</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="caption_td td_padding">Upload Photo</td>
-                                    <td><input id="photo_input" type="file" name="photo" accept="image/png, image/jpeg" onClick={this.handleSwitchState} onChange={this.handleChange} /></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div id="user_edit_btn_div">
-                            <button className={this.setUpdateBtnColor()} disabled={!this.state.editMode}>Update</button>
-                            <br />
-                            <button className="global_btn" onClick={this.handleCancelEdit}>Cancel</button>
-                        </div>
-                    </form>
+                    <EditUserForm
+                        firstName={this.props.userAttributes.first_name}
+                        lastName={this.props.userAttributes.last_name}
+                        dateOfBirth={this.props.userAttributes.date_of_birth}
+                        email={this.props.userAttributes.email}
+                        getFirstName={(firstName) => this.getFirstName(firstName)}
+                        getLastName={(lastName) => this.getLastName(lastName)}
+                        getDateOfBirth={(dateOfBirth) => this.getDateOfBirth(dateOfBirth)}
+                        getEmail={(email) => this.getEmail(email)}
+                        errorMessages={this.props.errorMessages}
+                        handleSwitchState={this.handleSwitchState}
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
+                        handleCancelEdit={this.handleCancelEdit}
+                        setUpdateBtnColor={() => this.setUpdateBtnColor()}
+                        editMode={this.state.editMode}
+                    />
                 </div>
             </div>
         )
