@@ -52,6 +52,17 @@ class Api::V1::ListingsController < ApplicationController
         return_json(listing)
     end
 
+    def destroy
+        listing =  Listing.find_by(id: params[:id])
+        user = Listing.find_by(id: params[:id]).user
+
+        if listing.destroy
+            render json: { user: UserSerializer.new(user), messages: ["Delete successful"] }
+        else
+            render json: { messages: ["Delete unsuccesful"] }
+        end
+    end
+
     private
     def listing_params
         params.require(:listing).permit(:commodity, :availability, :measure, :quantity, :available, :information, :closed, :userId, :interestId, :currentUserId)
