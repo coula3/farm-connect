@@ -49,6 +49,10 @@ class Listings extends React.Component {
         this.props.fetchFarmer(id);
     }
 
+    handleDeleteListing = (id) => {
+        this.props.deleteListing(id);
+    }
+
     handleChange = (e) => {
         this.setState({
             searchText: e.target.value
@@ -148,6 +152,11 @@ class Listings extends React.Component {
                     }
 
                     <td><button onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
+
+                    { this.props.match.path === "/users/:id/listings"
+                        ?   <td><button onClick={() => this.handleDeleteListing(listing.id)}>delete</button></td>
+                        :   null
+                    }
                 </tr>
             );
         });
@@ -247,7 +256,8 @@ const mapDispatchToProps = (dispatch) => {
         clearErrorMessages: () => dispatch(clearErrorMessages()),
         fetchUserClosedListings: (userId) => dispatch(actions.fetchUserClosedListings(userId)),
         listingsRendered: () => dispatch(actions.listingsRendered()),
-        listingsUnrendered: () => dispatch(actions.listingsUnrendered())
+        listingsUnrendered: () => dispatch(actions.listingsUnrendered()),
+        deleteListing: (listingId) => dispatch(actions.deleteListing(listingId))
     }
 }
 
