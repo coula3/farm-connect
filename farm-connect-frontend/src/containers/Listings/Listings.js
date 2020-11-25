@@ -107,9 +107,9 @@ class Listings extends React.Component {
                     <td>{listDate}</td>
                     <td>{commodity}</td>
 
-                    { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ?
-                        <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td> :
-                        null
+                    { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers"
+                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td>
+                        :   null
                     }
 
                     { this.props.match.path !== "/users/:id/closed-listings" ?
@@ -119,12 +119,12 @@ class Listings extends React.Component {
 
                     <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
 
-                    { this.props.match.path === "/users/:id/closed-listings" ?
-                        <>
-                            <td>{listing.attributes.closed ? listing.attributes.closed.slice(0, 10) : null}</td>
-                            <td>{(Math.floor(dateDiff * -1) + 1)}</td>
-                        </> :
-                            null
+                    { this.props.match.path === "/users/:id/closed-listings"
+                        ?   <>
+                                <td>{listing.attributes.closed ? listing.attributes.closed.slice(0, 10) : null}</td>
+                                <td>{(Math.floor(dateDiff * -1) + 1)}</td>
+                            </>
+                        :   null
                     }
 
                     <td><button onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
@@ -141,24 +141,24 @@ class Listings extends React.Component {
                             <th>List Date</th>
                             <th>Commodity</th>
 
-                            { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ?
-                                <th>Farmer</th> :
-                                null
+                            { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers"
+                                ?   <th>Farmer</th>
+                                :   null
                             }
 
-                            { this.props.match.path !== "/users/:id/closed-listings" ?
-                                <th onClick={() => this.handleSortAvailable()}><span id={this.getAvailableStyles()}>Available</span></th> :
-                                null
+                            { this.props.match.path !== "/users/:id/closed-listings"
+                                ?   <th onClick={() => this.handleSortAvailable()}><span id={this.getAvailableStyles()}>Available</span></th>
+                                :   null
                             }
 
                             <th>Interests</th>
 
-                            { this.props.match.path === "/users/:id/closed-listings" ?
-                                <>
-                                    <th>Closed</th>
-                                    <th>Days Listed</th>
-                                </> :
-                                    null
+                            { this.props.match.path === "/users/:id/closed-listings"
+                                ?   <>
+                                        <th>Closed</th>
+                                        <th>Days Listed</th>
+                                    </>
+                                :    null
                             }
                             <th></th>
                         </tr>
@@ -174,27 +174,27 @@ class Listings extends React.Component {
 
         return (
             <div className="Listings_main_div">
-                { this.props.isLoadingListings ?
-                    <Loader /> :
-                    <>
-                        <h3 id="category">{listingsCategory}</h3>
+                { this.props.isLoadingListings
+                    ?   <Loader />
+                    :   <>
+                            <h3 id="category">{listingsCategory}</h3>
 
-                        { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
-                            renderLinkToFarmerProfile :
-                            null
-                        }
+                            { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings")
+                                ?   renderLinkToFarmerProfile
+                                :   null
+                            }
 
-                        { this.props.match.path !== "/users/:id/closed-listings" ?
-                            this.props.listings.length > 0 ?
-                                <h4>{renderListings.length} {renderListings.length > 1 ? "Open Listings" : "Open Listing" }</h4> :
-                                <h4>No Open Listing</h4>
-                            :
-                            this.props.listings.length > 0 ?
-                                <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
-                                <h4>No Closed Listing</h4>
-                        }
-                        {this.props.listings[0] && renderListingsTable()}
-                    </>
+                            { this.props.match.path !== "/users/:id/closed-listings"
+                                ?   this.props.listings.length > 0
+                                    ?   <h4>{renderListings.length} {renderListings.length > 1 ? "Open Listings" : "Open Listing" }</h4>
+                                    :   <h4>No Open Listing</h4>
+
+                                :   this.props.listings.length > 0
+                                    ?   <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4>
+                                    :   <h4>No Closed Listing</h4>
+                            }
+                            {this.props.listings[0] && renderListingsTable()}
+                        </>
                 }
             </div>
         )
