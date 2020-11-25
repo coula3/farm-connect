@@ -12,6 +12,7 @@
 .table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 20px;
 }
 
 .listings_th_td {
@@ -43,4 +44,14 @@
     color: #663300;
     padding: 3% 10% 0% 10%;
     border-radius: 5px;
+}
+
+#search_input {
+    width: 80%;
+    margin: auto;
+    border: grey solid 1px;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: 17px;
 }

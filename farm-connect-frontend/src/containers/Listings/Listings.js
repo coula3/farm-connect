@@ -193,6 +193,9 @@ class Listings extends React.Component {
                                     ?   <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4>
                                     :   <h4>No Closed Listing</h4>
                             }
+
+                            <input id="search_input" type="text" placeholder="enter search text"/>
+
                             {this.props.listings[0] && renderListingsTable()}
                         </>
                 }
