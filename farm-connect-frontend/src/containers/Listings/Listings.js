@@ -88,15 +88,24 @@ class Listings extends React.Component {
             listingsCategory = "Other Farmers";
         }
 
-        let sortedBaseListings;
+        let sortedListings;
 
         if(this.state.isAvailableSorted){
-            sortedBaseListings = [...baseListings].sort((a, b) => b.attributes.available - a.attributes.available);
+            sortedListings = [...baseListings].sort((a, b) => b.attributes.available - a.attributes.available);
         } else {
-            sortedBaseListings = [...baseListings].sort((a, b) =>   b.id - a.id);
+            sortedListings = [...baseListings].sort((a, b) =>   b.id - a.id);
         }
 
-        const renderListings = sortedBaseListings.map(listing => {
+        let Listings;
+        const searchText = this.state.searchText.toLowerCase().trim();
+
+        if(this.state.searchText){
+            Listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText) || (listing.attributes.user.first_name + " " + listing.attributes.user.last_name).toLowerCase().includes(searchText)));
+        } else {
+            Listings = sortedListings;
+        }
+
+        const renderListings = Listings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
             firstName = listing.attributes.user.first_name;
             fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
