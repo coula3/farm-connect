@@ -4,7 +4,7 @@ import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { getDate } from '../../utils/miscellaneousUtils';
-import * as messages from '../../utils/errorsUtils/listingErrors';
+import EditListingForm from '../../components/EditListingForm/EditListingForm';
 import './EditListing.css';
 
 class EditListing extends Component {
@@ -159,76 +159,40 @@ class EditListing extends Component {
                             <span id="el_date_span"> {getDate(this.props.listing.attributes.date)}</span>
                         </p>
 
-                        <form onSubmit={this.handleSubmit}>
-                            <table className="center">
-                                <tbody>
-                                    <tr>
-                                        <td className="commodity_td">Commodity</td>
-                                        <td>
-                                            <select className="commodity_select" name="commodity" disabled={this.props.listing.attributes.interests[0]} value={this.getCommodity(this.props.listing.attributes.commodity.name)} onClick={this.handleSwitchState} onChange={this.handleChange}>
-                                                { this.props.commodities.map((commodity, idx) =>
-                                                    <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
-                                                }
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="listing_caption_td">Estimated Availability</td>
-                                        <td>
-                                            <input className="availability_input" type="date" name="availability" value={this.getAvailability(this.props.listing.attributes.availability)} onClick={this.handleSwitchState} onChange={this.handleChange} />
-
-                                            <span id="availability_span" className="p_errors">{messages.availabilityError(this.props.errorMessages)}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="listing_caption_td">Quantity</td>
-                                        <td>
-                                            <input className="quantity_input" type="number" name="quantity" min="0" value={this.getQuantity(this.props.listing.attributes.quantity)} onFocus={this.handleSwitchState} onChange={this.handleChange} />
-
-                                            <select id="measure_select_el" className="measure_select" name="measure" value={this.getMeasure(this.props.listing.attributes.measure)} onClick={this.handleSwitchState} onChange={this.handleChange}>
-                                                { this.getMeasuresList(this.props.listing.attributes.measure).map((measure, idx) =>
-                                                    <option key={idx} value={measure}>{measure}</option>)
-                                                }
-                                            </select>
-
-                                            <p id="qty_error_p" className="p_errors">
-                                                {messages.quantityError(this.props.errorMessages)}
-                                            </p>
-                                            <p id="measure_error_p" className="p_errors">
-                                                {messages.measureError(this.props.errorMessages)}
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="listing_caption_td">Availabe</td>
-                                        <td>
-                                            <select className="available_select"  name="available" value={this.getAvailable(this.props.listing.attributes.available)} onClick={this.handleSwitchState} onChange={this.handleChange}>
-                                                <option value="No">No</option>
-                                                <option value="Yes">Yes</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="listing_caption_td">Supplementary Info</td>
-                                        <td>
-                                            <textarea className="info_textarea" name="information" id="information" rows="6" cols="48" maxLength="255" value={this.getSuppInfo(this.props.listing.attributes.information)} onClick={this.handleSwitchState} onChange={this.handleChange}></textarea>
-                                            <br />
-                                            <span id={maxXterColor} className="xter_span">{this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)}</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <p>
-                                <label>Close Listing </label>
-                                <input type="checkbox" name="closed" id="closeListing" value={this.closeListing(stringCurrentDate)} checked={this.state.listing.closed === stringCurrentDate} onFocus={this.handleSwitchState} onChange={this.handleChange}/>
-                            </p>
-                            <span id={warningMsgStyles}>{this.closeListingWarning()}</span>
-
-                            <p id="p_button_update"><input className={this.setUpdateBtnColor()} type="submit" value="Update" disabled={!this.state.editMode}/></p>
-
-                            <input className="global_btn" type="submit" value="Cancel" onClick={this.handleCancelEdit} />
-                        </form>
+                        <EditListingForm 
+                            commodity={this.props.listing.attributes.commodity.name}
+                            availability={this.props.listing.attributes.availability}
+                            quantity={this.props.listing.attributes.quantity}
+                            measure={this.props.listing.attributes.measure}
+                            available={this.props.listing.attributes.available}
+                            information={this.props.listing.attributes.information}
+                            closed={this.props.listing.attributes.closed}
+                            listing={this.props.listing}
+                            commodities={this.props.commodities}
+                            errorMessages={this.props.errorMessages}
+                            maxXterColor={maxXterColor}
+                            disableMeasure={this.state.disableMeasure}
+                            enableDisableMeasure={this.enableDisableMeasure}
+                            maxInfoCharacters={this.state.maxInfoCharacters}
+                            setUpdateBtnColor={() => this.setUpdateBtnColor()}
+                            editMode={this.state.editMode}
+                            handleChange={this.handleChange}
+                            handleSubmit={this.handleSubmit}
+                            handleSwitchState={this.handleSwitchState}
+                            handleCancelEdit={this.handleCancelEdit}
+                            stringCurrentDate={stringCurrentDate}
+                            warningMsgStyles={warningMsgStyles}
+                            getCommodity={(commodity) => this.getCommodity(commodity)}
+                            getAvailability={(availability) => this.getAvailability(availability)}
+                            getQuantity={(quantity) => this.getQuantity(quantity)}
+                            getMeasure={(measure) => this.getMeasure(measure)}
+                            getAvailable={(available) => this.getAvailable(available)}
+                            getSuppInfo={(info) => this.getSuppInfo(info)}
+                            getMeasuresList={(measure) => this.getMeasuresList(measure)}
+                            getCharactersLength={(info) => this.getCharactersLength(info)}
+                            closeListing={(stringCurrentDate) => this.closeListing(stringCurrentDate)}
+                            closeListingWarning={() => this.closeListingWarning()}
+                        />
                     </div>
                 }
             </div>
