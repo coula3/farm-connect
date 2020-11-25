@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
-import { fetchListings, fetchListing, fetchUserClosedListings, listingsRendered, listingsUnrendered } from '../../actions/listingsActions';
+import * as actions from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
 import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
@@ -211,16 +211,16 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchListings: () => dispatch(fetchListings()),
+        fetchListings: () => dispatch(actions.fetchListings()),
         fetchCommodities: () => dispatch(fetchCommodities()),
-        fetchListing: (id) => dispatch(fetchListing(id)),
+        fetchListing: (id) => dispatch(actions.fetchListing(id)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
         fetchProspects: (userId) => dispatch(fetchProspects(userId)),
         fetchListingsInterests: () => dispatch(fetchListingsInterests()),
         clearErrorMessages: () => dispatch(clearErrorMessages()),
-        fetchUserClosedListings: (userId) => dispatch(fetchUserClosedListings(userId)),
-        listingsRendered: () => dispatch(listingsRendered()),
-        listingsUnrendered: () => dispatch(listingsUnrendered())
+        fetchUserClosedListings: (userId) => dispatch(actions.fetchUserClosedListings(userId)),
+        listingsRendered: () => dispatch(actions.listingsRendered()),
+        listingsUnrendered: () => dispatch(actions.listingsUnrendered())
     }
 }
 
