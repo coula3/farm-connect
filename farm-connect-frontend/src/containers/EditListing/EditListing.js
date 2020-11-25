@@ -106,12 +106,12 @@ class EditListing extends Component {
     }
 
     getAvailable = (availableProps) => {
-        return this.state.editMode ?
-            (this.state.listing.available === "Yes" || this.state.listing.available === "No" ?
-                this.state.listing.available :
-                this.convertToYesNo(this.state.listing.available)
-                ) :
-            this.convertToYesNo(availableProps);
+        return this.state.editMode
+            ?   (this.state.listing.available === "Yes" || this.state.listing.available === "No"
+                ?   this.state.listing.available
+                :   this.convertToYesNo(this.state.listing.available))
+
+            :   this.convertToYesNo(availableProps);
     }
 
     getSuppInfo = (infoProps) => {
@@ -148,52 +148,52 @@ class EditListing extends Component {
 
         return (
             <div className="EditListing_main_div">
-                { this.props.isLoadingEditedListing ?
-                    <Loader /> :
-                    <div className="card">
-                        <h3>Edit Listing</h3>
-                        <p id="id_date_p">
-                            <span id="el_caption_span"><label><strong>Listing ID - Date</strong></label></span>
-                            <span id="el_id_span"><strong>{this.props.listing.id}</strong></span>
-                            <span> - </span>
-                            <span id="el_date_span"> {getDate(this.props.listing.attributes.date)}</span>
-                        </p>
+                { this.props.isLoadingEditedListing
+                    ?   <Loader />
+                    :   <div className="card">
+                            <h3>Edit Listing</h3>
+                            <p id="id_date_p">
+                                <span id="el_caption_span"><label><strong>Listing ID - Date</strong></label></span>
+                                <span id="el_id_span"><strong>{this.props.listing.id}</strong></span>
+                                <span> - </span>
+                                <span id="el_date_span"> {getDate(this.props.listing.attributes.date)}</span>
+                            </p>
 
-                        <EditListingForm 
-                            commodity={this.props.listing.attributes.commodity.name}
-                            availability={this.props.listing.attributes.availability}
-                            quantity={this.props.listing.attributes.quantity}
-                            measure={this.props.listing.attributes.measure}
-                            available={this.props.listing.attributes.available}
-                            information={this.props.listing.attributes.information}
-                            closed={this.props.listing.attributes.closed}
-                            listing={this.props.listing}
-                            commodities={this.props.commodities}
-                            errorMessages={this.props.errorMessages}
-                            maxXterColor={maxXterColor}
-                            disableMeasure={this.state.disableMeasure}
-                            enableDisableMeasure={this.enableDisableMeasure}
-                            maxInfoCharacters={this.state.maxInfoCharacters}
-                            setUpdateBtnColor={() => this.setUpdateBtnColor()}
-                            editMode={this.state.editMode}
-                            handleChange={this.handleChange}
-                            handleSubmit={this.handleSubmit}
-                            handleSwitchState={this.handleSwitchState}
-                            handleCancelEdit={this.handleCancelEdit}
-                            stringCurrentDate={stringCurrentDate}
-                            warningMsgStyles={warningMsgStyles}
-                            getCommodity={(commodity) => this.getCommodity(commodity)}
-                            getAvailability={(availability) => this.getAvailability(availability)}
-                            getQuantity={(quantity) => this.getQuantity(quantity)}
-                            getMeasure={(measure) => this.getMeasure(measure)}
-                            getAvailable={(available) => this.getAvailable(available)}
-                            getSuppInfo={(info) => this.getSuppInfo(info)}
-                            getMeasuresList={(measure) => this.getMeasuresList(measure)}
-                            getCharactersLength={(info) => this.getCharactersLength(info)}
-                            closeListing={(stringCurrentDate) => this.closeListing(stringCurrentDate)}
-                            closeListingWarning={() => this.closeListingWarning()}
-                        />
-                    </div>
+                            <EditListingForm 
+                                commodity={this.props.listing.attributes.commodity.name}
+                                availability={this.props.listing.attributes.availability}
+                                quantity={this.props.listing.attributes.quantity}
+                                measure={this.props.listing.attributes.measure}
+                                available={this.props.listing.attributes.available}
+                                information={this.props.listing.attributes.information}
+                                closed={this.props.listing.attributes.closed}
+                                listing={this.props.listing}
+                                commodities={this.props.commodities}
+                                errorMessages={this.props.errorMessages}
+                                maxXterColor={maxXterColor}
+                                disableMeasure={this.state.disableMeasure}
+                                enableDisableMeasure={this.enableDisableMeasure}
+                                maxInfoCharacters={this.state.maxInfoCharacters}
+                                setUpdateBtnColor={() => this.setUpdateBtnColor()}
+                                editMode={this.state.editMode}
+                                handleChange={this.handleChange}
+                                handleSubmit={this.handleSubmit}
+                                handleSwitchState={this.handleSwitchState}
+                                handleCancelEdit={this.handleCancelEdit}
+                                stringCurrentDate={stringCurrentDate}
+                                warningMsgStyles={warningMsgStyles}
+                                getCommodity={(commodity) => this.getCommodity(commodity)}
+                                getAvailability={(availability) => this.getAvailability(availability)}
+                                getQuantity={(quantity) => this.getQuantity(quantity)}
+                                getMeasure={(measure) => this.getMeasure(measure)}
+                                getAvailable={(available) => this.getAvailable(available)}
+                                getSuppInfo={(info) => this.getSuppInfo(info)}
+                                getMeasuresList={(measure) => this.getMeasuresList(measure)}
+                                getCharactersLength={(info) => this.getCharactersLength(info)}
+                                closeListing={(stringCurrentDate) => this.closeListing(stringCurrentDate)}
+                                closeListingWarning={() => this.closeListingWarning()}
+                            />
+                        </div>
                 }
             </div>
         )
