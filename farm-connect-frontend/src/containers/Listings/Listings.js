@@ -14,6 +14,7 @@ import './Listings.css';
 class Listings extends React.Component {
     state = {
         searchText: "",
+        searchInputFocused: false,
         isAvailableSorted: false
     }
 
@@ -59,6 +60,18 @@ class Listings extends React.Component {
         });
     }
 
+    handleFocus = () => {
+        this.setState({
+            searchInputFocused: true
+        });
+    }
+
+    handleBlur = () => {
+        this.setState({
+            searchInputFocused: false
+        });
+    }
+
     handleSortAvailable = () => {
         this.setState({
             isAvailableSorted: !this.state.isAvailableSorted
@@ -66,7 +79,7 @@ class Listings extends React.Component {
     }
 
     getTableHeadSearchStyles = () => {
-        return this.state.searchText ? "search_styles" : null;
+        return this.state.searchInputFocused ? "search_styles" : null;
     }
 
     getAvailableStyles = () => {
@@ -223,7 +236,7 @@ class Listings extends React.Component {
                                     :   <h4>No Closed Listing</h4>
                             }
 
-                            <input id="search_input" type="text" placeholder="enter search text" value={this.state.searchText} onChange={this.handleChange} />
+                            <input id="search_input" type="text" placeholder="enter search text" value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
 
                             {this.props.listings[0] && renderListingsTable()}
                         </>
