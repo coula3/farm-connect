@@ -13,6 +13,7 @@ import './Listings.css';
 
 class Listings extends React.Component {
     state = {
+        searchText: "",
         isAvailableSorted: false
     }
 
@@ -46,6 +47,12 @@ class Listings extends React.Component {
 
     handleFetchFarmer = (id) => {
         this.props.fetchFarmer(id);
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            searchText: e.target.value
+        });
     }
 
     handleSortAvailable = () => {
@@ -194,7 +201,7 @@ class Listings extends React.Component {
                                     :   <h4>No Closed Listing</h4>
                             }
 
-                            <input id="search_input" type="text" placeholder="enter search text"/>
+                            <input id="search_input" type="text" placeholder="enter search text" value={this.state.searchText} onChange={this.handleChange} />
 
                             {this.props.listings[0] && renderListingsTable()}
                         </>
