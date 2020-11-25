@@ -37,3 +37,10 @@
 #link_div {
     margin-bottom: 20px;
 }
+
+#available_span {
+    background-color: #E8E8E8;
+    color: #663300;
+    padding: 3% 10% 0% 10%;
+    border-radius: 5px;
+}

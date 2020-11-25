@@ -54,6 +54,10 @@ class Listings extends React.Component {
         });
     }
 
+    getAvailableStyles = () => {
+        return this.state.isAvailableSorted ? "available_span" : null;
+    }
+
     render (){
         let baseListings;
 
@@ -143,7 +147,7 @@ class Listings extends React.Component {
                             }
 
                             { this.props.match.path !== "/users/:id/closed-listings" ?
-                                <th onClick={() => this.handleSortAvailable()}>Available</th> :
+                                <th onClick={() => this.handleSortAvailable()}><span id={this.getAvailableStyles()}>Available</span></th> :
                                 null
                             }
 
