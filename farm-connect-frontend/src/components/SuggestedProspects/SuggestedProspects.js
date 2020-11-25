@@ -35,12 +35,12 @@ const SuggestedProspects = (props) => {
 
     return (
         <div className="SuggestedProspects_main_div">
-            { props.isLoadingProspects ?
-                <Loader /> :
-                <>
-                    <h5>Suggested Prospects</h5>
-                    {prospects}
-                </>
+            { props.isLoadingProspects
+                ?   <Loader />
+                :   <>
+                        <h5>Suggested Prospects</h5>
+                        {prospects}
+                    </>
             }
         </div>
     )
