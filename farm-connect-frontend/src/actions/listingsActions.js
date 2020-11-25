@@ -184,12 +184,16 @@ export const deleteListing = (listingId) => {
         })
         .then(response => response.json())
         .then(json => {
-            dispatch({type: "RESET_DELETING"});
-            dispatch({
-                type: "UPDATE_USER_AFTER_DELETE",
-                user: json.user
-            });
-            console.log(json)
+            if(json.user){
+                dispatch({type: "RESET_DELETING"});
+                dispatch({
+                    type: "UPDATE_USER_AFTER_DELETE",
+                    user: json.user
+                });
+                dispatch(fetchListings());
+            } else {
+                console.log(json)
+            }
         });
     }
 }
