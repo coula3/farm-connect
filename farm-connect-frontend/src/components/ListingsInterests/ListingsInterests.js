@@ -37,12 +37,12 @@ const ListingsInterests = (props) => {
 
     return (
         <div className="ListingsInterests_main_div">
-            { props.isLoadingInterests ?
-                <Loader /> :
-                <>
-                    <h5 id="hil_h5">High Interest Listings</h5>
-                    {listingsInterests}
-                </>
+            { props.isLoadingInterests
+                ?   <Loader />
+                :   <>
+                        <h5 id="hil_h5">High Interest Listings</h5>
+                        {listingsInterests}
+                    </>
             }
             <br />
         </div>
