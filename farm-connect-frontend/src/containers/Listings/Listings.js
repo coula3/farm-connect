@@ -128,7 +128,7 @@ class Listings extends React.Component {
             );
         });
 
-        const renderListingHeadings = () => {
+        const renderListingsTable = () => {
             return (
                 <table className="table">
                     <thead>
@@ -189,7 +189,7 @@ class Listings extends React.Component {
                                 <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4> :
                                 <h4>No Closed Listing</h4>
                         }
-                        {this.props.listings[0] && renderListingHeadings()}
+                        {this.props.listings[0] && renderListingsTable()}
                     </>
                 }
             </div>
