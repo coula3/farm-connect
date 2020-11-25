@@ -61,6 +61,10 @@ class Listings extends React.Component {
         });
     }
 
+    getTableHeadSearchStyles = () => {
+        return this.state.searchText ? "search_styles" : null;
+    }
+
     getAvailableStyles = () => {
         return this.state.isAvailableSorted ? "available_span" : null;
     }
@@ -155,10 +159,10 @@ class Listings extends React.Component {
                         <tr className="listings_th_td">
                             <th></th>
                             <th>List Date</th>
-                            <th>Commodity</th>
+                            <th><span className={this.getTableHeadSearchStyles()}>Commodity</span></th>
 
                             { this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers"
-                                ?   <th>Farmer</th>
+                                ?   <th><span className={this.getTableHeadSearchStyles()}>Farmer</span></th>
                                 :   null
                             }
 

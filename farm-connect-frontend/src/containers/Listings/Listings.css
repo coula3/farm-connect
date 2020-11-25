@@ -55,3 +55,10 @@
     padding: 3px 6px;
     font-size: 17px;
 }
+
+.search_styles {
+    background-color: #E8E8E8;
+    color: #3a5f0b;
+    padding: 3% 10% 0% 10%;
+    border-radius: 5px;
+}
