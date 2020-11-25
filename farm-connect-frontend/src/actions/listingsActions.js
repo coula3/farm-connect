@@ -172,3 +172,24 @@ export const listingsRendered = () => {
         dispatch({type: "LISTINGS_RENDERED_ON"})
     }
 }
+
+export const deleteListing = (listingId) => {
+    return (dispatch) => {
+        dispatch({type: "DELETING_LISTING"});
+        fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({type: "RESET_DELETING"});
+            dispatch({
+                type: "UPDATE_USER_AFTER_DELETE",
+                user: json.user
+            });
+            console.log(json)
+        });
+    }
+}

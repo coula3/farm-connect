@@ -63,6 +63,12 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "UPDATE_USER_AFTER_DELETE":
+            return {
+                ...state,
+                userAttributes: action.user.data.attributes,
+            }
+
         case "SIGN_OUT":
             return {
                 ...state,
