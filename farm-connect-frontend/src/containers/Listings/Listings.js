@@ -12,9 +12,8 @@ import { padIds, oneDay } from '../../utils/miscellaneousUtils';
 import './Listings.css';
 
 class Listings extends React.Component {
-
     state = {
-        availableSorted: false
+        isAvailableSorted: false
     }
 
     componentDidMount(){
@@ -49,10 +48,10 @@ class Listings extends React.Component {
         this.props.fetchFarmer(id);
     }
 
-    handleClick= () => {
+    handleSortAvailable = () => {
         this.setState({
-            availableSorted: !this.state.availableSorted
-        })
+            isAvailableSorted: !this.state.isAvailableSorted
+        });
     }
 
     render (){
@@ -79,12 +78,11 @@ class Listings extends React.Component {
         }
 
         let sortedBaseListings;
-        // let baseListings = this.props.listings;
 
-        if(this.state.availableSorted){
+        if(this.state.isAvailableSorted){
             sortedBaseListings = [...baseListings].sort((a, b) => b.attributes.available - a.attributes.available);
         } else {
-            sortedBaseListings = [...baseListings].sort((a, b) => a.attributes.available - b.attributes.available);
+            sortedBaseListings = [...baseListings].sort((a, b) =>   b.id - a.id);
         }
 
         const renderListings = sortedBaseListings.map(listing => {
@@ -145,7 +143,7 @@ class Listings extends React.Component {
                             }
 
                             { this.props.match.path !== "/users/:id/closed-listings" ?
-                                <th>Available</th> :
+                                <th onClick={() => this.handleSortAvailable()}>Available</th> :
                                 null
                             }
 
@@ -176,8 +174,6 @@ class Listings extends React.Component {
                     <Loader /> :
                     <>
                         <h3 id="category">{listingsCategory}</h3>
-
-                        <button onClick={this.handleClick}>Sort Available</button>
 
                         { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings") ?
                             renderLinkToFarmerProfile :
