@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
   belongs_to :commodity
-  has_many :interests
+  has_many :interests, dependent: :destroy
 
   validates :availability, presence: true
   validates :quantity, numericality: { greater_than: 0, allow_nil: true, message: "must be a positive value" }
