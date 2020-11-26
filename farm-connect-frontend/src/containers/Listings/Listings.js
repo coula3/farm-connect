@@ -91,8 +91,6 @@ class Listings extends React.Component {
 
     render (){
         let baseListings;
-        console.log(paths().USER_LISTINGS_PATH)
-        console.log(paths().LISTINGS_PATH)
 
         if(this.props.match.path === paths().USER_LISTINGS_PATH){
             baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId));
