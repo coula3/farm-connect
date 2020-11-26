@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
     def create
-        @user = User.find_by(email: login_params[:email])
+        @user = User.find_by(email: login_params[:email].downcase)
         if @user && @user.authenticate(login_params[:password])
             @photo = rails_blob_path(@user.photo) if @user.photo.attached?
             @token = encode_token({user_id: @user.id})

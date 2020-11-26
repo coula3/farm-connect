@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(first_name: user_params[:firstName], last_name: user_params[:lastName], date_of_birth: user_params[:dateOfBirth], email: user_params[:email], password: user_params[:password], type: user_params[:type])
+        @user = User.new(first_name: user_params[:firstName], last_name: user_params[:lastName], date_of_birth: user_params[:dateOfBirth], email: user_params[:email].downcase, password: user_params[:password], type: user_params[:type])
         if @user.save
             @token = encode_token({user_id: @user.id})
             render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
@@ -51,7 +51,7 @@ class Api::V1::UsersController < ApplicationController
         user.first_name = user_params[:firstName]
         user.last_name = user_params[:lastName]
         user.date_of_birth = user_params[:dateOfBirth]
-        user.email = user_params[:email]
+        user.email = user_params[:email].downcase
         user
     end
 end
