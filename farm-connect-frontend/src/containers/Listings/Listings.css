@@ -62,3 +62,24 @@
     padding: 3% 10% 0% 10%;
     border-radius: 5px;
 }
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 90px;
+    background-color: #FFF;
+    border: solid 1px #3a5f0b;
+    text-align: center;
+    font-size: 15px;
+    padding: 0px 2px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

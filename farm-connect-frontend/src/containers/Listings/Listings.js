@@ -150,7 +150,7 @@ class Listings extends React.Component {
                     }
 
                     { this.props.match.path !== "/users/:id/closed-listings" ?
-                        <td id="td_available">{available}</td> :
+                        <td id="td_available" className="tooltip">{available}<span className="tooltiptext">{listing.attributes.availability.slice(0, 10)}</span></td> :
                         null
                     }
 
