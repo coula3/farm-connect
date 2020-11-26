@@ -24,9 +24,11 @@ export const oneDay = (1000 * 60 * 60 * 24);
 
 export const paths = () => {
     return {
+        NEW_LISTING_PATH: "/listings/new",
         LISTINGS_PATH: "/listings",
         OTHER_FARMERS_LISTINGS_PATH: "/listings/other-farmers",
         USER_LISTINGS_PATH: "/users/:id/listings",
-        USER_CLOSED_LISTINGS_PATH: "/users/:id/closed-listings"
+        USER_CLOSED_LISTINGS_PATH: "/users/:id/closed-listings",
+        SIGNOUT_PATH: "/signout"
     }
 }

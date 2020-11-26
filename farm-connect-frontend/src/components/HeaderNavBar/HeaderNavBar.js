@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { paths } from '../../utils/miscellaneousUtils';
 import avatar from '../../assets/avatar.png';
 import './HeaderNavBar.css';
 
@@ -20,7 +21,7 @@ const HeadNavBar = (props) => {
             }
             <Link id="hnb_name_link" to={`/users/${props.userId}`} title="View Profile">{props.userAttributes.first_name} {props.userAttributes.last_name}</Link>
             <span id="user_type_span"><strong>{userType(props.userAttributes.type)}</strong></span>
-            <Link id="signout_link" to="/signout" onClick={props.userSignOut}>Sign Out</Link>
+            <Link id="signout_link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut}>Sign Out</Link>
         </div>
     )
 }
