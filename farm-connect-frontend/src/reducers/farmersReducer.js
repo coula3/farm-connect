@@ -20,6 +20,14 @@ const farmersReducer = (state = initialState, action) => {
                 isLoadingFarmer: false
             }
 
+        case "CLEAR_FARMER":
+            return {
+                ...state,
+                farmer: {},
+                photo: null,
+                isLoadingFarmer: false
+            }
+
         default:
             return state
     }

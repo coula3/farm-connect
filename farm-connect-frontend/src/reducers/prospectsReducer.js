@@ -33,6 +33,15 @@ const prospectsReducer = (state=initialState, action) => {
                 isLoadingProspect: false
             }
 
+        case "CLEAR_PROSPECTS":
+            return {
+                ...state,
+                isLoadingProspect: false,
+                isLoadingProspects: false,
+                prospects: [],
+                prospect: {}
+            }
+
         default:
             return state
     }

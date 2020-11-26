@@ -124,6 +124,17 @@ const listingsReducer = (state = initialState, action) => {
                 deleting: false
             }
 
+        case "CLEAR_LISTINGS":
+            return {
+                ...state,
+                isLoading: false,
+                isLoadingListings: false,
+                listings: [],
+                listing: "",
+                areOpenListingsRendered: true,
+                deleting: false
+            }
+
         default:
             return state
     }

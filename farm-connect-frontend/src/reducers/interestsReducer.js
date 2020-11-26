@@ -17,6 +17,13 @@ export const interestsReducer = (state = initialState, action) => {
                 listingsInterests: action.listingsInterests,
                 isLoadingInterests: false
             }
+
+        case "CLEAR_INTERESTS":
+            return {
+                ...state,
+                isLoadingInterests: false,
+                listingsInterests: []
+            }
         
         default:
             return state

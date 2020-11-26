@@ -173,7 +173,13 @@ export const unConnectUsers = (currentUserId, connectId) => {
 
 export const signOutUser = () => {
     return (dispatch) => {
-        dispatch({type: "SIGN_OUT"});
         localStorage.removeItem('jwt_token');
+        dispatch({type: "SIGN_OUT"});
+        dispatch({type: "CLEAR_LISTINGS"});
+        dispatch({type: "CLEAR_COMMODITIES"});
+        dispatch({type: "CLEAR_FARMER"});
+        dispatch({type: "CLEAR_PROSPECTS"});
+        dispatch({type: "CLEAR_INTERESTS"});
+        dispatch({type: "CLEAR_ERROR_MESSAGES"});
     }
 }

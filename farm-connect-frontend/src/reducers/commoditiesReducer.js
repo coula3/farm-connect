@@ -18,6 +18,13 @@ const commoditiesReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "CLEAR_COMMODITIES":
+            return {
+                ...state,
+                isLoading: false,
+                commodities: []
+            }
+
         default:
             return state
     }
