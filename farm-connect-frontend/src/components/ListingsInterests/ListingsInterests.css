@@ -3,6 +3,10 @@
     width: 20%;
 }
 
+#loader_div {
+    height: 247px;
+}
+
 h5 {
     color: #3a5f0b;
     margin-bottom: 0px;
