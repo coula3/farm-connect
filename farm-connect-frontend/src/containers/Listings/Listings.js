@@ -87,6 +87,8 @@ class Listings extends React.Component {
     }
 
     render (){
+        const LISTINGS_PATH = "/listings";
+        const OTHER_FARMERS_LISTINGS_PATH = "/listings/other-farmers";
         let baseListings;
 
         if(this.props.match.path === "/users/:id/listings"){
@@ -120,8 +122,10 @@ class Listings extends React.Component {
         let Listings;
         const searchText = this.state.searchText.toLowerCase().trim();
 
-        if(this.state.searchText){
+        if(this.state.searchText && (this.props.match.path === LISTINGS_PATH || this.props.match.path === OTHER_FARMERS_LISTINGS_PATH)){
             Listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText) || (listing.attributes.user.first_name + " " + listing.attributes.user.last_name).toLowerCase().includes(searchText)));
+        } else if(this.state.searchText && (this.props.match.path !== LISTINGS_PATH || this.props.match.path !== OTHER_FARMERS_LISTINGS_PATH)){
+            Listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText)));
         } else {
             Listings = sortedListings;
         }
