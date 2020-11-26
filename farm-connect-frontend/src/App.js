@@ -7,7 +7,7 @@ import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import { signOutUser, connectUsers, unConnectUsers } from './actions/userActions';
-import { removeUserListingInterest, addUserListingInterest, fetchListing, fetchUserClosedListings, listingsRendered, listingsUnrendered, fetchListings } from './actions/listingsActions';
+import * as listingsActions from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import { fetchFarmer } from './actions/farmersActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
@@ -134,16 +134,16 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signOutUser: () => dispatch(signOutUser()),
-    removeUserListingInterest: (listingId, payload) => dispatch(removeUserListingInterest(listingId, payload)),
-    addUserListingInterest: (currentUserId, listingId) => dispatch(addUserListingInterest(currentUserId, listingId)),
+    removeUserListingInterest: (listingId, payload) => dispatch(listingsActions.removeUserListingInterest(listingId, payload)),
+    addUserListingInterest: (currentUserId, listingId) => dispatch(listingsActions.addUserListingInterest(currentUserId, listingId)),
     fetchProspect: (id) => dispatch(fetchProspect(id)),
     connectUsers: (currentUserId, connectId) => dispatch(connectUsers(currentUserId, connectId)),
     unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
-    fetchListing: (id) => dispatch(fetchListing(id)),
-    fetchUserClosedListings: (props) => dispatch(fetchUserClosedListings(props)),
-    listingsRendered: () => dispatch(listingsRendered()),
-    listingsUnrendered: () => dispatch(listingsUnrendered()),
-    fetchListings: () => dispatch(fetchListings()),
+    fetchListing: (id) => dispatch(listingsActions.fetchListing(id)),
+    fetchUserClosedListings: (props) => dispatch(listingsActions.fetchUserClosedListings(props)),
+    listingsRendered: () => dispatch(listingsActions.listingsRendered()),
+    listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
+    fetchListings: () => dispatch(listingsActions.fetchListings()),
     fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
     fetchListingsInterests: () => dispatch(fetchListingsInterests())
   };
