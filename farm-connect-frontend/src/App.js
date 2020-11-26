@@ -11,6 +11,7 @@ import { removeUserListingInterest, addUserListingInterest, fetchListing, fetchU
 import { fetchProspect } from './actions/prospectsActions';
 import { fetchFarmer } from './actions/farmersActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
+import { fetchListingsInterests } from './actions/interestsActions';
 import AppFooter from './components/AppFooter/AppFooter';
 
 class App extends Component {
@@ -61,6 +62,7 @@ class App extends Component {
                 listingsRendered={() => this.props.listingsRendered()}
                 listingsUnrendered={() => this.props.listingsUnrendered()}
                 fetchListings={() => this.props.fetchListings()}
+                fetchListingsInterests={() => this.props.fetchListingsInterests()}
               /> :
               null
             }
@@ -142,7 +144,8 @@ const mapDispatchToProps = (dispatch) => {
     listingsRendered: () => dispatch(listingsRendered()),
     listingsUnrendered: () => dispatch(listingsUnrendered()),
     fetchListings: () => dispatch(fetchListings()),
-    fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId))
+    fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
+    fetchListingsInterests: () => dispatch(fetchListingsInterests())
   };
 }
 

@@ -5,15 +5,17 @@ import './SideNavBar.css';
 const SideNavBar = (props) => {
     const handleFetchListings = () => {
         if(!props.areOpenListingsRendered){
-            props.listingsRendered();
             props.fetchListings();
+            props.fetchListingsInterests();
+            props.listingsRendered();
         }
     }
 
     const handleFetchClosedUserListings = () => {
         if(props.areOpenListingsRendered){
-            props.listingsUnrendered();
             props.fetchUserClosedListings(props.userId);
+            props.fetchListingsInterests();
+            props.listingsUnrendered();
         }
     }
 
