@@ -52,7 +52,7 @@ const FarmerProfile = (props) => {
 
                         <p id="id_p"><label><strong>ID:</strong> </label>{props.farmer.id}</p>
                         <p><label><strong>Name:</strong> </label>{getFullName(props.farmer.attributes.first_name, props.farmer.attributes.last_name)}</p>
-                        <p><label><strong>Email:</strong> </label>{props.farmer.attributes.email}</p>
+                        <p><label><strong>Email:</strong> </label>{props.farmer.attributes.email.toLowerCase()}</p>
                         <br />
                         <p><label><strong>Joined:</strong> </label>{getDate(props.farmer.attributes.created_at)}</p>
 
