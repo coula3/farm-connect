@@ -161,15 +161,15 @@ export const fetchUserClosedListings = (userId) => {
     }
 }
 
-export const listingsUnrendered = () => {
-    return (dispatch) => {
-        dispatch({type: "LISTINGS_RENDERED_OFF"})
-    }
-}
-
 export const listingsRendered = () => {
     return (dispatch) => {
         dispatch({type: "LISTINGS_RENDERED_ON"})
+    }
+}
+
+export const listingsUnrendered = () => {
+    return (dispatch) => {
+        dispatch({type: "LISTINGS_RENDERED_OFF"})
     }
 }
 

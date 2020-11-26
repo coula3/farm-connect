@@ -3,7 +3,7 @@ const initialState = {
     isLoadingListings: false,
     listings: [],
     listing: "",
-    areOpenListingsRendered: true,
+    areOpenListingsRendered: false,
     deleting: false
 }
 
@@ -100,17 +100,18 @@ const listingsReducer = (state = initialState, action) => {
                 isLoadingListings: false
             }
 
+        case "LISTINGS_RENDERED_ON":
+            return {
+                ...state,
+                areOpenListingsRendered: true
+            }
+
         case "LISTINGS_RENDERED_OFF":
             return {
                 ...state,
                 areOpenListingsRendered: false
             }
 
-        case "LISTINGS_RENDERED_ON":
-            return {
-                ...state,
-                areOpenListingsRendered: true
-            }
 
         case "DELETING_LISTING":
             return {
@@ -131,7 +132,7 @@ const listingsReducer = (state = initialState, action) => {
                 isLoadingListings: false,
                 listings: [],
                 listing: "",
-                areOpenListingsRendered: true,
+                areOpenListingsRendered: false,
                 deleting: false
             }
 

@@ -25,20 +25,20 @@ class Listings extends React.Component {
     }
 
     stageApplication = () => {
-        if(this.props.areOpenListingsRendered || this.props.match.path !== "/users/:id/closed-listings"){
+        if(!this.props.areOpenListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
             this.props.fetchListings();
             this.props.fetchProspects(this.props.userId);
             this.props.fetchListingsInterests();
+            this.props.listingsRendered();
         }
     }
 
     componentDidUpdate(){
         if(!this.props.areOpenListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
-            this.props.listingsRendered();
             this.stageApplication();
-        } else if (this.props.areOpenListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
-            this.props.listingsUnrendered();
+        } else if(this.props.areOpenListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
             this.props.fetchUserClosedListings(this.props.userId);
+            this.props.listingsUnrendered();
         }
     }
 
