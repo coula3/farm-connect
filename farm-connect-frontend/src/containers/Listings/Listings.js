@@ -164,10 +164,10 @@ class Listings extends React.Component {
                         :   null
                     }
 
-                    <td><button onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}} id={viewButtonColor}>view</button></td>
+                    <td><button id={viewButtonColor} className="listings_btn" onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
 
                     { this.props.match.path === "/users/:id/listings"
-                        ?   <td><button onClick={() => this.handleDeleteListing(listing.id)}>delete</button></td>
+                        ?   <td><button className="listings_btn" onClick={() => this.handleDeleteListing(listing.id)}>delete</button></td>
                         :   null
                     }
                 </tr>

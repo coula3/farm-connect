@@ -42,6 +42,10 @@
 #view_btn_color {
     background-color: #3a5f0b;
     color: #FFF;
+}
+
+.listings_btn {
+    width: 50px;
     border-radius: 5px;
 }
 
