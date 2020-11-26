@@ -30,6 +30,9 @@ class Listings extends React.Component {
             this.props.fetchProspects(this.props.userId);
             this.props.fetchListingsInterests();
             this.props.listingsRendered();
+        } else if(this.props.areOpenListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
+            this.props.fetchUserClosedListings(this.props.userId);
+            this.props.listingsUnrendered();
         }
     }
 
