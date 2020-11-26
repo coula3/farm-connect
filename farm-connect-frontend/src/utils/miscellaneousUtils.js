@@ -32,3 +32,10 @@ export const paths = () => {
         SIGNOUT_PATH: "/signout"
     }
 }
+
+export const getFullName = (firstName, lastName) => {
+    const givenName = firstName[0].toUpperCase().concat(firstName.slice(1));
+    const familyName = lastName[0].toUpperCase().concat(lastName.slice(1));
+
+    return givenName + " " + familyName;
+}
