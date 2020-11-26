@@ -39,6 +39,12 @@
     margin-bottom: 20px;
 }
 
+#view_btn_color {
+    background-color: #3a5f0b;
+    color: #FFF;
+    border-radius: 5px;
+}
+
 #available_span {
     background-color: #E8E8E8;
     color: #663300;

@@ -134,7 +134,7 @@ class Listings extends React.Component {
             const commodity = listing.attributes.commodity.name;
             let available;
             listing.attributes.available ? available = "✓" : available = "";
-            const viewButton = parseInt(this.props.userId) === listing.attributes.user.id ? {backgroundColor:"#3a5f0b", color:"#FFF", borderRadius:"5px"} : null;
+            const viewButtonColor = parseInt(this.props.userId) === listing.attributes.user.id ? "view_btn_color" : null;
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
             const rowHighlight = listing.attributes.interests.length >= 5 ? "listings_td_g" : "listings_td";
 
@@ -164,7 +164,7 @@ class Listings extends React.Component {
                         :   null
                     }
 
-                    <td><button onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}} style={viewButton}>view</button></td>
+                    <td><button onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}} id={viewButtonColor}>view</button></td>
 
                     { this.props.match.path === "/users/:id/listings"
                         ?   <td><button onClick={() => this.handleDeleteListing(listing.id)}>delete</button></td>
