@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
-import { getDate } from '../../utils/miscellaneousUtils';
+import { getDate, getFullName } from '../../utils/miscellaneousUtils';
 import './FarmerProfile.css';
 
 const FarmerProfile = (props) => {
@@ -51,7 +51,7 @@ const FarmerProfile = (props) => {
                         </div>
 
                         <p id="id_p"><label><strong>ID:</strong> </label>{props.farmer.id}</p>
-                        <p><label><strong>Name:</strong> </label>{props.farmer.attributes.first_name} {props.farmer.attributes.last_name}</p>
+                        <p><label><strong>Name:</strong> </label>{getFullName(props.farmer.attributes.first_name, props.farmer.attributes.last_name)}</p>
                         <p><label><strong>Email:</strong> </label>{props.farmer.attributes.email}</p>
                         <br />
                         <p><label><strong>Joined:</strong> </label>{getDate(props.farmer.attributes.created_at)}</p>

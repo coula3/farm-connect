@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
-import { getDate } from '../../utils/miscellaneousUtils';
+import { getFullName, getDate } from '../../utils/miscellaneousUtils';
 import './ProspectProfile.css';
 
 const ProspectProfile = (props) => {
@@ -43,7 +43,7 @@ const ProspectProfile = (props) => {
                         </div>
 
                         <p><label><strong>ID:</strong> </label>{props.prospect.id}</p>
-                        <p><label><strong>Name:</strong> </label>{props.prospect.attributes.first_name} {props.prospect.attributes.last_name}</p>
+                        <p><label><strong>Name:</strong> </label>{getFullName(props.prospect.attributes.first_name, props.prospect.attributes.last_name)}</p>
                         <p><label><strong>Email:</strong> </label>{props.prospect.attributes.email}</p>
                         <br />
                         <p><label><strong>Joined:</strong> </label>{getDate(props.prospect.attributes.created_at)}</p>

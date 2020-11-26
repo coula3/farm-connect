@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
-import { getDate } from '../../utils/miscellaneousUtils';
+import { getDate, getFullName } from '../../utils/miscellaneousUtils';
 import './CurrentUser.css';
 
 const CurrentUser = (props) => {
@@ -30,7 +30,7 @@ const CurrentUser = (props) => {
                         </div>
 
                         <p><label><strong>ID:</strong> </label>{props.userId}</p>
-                        <p><label><strong>Name:</strong> </label>{props.userAttributes.first_name} {props.userAttributes.last_name}</p>
+                        <p><label><strong>Name:</strong> </label>{getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}</p>
                         <p><label><strong>Date of Birth:</strong> </label>{getDate(props.userAttributes.date_of_birth)}</p>
                         <p><label><strong>Email:</strong> </label>{props.userAttributes.email}</p>
                         <br />

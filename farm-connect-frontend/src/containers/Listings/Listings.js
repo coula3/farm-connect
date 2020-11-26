@@ -8,7 +8,7 @@ import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { padIds, oneDay, paths } from '../../utils/miscellaneousUtils';
+import { padIds, oneDay, paths, getFullName } from '../../utils/miscellaneousUtils';
 import './Listings.css';
 
 class Listings extends React.Component {
@@ -134,7 +134,6 @@ class Listings extends React.Component {
         const renderListings = Listings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
             firstName = listing.attributes.user.first_name;
-            fullName = listing.attributes.user.first_name + " " + listing.attributes.user.last_name;
             userId = listing.attributes.user.id;
             const commodity = listing.attributes.commodity.name;
             let available;
@@ -150,7 +149,7 @@ class Listings extends React.Component {
                     <td>{commodity}</td>
 
                     { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH
-                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{fullName}</Link></td>
+                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></td>
                         :   null
                     }
 
