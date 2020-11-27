@@ -90,7 +90,7 @@ class Listings extends React.Component {
     }
 
     render (){
-        let baseListings;
+        let firstName, userId, listingsCategory, baseListings, sortedListings, listings;
 
         if(this.props.match.path === paths().USER_LISTINGS_PATH){
             baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId));
@@ -104,15 +104,11 @@ class Listings extends React.Component {
             baseListings = this.props.listings;
         }
 
-        let firstName, fullName, userId, listingsCategory;
-
         if(this.props.match.path === paths().LISTINGS_PATH){
             listingsCategory = "All Farmers";
         } else if(this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH){
             listingsCategory = "Other Farmers";
         }
-
-        let sortedListings;
 
         if(this.state.isAvailableSorted){
             sortedListings = [...baseListings].sort((a, b) => b.attributes.available - a.attributes.available);
@@ -120,18 +116,17 @@ class Listings extends React.Component {
             sortedListings = [...baseListings].sort((a, b) =>   b.id - a.id);
         }
 
-        let Listings;
         const searchText = this.state.searchText.toLowerCase().trim();
 
         if(this.state.searchText && (this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH)){
-            Listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText) || (listing.attributes.user.first_name + " " + listing.attributes.user.last_name).toLowerCase().includes(searchText)));
+            listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText) || (listing.attributes.user.first_name + " " + listing.attributes.user.last_name).toLowerCase().includes(searchText)));
         } else if(this.state.searchText && (this.props.match.path !== paths().LISTINGS_PATH || this.props.match.path !== paths().OTHER_FARMERS_LISTINGS_PATH)){
-            Listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText)));
+            listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText)));
         } else {
-            Listings = sortedListings;
+            listings = sortedListings;
         }
 
-        const renderListings = Listings.map(listing => {
+        const renderListings = listings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
             firstName = listing.attributes.user.first_name;
             userId = listing.attributes.user.id;
