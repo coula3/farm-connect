@@ -7,6 +7,8 @@ export const firstNameError = (errorMessages) => {
         return "first name required";
     } else if(firstName.length > 0 && firstName[0].endsWith("space")){
         return "only letters and hyphens";
+    } else if(firstName.length > 0 && firstName[0].includes("long")){
+        return "maximum of 14 characters";
     }
 }
 
@@ -17,6 +19,8 @@ export const lastNameError = (errorMessages) => {
         return "last name required";
     } else if(lastName.length > 0 && lastName[0].endsWith("space")){
         return "only letters and hyphens";
+    } else if(lastName.length > 0 && lastName[0].includes("long")){
+        return "maximum of 20 characters";
     }
 }
 
