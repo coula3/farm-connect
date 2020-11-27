@@ -1,3 +1,5 @@
+import { fetchListings } from './listingsActions';
+
 export const signUpUser = (payload, ownProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
@@ -89,6 +91,7 @@ export const editUser = (userId, payload, ownProps) => {
                     type: "EDIT_USER",
                     user: json.user
                 });
+                dispatch(fetchListings());
                 if(!payload.user.photo.name){
                     ownProps.history.push(`/users/${userId}`);
                 } else {
