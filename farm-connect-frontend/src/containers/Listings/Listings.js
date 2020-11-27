@@ -216,7 +216,7 @@ class Listings extends React.Component {
             )
         }
 
-        const renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{fullName}</Link></div>;
+        const renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{getFullName(this.props.userAttributes.first_name, this.props.userAttributes.last_name)}</Link></div>;
 
         return (
             <div className="Listings_main_div">
