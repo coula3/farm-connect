@@ -11,6 +11,7 @@ class User < ApplicationRecord
     has_many :listings
 
     validates :type, :first_name, :last_name, :date_of_birth, :email, presence: true
+    validates :first_name, :last_name, format: { with: /\A[a-zA-Z\-\s]+\z/, message: "only allows letters, hyphen and space" }, :if => lambda{first_name.present? || last_name.present?}
     validates :email, email: true
     validates :email, uniqueness: { case_sensitive: false }
     validate :dob_must_be_at_least_thirteen_years_old

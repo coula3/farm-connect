@@ -2,15 +2,19 @@ import React from 'react';
 
 export const firstNameError = (errorMessages) => {
     const firstName = errorMessages.filter( msg => msg.startsWith("First name"));
-    if(firstName.length > 0){
+    if(firstName.length > 0 && firstName[0].endsWith("blank")){
         return "first name required";
+    } else if(firstName.length > 0 && firstName[0].endsWith("space")){
+        return "only letters and hyphens";
     }
 }
 
 export const lastNameError = (errorMessages) => {
     const lastName = errorMessages.filter(msg => msg.startsWith("Last name"));
-    if(lastName.length > 0){
+    if(lastName.length > 0 && lastName[0].endsWith("blank")){
         return "last name required";
+    } else if(lastName.length > 0 && lastName[0].endsWith("space")){
+        return "only letters and hyphens";
     }
 }
 
