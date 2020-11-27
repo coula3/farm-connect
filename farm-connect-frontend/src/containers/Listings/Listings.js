@@ -225,28 +225,30 @@ class Listings extends React.Component {
                                 </>
                             :   <h4>No Closed Listing</h4>
 
-                        : <>
-                                <h3 id="category">{listingsCategory}</h3>
+                        :   this.props.userAttributes.listings.every(listing => listing.closed === null) && this.props.match.path === paths().USER_CLOSED_LISTINGS_PATH
+                            ?   <h4>No Closed Listing</h4>
+                            :   <>
+                                    <h3 id="category">{listingsCategory}</h3>
 
-                                { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings")
-                                    ?   renderLinkToFarmerProfile
-                                    :   null
-                                }
+                                    { this.props.match.path.endsWith(":id/listings") || this.props.match.path.endsWith(":id/closed-listings")
+                                        ?   renderLinkToFarmerProfile
+                                        :   null
+                                    }
 
-                                { this.props.match.path !== paths().USER_CLOSED_LISTINGS_PATH
-                                    ?   this.props.listings.length > 0
-                                        ?   <h4>{renderListings.length} {renderListings.length > 1 ? "Open Listings" : "Open Listing" }</h4>
-                                        :   <h4>No Open Listing</h4>
+                                    { this.props.match.path !== paths().USER_CLOSED_LISTINGS_PATH
+                                        ?   this.props.listings.length > 0
+                                            ?   <h4>{renderListings.length} {renderListings.length > 1 ? "Open Listings" : "Open Listing" }</h4>
+                                            :   <h4>No Open Listing</h4>
 
-                                    :   this.props.listings.length > 0
-                                        ?   <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4>
-                                        :   <h4>No Closed Listing</h4>
-                                }
+                                        :   this.props.listings.length > 0
+                                            ?   <h4>{renderListings.length} {renderListings.length > 1 ? "Closed Listings" : "Closed Listing" }</h4>
+                                            :   <h4>No Closed Listing</h4>
+                                    }
 
-                                <input id="search_input" type="text" placeholder="enter search text" value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
+                                    <input id="search_input" type="text" placeholder="enter search text" value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
 
-                                {this.props.listings[0] && renderListingsTable()}
-                            </>
+                                    {this.props.listings[0] && renderListingsTable()}
+                                </>
                 }
             </div>
         )
