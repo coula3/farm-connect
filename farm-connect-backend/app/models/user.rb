@@ -16,6 +16,7 @@ class User < ApplicationRecord
     validates :email, uniqueness: { case_sensitive: false }
     validate :dob_must_be_at_least_thirteen_years_old
     has_secure_password
+    validates :password, :length => { :in => 3..15 }, :if => lambda{ password.present? }
 
     def dob_must_be_at_least_thirteen_years_old
         if date_of_birth.present? && calculate_age < 13
