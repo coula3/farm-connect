@@ -104,7 +104,7 @@ class Listings extends React.Component {
     }
 
     render (){
-        let firstName, userId, listingsCategory, baseListings, sortedListings, listings;
+        let firstName, userId, listingsCategory, baseListings, sortedListings, listings, renderLinkToFarmerProfile;
 
         if(this.props.match.path === paths().USER_LISTINGS_PATH){
             baseListings = this.props.listings.filter((listing) => listing.attributes.user_id === parseInt(this.props.userId));
@@ -150,6 +150,7 @@ class Listings extends React.Component {
             const viewButtonColor = parseInt(this.props.userId) === listing.attributes.user.id ? "view_btn_color" : null;
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
             const rowHighlight = listing.attributes.interests.length >= 5 ? "listings_td_g" : "listings_td";
+            renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></div>;
 
             return (
                 <tr key={listing.id} id={rowHighlight} className="listings_th_td" onDoubleClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>
@@ -224,8 +225,6 @@ class Listings extends React.Component {
                 </table>
             )
         }
-
-        const renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{getFullName(this.props.userAttributes.first_name, this.props.userAttributes.last_name)}</Link></div>;
 
         return (
             <div className="Listings_main_div">
