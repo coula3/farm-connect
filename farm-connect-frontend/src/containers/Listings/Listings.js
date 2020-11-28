@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import Loader from '../../components/Loader/Loader';
 import * as listingsActions from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
@@ -54,8 +56,20 @@ class Listings extends React.Component {
     }
 
     handleDeleteListing = (id) => {
-        this.props.deleteListing(id);
-    }
+        confirmAlert({
+            title: 'farmConnect',
+            message: `Do you want to delete Listing ${id}?`,
+            buttons: [
+              {
+                label: 'Delete',
+                onClick: () => this.props.deleteListing(id)
+              },
+              {
+                label: 'Cancel',
+              }
+            ]
+        });
+    };
 
     handleChange = (e) => {
         this.setState({
