@@ -17,9 +17,11 @@ class Api::V1::ListingsController < ApplicationController
     def create
         user = User.find_by(id: listing_params[:userId])
         commodity = Commodity.find_by(name: listing_params[:commodity])
+        one_hour = 60 * 60
+        current_date_time = Time.now().dst? ? Time.now - (one_hour * 4) : Time.now - (one_hour * 5)
 
         if commodity
-            listing = user.listings.build(commodity_id: commodity.id, date: Time.now, availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
+            listing = user.listings.build(commodity_id: commodity.id, date: current_date_time, availability: listing_params[:availability], measure: listing_params[:measure], quantity: listing_params[:quantity], available: available, information: listing_params[:information])
             if listing.save
                 check_available(listing)
                 render json: ListingSerializer.new(listing)
