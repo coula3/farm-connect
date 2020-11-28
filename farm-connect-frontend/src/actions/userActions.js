@@ -78,7 +78,10 @@ export const reFetchUser = (userId) => {
         })
         .then(response => response.json())
         .then(json => {
-           console.log(json);
+            dispatch({
+                type: "REFRESH_USER",
+                user: json.user
+            });
         })
     }
 }

@@ -63,7 +63,7 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
-        case "UPDATE_USER_AFTER_DELETE":
+        case "REFRESH_USER":
             return {
                 ...state,
                 userAttributes: action.user.data.attributes,

@@ -191,7 +191,7 @@ export const deleteListing = (listingId) => {
             if(json.user){
                 dispatch({type: "RESET_DELETING"});
                 dispatch({
-                    type: "UPDATE_USER_AFTER_DELETE",
+                    type: "REFRESH_USER",
                     user: json.user
                 });
                 dispatch(fetchListings());
