@@ -68,6 +68,21 @@ export const signInUser = (payload, ownProps) => {
     }
 }
 
+export const reFetchUser = (userId) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json => {
+           console.log(json);
+        })
+    }
+}
+
 export const editUser = (userId, payload, ownProps) => {
     const {firstName, lastName, dateOfBirth, email} = payload.user;
     const bodyData = {
