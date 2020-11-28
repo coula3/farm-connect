@@ -192,7 +192,7 @@ class Listings extends React.Component {
                 <table className="table">
                     <thead>
                         <tr className="listings_th_td">
-                            <th></th>
+                            <th>LID</th>
                             <th>List Date</th>
                             <th><span className={this.getTableHeadSearchStyles()}>Commodity</span></th>
 
