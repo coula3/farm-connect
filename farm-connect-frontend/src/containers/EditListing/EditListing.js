@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { getDate } from '../../utils/miscellaneousUtils';
+import { getDate, padIds } from '../../utils/miscellaneousUtils';
 import EditListingForm from '../../components/EditListingForm/EditListingForm';
 import './EditListing.css';
 
@@ -154,7 +154,7 @@ class EditListing extends Component {
                             <h3>Edit Listing</h3>
                             <p id="id_date_p">
                                 <span id="el_caption_span"><label><strong>LID and Date:</strong></label></span>
-                                <span className="el_id_span">{this.props.listing.id}</span>
+                                <span className="el_id_span">{padIds(this.props.listing.id)}</span>
                                 <span id="el_dash_span">-</span>
                                 <span>{getDate(this.props.listing.attributes.date)}</span>
                             </p>
