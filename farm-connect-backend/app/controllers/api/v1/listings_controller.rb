@@ -37,7 +37,7 @@ class Api::V1::ListingsController < ApplicationController
     def update
         listing = Listing.find_by(id: params[:id].to_i)
 
-        if listing_params[:currentUserId]
+        if listing_params[:currentUserId] && !listing_params[:interestId]
             add_interest(listing)
         elsif listing_params[:interestId]
             remove_interest(listing)
