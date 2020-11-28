@@ -1,5 +1,5 @@
 import { fetchListingsInterests } from './interestsActions';
-import { reFetchUser } from './userActions';
+import { refreshUser } from './userActions';
 
 export const fetchListings = () => {
  return (dispatch) => {
@@ -117,7 +117,7 @@ export const removeUserListingInterest = (listingId, payload) => {
                 listing: json.data
             });
             dispatch(fetchListingsInterests());
-            dispatch(reFetchUser(payload.listing.currentUserId));
+            dispatch(refreshUser(payload.listing.currentUserId));
         })
     }
 }
@@ -140,7 +140,7 @@ export const addUserListingInterest = (currentUserId, listingId) => {
                 listing: json.data
             })
             dispatch(fetchListingsInterests());
-            dispatch(reFetchUser(currentUserId));
+            dispatch(refreshUser(currentUserId));
         })
     }
 }

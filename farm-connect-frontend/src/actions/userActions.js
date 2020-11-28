@@ -68,7 +68,7 @@ export const signInUser = (payload, ownProps) => {
     }
 }
 
-export const reFetchUser = (userId) => {
+export const refreshUser = (userId) => {
     return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/users/${userId}`, {
             method: "GET",
