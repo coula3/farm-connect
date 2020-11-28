@@ -19,8 +19,8 @@ class App extends Component {
     this.props.signOutUser();
   }
 
-  handleRemoveUserListingInterest = (listingId, interestId) => {
-    const payload = {listing: {interestId: interestId}};
+  handleRemoveUserListingInterest = (listingId, interestId, currentUserId) => {
+    const payload = {listing: {interestId: interestId, currentUserId: currentUserId}};
     this.props.removeUserListingInterest(listingId, payload);
   }
 
@@ -80,7 +80,7 @@ class App extends Component {
               prospect={this.props.prospect}
               farmerPhoto={this.props.farmerPhoto}
               userPhoto={this.props.userPhoto}
-              removeUserListingInterest={(listingId, interestId) => this.handleRemoveUserListingInterest(listingId, interestId)}
+              removeUserListingInterest={(listingId, interestId, currentUserId) => this.handleRemoveUserListingInterest(listingId, interestId, currentUserId)}
               addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
               connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}

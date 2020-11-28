@@ -24,7 +24,7 @@ const Listing = (props) => {
         const interest = listingInterests.find(interest => interest.user_id === parseInt(currentUserId));
 
         if(parseInt(currentUserId) !== listingUserId){
-            interest ? props.removeUserListingInterest(listingId, interest.id) : props.addUserListingInterest(currentUserId, listingId);
+            interest ? props.removeUserListingInterest(listingId, interest.id, currentUserId) : props.addUserListingInterest(currentUserId, listingId);
         } else {
             // do nothing
         }

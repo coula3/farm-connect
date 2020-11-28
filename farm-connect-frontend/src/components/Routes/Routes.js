@@ -32,7 +32,7 @@ const Routes = (props) => {
                 isLoading={props.isLoading}
                 userId={props.userId}
                 userAttributes={props.userAttributes}
-                removeUserListingInterest={(listingId, interestId) => props.removeUserListingInterest(listingId, interestId)}
+                removeUserListingInterest={(listingId, interestId, currentUserId) => props.removeUserListingInterest(listingId, interestId, currentUserId)}
                 addUserListingInterest={(currentUserId, listingId) => props.addUserListingInterest(currentUserId, listingId)}
                 fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)} /> }
             />
