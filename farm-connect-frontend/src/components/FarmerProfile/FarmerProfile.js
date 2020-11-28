@@ -50,7 +50,7 @@ const FarmerProfile = (props) => {
                             }
                         </div>
 
-                        <p id="id_p"><label><strong>ID:</strong> </label>{props.farmer.id}</p>
+                        <p id="id_p"><label><strong>UID:</strong> </label>{props.farmer.id}</p>
                         <p><label><strong>Name:</strong> </label>{getFullName(props.farmer.attributes.first_name, props.farmer.attributes.last_name)}</p>
                         <p><label><strong>Email:</strong> </label>{props.farmer.attributes.email.toLowerCase()}</p>
                         <br />

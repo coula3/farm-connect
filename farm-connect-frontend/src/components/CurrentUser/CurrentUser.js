@@ -29,7 +29,7 @@ const CurrentUser = (props) => {
                             }
                         </div>
 
-                        <p><label><strong>ID:</strong> </label>{props.userId}</p>
+                        <p><label><strong>UID:</strong> </label>{props.userId}</p>
                         <p><label><strong>Name:</strong> </label>{getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}</p>
                         <p><label><strong>Date of Birth:</strong> </label>{getDate(props.userAttributes.date_of_birth)}</p>
                         <p><label><strong>Email:</strong> </label>{props.userAttributes.email.toLowerCase()}</p>

@@ -42,7 +42,7 @@ const ProspectProfile = (props) => {
                             }
                         </div>
 
-                        <p><label><strong>ID:</strong> </label>{props.prospect.id}</p>
+                        <p><label><strong>UID:</strong> </label>{props.prospect.id}</p>
                         <p><label><strong>Name:</strong> </label>{getFullName(props.prospect.attributes.first_name, props.prospect.attributes.last_name)}</p>
                         <p><label><strong>Email:</strong> </label>{props.prospect.attributes.email.toLowerCase()}</p>
                         <br />
