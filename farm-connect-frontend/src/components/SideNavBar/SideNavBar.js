@@ -4,6 +4,9 @@ import { paths } from '../../utils/miscellaneousUtils';
 import './SideNavBar.css';
 
 const SideNavBar = (props) => {
+    const totalConnects = props.userAttributes.connects.length + props.userAttributes.inverse_connects.length;
+    const totalInterests = props.userAttributes.interests.length;
+
     const handleFetchListings = () => {
         if(!props.areOpenListingsRendered){
             props.fetchListings();
@@ -20,7 +23,6 @@ const SideNavBar = (props) => {
         }
     }
 
-    const totalConnects = props.userAttributes.connects.length + props.userAttributes.inverse_connects.length;
 
     const createListing = () => {
         if(props.userAttributes.type === "Farmer"){
@@ -57,6 +59,7 @@ const SideNavBar = (props) => {
 
                 <br />
                 <p><Link to="#" id="my_connect_link">My Connects</Link><span id="my_connect_span">{totalConnects}</span></p>
+                <p><Link to="#" id="my_interests_link">My Interests</Link><span id="my_connect_span">{totalInterests}</span></p>
                 <br />
                 <p id="signout_p"><Link to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link></p>
             </div>

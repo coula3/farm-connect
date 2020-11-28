@@ -40,6 +40,10 @@
     font-size: 20px;
 }
 
+#my_interests_link {
+    padding-right: 10px;
+}
+
 #my_connect_span {
     font-size: 12px;
     padding: 2px 6px;
