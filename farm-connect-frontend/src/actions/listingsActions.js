@@ -37,6 +37,7 @@ export const createListing = (payload, ownProps) => {
                     type: "CREATE_NEW_LISTING",
                     listing: json.data
                 });
+                dispatch(fetchListings());
                 ownProps.history.push(`/listings/${json.data.id}`);
             } else {
                 dispatch({
