@@ -61,7 +61,7 @@ const Listing = (props) => {
                             }
 
                             <h3>Listing</h3>
-                            <p><label className="color_lbl padding_lbl"><strong>LID:</strong> </label>{props.listing.id}</p>
+                            <p><label className="color_lbl padding_lbl"><strong>LID:</strong> </label><span className="el_id_span">{props.listing.id}</span></p>
                             <p><label className="color_lbl padding_lbl"><strong>Listing Date:</strong> </label>{getDate(props.listing.attributes.date)}</p>
                             <p><label className="color_lbl padding_lbl"><strong>Farmer:</strong> </label><Link id="name_link" to={`/farmers/${props.listing.attributes.user.id}`} onClick={() => props.fetchFarmer(props.listing.attributes.user.id)}>{getFullName(props.listing.attributes.user.first_name, props.listing.attributes.user.last_name)}</Link></p>
                             <p><label className="color_lbl padding_lbl"><strong>Commodity:</strong> </label>{props.listing.attributes.commodity.name}</p>
