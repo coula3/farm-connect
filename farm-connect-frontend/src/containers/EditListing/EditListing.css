@@ -72,11 +72,9 @@
 }
 
 .el_id_span {
-    color: #FFF;
-    background-color: #3a5f0b;
     padding: 2px 8px;
     border-radius: 5px;
-    border: none;
+    border: solid 1px #000;
 }
 
 #el_dash_span {
