@@ -63,6 +63,7 @@ class App extends Component {
                 listingsUnrendered={() => this.props.listingsUnrendered()}
                 fetchListings={() => this.props.fetchListings()}
                 fetchListingsInterests={() => this.props.fetchListingsInterests()}
+                fetchUserInterestsListings={(userId) => this.props.fetchUserInterestsListings(userId)}
               /> :
               null
             }
@@ -145,7 +146,8 @@ const mapDispatchToProps = (dispatch) => {
     listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
     fetchListings: () => dispatch(listingsActions.fetchListings()),
     fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
-    fetchListingsInterests: () => dispatch(fetchListingsInterests())
+    fetchListingsInterests: () => dispatch(fetchListingsInterests()),
+    fetchUserInterestsListings: (userId) => dispatch(listingsActions.fetchUserInterestsListings(userId))
   };
 }
 
