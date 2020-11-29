@@ -69,6 +69,25 @@ export const fetchListing = (id) => {
     }
 }
 
+export const fetchUserInterestsListings = (id) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_LISTINGS"});
+        fetch(`http://localhost:3000/api/v1/listings?userId=${id}&type=interests`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "ADD_USER_INTERESTS_LISTINGS",
+                listings: json.data
+            });
+        });
+    }
+}
+
 export const editListing = (listingId, payload, ownProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_EDITED_LISTING"});

@@ -41,6 +41,13 @@ const listingsReducer = (state = initialState, action) => {
                 isLoadingListings: false
             }
 
+        case "ADD_USER_INTERESTS_LISTINGS":
+            return {
+                ...state,
+                listings: action.listings,
+                isLoadingListings: false
+            }
+
         case "LOADING_EXISTING_LISTING":
             return {
                 ...state,
