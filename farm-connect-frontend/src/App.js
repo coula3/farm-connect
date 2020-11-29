@@ -46,26 +46,31 @@ class App extends Component {
         <Router>
           <AppHeader />
 
-          { this.props.isAuthenticated ?
-            <HeadNavBar userId={this.props.userId} userAttributes={this.props.userAttributes} userSignOut={this.handleUserSignOut} userPhoto={this.props.userPhoto} /> :
-            null
+          { this.props.isAuthenticated
+            ? <HeadNavBar
+                userId={this.props.userId}
+                userAttributes={this.props.userAttributes}
+                userSignOut={this.handleUserSignOut}
+                userPhoto={this.props.userPhoto}
+              />
+            : null
           }
 
           <div id="authenticated_div">
-            { this.props.isAuthenticated ?
-              <SideNavBar
-                userSignOut={this.handleUserSignOut}
-                userId={this.props.userId}
-                userAttributes={this.props.userAttributes}
-                areOpenListingsRendered={this.props.areOpenListingsRendered}
-                fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
-                listingsRendered={() => this.props.listingsRendered()}
-                listingsUnrendered={() => this.props.listingsUnrendered()}
-                fetchListings={() => this.props.fetchListings()}
-                fetchListingsInterests={() => this.props.fetchListingsInterests()}
-                fetchUserInterestsListings={(userId) => this.props.fetchUserInterestsListings(userId)}
-              /> :
-              null
+            { this.props.isAuthenticated
+              ? <SideNavBar
+                  userSignOut={this.handleUserSignOut}
+                  userId={this.props.userId}
+                  userAttributes={this.props.userAttributes}
+                  areOpenListingsRendered={this.props.areOpenListingsRendered}
+                  fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
+                  listingsRendered={() => this.props.listingsRendered()}
+                  listingsUnrendered={() => this.props.listingsUnrendered()}
+                  fetchListings={() => this.props.fetchListings()}
+                  fetchListingsInterests={() => this.props.fetchListingsInterests()}
+                  fetchUserInterestsListings={(userId) => this.props.fetchUserInterestsListings(userId)}
+                />
+              : null
             }
 
             <Routes
@@ -88,22 +93,22 @@ class App extends Component {
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
             />
 
-            { this.props.isAuthenticated ?
-              <ResourcesBoard
-                isLoadingProspects={this.props.isLoadingProspects}
-                userId={this.props.userId}
-                prospects={this.props.prospects}
-                fetchProspect={(id) => this.fetchProspect(id)}
-                listingsInterests={this.props.listingsInterests}
-                fetchListing={(id) => this.props.fetchListing(id)}
-                isLoadingInterests={this.props.isLoadingInterests}
-              /> :
-              null
-              }
-            </div>
+            { this.props.isAuthenticated
+              ? <ResourcesBoard
+                  isLoadingProspects={this.props.isLoadingProspects}
+                  userId={this.props.userId}
+                  prospects={this.props.prospects}
+                  fetchProspect={(id) => this.fetchProspect(id)}
+                  listingsInterests={this.props.listingsInterests}
+                  fetchListing={(id) => this.props.fetchListing(id)}
+                  isLoadingInterests={this.props.isLoadingInterests}
+                />
+              : null
+            }
+          </div>
 
-            { !this.props.isAuthenticated ? <AppFooter /> : null }
-          </Router>
+          { !this.props.isAuthenticated ? <AppFooter /> : null }
+        </Router>
       </div>
     );
   }
