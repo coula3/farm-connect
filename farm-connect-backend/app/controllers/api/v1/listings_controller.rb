@@ -1,12 +1,14 @@
 class Api::V1::ListingsController < ApplicationController
     def index
-        if params[:id]
+        if params[:userId]
+            user = User.find(params[:userId])
+            listings = user.interests.map { |interest| interest.listing }
+        elsif params[:id]
             listings = User.find(params[:id]).listings.where.not(closed: nil)
-            render json: ListingSerializer.new(listings)
         else
             listings = Listing.where(closed: nil)
-            render json: ListingSerializer.new(listings)
         end
+        render json: ListingSerializer.new(listings)
     end
 
     def show
