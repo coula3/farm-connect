@@ -59,7 +59,7 @@ const SideNavBar = (props) => {
 
                 <br />
                 <p><Link to="#" id="my_connects_link">My Connects</Link><span id="my_connects_span">{totalConnects}</span></p>
-                <p><Link to="#" id="my_interests_link" onClick={() => props.fetchUserInterestsListings(props.userId)}>My Interests</Link><span id="my_interests_span">{totalInterests}</span></p>
+                <p><Link to="/listings/my-interests" id="my_interests_link" onClick={() => props.fetchUserInterestsListings(props.userId)}>My Interests</Link><span id="my_interests_span">{totalInterests}</span></p>
                 <br />
                 <p id="signout_p"><Link to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link></p>
             </div>
