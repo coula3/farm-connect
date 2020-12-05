@@ -122,7 +122,7 @@ class Listings extends React.Component {
             listingsCategory = "All Farmers";
         } else if(this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH){
             listingsCategory = "Other Farmers";
-        } else if(this.props.match.path === paths().MY_INTERESTS){
+        } else if(this.props.match.path === paths().MY_INTERESTS_PATH){
             listingsCategory = "My Interests";
         }
 
@@ -160,7 +160,7 @@ class Listings extends React.Component {
                     <td>{listDate}</td>
                     <td>{commodity}</td>
 
-                    { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS
+                    { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH
                         ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></td>
                         :   null
                     }
@@ -199,7 +199,7 @@ class Listings extends React.Component {
                             <th>List Date</th>
                             <th><span className={this.getTableHeadSearchStyles()}>Commodity</span></th>
 
-                            { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS
+                            { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH
                                 ?   <th><span className={this.getTableHeadSearchStyles()}>Farmer</span></th>
                                 :   null
                             }
