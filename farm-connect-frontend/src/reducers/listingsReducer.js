@@ -4,6 +4,7 @@ const initialState = {
     listings: [],
     listing: "",
     openListingsRendered: false,
+    closedListingsRendered: false,
     myInterestsRendered: false,
     deleting: false
 }
