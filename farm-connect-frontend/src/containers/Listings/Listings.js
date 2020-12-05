@@ -122,6 +122,8 @@ class Listings extends React.Component {
             listingsCategory = "All Farmers";
         } else if(this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH){
             listingsCategory = "Other Farmers";
+        } else if(this.props.match.path === paths().MY_INTERESTS){
+            listingsCategory = "My Interests";
         }
 
         if(this.state.isAvailableSorted){
