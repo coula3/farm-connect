@@ -48,8 +48,9 @@ const listingsReducer = (state = initialState, action) => {
                 ...state,
                 listings: action.listings,
                 isLoadingListings: false,
+                myInterestsRendered: true,
                 openListingsRendered: false,
-                myInterestsRendered: true
+                closedListingsRendered: false
             }
 
         case "LOADING_EXISTING_LISTING":
@@ -108,6 +109,7 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 listings: action.listings,
+                closedListingsRendered: true,
                 isLoadingListings: false
             }
 
@@ -115,6 +117,7 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 openListingsRendered: true,
+                closedListingsRendered: false,
                 myInterestsRendered: false
             }
 

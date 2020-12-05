@@ -21,26 +21,27 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        this.stageApplication();
+        this.switchListingsType();
         !this.props.commodities[0] && this.props.fetchCommodities();
         this.props.errorMessages[0] && this.props.clearErrorMessages();
     }
 
     stageApplication = () => {
-        if(!this.props.openListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
             this.props.fetchListings();
             this.props.fetchProspects(this.props.userId);
             this.props.fetchListingsInterests();
             this.props.listingsRendered();
-        } else if(this.props.openListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
-            this.props.fetchUserClosedListings(this.props.userId);
-            this.props.listingsUnrendered();
-        }
     }
 
     componentDidUpdate(){
+       this.switchListingsType();
+    }
+
+    switchListingsType = () => {
         if(!this.props.openListingsRendered && (this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ||  this.props.match.path === "/users/:id/listings")){
             this.stageApplication();
+        } else if(!this.props.myInterestsRendered && (this.props.openListingsRendered || this.props.closedListingsRendered) && this.props.match.path === "/listings/my-interests"){
+            this.props.fetchUserInterestsListings(this.props.userId);
         } else if((this.props.openListingsRendered || this.props.myInterestsRendered) && this.props.match.path === "/users/:id/closed-listings") {
             this.props.fetchUserClosedListings(this.props.userId);
             this.props.listingsUnrendered();
@@ -280,6 +281,7 @@ const mapStateToProps = (state) => {
         listing: state.listings.listing,
         errorMessages: state.errorMessages.errorMessages,
         openListingsRendered: state.listings.openListingsRendered,
+        closedListingsRendered: state.listings.closedListingsRendered,
         myInterestsRendered: state.listings.myInterestsRendered
     }
 }
@@ -294,6 +296,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchListingsInterests: () => dispatch(fetchListingsInterests()),
         clearErrorMessages: () => dispatch(clearErrorMessages()),
         fetchUserClosedListings: (userId) => dispatch(listingsActions.fetchUserClosedListings(userId)),
+        fetchUserInterestsListings: (userId) => dispatch(listingsActions.fetchUserInterestsListings(userId)),
         listingsRendered: () => dispatch(listingsActions.listingsRendered()),
         listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
         deleteListing: (listingId) => dispatch(listingsActions.deleteListing(listingId))
