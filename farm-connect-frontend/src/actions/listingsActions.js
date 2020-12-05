@@ -13,7 +13,7 @@ export const fetchListings = () => {
         .then(response => response.json())
         .then(json => {
             dispatch({
-                type: "FETCH_LISTINGS",
+                type: "ADD_OPEN_LISTINGS",
                 listings: json.data
             });
         });
@@ -62,7 +62,7 @@ export const fetchListing = (id) => {
         .then(response => response.json())
         .then(json => {
             dispatch({
-                type: "FETCH_LISTING",
+                type: "ADD_LISTING",
                 listing: json.data
             });
         })
@@ -132,7 +132,7 @@ export const removeUserListingInterest = (listingId, payload) => {
         .then(response => response.json())
         .then(json => {
             dispatch({
-                type: "REMOVE_USER_LISTING_INTEREST",
+                type: "REMOVE_USER_INTEREST_ON_LISTING",
                 listing: json.data
             });
             dispatch(fetchListingsInterests());
@@ -155,7 +155,7 @@ export const addUserListingInterest = (currentUserId, listingId) => {
         .then(response => response.json())
         .then(json => {
             dispatch({
-                type: "ADD_NEW_INTEREST_TO_LISTING",
+                type: "ADD_USER_INTEREST_TO_LISTING",
                 listing: json.data
             })
             dispatch(fetchListingsInterests());
@@ -177,7 +177,7 @@ export const fetchUserClosedListings = (userId) => {
         .then(response => response.json())
         .then(json => {
             dispatch({
-                type: "FETCH_USER_CLOSED_LISTINGS",
+                type: "ADD_USER_CLOSED_LISTINGS",
                 listings: json.data
             });
         })
