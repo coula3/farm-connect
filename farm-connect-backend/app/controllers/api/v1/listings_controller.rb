@@ -1,7 +1,7 @@
 class Api::V1::ListingsController < ApplicationController
     def index
-        if params[:userId]
-            user = User.find(params[:userId])
+        if params[:id] && params[:type]
+            user = User.find(params[:id])
             listings = user.interests.map { |interest| interest.listing }
         elsif params[:id]
             listings = User.find(params[:id]).listings.where.not(closed: nil)
