@@ -186,13 +186,13 @@ export const fetchUserClosedListings = (userId) => {
 
 export const listingsRendered = () => {
     return (dispatch) => {
-        dispatch({type: "LISTINGS_RENDERED_ON"})
+        dispatch({type: "LISTINGS_RENDERED_TRUE"})
     }
 }
 
 export const listingsUnrendered = () => {
     return (dispatch) => {
-        dispatch({type: "LISTINGS_RENDERED_OFF"})
+        dispatch({type: "LISTINGS_RENDERED_FALSE"})
     }
 }
 
