@@ -134,7 +134,7 @@ class Listings extends React.Component {
 
         const searchText = this.state.searchText.toLowerCase().trim();
 
-        if(this.state.searchText && (this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH)){
+        if(this.state.searchText && (this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH)){
             listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText) || (listing.attributes.user.first_name + " " + listing.attributes.user.last_name).toLowerCase().includes(searchText)));
         } else if(this.state.searchText && (this.props.match.path !== paths().LISTINGS_PATH || this.props.match.path !== paths().OTHER_FARMERS_LISTINGS_PATH)){
             listings = [...sortedListings].filter(listing => (listing.attributes.commodity.name.toLowerCase().includes(searchText)));
