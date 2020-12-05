@@ -46,7 +46,9 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 listings: action.listings,
-                isLoadingListings: false
+                isLoadingListings: false,
+                openListingsRendered: false,
+                myInterestsRendered: true
             }
 
         case "LOADING_EXISTING_LISTING":
@@ -111,13 +113,15 @@ const listingsReducer = (state = initialState, action) => {
         case "LISTINGS_RENDERED_TRUE":
             return {
                 ...state,
-                openListingsRendered: true
+                openListingsRendered: true,
+                myInterestsRendered: false
             }
 
         case "LISTINGS_RENDERED_FALSE":
             return {
                 ...state,
-                openListingsRendered: false
+                openListingsRendered: false,
+                myInterestsRendered: false
             }
 
 
