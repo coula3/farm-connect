@@ -49,6 +49,12 @@
     border-radius: 5px;
 }
 
+#listing_delete_btn {
+    background-color: #FFF;
+    padding: 1px 5px;
+    border-radius: 50%;
+}
+
 #available_span {
     background-color: #E8E8E8;
     color: #663300;

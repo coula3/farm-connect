@@ -183,7 +183,7 @@ class Listings extends React.Component {
                     <td><button id={viewButtonColor} className="listings_btn" onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
 
                     { this.props.match.path === paths().USER_LISTINGS_PATH
-                        ?   <td><button className="listings_btn" onClick={() => this.handleDeleteListing(listing.id)}>delete</button></td>
+                        ?   <td><button id="listing_delete_btn" onClick={() => this.handleDeleteListing(listing.id)}>X</button></td>
                         :   null
                     }
                 </tr>
