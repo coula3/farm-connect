@@ -27,21 +27,21 @@ class Listings extends React.Component {
     }
 
     stageApplication = () => {
-        if(!this.props.areOpenListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
+        if(!this.props.openListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
             this.props.fetchListings();
             this.props.fetchProspects(this.props.userId);
             this.props.fetchListingsInterests();
             this.props.listingsRendered();
-        } else if(this.props.areOpenListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
+        } else if(this.props.openListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
             this.props.fetchUserClosedListings(this.props.userId);
             this.props.listingsUnrendered();
         }
     }
 
     componentDidUpdate(){
-        if(!this.props.areOpenListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
+        if(!this.props.openListingsRendered && this.props.match.path !== "/users/:id/closed-listings"){
             this.stageApplication();
-        } else if(this.props.areOpenListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
+        } else if(this.props.openListingsRendered && this.props.match.path === "/users/:id/closed-listings") {
             this.props.fetchUserClosedListings(this.props.userId);
             this.props.listingsUnrendered();
         }
@@ -279,7 +279,7 @@ const mapStateToProps = (state) => {
         commodities: state.commodities.commodities,
         listing: state.listings.listing,
         errorMessages: state.errorMessages.errorMessages,
-        areOpenListingsRendered: state.listings.areOpenListingsRendered
+        openListingsRendered: state.listings.openListingsRendered
     }
 }
 

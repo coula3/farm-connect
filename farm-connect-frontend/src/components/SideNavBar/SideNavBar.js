@@ -8,7 +8,7 @@ const SideNavBar = (props) => {
     const totalInterests = props.userAttributes.interests.length;
 
     const handleFetchListings = () => {
-        if(!props.areOpenListingsRendered){
+        if(!props.openListingsRendered){
             props.fetchListings();
             props.fetchListingsInterests();
             props.listingsRendered();
@@ -16,7 +16,7 @@ const SideNavBar = (props) => {
     }
 
     const handleFetchClosedUserListings = () => {
-        if(props.areOpenListingsRendered){
+        if(props.openListingsRendered){
             props.fetchUserClosedListings(props.userId);
             props.fetchListingsInterests();
             props.listingsUnrendered();
