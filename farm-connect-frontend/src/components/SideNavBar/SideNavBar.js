@@ -16,7 +16,7 @@ const SideNavBar = (props) => {
     }
 
     const handleFetchClosedUserListings = () => {
-        if(props.openListingsRendered){
+        if(props.openListingsRendered || props.myInterestsRendered){
             props.fetchUserClosedListings(props.userId);
             props.fetchListingsInterests();
             props.listingsUnrendered();
