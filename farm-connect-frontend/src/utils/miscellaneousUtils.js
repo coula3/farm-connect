@@ -29,6 +29,7 @@ export const paths = () => {
         OTHER_FARMERS_LISTINGS_PATH: "/listings/other-farmers",
         USER_LISTINGS_PATH: "/users/:id/listings",
         USER_CLOSED_LISTINGS_PATH: "/users/:id/closed-listings",
+        MY_INTERESTS: "/listings/my-interests",
         SIGNOUT_PATH: "/signout"
     }
 }
