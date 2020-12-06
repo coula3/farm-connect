@@ -1,5 +1,6 @@
 export const searchFarmers = (searchText) => {
     return (dispatch) => {
+        dispatch({type: "LOADING_RESULTS"});
         fetch(`http://localhost:3000/api/v1/users?q=${searchText}`, {
             method: "GET",
             headers: {
@@ -8,6 +9,8 @@ export const searchFarmers = (searchText) => {
             }
         })
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(json => {
+            console.log(json.users)
+        })
     }
 }
