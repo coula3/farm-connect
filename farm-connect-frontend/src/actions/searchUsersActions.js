@@ -10,7 +10,10 @@ export const searchFarmers = (searchText) => {
         })
         .then(response => response.json())
         .then(json => {
-            console.log(json.users)
+             dispatch({
+                type: "ADD_SEARCH_RESULTS",
+                searchResults: json.users
+            });
         })
     }
 }
