@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { searchFarmers } from '../../actions/usersActions';
 
 class SearchUsers extends Component {
     state = {
@@ -13,7 +15,7 @@ class SearchUsers extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.searchText);
+        this.props.searchFarmers(this.state.searchText);
     }
 
     render(){
@@ -28,4 +30,10 @@ class SearchUsers extends Component {
     }
 }
 
-export default SearchUsers;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        searchFarmers: (searchText) => dispatch(searchFarmers(searchText))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SearchUsers);
