@@ -23,6 +23,7 @@ class Listings extends React.Component {
     componentDidMount(){
         this.switchListingsType();
         !this.props.commodities[0] && this.props.fetchCommodities();
+        this.props.fetchMyInterestsListings(this.props.userId);
         this.props.errorMessages[0] && this.props.clearErrorMessages();
     }
 
@@ -297,6 +298,7 @@ const mapDispatchToProps = (dispatch) => {
         clearErrorMessages: () => dispatch(clearErrorMessages()),
         fetchUserClosedListings: (userId) => dispatch(listingsActions.fetchUserClosedListings(userId)),
         fetchUserInterestsListings: (userId) => dispatch(listingsActions.fetchUserInterestsListings(userId)),
+        fetchMyInterestsListings: (userId) => dispatch(listingsActions.fetchMyInterestsListings(userId)),
         listingsRendered: () => dispatch(listingsActions.listingsRendered()),
         listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
         deleteListing: (listingId) => dispatch(listingsActions.deleteListing(listingId))
