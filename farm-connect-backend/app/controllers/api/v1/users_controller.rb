@@ -8,8 +8,12 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def index
-        users = User.all
-        render json: UserSerializer.new(users)
+        users = User.arel_table
+        users_by_first_name = User.where(users[:first_name].matches("%#{params[:q]}%"))
+        users_by_last_name = User.where(users[:last_name].matches("%#{params[:q]}%"))
+
+        @users = users_by_first_name.to_a.concat(users_by_last_name)
+        render json: UserSerializer.new(@users)
     end
 
     def create
