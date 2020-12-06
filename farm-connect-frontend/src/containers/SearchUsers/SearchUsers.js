@@ -33,10 +33,17 @@ class SearchUsers extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        isLoading: state.searchUsers.isLoading,
+        searchResults: state.searchUsers.searchResults
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         searchFarmers: (searchText) => dispatch(searchFarmers(searchText))
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchUsers);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchUsers);
