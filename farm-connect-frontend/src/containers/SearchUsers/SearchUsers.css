@@ -6,13 +6,13 @@
 
 .search_users_card {
     text-align: center;
-    border: #663300 solid 1px;
+    border: #3a5f0b solid 1px;
     padding: 25px 0px 25px 0px;
     width: 50%;
     height: 60vh;
     background-color: #FFF;
     margin: auto;
-    box-shadow: 6px 8px #663300
+    box-shadow: 6px 8px #3a5f0b
 }
 
 #search_input {
@@ -20,10 +20,12 @@
     height: 16px;
     font-size: 17px;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: grey solid 1px;
 }
 
 #search_btn {
     font-size: 17px;
+    padding: 2px 6px;
+    border-radius: 0px 5px 5px 0px;
 }

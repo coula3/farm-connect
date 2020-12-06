@@ -24,7 +24,7 @@ class SearchUsers extends Component {
             <div className="SearchUsers_main_div">
                 <div className="search_users_card">
                     <form onSubmit={this.handleSubmit}>
-                        <input id="search_input" type="text" onChange={this.handleChange}/>
+                        <input id="search_input" type="text" placeholder="farmer's first or last name" onChange={this.handleChange} />
                         <input id="search_btn" type="submit" value="Search" />
                     </form>
                 </div>
