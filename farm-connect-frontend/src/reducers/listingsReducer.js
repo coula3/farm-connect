@@ -3,6 +3,7 @@ const initialState = {
     isLoadingListings: false,
     listings: [],
     listing: "",
+    interestsListings: [],
     openListingsRendered: false,
     closedListingsRendered: false,
     myInterestsRendered: false,
@@ -51,6 +52,12 @@ const listingsReducer = (state = initialState, action) => {
                 myInterestsRendered: true,
                 openListingsRendered: false,
                 closedListingsRendered: false
+            }
+
+        case "ADD_MY_INTERESTS_LISTINGS":
+            return {
+                ...state,
+                interestsListings: action.listings
             }
 
         case "LOADING_EXISTING_LISTING":
