@@ -5,7 +5,7 @@ import './SideNavBar.css';
 
 const SideNavBar = (props) => {
     const totalConnects = props.userAttributes.connects.length + props.userAttributes.inverse_connects.length;
-    const totalInterests = props.userAttributes.interests.length;
+    const totalInterests = props.userInterestsListings.length;
 
     const handleFetchListings = () => {
         if(!props.openListingsRendered){
