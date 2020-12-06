@@ -156,6 +156,7 @@ const listingsReducer = (state = initialState, action) => {
                 isLoadingListings: false,
                 listings: [],
                 listing: "",
+                userInterestsListings: [],
                 openListingsRendered: false,
                 closedListingsRendered: false,
                 myInterestsRendered: false,
