@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchFarmers } from '../../actions/usersActions';
+import './SearchUsers.css'
 
 class SearchUsers extends Component {
     state = {
@@ -20,11 +21,13 @@ class SearchUsers extends Component {
 
     render(){
         return (
-            <div style={{display: "inline", float: "left", width: "64.8%", height: "350px", paddingTop: "25px", border: "solid 1px grey"}}>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" style={{width: "75%", height: "16px"}} onChange={this.handleChange}/>
-                    <input type="submit" value="Search" />
-                </form>
+            <div className="SearchUsers_main_div">
+                <div className="search_users_card">
+                    <form onSubmit={this.handleSubmit}>
+                        <input id="search_input" type="text" onChange={this.handleChange}/>
+                        <input id="search_btn" type="submit" value="Search" />
+                    </form>
+                </div>
             </div>
         )
     }

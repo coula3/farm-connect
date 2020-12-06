@@ -1,0 +1,29 @@
+.SearchUsers_main_div {
+    display: inline;
+    float: left;
+    width: 65%;
+}
+
+.search_users_card {
+    text-align: center;
+    border: #663300 solid 1px;
+    padding: 25px 0px 25px 0px;
+    width: 50%;
+    height: 60vh;
+    background-color: #FFF;
+    margin: auto;
+    box-shadow: 6px 8px #663300
+}
+
+#search_input {
+    width: 70%;
+    height: 16px;
+    font-size: 17px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+#search_btn {
+    font-size: 17px;
+}
