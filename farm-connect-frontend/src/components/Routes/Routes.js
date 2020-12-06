@@ -11,6 +11,7 @@ import FarmerProfile from '../FarmerProfile/FarmerProfile';
 import EditListing from '../../containers/EditListing/EditListing';
 import ProspectProfile from '../ProspectProfile/ProspectProfile';
 import EditUser from '../../containers/EditUser/EditUser';
+import SearchUsers from '../../containers/SearchUsers/SearchUsers';
 import TermsOfService from '../TermsOfService/TermsOfService';
 import NoMatch from '../NoMatch/NoMatch';
 
@@ -21,6 +22,7 @@ const Routes = (props) => {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signout" component={SignOut} />
             <Route exact path="/listings" component={Listings} />
+            <Route exact path="/users/search-farmers" component={SearchUsers} />
             <Route exact path="/listings/other-farmers" component={Listings} />
             <Route exact path="/listings/my-interests" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing
