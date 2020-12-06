@@ -149,6 +149,8 @@ const listingsReducer = (state = initialState, action) => {
                 listings: [],
                 listing: "",
                 openListingsRendered: false,
+                closedListingsRendered: false,
+                myInterestsRendered: false,
                 deleting: false
             }
 
