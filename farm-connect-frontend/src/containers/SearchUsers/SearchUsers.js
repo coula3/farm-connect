@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import { searchFarmers } from '../../actions/searchUsersActions';
 import './SearchUsers.css'
+import { fetchFarmer } from '../../actions/farmersActions';
 
 class SearchUsers extends Component {
     state = {
@@ -26,7 +27,7 @@ class SearchUsers extends Component {
                 return (
                     <ol style={{padding:"0px 20px 0px 20px"}}>
                         { searchResults.data.map((user, idx) =>
-                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/farmers/${user.id}`}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/farmers/${user.id}`} onClick={() => this.props.fetchFarmer(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
                         }
                     </ol>
                 );
@@ -58,7 +59,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        searchFarmers: (searchText) => dispatch(searchFarmers(searchText))
+        searchFarmers: (searchText) => dispatch(searchFarmers(searchText)),
+        fetchFarmer: (id) => dispatch(fetchFarmer(id))
     }
 }
 
