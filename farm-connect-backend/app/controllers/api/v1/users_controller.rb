@@ -9,8 +9,13 @@ class Api::V1::UsersController < ApplicationController
 
     def index
         users = User.arel_table
-        users_by_first_name = User.where(users[:first_name].matches("%#{params[:q]}%"))
-        users_by_last_name = User.where(users[:last_name].matches("%#{params[:q]}%"))
+        if params[:type] == "F"
+            users_by_first_name = User.where(users[:first_name].matches("%#{params[:q]}%")).where(type: "Farmer")
+            users_by_last_name = User.where(users[:last_name].matches("%#{params[:q]}%")).where(type: "Farmer")
+        else
+            users_by_first_name = User.where(users[:first_name].matches("%#{params[:q]}%")).where(type: "Prospect")
+            users_by_last_name = User.where(users[:last_name].matches("%#{params[:q]}%")).where(type: "Prospect")
+        end
 
         @users = users_by_first_name.to_a.concat(users_by_last_name).uniq
         render json: { users: UserSerializer.new(@users) }

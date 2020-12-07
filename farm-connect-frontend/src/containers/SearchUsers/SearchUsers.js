@@ -2,24 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
-import { searchFarmers, clearSearchResults } from '../../actions/searchUsersActions';
+import { searchUsers, clearSearchResults } from '../../actions/searchUsersActions';
 import './SearchUsers.css'
 import { fetchFarmer } from '../../actions/farmersActions';
 
 class SearchUsers extends Component {
     state = {
-        searchText: ""
+        searchText: "",
+        userType: ""
     }
 
     handleChange = (e) => {
+        const userType = this.props.match.path.endsWith("farmers") ? "F" : "P"
         this.setState({
-            searchText: e.target.value
+            searchText: e.target.value,
+            userType
         });
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.searchFarmers(this.state.searchText);
+        this.props.searchUsers(this.state);
     }
 
     componentWillUnmount(){
@@ -63,7 +66,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        searchFarmers: (searchText) => dispatch(searchFarmers(searchText)),
+        searchUsers: (payload) => dispatch(searchUsers(payload)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
         clearSearchResults: () => dispatch(clearSearchResults())
     }

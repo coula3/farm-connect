@@ -1,7 +1,7 @@
-export const searchFarmers = (searchText) => {
+export const searchUsers = (payload) => {
     return (dispatch) => {
         dispatch({type: "LOADING_RESULTS"});
-        fetch(`http://localhost:3000/api/v1/users?q=${searchText}`, {
+        fetch(`http://localhost:3000/api/v1/users?q=${payload.searchText}&type=${payload.userType}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
