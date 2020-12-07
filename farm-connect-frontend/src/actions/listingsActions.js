@@ -155,7 +155,8 @@ export const removeUserListingInterest = (listingId, payload) => {
                 listing: json.data
             });
             dispatch(fetchListingsInterests());
-            dispatch(refreshUser(payload.listing.currentUserId));
+            // dispatch(refreshUser(payload.listing.currentUserId));
+            dispatch(fetchMyInterestsListings(payload.listing.currentUserId));
         })
     }
 }
@@ -178,7 +179,8 @@ export const addUserListingInterest = (currentUserId, listingId) => {
                 listing: json.data
             })
             dispatch(fetchListingsInterests());
-            dispatch(refreshUser(currentUserId));
+            // dispatch(refreshUser(currentUserId));
+            dispatch(fetchMyInterestsListings(currentUserId));
         })
     }
 }
