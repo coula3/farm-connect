@@ -53,6 +53,13 @@ class Listings extends React.Component {
         this.props.fetchListing(id);
     }
 
+    handleFetchListings = () => {
+        if(this.props.match.path === "/listings/my-interests"){
+            this.props.fetchListings();
+            this.props.listingsRendered();
+        }
+    }
+
     handleFetchFarmer = (id) => {
         this.props.fetchFarmer(id);
     }
@@ -163,7 +170,7 @@ class Listings extends React.Component {
                     <td>{commodity}</td>
 
                     { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH
-                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></td>
+                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`} onClick={this.handleFetchListings}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></td>
                         :   null
                     }
 
