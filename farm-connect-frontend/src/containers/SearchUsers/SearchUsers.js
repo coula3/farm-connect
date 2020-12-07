@@ -5,6 +5,7 @@ import Loader from '../../components/Loader/Loader';
 import { searchUsers, clearSearchResults } from '../../actions/searchUsersActions';
 import './SearchUsers.css'
 import { fetchFarmer } from '../../actions/farmersActions';
+import { fetchProspect } from '../../actions/prospectsActions';
 
 class SearchUsers extends Component {
     state = {
@@ -30,7 +31,11 @@ class SearchUsers extends Component {
     }
 
     handleClick = (id) => {
-        this.props.fetchFarmer(id)
+        if(this.props.match.path.endsWith("farmers")){
+            this.props.fetchFarmer(id);
+        } else {
+            this.props.fetchProspect(id);
+        }
     }
 
     componentWillUnmount(){
@@ -80,6 +85,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         searchUsers: (payload) => dispatch(searchUsers(payload)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
+        fetchProspect: (id) => dispatch(fetchProspect(id)),
         clearSearchResults: () => dispatch(clearSearchResults())
     }
 }
