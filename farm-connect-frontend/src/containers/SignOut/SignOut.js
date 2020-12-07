@@ -10,13 +10,13 @@ class SignOut extends React.Component {
 
     render(){
         return (
-            <div>
+            <div style={{marginTop:"25px"}}>
                 You have successfully signed out!
-                <br />
-                <br />
-                <Link to="/">Home</Link>
+                <div style={{marginTop:"40px"}}>
+                    <Link to="/">Home</Link>
+                </div>
             </div>
-        )
+        );
     }
 }
 
