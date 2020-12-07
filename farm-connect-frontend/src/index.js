@@ -6,12 +6,35 @@ import rootReducer from './reducers'
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 
-const store = createStore(rootReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+  whitelist: [
+    "currentUser",
+    "listings",
+    "commodities",
+    "farmers",
+    "prospects",
+    "interests",
+    "errorMessages",
+    "searchUsers"
+  ]
+}
+
+const pReducer = persistReducer(persistConfig, rootReducer);
+const store = createStore(pReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+const persistor = persistStore(store);
+
 
 ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>,
   document.getElementById('root')
 );
