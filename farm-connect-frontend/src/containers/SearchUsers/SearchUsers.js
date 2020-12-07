@@ -61,14 +61,20 @@ class SearchUsers extends Component {
 
     render(){
         const renderSearchResults = searchResults => {
-                return (
-                    <ol style={{padding:"0px 20px 0px 20px"}}>
-                        { searchResults.data.map((user, idx) =>
-                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
-                        }
-                    </ol>
-                );
-            };
+            const sortedSearchResults = [...searchResults.data].sort((a, b) => {
+                if(a.attributes.first_name < b.attributes.first_name) { return -1 }
+                if(a.attributes.first_name > b.attributes.first_name) { return 1 }
+                return 0
+            });
+
+            return (
+                <ol style={{padding:"0px 20px 0px 20px"}}>
+                    { sortedSearchResults.map((user, idx) =>
+                        <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                    }
+                </ol>
+            );
+        };
 
         return (
             <div className="SearchUsers_main_div">
