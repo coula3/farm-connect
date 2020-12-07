@@ -30,6 +30,18 @@ code {
   border-radius: 5px;
 }
 
+.connect_btn {
+  width: 100px;
+  color: #FFF;
+}
+
+.unconnect_btn {
+  width: 100px;
+  font-size: 15px;
+  padding: 6px 0px;
+  border-radius: 5px;
+}
+
 .no_select {
   -moz-user-select: none;
   -webkit-user-select: none;

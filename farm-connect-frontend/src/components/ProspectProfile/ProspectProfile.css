@@ -23,19 +23,6 @@
     padding-top: 15px;
 }
 
-#connect_btn {
-    background-color: #3a5f0b;
-    width: 22%;
-    color: #FFF;
-}
-
-#unconnect_btn {
-    width: 23%;
-    padding: 6px 0px;
-    font-size: 15px;
-    border-radius: 5px;
-}
-
 .prospect_profile_card {
     text-align: center;
     border: #3a5f0b solid 1px;

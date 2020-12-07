@@ -58,8 +58,8 @@ const FarmerProfile = (props) => {
 
                         { !isCurrentUser(props.farmer.id)
                             ?   !isConnected
-                                ?   <div className="connect_btn_div"><button id="connect_btn" className="global_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Connect</button></div>
-                                :   <div className="connect_btn_div"><button id="unconnect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
+                                ?   <div className="connect_btn_div"><button className="global_btn connect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Connect</button></div>
+                                :   <div className="connect_btn_div"><button className="unconnect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
 
                             :   null
                         }
