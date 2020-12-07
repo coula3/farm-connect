@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import SignUp from '../../containers/SignUp/SignUp';
 import SignIn from '../../containers/SignIn/SignIn';
-import SignOut from '../SignOut/SignOut';
+import SignOut from '../../containers/SignOut/SignOut';
 import CreateListing from '../../containers/CreateListing/CreateListing';
 import Listings from '../../containers/Listings/Listings';
 import Listing from '../Listing/Listing';
