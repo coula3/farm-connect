@@ -52,7 +52,7 @@ class SearchUsers extends Component {
             <div className="SearchUsers_main_div">
                 <div className="search_users_card">
                     <form onSubmit={this.handleSubmit}>
-                        <input id="search_input" type="text" placeholder={`${this.userType()} first or last name`} onChange={this.handleChange} />
+                        <input id="search_input" type="text" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
                         <input id="search_btn" type="submit" value="Search" />
                     </form>
                     {   this.props.isLoading
