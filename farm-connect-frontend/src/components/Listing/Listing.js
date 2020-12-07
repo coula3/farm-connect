@@ -11,7 +11,7 @@ const Listing = (props) => {
                 return (
                     <>
                         <br />
-                        <button className="global_btn" onClick={() => props.history.push(`/listings/${listingId}/edit`)}>Edit</button>
+                        <button className="global_btn listing_btn" onClick={() => props.history.push(`/listings/${listingId}/edit`)}>Edit</button>
                     </>
                 );
             } else {
@@ -99,10 +99,10 @@ const Listing = (props) => {
 
                             <div style={{marginTop:"20px"}}>
                                 { props.userAttributes.type === "Farmer"
-                                    ?   <button className="global_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>{listingPluralized}</button>
+                                    ?   <button className="global_btn listing_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>{listingPluralized}</button>
                                     :   null
                                 }
-                                <button className="global_btn" onClick={() => props.history.push("/listings") }>Listings</button>
+                                <button className="global_btn listing_btn" onClick={() => props.history.push("/listings") }>Listings</button>
                             </div>
                         </div>
                     </div>
