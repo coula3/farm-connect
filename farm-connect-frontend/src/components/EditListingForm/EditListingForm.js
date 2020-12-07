@@ -69,9 +69,9 @@ const EditListingForm = props => (
             </p>
             <span id={props.warningMsgStyles}>{props.closeListingWarning()}</span>
 
-            <p id="p_button_update"><input className={props.setUpdateBtnColor()} type="submit" value="Update" disabled={!props.editMode}/></p>
+            <p id="p_button_update"><input className={`${props.setUpdateBtnColor()} eu_el_btns`} type="submit" value="Update" disabled={!props.editMode}/></p>
 
-            <input className="global_btn" type="submit" value="Cancel" onClick={props.handleCancelEdit} />
+            <input className="global_btn eu_el_btns" type="submit" value="Cancel" onClick={props.handleCancelEdit} />
         </form>
     </>
 )

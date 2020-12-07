@@ -42,6 +42,24 @@ code {
   border-radius: 5px;
 }
 
+.eu_el_btns {
+  width: 100px;
+}
+
+.update_btn {
+  padding: 6px 0px;
+  background-color: #3a5f0b;
+  color: #FFF;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.update_btn_disabled {
+  padding: 6px 0px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
 .no_select {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -55,21 +73,6 @@ a {
   color: #663300;
 }
 
-.update_btn {
-  width: 17%;
-  padding: 6px 0px;
-  background-color: #3a5f0b;
-  color: #FFF;
-  font-size: 15px;
-  border-radius: 5px;
-}
-
-.update_btn_disabled {
-  width: 17%;
-  padding: 6px 0px;
-  font-size: 15px;
-  border-radius: 5px;
-}
 
 .commodity_select {
   width: 53%;

@@ -46,9 +46,9 @@ const EditUserForm = props => (
             </table>
 
             <div id="user_edit_btn_div">
-                <button className={props.setUpdateBtnColor()} disabled={!props.editMode}>Update</button>
+                <button className={`${props.setUpdateBtnColor()} eu_el_btns`} disabled={!props.editMode}>Update</button>
                 <br />
-                <button className="global_btn" onClick={props.handleCancelEdit}>Cancel</button>
+                <button className="global_btn eu_el_btns" onClick={props.handleCancelEdit}>Cancel</button>
             </div>
         </form>
     </>
