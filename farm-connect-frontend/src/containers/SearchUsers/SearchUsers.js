@@ -44,6 +44,13 @@ class SearchUsers extends Component {
         this.props.clearSearchResults();
     }
 
+    componentDidUpdate(){
+        if(this.props.searchResults.data && this.props.searchResults.data[0]){
+            this.props.match.path === "/users/search-farmers" && this.props.searchResults.data[0].attributes.type === "Prospect" && this.props.clearSearchResults();
+            this.props.match.path === "/users/search-prospects" && this.props.searchResults.data[0].attributes.type === "Farmer" && this.props.clearSearchResults();
+        }
+    }
+
     userType = () => {
         return this.props.match.path === "/users/search-farmers" ? "farmer's" : "prospect's";
     }

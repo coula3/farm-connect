@@ -12,7 +12,6 @@ import { fetchProspect } from './actions/prospectsActions';
 import { fetchFarmer } from './actions/farmersActions';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 import { fetchListingsInterests } from './actions/interestsActions';
-import { clearSearchResults } from './actions/searchUsersActions';
 import AppFooter from './components/AppFooter/AppFooter';
 
 class App extends Component {
@@ -72,7 +71,6 @@ class App extends Component {
                   fetchListings={() => this.props.fetchListings()}
                   fetchListingsInterests={() => this.props.fetchListingsInterests()}
                   fetchUserInterestsListings={(id) => this.props.fetchUserInterestsListings(id)}
-                  clearSearchResults={() => this.props.clearSearchResults()}
                 />
               : null
             }
@@ -158,8 +156,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchListings: () => dispatch(listingsActions.fetchListings()),
     fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
     fetchListingsInterests: () => dispatch(fetchListingsInterests()),
-    fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id)),
-    clearSearchResults: () => dispatch(clearSearchResults())
+    fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id))
   };
 }
 
