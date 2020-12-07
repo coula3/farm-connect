@@ -46,12 +46,16 @@ class SearchUsers extends Component {
         return this.props.match.path === "/users/search-farmers" ? "farmer's" : "prospect's";
     }
 
+    mainResource = () => {
+        return this.props.match.path === "/users/search-farmers" ? "farmers" : "prospects";
+    }
+
     render(){
         const renderSearchResults = searchResults => {
                 return (
                     <ol style={{padding:"0px 20px 0px 20px"}}>
                         { searchResults.data.map((user, idx) =>
-                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/farmers/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
                         }
                     </ol>
                 );
