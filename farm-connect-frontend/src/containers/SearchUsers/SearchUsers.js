@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import { searchFarmers } from '../../actions/searchUsersActions';
 import './SearchUsers.css'
@@ -24,8 +25,8 @@ class SearchUsers extends Component {
         const renderSearchResults = searchResults => {
                 return (
                     <ol style={{padding:"0px 20px 0px 20px"}}>
-                        { searchResults.data.map(user =>
-                            <li key={user.id} style={{listStyle:"none"}}>{user.attributes.first_name} {user.attributes.last_name}</li>)
+                        { searchResults.data.map((user, idx) =>
+                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/farmers/${user.id}`}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
                         }
                     </ol>
                 );
