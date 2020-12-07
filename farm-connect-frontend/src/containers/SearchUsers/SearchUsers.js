@@ -69,8 +69,10 @@ class SearchUsers extends Component {
 
             return (
                 <ol style={{padding:"0px 20px 0px 20px"}}>
-                    { sortedSearchResults.map((user, idx) =>
-                        <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                    {   searchResults.data[0]
+                            ?   sortedSearchResults.map((user, idx) =>
+                                <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                            : <h4 id="no_msg">No matching name</h4>
                     }
                 </ol>
             );
