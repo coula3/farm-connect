@@ -23,6 +23,10 @@ class SearchUsers extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.searchUsers(this.state);
+        this.setState({
+            searchText: "",
+            userType: ""
+        });
     }
 
     componentWillUnmount(){
