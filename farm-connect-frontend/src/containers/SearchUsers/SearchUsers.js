@@ -21,6 +21,16 @@ class SearchUsers extends Component {
     }
 
     render(){
+        const renderSearchResults = searchResults => {
+                return (
+                    <ol style={{padding:"0px 20px 0px 20px"}}>
+                        { searchResults.data.map(user =>
+                            <li key={user.id} style={{listStyle:"none"}}>{user.attributes.first_name} {user.attributes.last_name}</li>)
+                        }
+                    </ol>
+                );
+            };
+
         return (
             <div className="SearchUsers_main_div">
                 <div className="search_users_card">
@@ -30,7 +40,7 @@ class SearchUsers extends Component {
                     </form>
                     {   this.props.isLoading
                             ?   <Loader />
-                            :   <h4>Search Results</h4>
+                            :   this.props.searchResults.data && renderSearchResults(this.props.searchResults)
                     }
                 </div>
             </div>
