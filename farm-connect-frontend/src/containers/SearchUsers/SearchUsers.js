@@ -29,6 +29,10 @@ class SearchUsers extends Component {
         });
     }
 
+    handleClick = (id) => {
+        this.props.fetchFarmer(id)
+    }
+
     componentWillUnmount(){
         this.props.clearSearchResults();
     }
@@ -42,7 +46,7 @@ class SearchUsers extends Component {
                 return (
                     <ol style={{padding:"0px 20px 0px 20px"}}>
                         { searchResults.data.map((user, idx) =>
-                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/farmers/${user.id}`} onClick={() => this.props.fetchFarmer(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                            <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/farmers/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
                         }
                     </ol>
                 );
