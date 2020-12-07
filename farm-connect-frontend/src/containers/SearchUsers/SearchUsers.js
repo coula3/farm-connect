@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
-import { searchFarmers } from '../../actions/searchUsersActions';
+import { searchFarmers, clearSearchResults } from '../../actions/searchUsersActions';
 import './SearchUsers.css'
 import { fetchFarmer } from '../../actions/farmersActions';
 
@@ -20,6 +20,10 @@ class SearchUsers extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.searchFarmers(this.state.searchText);
+    }
+
+    componentWillUnmount(){
+        this.props.clearSearchResults();
     }
 
     render(){
@@ -60,7 +64,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         searchFarmers: (searchText) => dispatch(searchFarmers(searchText)),
-        fetchFarmer: (id) => dispatch(fetchFarmer(id))
+        fetchFarmer: (id) => dispatch(fetchFarmer(id)),
+        clearSearchResults: () => dispatch(clearSearchResults())
     }
 }
 

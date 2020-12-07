@@ -17,3 +17,9 @@ export const searchFarmers = (searchText) => {
         })
     }
 }
+
+export const clearSearchResults = () => {
+    return (dispatch) => {
+        dispatch({type: "CLEAR_SEARCH_RESULTS"});
+    }
+}

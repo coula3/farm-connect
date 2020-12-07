@@ -18,6 +18,12 @@ const searchUsersReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "CLEAR_SEARCH_RESULTS":
+            return {
+                ...state,
+                searchResults: []
+            }
+
         default:
         return state
     }
