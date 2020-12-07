@@ -29,11 +29,12 @@ const SideNavBar = (props) => {
         }
     }
 
-    const createListing = () => {
+    const renderCreateListing = () => {
         if(props.userAttributes.type === "Farmer"){
             return <p><Link to={paths().NEW_LISTING_PATH}>Create Listing</Link></p>
         }
     }
+
     const renderFarmerUserLinks = () => {
         if(props.userAttributes.type === "Farmer"){
             return (
@@ -56,7 +57,7 @@ const SideNavBar = (props) => {
                 <br />
 
                 <div id="create_listings_listings_padding" className="listings_panel">
-                    {createListing()}
+                    {renderCreateListing()}
                     <p id="listings_link_p"><Link to={paths().LISTINGS_PATH} onClick={handleFetchListings}>Listings</Link></p>
                 </div>
 
