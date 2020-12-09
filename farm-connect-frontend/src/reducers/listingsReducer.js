@@ -42,7 +42,8 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 listings: action.listings,
-                isLoadingListings: false
+                isLoadingListings: false,
+                hasListingChanged: false,
             }
 
         case "ADD_USER_INTERESTS_LISTINGS":
@@ -50,6 +51,7 @@ const listingsReducer = (state = initialState, action) => {
                 ...state,
                 listings: action.listings,
                 isLoadingListings: false,
+                hasListingChanged: false,
                 myInterestsRendered: true,
                 openListingsRendered: false,
                 closedListingsRendered: false
@@ -85,7 +87,8 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 listing: action.listing,
-                isLoading: false
+                isLoading: false,
+                hasListingChanged: true
             }
 
         case "CLEAR_LOADING":
@@ -98,7 +101,8 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 listing: action.listing,
-                isLoading: false
+                isLoading: false,
+                hasListingChanged: true
             }
 
         case "LOADING_NEW_INTEREST_ON_LISTING":
@@ -111,7 +115,8 @@ const listingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 listing: action.listing,
-                isLoading: false
+                isLoading: false,
+                hasListingChanged: true
             }
 
         case "ADD_USER_CLOSED_LISTINGS":
@@ -136,7 +141,6 @@ const listingsReducer = (state = initialState, action) => {
                 openListingsRendered: false,
                 myInterestsRendered: false
             }
-
 
         case "DELETING_LISTING":
             return {
