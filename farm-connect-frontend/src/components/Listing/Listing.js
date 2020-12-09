@@ -30,6 +30,16 @@ const Listing = (props) => {
         }
     }
 
+    const handlePushToUserListings = () => {
+        props.hasListingChanged && props.openListingsRendered && props.fetchListings();
+        return props.history.push(`/users/${props.userId}/listings`);
+    }
+
+    const handlePushToListings = () => {
+        props.hasListingChanged && props.openListingsRendered && props.fetchListings();
+        return props.history.push("/listings");
+    }
+
     const setHeartColor = (currentUserId, listingInterests) => {
         const matchId = listingInterests.find(interest => interest.user_id === parseInt(currentUserId));
         return matchId ? "#3a5f0b" : "";
@@ -99,10 +109,10 @@ const Listing = (props) => {
 
                             <div style={{marginTop:"20px"}}>
                                 { props.userAttributes.type === "Farmer"
-                                    ?   <button className="global_btn listing_btn" onClick={() => props.history.push(`/users/${props.userId}/listings`)}>{listingPluralized}</button>
+                                    ?   <button className="global_btn listing_btn" onClick={handlePushToUserListings}>{listingPluralized}</button>
                                     :   null
                                 }
-                                <button className="global_btn listing_btn" onClick={() => props.history.push("/listings") }>Listings</button>
+                                <button className="global_btn listing_btn" onClick={handlePushToListings}>Listings</button>
                             </div>
                         </div>
                     </div>
