@@ -36,9 +36,12 @@ const Routes = (props) => {
                 isLoading={props.isLoading}
                 userId={props.userId}
                 userAttributes={props.userAttributes}
+                hasListingChanged={props.hasListingChanged}
+                openListingsRendered={props.openListingsRendered}
                 removeUserListingInterest={(listingId, interestId, currentUserId) => props.removeUserListingInterest(listingId, interestId, currentUserId)}
                 addUserListingInterest={(currentUserId, listingId) => props.addUserListingInterest(currentUserId, listingId)}
-                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)} /> }
+                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
+                fetchListings={() => props.fetchListings()}/> }
             />
             <Route exact path="/farmers/:id" render={ routerProps => <FarmerProfile
                 { ...routerProps}

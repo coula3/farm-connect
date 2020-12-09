@@ -83,6 +83,8 @@ class App extends Component {
               commodities={this.props.commodities}
               isLoading={this.props.isLoading}
               listing={this.props.listing}
+              hasListingChanged={this.props.hasListingChanged}
+              openListingsRendered={this.props.openListingsRendered}
               isLoadingFarmer={this.props.isLoadingFarmer}
               farmer={this.props.farmer}
               isLoadingProspect={this.props.isLoadingProspect}
@@ -94,6 +96,7 @@ class App extends Component {
               connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
+              fetchListings={() => this.props.fetchListings()}
             />
 
             { this.props.isAuthenticated
