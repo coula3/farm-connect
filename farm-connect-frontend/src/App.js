@@ -62,6 +62,7 @@ class App extends Component {
                   userSignOut={this.handleUserSignOut}
                   userId={this.props.userId}
                   userAttributes={this.props.userAttributes}
+                  hasListingChanged={this.props.hasListingChanged}
                   countUserInterestsListings={this.props.countUserInterestsListings}
                   openListingsRendered={this.props.openListingsRendered}
                   myInterestsRendered={this.props.myInterestsRendered}
@@ -125,6 +126,7 @@ const mapStateToProps = (state) => {
     isLoading: state.listings.isLoading,
     listing: state.listings.listing,
     countUserInterestsListings: state.listings.countUserInterestsListings,
+    hasListingChanged: state.listings.hasListingChanged,
     isLoadingFarmer: state.farmers.isLoadingFarmer,
     farmer: state.farmers.farmer,
     isLoadingProspects: state.prospects.isLoadingProspects,

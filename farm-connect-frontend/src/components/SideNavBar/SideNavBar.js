@@ -9,7 +9,7 @@ const SideNavBar = (props) => {
 
 
     const handleFetchListings = () => {
-        if(!props.openListingsRendered){
+        if(!props.openListingsRendered || props.hasListingChanged){
             props.fetchListings();
             props.fetchListingsInterests();
             props.listingsRendered();
@@ -25,7 +25,7 @@ const SideNavBar = (props) => {
     }
 
     const handleFetchUserInterestsListings = (userId) => {
-        if(!props.myInterestsRendered){
+        if(!props.myInterestsRendered || props.hasListingChanged){
             props.fetchUserInterestsListings(userId);
         }
     }
