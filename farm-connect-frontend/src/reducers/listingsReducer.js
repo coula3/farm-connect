@@ -3,7 +3,7 @@ const initialState = {
     isLoadingListings: false,
     listings: [],
     listing: "",
-    userInterestsListings: [],
+    countUserInterestsListings: 0,
     openListingsRendered: false,
     closedListingsRendered: false,
     myInterestsRendered: false,
@@ -54,10 +54,10 @@ const listingsReducer = (state = initialState, action) => {
                 closedListingsRendered: false
             }
 
-        case "ADD_MY_INTERESTS_LISTINGS":
+        case "ADD_USER_INTERESTS_LISTINGS_COUNT":
             return {
                 ...state,
-                userInterestsListings: action.listings,
+                countUserInterestsListings: action.listings.length,
                 isLoadingListings: false
             }
 
@@ -156,7 +156,7 @@ const listingsReducer = (state = initialState, action) => {
                 isLoadingListings: false,
                 listings: [],
                 listing: "",
-                userInterestsListings: [],
+                countUserInterestsListings: 0,
                 openListingsRendered: false,
                 closedListingsRendered: false,
                 myInterestsRendered: false,

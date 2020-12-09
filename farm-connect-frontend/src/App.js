@@ -62,7 +62,7 @@ class App extends Component {
                   userSignOut={this.handleUserSignOut}
                   userId={this.props.userId}
                   userAttributes={this.props.userAttributes}
-                  userInterestsListings={this.props.userInterestsListings}
+                  countUserInterestsListings={this.props.countUserInterestsListings}
                   openListingsRendered={this.props.openListingsRendered}
                   myInterestsRendered={this.props.myInterestsRendered}
                   fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
@@ -124,6 +124,7 @@ const mapStateToProps = (state) => {
     commodities: state.commodities.commodities,
     isLoading: state.listings.isLoading,
     listing: state.listings.listing,
+    countUserInterestsListings: state.listings.countUserInterestsListings,
     isLoadingFarmer: state.farmers.isLoadingFarmer,
     farmer: state.farmers.farmer,
     isLoadingProspects: state.prospects.isLoadingProspects,
@@ -133,7 +134,7 @@ const mapStateToProps = (state) => {
     farmerPhoto: state.farmers.photo,
     userPhoto: state.currentUser.photo,
     isLoadingUser: state.currentUser.isLoading,
-    userInterestsListings: state.listings.userInterestsListings,
+    // userInterestsListings: state.listings.userInterestsListings,
     listingsInterests: state.interests.listingsInterests,
     isLoadingInterests: state.interests.isLoadingInterests,
     openListingsRendered: state.listings.openListingsRendered,

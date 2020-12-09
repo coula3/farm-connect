@@ -100,7 +100,7 @@ export const fetchMyInterestsListings = (id) => {
         .then(response => response.json())
         .then(json => {
             dispatch({
-                type: "ADD_MY_INTERESTS_LISTINGS",
+                type: "ADD_USER_INTERESTS_LISTINGS_COUNT",
                 listings: json.data
             });
         });
