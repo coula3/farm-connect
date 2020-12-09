@@ -19,10 +19,16 @@ const listingsReducer = (state = initialState, action) => {
                 isLoading: true
             }
 
-        case "LOADING_NEW_LISTING":
+        case "LOADING_LISTINGS":
             return {
                 ...state,
-                isLoading: true
+                isLoadingListings: true
+            };
+
+        case "CLEAR_LOADING":
+            return {
+                ...state,
+                isLoading: false
             }
 
         case "CREATE_NEW_LISTING":
@@ -31,12 +37,6 @@ const listingsReducer = (state = initialState, action) => {
                 listing: action.listing,
                 isLoading: false
             }
-
-        case "LOADING_LISTINGS":
-            return {
-                ...state,
-                isLoadingListings: true
-            };
             
         case "ADD_OPEN_LISTINGS":
             return {
@@ -44,6 +44,14 @@ const listingsReducer = (state = initialState, action) => {
                 listings: action.listings,
                 isLoadingListings: false,
                 hasListingChanged: false,
+            }
+
+        case "ADD_USER_CLOSED_LISTINGS":
+            return {
+                ...state,
+                listings: action.listings,
+                closedListingsRendered: true,
+                isLoadingListings: false
             }
 
         case "ADD_USER_INTERESTS_LISTINGS":
@@ -64,23 +72,11 @@ const listingsReducer = (state = initialState, action) => {
                 isLoadingListings: false
             }
 
-        case "LOADING_EXISTING_LISTING":
-            return {
-                ...state,
-                isLoading: true
-            }
-
         case "ADD_LISTING":
             return {
                 ...state,
                 listing: action.listing,
                 isLoading: false
-            }
-
-        case "LOADING_EDITED_LISTING":
-            return {
-                ...state,
-                isLoading: true
             }
 
         case "EDIT_LISTING":
@@ -91,26 +87,6 @@ const listingsReducer = (state = initialState, action) => {
                 hasListingChanged: true
             }
 
-        case "CLEAR_LOADING":
-            return {
-                ...state,
-                isLoading: false
-            }
-
-        case "REMOVE_USER_INTEREST_ON_LISTING":
-            return {
-                ...state,
-                listing: action.listing,
-                isLoading: false,
-                hasListingChanged: true
-            }
-
-        case "LOADING_NEW_INTEREST_ON_LISTING":
-            return {
-                ...state,
-                isLoading: true
-            }
-    
         case "ADD_USER_INTEREST_TO_LISTING":
             return {
                 ...state,
@@ -119,12 +95,12 @@ const listingsReducer = (state = initialState, action) => {
                 hasListingChanged: true
             }
 
-        case "ADD_USER_CLOSED_LISTINGS":
+        case "REMOVE_USER_INTEREST_ON_LISTING":
             return {
                 ...state,
-                listings: action.listings,
-                closedListingsRendered: true,
-                isLoadingListings: false
+                listing: action.listing,
+                isLoading: false,
+                hasListingChanged: true
             }
 
         case "LISTINGS_RENDERED_TRUE":

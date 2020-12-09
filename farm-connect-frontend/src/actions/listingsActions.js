@@ -22,7 +22,7 @@ export const fetchListings = () => {
 
 export const createListing = (payload, ownProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_NEW_LISTING"})
+        dispatch({type: "LOADING_LISTING"})
         fetch(`http://localhost:3000/api/v1/listings`, {
             method: "POST",
             headers: {
@@ -52,7 +52,7 @@ export const createListing = (payload, ownProps) => {
 
 export const fetchListing = (id) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_EXISTING_LISTING"})
+        dispatch({type: "LOADING_LISTING"})
         fetch(`http://localhost:3000/api/v1/listings/${id}`, {
             method: "GET",
             headers: {
@@ -109,7 +109,7 @@ export const fetchMyInterestsListings = (id) => {
 
 export const editListing = (listingId, payload, ownProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_EDITED_LISTING"});
+        dispatch({type: "LOADING_LISTING"});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
@@ -137,33 +137,9 @@ export const editListing = (listingId, payload, ownProps) => {
     }
 }
 
-export const removeUserListingInterest = (listingId, payload) => {
-    return (dispatch) => {
-        dispatch({type: "LOADING_EXISTING_LISTING"});
-        fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => response.json())
-        .then(json => {
-            dispatch({
-                type: "REMOVE_USER_INTEREST_ON_LISTING",
-                listing: json.data
-            });
-            dispatch(fetchListingsInterests());
-            // dispatch(refreshUser(payload.listing.currentUserId));
-            dispatch(fetchMyInterestsListings(payload.listing.currentUserId));
-        })
-    }
-}
-
 export const addUserListingInterest = (currentUserId, listingId) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_NEW_INTEREST_ON_LISTING"});
+        dispatch({type: "LOADING_LISTING"});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
@@ -181,6 +157,30 @@ export const addUserListingInterest = (currentUserId, listingId) => {
             dispatch(fetchListingsInterests());
             // dispatch(refreshUser(currentUserId));
             dispatch(fetchMyInterestsListings(currentUserId));
+        })
+    }
+}
+
+export const removeUserListingInterest = (listingId, payload) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_LISTING"});
+        fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(json => {
+            dispatch({
+                type: "REMOVE_USER_INTEREST_ON_LISTING",
+                listing: json.data
+            });
+            dispatch(fetchListingsInterests());
+            // dispatch(refreshUser(payload.listing.currentUserId));
+            dispatch(fetchMyInterestsListings(payload.listing.currentUserId));
         })
     }
 }
