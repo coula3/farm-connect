@@ -23,7 +23,7 @@ class Listings extends React.Component {
     componentDidMount(){
         this.switchListingsType();
         !this.props.commodities[0] && this.props.fetchCommodities();
-        this.props.fetchMyInterestsListings(this.props.userId);
+        !this.props.countUserInterestsListings && this.props.fetchMyInterestsListings(this.props.userId);
         this.props.errorMessages[0] && this.props.clearErrorMessages();
     }
 
@@ -290,7 +290,8 @@ const mapStateToProps = (state) => {
         errorMessages: state.errorMessages.errorMessages,
         openListingsRendered: state.listings.openListingsRendered,
         closedListingsRendered: state.listings.closedListingsRendered,
-        myInterestsRendered: state.listings.myInterestsRendered
+        myInterestsRendered: state.listings.myInterestsRendered,
+        countUserInterestsListings: state.listings.countUserInterestsListings
     }
 }
 
