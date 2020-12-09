@@ -134,7 +134,6 @@ const mapStateToProps = (state) => {
     farmerPhoto: state.farmers.photo,
     userPhoto: state.currentUser.photo,
     isLoadingUser: state.currentUser.isLoading,
-    // userInterestsListings: state.listings.userInterestsListings,
     listingsInterests: state.interests.listingsInterests,
     isLoadingInterests: state.interests.isLoadingInterests,
     openListingsRendered: state.listings.openListingsRendered,
