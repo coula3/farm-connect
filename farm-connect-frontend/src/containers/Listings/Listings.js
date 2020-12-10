@@ -249,7 +249,7 @@ class Listings extends React.Component {
                                 </>
                             :   <h4>No Closed Listing</h4>
 
-                        :   this.props.userAttributes.listings.every(listing => listing.closed === null) && this.props.match.path === paths().USER_CLOSED_LISTINGS_PATH
+                        :   this.props.userAttributes.listings.every(listing => listing.closed !== null) && this.props.match.path === paths().USER_CLOSED_LISTINGS_PATH
                             ?   <h4>No Closed Listing</h4>
                             :   <>
                                     <h3 id="category">{listingsCategory}</h3>
