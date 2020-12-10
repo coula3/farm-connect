@@ -173,7 +173,6 @@ class EditListing extends Component {
                                 measure={this.props.listing.attributes.measure}
                                 available={this.props.listing.attributes.available}
                                 information={this.props.listing.attributes.information}
-                                closed={this.props.listing.attributes.closed}
                                 listing={this.props.listing}
                                 commodities={this.props.commodities}
                                 errorMessages={this.props.errorMessages}

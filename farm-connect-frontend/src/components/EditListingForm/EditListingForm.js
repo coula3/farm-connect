@@ -65,7 +65,7 @@ const EditListingForm = props => (
 
             <p>
                 <label>Close Listing </label>
-                <input type="checkbox" name="closed" id="closeListing" value={props.closeListing(props.stringCurrentDate)} checked={props.closed === props.stringCurrentDate} onFocus={props.handleSwitchState} onChange={props.handleChange}/>
+                <input type="checkbox" name="closed" id="closeListing" value={props.closeListing(props.stringCurrentDate)} checked={props.closeListing(props.stringCurrentDate) !== props.stringCurrentDate} onFocus={props.handleSwitchState} onChange={props.handleChange}/>
             </p>
             <span id={props.warningMsgStyles}>{props.closeListingWarning()}</span>
 
