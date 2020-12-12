@@ -150,7 +150,7 @@ export const uploadPhoto = (photo, userId, ownProps) => {
     }
 }
 
-export const connectUsers = (currentUserId, connectId) => {
+export const requestConnect = (currentUserId, connectId) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users/${currentUserId}`, {
