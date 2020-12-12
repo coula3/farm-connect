@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :prospects
       resources :interests
       resources :photos
+      resources :connections
     end
   end
 end
