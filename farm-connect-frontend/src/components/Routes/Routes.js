@@ -49,6 +49,7 @@ const Routes = (props) => {
                 isLoadingFarmer={props.isLoadingFarmer}
                 userAttributes={props.userAttributes}
                 userId={props.userId}
+                userConnects={props.userConnects}
                 farmerPhoto={props.farmerPhoto}
                 requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} /> }
