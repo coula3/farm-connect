@@ -46,7 +46,7 @@ class Api::V1::UsersController < ApplicationController
             connect.destroy
             render json: { user: UserSerializer.new(user) }
         else
-            user.connections.create(connect_id: params[:connectId])
+            user.connections.create(connect_id: params[:connectId], status: "pending")
             render json: { user: UserSerializer.new(user) }
         end
     end
