@@ -9,6 +9,7 @@ import { fetchCommodities } from '../../actions/commoditiesActions';
 import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
+import { fetchMyConnects} from '../../actions/connectionsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { padIds, oneDay, paths, getFullName } from '../../utils/miscellaneousUtils';
 import './Listings.css';
@@ -31,6 +32,7 @@ class Listings extends React.Component {
             this.props.fetchListings();
             this.props.fetchProspects(this.props.userId);
             this.props.fetchListingsInterests();
+            this.props.fetchMyConnects(this.props.userId);
             this.props.listingsRendered();
     }
 
@@ -310,6 +312,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchUserClosedListings: (userId) => dispatch(listingsActions.fetchUserClosedListings(userId)),
         fetchUserInterestsListings: (userId) => dispatch(listingsActions.fetchUserInterestsListings(userId)),
         fetchMyInterestsListings: (userId) => dispatch(listingsActions.fetchMyInterestsListings(userId)),
+        fetchMyConnects: (userId) => dispatch(fetchMyConnects(userId)),
         listingsRendered: () => dispatch(listingsActions.listingsRendered()),
         listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
         deleteListing: (listingId) => dispatch(listingsActions.deleteListing(listingId))
