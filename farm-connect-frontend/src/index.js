@@ -21,7 +21,8 @@ const persistConfig = {
     "prospects",
     "interests",
     "errorMessages",
-    "searchUsers"
+    "searchUsers",
+    "connects"
   ]
 }
 
