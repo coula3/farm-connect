@@ -12,7 +12,7 @@ export const fetchMyConnects = (id) => {
         .then(json => {
             dispatch({
                 type: "ADD_USER_CONNECTS",
-                connects: json.data
+                userConnects: json.data
             });
         })
     }

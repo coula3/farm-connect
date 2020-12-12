@@ -1,6 +1,6 @@
 const initialState = {
     isLoading: false,
-    connects: {}
+    userConnects: {}
 }
 
 const connectionsReducer = (state=initialState, action) => {
@@ -14,7 +14,7 @@ const connectionsReducer = (state=initialState, action) => {
         case "ADD_USER_CONNECTS":
             return {
                 ...state,
-                connects: action.connects,
+                userConnects: action.userConnects,
                 isLoading: false
             }
         default:
