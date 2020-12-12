@@ -7,6 +7,7 @@ import prospectsReducer from './prospectsReducer';
 import { errorsReducer } from './errorsReducer';
 import { interestsReducer } from './interestsReducer';
 import searchUsersReducer from './searchUsersReducer';
+import connectionsReducer from './connectionsReducer';
 
 const rootReducer = combineReducers({
     currentUser: userReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     interests: interestsReducer,
     errorMessages: errorsReducer,
     searchUsers: searchUsersReducer,
+    connects: connectionsReducer
 })
 
 export default rootReducer;
