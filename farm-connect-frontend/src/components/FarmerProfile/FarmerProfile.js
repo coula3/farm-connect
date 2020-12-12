@@ -5,9 +5,8 @@ import { getDate, getFullName } from '../../utils/miscellaneousUtils';
 import './FarmerProfile.css';
 
 const FarmerProfile = (props) => {
-    const consolidatedConnects = [ ...props.userAttributes.connects, ...props.userAttributes.inverse_connects ];
-    const isConnected = consolidatedConnects.find(connect => {
-        return connect.id === parseInt(props.farmer.id);
+    const isConnected = props.userConnects.find(connect => {
+        return connect[0].connect_id === parseInt(props.farmer.id) && connect[0].status;
     });
 
     const farmerPhoto = (farmerPhoto) => {
@@ -26,7 +25,7 @@ const FarmerProfile = (props) => {
 
     const connectUnconnectUsers = (e, userId, farmerId) => {
         if(e.target.innerText === "Connect"){
-            props.connectUsers(userId, farmerId);
+            props.requestConnect(userId, farmerId);
         } else {
             props.unConnectUsers(userId, farmerId);
         }
