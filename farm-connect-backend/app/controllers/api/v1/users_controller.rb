@@ -32,22 +32,13 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update
-        connect = Connection.find_by(user_id: params[:id], connect_id: params[:connectId]) || Connection.find_by(user_id: params[:connectId], connect_id: params[:id])
         user = User.find_by(id: params[:id])
 
-        if !params.keys.include?("connectId")
-            update_user_profile(user)
-            if user.save
-                render json: { user: UserSerializer.new(user) }
-            else
-                render json: {messages: user.errors.full_messages}
-            end
-        elsif connect
-            connect.destroy
+        update_user_profile(user)
+        if user.save
             render json: { user: UserSerializer.new(user) }
         else
-            user.connections.create(connect_id: params[:connectId], status: "pending")
-            render json: { user: UserSerializer.new(user) }
+            render json: {messages: user.errors.full_messages}
         end
     end
 
