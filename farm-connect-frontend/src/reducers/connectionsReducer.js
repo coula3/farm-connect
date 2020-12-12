@@ -17,6 +17,28 @@ const connectionsReducer = (state=initialState, action) => {
                 userConnects: action.userConnects,
                 isLoading: false
             }
+
+        case "CONNECT_USERS":
+            return {
+                ...state,
+                userConnects: action.userConnects,
+                isLoading: false
+            }
+
+        case "ACCEPT_CONNECT":
+            return {
+                ...state,
+                userConnects: action.userConnects,
+                isLoading: false
+            }
+
+        case "UNCONNECT_USERS":
+            return {
+                ...state,
+                userConnects: action.userConnects,
+                isLoading: false
+            }
+
         default:
             return state
     }

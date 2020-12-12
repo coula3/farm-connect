@@ -52,6 +52,7 @@ const Routes = (props) => {
                 userConnects={props.userConnects}
                 farmerPhoto={props.farmerPhoto}
                 requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
+                acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} /> }
             />
             <Route exact path="/users/:id" render={ routerProps => <CurrentUser

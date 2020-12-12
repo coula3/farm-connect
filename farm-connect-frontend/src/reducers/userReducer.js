@@ -47,22 +47,6 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
-        case "CONNECT_USERS":
-            return {
-                ...state,
-                userId: action.user.data.id,
-                userAttributes: action.user.data.attributes,
-                isLoading: false
-            }
-
-        case "UNCONNECT_USERS":
-            return {
-                ...state,
-                userId: action.user.data.id,
-                userAttributes: action.user.data.attributes,
-                isLoading: false
-            }
-
         case "REFRESH_USER":
             return {
                 ...state,

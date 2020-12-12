@@ -6,7 +6,8 @@ import AppHeader from './components/AppHeader/AppHeader';
 import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
-import { signOutUser, requestConnect, unConnectUsers } from './actions/userActions';
+import { signOutUser } from './actions/userActions';
+import { requestConnect, acceptConnect, unConnectUsers } from './actions/connectionsActions';
 import * as listingsActions from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import { fetchFarmer } from './actions/farmersActions';
@@ -95,6 +96,7 @@ class App extends Component {
               removeUserListingInterest={(listingId, interestId, currentUserId) => this.handleRemoveUserListingInterest(listingId, interestId, currentUserId)}
               addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
               requestConnect={(currentUserId, connectId) => this.handleRequestConnect(currentUserId, connectId)}
+              acceptConnect={(currentUserId, connectId) => this.props.acceptConnect(currentUserId, connectId)}
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
               fetchListings={() => this.props.fetchListings()}
@@ -155,6 +157,7 @@ const mapDispatchToProps = (dispatch) => {
     addUserListingInterest: (currentUserId, listingId) => dispatch(listingsActions.addUserListingInterest(currentUserId, listingId)),
     fetchProspect: (id) => dispatch(fetchProspect(id)),
     requestConnect: (currentUserId, connectId) => dispatch(requestConnect(currentUserId, connectId)),
+    acceptConnect: (currentUserId, connectId) => dispatch(acceptConnect(currentUserId, connectId)),
     unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
     fetchListing: (id) => dispatch(listingsActions.fetchListing(id)),
     fetchUserClosedListings: (props) => dispatch(listingsActions.fetchUserClosedListings(props)),
