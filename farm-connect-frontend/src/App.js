@@ -6,7 +6,7 @@ import AppHeader from './components/AppHeader/AppHeader';
 import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
-import { signOutUser, connectUsers, unConnectUsers } from './actions/userActions';
+import { signOutUser, requestConnect, unConnectUsers } from './actions/userActions';
 import * as listingsActions from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import { fetchFarmer } from './actions/farmersActions';
@@ -32,8 +32,8 @@ class App extends Component {
     this.props.fetchProspect(id);
   }
 
-  handleConnectUsers = (currentUserId, connectId) => {
-    this.props.connectUsers(currentUserId, connectId);
+  handleRequestConnect = (currentUserId, connectId) => {
+    this.props.requestConnect(currentUserId, connectId);
   }
 
   handleUnconnectUsers = (currentUserId, connectId) => {
@@ -93,7 +93,7 @@ class App extends Component {
               userPhoto={this.props.userPhoto}
               removeUserListingInterest={(listingId, interestId, currentUserId) => this.handleRemoveUserListingInterest(listingId, interestId, currentUserId)}
               addUserListingInterest={(currentUserId, listingId) => this.handleAddUserListingInterest(currentUserId, listingId)}
-              connectUsers={(currentUserId, farmerId) => this.handleConnectUsers(currentUserId, farmerId)}
+              requestConnect={(currentUserId, connectId) => this.handleRequestConnect(currentUserId, connectId)}
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
               fetchListings={() => this.props.fetchListings()}
@@ -152,7 +152,7 @@ const mapDispatchToProps = (dispatch) => {
     removeUserListingInterest: (listingId, payload) => dispatch(listingsActions.removeUserListingInterest(listingId, payload)),
     addUserListingInterest: (currentUserId, listingId) => dispatch(listingsActions.addUserListingInterest(currentUserId, listingId)),
     fetchProspect: (id) => dispatch(fetchProspect(id)),
-    connectUsers: (currentUserId, connectId) => dispatch(connectUsers(currentUserId, connectId)),
+    requestConnect: (currentUserId, connectId) => dispatch(requestConnect(currentUserId, connectId)),
     unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
     fetchListing: (id) => dispatch(listingsActions.fetchListing(id)),
     fetchUserClosedListings: (props) => dispatch(listingsActions.fetchUserClosedListings(props)),

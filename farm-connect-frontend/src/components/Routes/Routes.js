@@ -50,7 +50,7 @@ const Routes = (props) => {
                 userAttributes={props.userAttributes}
                 userId={props.userId}
                 farmerPhoto={props.farmerPhoto}
-                connectUsers={(currentUserId, connectId) => props.connectUsers(currentUserId, connectId)}
+                requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} /> }
             />
             <Route exact path="/users/:id" render={ routerProps => <CurrentUser
@@ -66,7 +66,7 @@ const Routes = (props) => {
                 prospect={props.prospect}
                 userId={props.userId}
                 userAttributes={props.userAttributes}
-                connectUsers={(currentUserId, connectId) => props.connectUsers(currentUserId, connectId)}
+                requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} />}
             />
             <Route exact path="/users/:id/listings" component={Listings}/>
