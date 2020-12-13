@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const SignOut = () => {
     return (
-        <div style={{marginTop:"25px"}}>
-            You have successfully signed out!
-            <div style={{marginTop:"40px"}}>
+        <div style={{marginTop:"45px"}}>
+            You've been signed out!
+            <div style={{marginTop:"30px"}}>
                 <Link to="/">Home</Link>
             </div>
         </div>
