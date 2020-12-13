@@ -73,7 +73,10 @@ const SideNavBar = (props) => {
 
                 <br />
                 <p><Link to="#" id="my_connects_link">My Connects</Link><span id="my_connects_span">{totalConnects}</span></p>
-                <p><Link to="/connect-requests" className="requests_interests_links">Connect Requests</Link><span className="requests_interests_spans">{totalConnectRequests}</span></p>
+                {   totalConnectRequests
+                    ? <p><Link to="/connect-requests" className="requests_interests_links">Connect Requests</Link><span className="requests_interests_spans">{totalConnectRequests}</span></p>
+                    : null
+                }
                 <p><Link to="/listings/my-interests" className="requests_interests_links" onClick={() => handleFetchUserInterestsListings(props.userId)}>My Interests</Link><span className="requests_interests_spans">{totalInterests}</span></p>
 
                 <h4 id="search_h4">Search</h4>
