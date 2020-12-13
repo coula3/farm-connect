@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ConnectRequests.css';
+import './Connects.css';
 
-const ConnectRequests = (props) => {
-    const totalConnectRequests = props.userConnects.filter(connect => connect[0].status === "pending" && connect[0].user_id !== parseInt(props.userId));
+const Connects = (props) => {
+    const myConnects = !props.userConnects ? 0 : props.userConnects.filter(connect => connect[0].status === "accepted");
+    const connectRequests = props.userConnects.filter(connect => connect[0].status === "pending" && connect[0].user_id !== parseInt(props.userId));
+    const connects = props.match.path === "/my-connects" ? myConnects : connectRequests;
+    const headerText = props.match.path === "/my-connects" ? "My Connects" : "Connect Requests";
 
     const fetchProfile = (connectId, connectType) => {
         if(connectType === "Farmer"){
@@ -16,9 +19,9 @@ const ConnectRequests = (props) => {
     return (
         <div className="ConnectRequests_main_div">
             <div className="connect_requests_card">
-                <h3>Connect Requests</h3>
+                <h3>{headerText}</h3>
                 <ul id="connect_requests_ul">
-                    {totalConnectRequests.map(connect => 
+                    {connects.map(connect => 
                         <li id="connect_li" key={connect[0].id}><Link to={`/${connect[3].toLowerCase() + "s"}/${connect[0].user_id}`} onClick={() => fetchProfile(connect[0].user_id, connect[3])}>{connect[1]} {connect[2]}</Link><span id="user_list_type_span">{connect[3][0]}</span></li>)
                 }
                 </ul>
@@ -27,4 +30,4 @@ const ConnectRequests = (props) => {
     )
 }
 
-export default ConnectRequests;
+export default Connects;
