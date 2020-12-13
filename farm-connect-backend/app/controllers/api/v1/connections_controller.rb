@@ -1,10 +1,7 @@
 class Api::V1::ConnectionsController < ApplicationController
     def index
         user = User.find_by(id: params[:id])
-        consolidated_connections = user.connections << user.inverse_connections
-        user_connections = consolidated_connections.map { |connect| [connect, User.find(connect.connect_id).type] }
-
-        render json: { data: user_connections }
+        user_connections(user)
     end
 
     def update
@@ -15,10 +12,18 @@ class Api::V1::ConnectionsController < ApplicationController
             connect.update(status: "accepted")
         elsif connect
             connect.destroy
-            render json: { user: UserSerializer.new(user) }
         else
             user.connections.create(connect_id: params[:connectId], status: "pending")
-            render json: { user: UserSerializer.new(user) }
         end
+        user_connections(user)
+    end
+
+    private
+    def user_connections(user)
+        user_connections = user.connections.to_a.map { |connect| [connect, User.find(connect.connect_id).type] }
+        user_inverse_connections = user.inverse_connections.to_a.map { |connect| [connect, User.find(connect.user_id).type] }
+        consolidated_connections = user_connections.union(user_inverse_connections)
+
+        render json: { data: consolidated_connections }
     end
 end
