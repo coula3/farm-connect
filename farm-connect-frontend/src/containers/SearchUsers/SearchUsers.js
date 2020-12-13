@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import { searchUsers, clearSearchResults } from '../../actions/searchUsersActions';
-import './SearchUsers.css'
 import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspect } from '../../actions/prospectsActions';
+import './SearchUsers.css'
 
 class SearchUsers extends Component {
     state = {
@@ -68,10 +68,10 @@ class SearchUsers extends Component {
             });
 
             return (
-                <ol style={{padding:"0px 20px 0px 20px"}}>
+                <ol id="search_results_ul">
                     {   searchResults.data[0]
                             ?   sortedSearchResults.map((user, idx) =>
-                                <li key={user.id} style={{listStyle:"none"}}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                                <li id="search_result_li" key={user.id}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
                             : <h4 id="no_msg">No matching name</h4>
                     }
                 </ol>

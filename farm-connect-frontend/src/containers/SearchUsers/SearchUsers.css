@@ -31,3 +31,11 @@
     background-color: #3a5f0b;
     color: #FFF;
 }
+
+#search_results_ul {
+    padding: 0px 20px 0px 20px;
+}
+
+#search_result_li {
+    list-style: none;
+}
