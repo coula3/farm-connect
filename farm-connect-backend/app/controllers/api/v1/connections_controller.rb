@@ -20,8 +20,8 @@ class Api::V1::ConnectionsController < ApplicationController
 
     private
     def user_connections(user)
-        user_connections = user.connections.to_a.map { |connect| [connect, User.find(connect.connect_id).type] }
-        user_inverse_connections = user.inverse_connections.to_a.map { |connect| [connect, User.find(connect.user_id).type] }
+        user_connections = user.connections.to_a.map { |connect| [connect, User.find(connect.connect_id).first_name, User.find(connect.connect_id).last_name, User.find(connect.connect_id).type] }
+        user_inverse_connections = user.inverse_connections.to_a.map { |connect| [connect, User.find(connect.user_id).first_name, User.find(connect.user_id).last_name, User.find(connect.user_id).type] }
         consolidated_connections = user_connections.union(user_inverse_connections)
 
         render json: { data: consolidated_connections }
