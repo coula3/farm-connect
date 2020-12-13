@@ -72,7 +72,7 @@ const SideNavBar = (props) => {
                 { renderFarmerUserLinks() }
 
                 <br />
-                <p><Link to="#" id="my_connects_link">My Connects</Link><span id="my_connects_span">{totalConnects}</span></p>
+                <p><Link to="/my-connects" id="my_connects_link">My Connects</Link><span id="my_connects_span">{totalConnects}</span></p>
                 {   totalConnectRequests
                     ? <p><Link to="/connect-requests" className="requests_interests_links">Connect Requests</Link><span className="requests_interests_spans">{totalConnectRequests}</span></p>
                     : null
