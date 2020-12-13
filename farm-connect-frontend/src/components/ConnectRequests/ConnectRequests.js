@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ConnectRequests.css';
 
 const ConnectRequests = (props) => {
@@ -10,7 +11,8 @@ const ConnectRequests = (props) => {
                 <h3>Connect Requests</h3>
                 <ul id="connect_requests_ul">
                     {totalConnectRequests.map(connect => 
-                    <li id="connect_li" key={connect[0].id}>{connect[1]} {connect[2]}</li>)}
+                        <li id="connect_li" key={connect[0].id}><Link to={`/${connect[3].toLowerCase() + "s"}/${connect[0].user_id}`}>{connect[1]} {connect[2]}</Link></li>)
+                }
                 </ul>
             </div>
         </div>
