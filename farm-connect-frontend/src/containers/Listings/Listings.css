@@ -40,6 +40,10 @@
 }
 
 #view_btn_color {
+    background-color: #FFF;
+}
+
+#view_user_btn_color {
     background-color: #3a5f0b;
     color: #FFF;
 }

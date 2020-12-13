@@ -160,7 +160,7 @@ class Listings extends React.Component {
             const commodity = listing.attributes.commodity.name;
             let available;
             listing.attributes.available ? available = "✓" : available = "";
-            const viewButtonColor = parseInt(this.props.userId) === listing.attributes.user.id ? "view_btn_color" : null;
+            const viewButtonColor = parseInt(this.props.userId) === listing.attributes.user.id ? "view_user_btn_color" : "view_btn_color";
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
             const rowHighlight = listing.attributes.interests.length >= 5 ? "listings_td_g" : "listings_td";
             renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></div>;
