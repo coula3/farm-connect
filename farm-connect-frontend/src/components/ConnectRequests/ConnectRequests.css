@@ -21,4 +21,13 @@
 
 #connect_li {
     list-style: none;
+    padding-bottom: 3px;
+}
+
+#user_list_type_span {
+    padding: 1px 4px;
+    font-size: 10px;
+    margin-left: 10px;
+    border: solid 1px;
+    border-radius: 50%;
 }
