@@ -14,6 +14,7 @@ import EditUser from '../../containers/EditUser/EditUser';
 import SearchUsers from '../../containers/SearchUsers/SearchUsers';
 import TermsOfService from '../TermsOfService/TermsOfService';
 import NoMatch from '../NoMatch/NoMatch';
+import ConnectRequests from '../ConnectRequests/ConnectRequests';
 
 const Routes = (props) => {
     return (
@@ -75,6 +76,7 @@ const Routes = (props) => {
             <Route exact path="/farmers/:id/listings" component={Listings} />
             <Route exact path="/users/:id/edit" component={EditUser} />
             <Route exact path="/users/:id/closed-listings" component={Listings}/>
+            <Route exact path="/connect-requests" render={routerProps => <ConnectRequests {...routerProps} userId={props.userId} userConnects={props.userConnects} />} />
             <Route exact path="/terms-of-service" component={TermsOfService} />
             <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>
