@@ -27,7 +27,7 @@ class Api::V1::ProspectsController < ApplicationController
 
         connects = current_user.connects.map(&:id)
         inverse_connects = current_user.inverse_connects.map(&:id)
-        consolidated_connects = connects.concat(inverse_connects)
+        consolidated_connects = connects.dup.concat(inverse_connects)
 
         suggested_prospects = prospects_ids.reject {|prospect| consolidated_connects.include?(prospect)}.shuffle.sample(5)
     end
