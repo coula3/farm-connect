@@ -7,9 +7,9 @@ import './FarmerProfile.css';
 const FarmerProfile = (props) => {
     let usersConnected, pendingAcceptance;
 
-    const connectionByUser = !props.userConnects ? false : props.userConnects.find(connect => {
-        return connect[0].user_id === parseInt(props.userId) && connect[0].connect_id === parseInt(props.farmer.id);
-    });
+    const isCurrentUser = (farmerId) => {
+        return props.userId === farmerId;
+    }
 
     if(!props.userConnects){
         usersConnected = false;
@@ -25,12 +25,12 @@ const FarmerProfile = (props) => {
         });
     }
 
+    const connectionByUser = !props.userConnects ? false : props.userConnects.find(connect => {
+        return connect[0].user_id === parseInt(props.userId) && connect[0].connect_id === parseInt(props.farmer.id);
+    });
+
     const farmerPhoto = (farmerPhoto) => {
        return `http://localhost:3000/${farmerPhoto}`;
-    }
-
-    const isCurrentUser = (farmerId) => {
-        return props.userId === farmerId;
     }
 
     const displayMyOrName = (farmerId) => {
@@ -44,7 +44,6 @@ const FarmerProfile = (props) => {
             props.requestConnect(userId, farmerId);
         } else if(e.target.innerText === "Accept"){
             props.acceptConnect(userId, farmerId);
-            console.log("Accept")
         } else {
             props.unConnectUsers(userId, farmerId);
         }
