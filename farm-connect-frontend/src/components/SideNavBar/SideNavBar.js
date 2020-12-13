@@ -57,6 +57,14 @@ const SideNavBar = (props) => {
         }
     }
 
+    const renderMyConnectsLink = () => {
+        if(totalConnects === 0){
+            return <p className="my_connects_tags">My Connects<span id="my_connect_space_span"></span><span className="my_connects_span">{totalConnects}</span></p>
+        } else {
+            return <p><Link to="/my-connects" className="my_connects_tags">My Connects</Link><span className="my_connects_span">{totalConnects}</span></p>
+        }
+    }
+
     return (
         <div>
             <div className="SideNavBar_main_div">
@@ -72,7 +80,7 @@ const SideNavBar = (props) => {
                 { renderFarmerUserLinks() }
 
                 <br />
-                <p><Link to="/my-connects" id="my_connects_link">My Connects</Link><span id="my_connects_span">{totalConnects}</span></p>
+                { renderMyConnectsLink() }
                 {   totalConnectRequests
                     ? <p><Link to="/connect-requests" className="requests_interests_links">Connect Requests</Link><span className="requests_interests_spans">{totalConnectRequests}</span></p>
                     : null
