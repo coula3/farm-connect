@@ -100,6 +100,7 @@ class App extends Component {
               acceptConnect={(currentUserId, connectId) => this.props.acceptConnect(currentUserId, connectId)}
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
+              fetchProspect={(prospectId) => this.props.fetchProspect(prospectId)}
               fetchListings={() => this.props.fetchListings()}
             />
 
@@ -156,7 +157,6 @@ const mapDispatchToProps = (dispatch) => {
     signOutUser: () => dispatch(signOutUser()),
     removeUserListingInterest: (listingId, payload) => dispatch(listingsActions.removeUserListingInterest(listingId, payload)),
     addUserListingInterest: (currentUserId, listingId) => dispatch(listingsActions.addUserListingInterest(currentUserId, listingId)),
-    fetchProspect: (id) => dispatch(fetchProspect(id)),
     requestConnect: (currentUserId, connectId) => dispatch(requestConnect(currentUserId, connectId)),
     acceptConnect: (currentUserId, connectId) => dispatch(acceptConnect(currentUserId, connectId)),
     unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
@@ -166,6 +166,7 @@ const mapDispatchToProps = (dispatch) => {
     listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
     fetchListings: () => dispatch(listingsActions.fetchListings()),
     fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
+    fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId)),
     fetchListingsInterests: () => dispatch(fetchListingsInterests()),
     fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id))
   };

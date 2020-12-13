@@ -76,7 +76,13 @@ const Routes = (props) => {
             <Route exact path="/farmers/:id/listings" component={Listings} />
             <Route exact path="/users/:id/edit" component={EditUser} />
             <Route exact path="/users/:id/closed-listings" component={Listings}/>
-            <Route exact path="/connect-requests" render={routerProps => <ConnectRequests {...routerProps} userId={props.userId} userConnects={props.userConnects} />} />
+            <Route exact path="/connect-requests" render={routerProps => <ConnectRequests
+                {...routerProps}
+                userId={props.userId}
+                userConnects={props.userConnects}
+                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
+                fetchProspect={(prospectId) => props.fetchProspect(prospectId)} />}
+            />
             <Route exact path="/terms-of-service" component={TermsOfService} />
             <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>
