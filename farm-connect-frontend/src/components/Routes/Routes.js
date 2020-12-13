@@ -14,7 +14,7 @@ import EditUser from '../../containers/EditUser/EditUser';
 import SearchUsers from '../../containers/SearchUsers/SearchUsers';
 import TermsOfService from '../TermsOfService/TermsOfService';
 import NoMatch from '../NoMatch/NoMatch';
-import ConnectRequests from '../ConnectRequests/ConnectRequests';
+import Connects from '../Connects/Connects';
 
 const Routes = (props) => {
     return (
@@ -76,7 +76,14 @@ const Routes = (props) => {
             <Route exact path="/farmers/:id/listings" component={Listings} />
             <Route exact path="/users/:id/edit" component={EditUser} />
             <Route exact path="/users/:id/closed-listings" component={Listings}/>
-            <Route exact path="/connect-requests" render={routerProps => <ConnectRequests
+            <Route exact path="/connect-requests" render={routerProps => <Connects
+                {...routerProps}
+                userId={props.userId}
+                userConnects={props.userConnects}
+                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
+                fetchProspect={(prospectId) => props.fetchProspect(prospectId)} />}
+            />
+            <Route exact path="/my-connects" render={routerProps => <Connects
                 {...routerProps}
                 userId={props.userId}
                 userConnects={props.userConnects}
