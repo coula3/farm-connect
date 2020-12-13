@@ -19,16 +19,12 @@
     margin-top: 15px;
 }
 
-.connect_btn_div {
-    padding-top: 15px;
-}
-
 #listing_btn_div {
     margin-top: 10px;
 }
 
-#listing_btn {
-    width: 100px;
+#listings_btn {
+    width: 140px;
 }
 
 .farmer_profile_card {
