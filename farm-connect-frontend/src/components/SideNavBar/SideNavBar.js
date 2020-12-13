@@ -4,7 +4,7 @@ import { paths } from '../../utils/miscellaneousUtils';
 import './SideNavBar.css';
 
 const SideNavBar = (props) => {
-    const totalConnects = props.userAttributes.connects.length + props.userAttributes.inverse_connects.length;
+    const totalConnects = !props.userConnects ? 0 : props.userConnects.filter(connect => connect[0].status === "accepted").length;
     const totalInterests = props.countUserInterestsListings;
 
 
