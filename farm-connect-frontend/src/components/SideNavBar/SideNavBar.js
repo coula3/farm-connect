@@ -5,8 +5,8 @@ import './SideNavBar.css';
 
 const SideNavBar = (props) => {
     const totalConnects = !props.userConnects ? 0 : props.userConnects.filter(connect => connect[0].status === "accepted").length;
+    const totalConnectRequests = !props.userConnects ? 0 : props.userConnects.filter(connect => connect[0].status === "pending" && connect[0].user_id !== parseInt(props.userId)).length;
     const totalInterests = props.countUserInterestsListings;
-
 
     const handleFetchListings = () => {
         if(!props.openListingsRendered || props.hasListingChanged){
@@ -73,10 +73,11 @@ const SideNavBar = (props) => {
 
                 <br />
                 <p><Link to="#" id="my_connects_link">My Connects</Link><span id="my_connects_span">{totalConnects}</span></p>
-                <p><Link to="/listings/my-interests" id="my_interests_link" onClick={() => handleFetchUserInterestsListings(props.userId)}>My Interests</Link><span id="my_interests_span">{totalInterests}</span></p>
+                <p><Link to="/connect-requests" className="requests_interests_links">Connect Requests</Link><span className="requests_interests_spans">{totalConnectRequests}</span></p>
+                <p><Link to="/listings/my-interests" className="requests_interests_links" onClick={() => handleFetchUserInterestsListings(props.userId)}>My Interests</Link><span className="requests_interests_spans">{totalInterests}</span></p>
 
-                <h4 style={{margin: "35px 0px 0px 0px", color: "#3a5f0b"}}>Search</h4>
-                <p style={{marginTop: "10px"}}><Link to="/users/search-farmers" onClick={handleRemoveMsgHeader}>Farmers</Link> | <Link to="/users/search-prospects" onClick={handleRemoveMsgHeader}>Prospects</Link></p>
+                <h4 id="search_h4">Search</h4>
+                <p id="search_links_p"><Link to="/users/search-farmers" onClick={handleRemoveMsgHeader}>Farmers</Link> | <Link to="/users/search-prospects" onClick={handleRemoveMsgHeader}>Prospects</Link></p>
 
                 <br />
                 <p id="signout_p"><Link to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link></p>

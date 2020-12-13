@@ -41,10 +41,6 @@
     color: #3a5f0b;
 }
 
-#my_interests_link {
-    padding-right: 10px;
-}
-
 #my_connects_span {
     font-size: 12px;
     padding: 2px 6px;
@@ -54,7 +50,11 @@
     color:  #663300;
 }
 
-#my_interests_span {
+.requests_interests_links {
+    padding-right: 10px;
+}
+
+.requests_interests_spans {
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 5px;
@@ -62,6 +62,15 @@
     border: solid 1px;
     color: #FFF;
     background-color: #3a5f0b;
+}
+
+#search_h4 {
+    margin: 35px 0px 0px 0px; 
+    color: #3a5f0b;
+}
+
+#search_links_p {
+    margin-top: 10px;
 }
 
 #signout_p {
