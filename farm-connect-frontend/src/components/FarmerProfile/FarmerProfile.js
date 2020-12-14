@@ -36,7 +36,7 @@ const FarmerProfile = (props) => {
     const displayMyOrName = (farmerId) => {
         let listingPluralized;
         props.farmer.attributes.listings.length > 1 ? listingPluralized = "Listings" : listingPluralized = "Listing";
-        return isCurrentUser(farmerId) ? `My ${listingPluralized}` : `${listingPluralized}`;
+        return isCurrentUser(farmerId) ? `My ${listingPluralized}` : `Farmer's ${listingPluralized}`;
     }
 
     const connectUnconnectUsers = (e, userId, farmerId) => {
