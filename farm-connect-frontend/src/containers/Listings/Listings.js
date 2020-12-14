@@ -153,6 +153,13 @@ class Listings extends React.Component {
             listings = sortedListings;
         }
 
+        let searchInputPlaceholderTexts;
+        if(this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH){
+            searchInputPlaceholderTexts = "search commodity or farmer";
+        } else {
+            searchInputPlaceholderTexts = "search commodity";
+        }
+
         const renderListings = listings.map(listing => {
             const listDate = listing.attributes.date.slice(0, 10);
             firstName = listing.attributes.user.first_name;
@@ -275,7 +282,7 @@ class Listings extends React.Component {
 
                                     { !this.props.listings[0]
                                         ? null
-                                        : <input id="listings_search_input" type="text" placeholder="enter search text" value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
+                                        : <input id="listings_search_input" type="text" placeholder={searchInputPlaceholderTexts} value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
                                     }
 
                                     {this.props.listings[0] && renderListingsTable()}
