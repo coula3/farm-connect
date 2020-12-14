@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Connects.css';
 
 const Connects = (props) => {
+    const headerStyles = props.match.path === "/my-connects" ? "my_connect_h3 connects_h3" : "connects_h3";
     const myConnects = !props.userConnects ? 0 : props.userConnects.filter(connect => connect[0].status === "accepted");
     const connectRequests = props.userConnects.filter(connect => connect[0].status === "pending" && connect[0].user_id !== parseInt(props.userId));
     const connects = props.match.path === "/my-connects" ? myConnects : connectRequests;
@@ -30,7 +31,7 @@ const Connects = (props) => {
     return (
         <div className="ConnectRequests_main_div">
             <div className="connect_requests_card">
-                <h3>{headerText}</h3>
+                <h3 className={headerStyles}>{headerText}</h3>
                 <ul id="connect_requests_ul">
                     {   sortedConnects.map(connect =>
                             renderRequestsList(connect))

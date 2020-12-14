@@ -19,6 +19,15 @@
     padding: 0px 20px 0px 20px;
 }
 
+.my_connect_h3 {
+    color: #3a5f0b;
+}
+
+.connects_h3 {
+    font-family: Satisfy;
+    font-size: 24px;
+}
+
 #connect_li {
     list-style: none;
     padding-bottom: 3px;
