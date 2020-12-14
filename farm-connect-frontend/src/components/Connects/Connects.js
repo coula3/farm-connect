@@ -23,8 +23,8 @@ const Connects = (props) => {
     
     const renderRequestsList = (connect) => {
         const connectId = connect[0].user_id === parseInt(props.userId) ? connect[0].connect_id : connect[0].user_id;
-
-        return <li id="connect_li" key={connect[0].id}><Link to={`/${connect[3].toLowerCase() + "s"}/${connectId}`} onClick={() => fetchProfile(connectId, connect[3])}>{connect[1]} {connect[2]}</Link><span id="user_list_type_span">{connect[3][0]}</span></li>;
+        const spanStyle = connect[3] === "Farmer" ? "user_list_type_span user_list_type_span_f" : "user_list_type_span";
+        return <li id="connect_li" key={connect[0].id}><Link to={`/${connect[3].toLowerCase() + "s"}/${connectId}`} onClick={() => fetchProfile(connectId, connect[3])}>{connect[1]} {connect[2]}</Link><span className={spanStyle}>{connect[3][0]}</span></li>;
     }
 
     return (

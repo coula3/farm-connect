@@ -24,10 +24,17 @@
     padding-bottom: 3px;
 }
 
-#user_list_type_span {
+.user_list_type_span {
     padding: 1px 4px;
     font-size: 10px;
+    font-weight: bold;
     margin-left: 10px;
     border: solid 1px;
     border-radius: 50%;
+}
+
+.user_list_type_span_f {
+    background-color:  #3a5f0b;
+    color: #FFF;
+    padding: 2.5px 6px;
 }
