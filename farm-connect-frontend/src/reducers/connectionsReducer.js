@@ -1,6 +1,6 @@
 const initialState = {
     isLoading: false,
-    userConnects: {}
+    userConnects: null
 }
 
 const connectionsReducer = (state=initialState, action) => {
@@ -37,6 +37,13 @@ const connectionsReducer = (state=initialState, action) => {
                 ...state,
                 userConnects: action.userConnects,
                 isLoading: false
+            }
+
+        case "CLEAR_CONNECTIONS":
+            return {
+                ...state,
+                isLoading: false,
+                userConnects: null
             }
 
         default:

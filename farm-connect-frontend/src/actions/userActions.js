@@ -141,6 +141,7 @@ export const signOutUser = () => {
         dispatch({type: "CLEAR_FARMER"});
         dispatch({type: "CLEAR_PROSPECTS"});
         dispatch({type: "CLEAR_INTERESTS"});
+        dispatch({type: "CLEAR_CONNECTIONS"});
         dispatch({type: "CLEAR_ERROR_MESSAGES"});
     }
 }
