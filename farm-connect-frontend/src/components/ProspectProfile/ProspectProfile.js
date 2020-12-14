@@ -5,24 +5,39 @@ import { getFullName, getDate } from '../../utils/miscellaneousUtils';
 import './ProspectProfile.css';
 
 const ProspectProfile = (props) => {
-    const consolidatedConnects = [ ...props.userAttributes.connects, ...props.userAttributes.inverse_connects ];
-    const isConnected = (prospectId) => {
-        return consolidatedConnects.find(connect => {
-            return connect.id === parseInt(prospectId);
-        });
-    }
-
-    const prospectPhoto = (prospectPhoto) => {
-        return `http://localhost:3000/${prospectPhoto}`;
-    }
+    let usersConnected, pendingAcceptance;
 
     const isCurrentUser = (prospectId) => {
         return props.userId === prospectId;
     }
 
+    if(!props.userConnects){
+        usersConnected = false;
+    } else {
+        props.userConnects.find(connect => {
+            return usersConnected = (connect[0].connect_id === parseInt(props.prospect.id) || connect[0].user_id === parseInt(props.prospect.id)) && connect[0].status;
+        });
+    }
+
+    if(props.userConnects){
+        props.userConnects.find(connect => {
+            return pendingAcceptance = (connect[0].connect_id === parseInt(props.prospect.id) || connect[0].user_id === parseInt(props.prospect.id)) && connect[0].status === "pending";
+        });
+    }
+
+    const connectionByUser = !props.userConnects ? false : props.userConnects.find(connect => {
+        return connect[0].user_id === parseInt(props.userId) && connect[0].connect_id === parseInt(props.prospect.id);
+    });
+
+    const prospectPhoto = (prospectPhoto) => {
+        return `http://localhost:3000/${prospectPhoto}`;
+    }
+
     const connectUnconnectUsers = (e, userId, prospectId) => {
-        if(e.target.innerText === "Connect"){
-            props.connectUsers(userId, prospectId);
+        if(e.target.innerText === "Request Connect"){
+            props.requestConnect(userId, prospectId);
+        } else if(e.target.innerText === "Accept"){
+            props.acceptConnect(userId, prospectId);
         } else {
             props.unConnectUsers(userId, prospectId);
         }
@@ -49,9 +64,16 @@ const ProspectProfile = (props) => {
                         <p><label><strong>Joined:</strong> </label>{getDate(props.prospect.attributes.created_at)}</p>
 
                         { !isCurrentUser(props.prospect.id)
-                            ?   !isConnected(props.prospect.id)
-                                ?   <div className="connect_btn_div"><button className="global_btn connect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Connect</button></div>
-                                :   <div className="connect_btn_div"><button className="unconnect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button></div>
+                            ?   !usersConnected
+                                ?   <button className="global_btn request_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Request Connect</button>
+                                    :    pendingAcceptance && !connectionByUser
+                                        ?   <>
+                                                <button className="global_btn accept_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Accept</button>
+                                                <button className="global_btn decline_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Decline</button>
+                                            </>
+                                                :   pendingAcceptance && connectionByUser
+                                                    ?   <button className="global_btn cancel_request_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Cancel Request</button>
+                                                        :   <div className="connect_btn_div"><button className="unconnect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button></div>
                             :   null
                         }
                     </div>
