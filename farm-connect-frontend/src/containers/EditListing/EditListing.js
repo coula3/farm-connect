@@ -177,8 +177,6 @@ class EditListing extends Component {
                                 commodities={this.props.commodities}
                                 errorMessages={this.props.errorMessages}
                                 maxXterColor={maxXterColor}
-                                // disableMeasure={this.state.disableMeasure}
-                                // enableDisableMeasure={this.enableDisableMeasure}
                                 maxInfoCharacters={this.state.maxInfoCharacters}
                                 setUpdateBtnColor={() => this.setUpdateBtnColor()}
                                 editMode={this.state.editMode}
