@@ -63,6 +63,10 @@ code {
   width: 100px;
 }
 
+.join_date_p {
+  margin-bottom: 30px;
+}
+
 .update_btn {
   padding: 6px 0px;
   background-color: #3a5f0b;

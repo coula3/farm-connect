@@ -61,7 +61,7 @@ const ProspectProfile = (props) => {
                         <p><label><strong>Name:</strong> </label>{getFullName(props.prospect.attributes.first_name, props.prospect.attributes.last_name)}</p>
                         <p><label><strong>Email:</strong> </label>{props.prospect.attributes.email.toLowerCase()}</p>
                         <br />
-                        <p><label><strong>Joined:</strong> </label>{getDate(props.prospect.attributes.created_at)}</p>
+                        <p className="join_date_p"><label><strong>Joined:</strong> </label>{getDate(props.prospect.attributes.created_at)}</p>
 
                         { !isCurrentUser(props.prospect.id)
                             ?   !usersConnected
