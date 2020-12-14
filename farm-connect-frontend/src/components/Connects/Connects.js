@@ -7,6 +7,11 @@ const Connects = (props) => {
     const connectRequests = props.userConnects.filter(connect => connect[0].status === "pending" && connect[0].user_id !== parseInt(props.userId));
     const connects = props.match.path === "/my-connects" ? myConnects : connectRequests;
     const headerText = props.match.path === "/my-connects" ? "My Connects" : "Connect Requests";
+    const sortedConnects = [...connects].sort((a, b) => {
+        if(a[1] < b[1]) { return -1 };
+        if(a[1] > b[1]) { return 1 };
+        return 0;
+    });
 
     const fetchProfile = (connectId, connectType) => {
         if(connectType === "Farmer"){
@@ -27,8 +32,8 @@ const Connects = (props) => {
             <div className="connect_requests_card">
                 <h3>{headerText}</h3>
                 <ul id="connect_requests_ul">
-                    {connects.map(connect => 
-                        renderRequestsList(connect))
+                    {   sortedConnects.map(connect =>
+                            renderRequestsList(connect))
                     }
                 </ul>
             </div>
