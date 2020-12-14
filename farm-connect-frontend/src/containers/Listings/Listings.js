@@ -164,6 +164,8 @@ class Listings extends React.Component {
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
             const rowHighlight = listing.attributes.interests.length >= 5 ? "listings_td_g" : "listings_td";
             renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={() => this.handleFetchFarmer(userId)}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></div>;
+            const connectedToUser = this.props.userConnects.length > 0 && this.props.userConnects.filter(connect => connect[0].status === "accepted").find(connect => (listing.attributes.user_id !== parseInt(this.props.userId) && listing.attributes.user_id === connect[0].user_id) || (listing.attributes.user_id !== parseInt(this.props.userId) && listing.attributes.user_id === connect[0].connect_id));
+            const renderConnectSymbol = connectedToUser ? <span id="connect_span_global"><span id="connect_span1"></span><span id="connect_span2"></span></span> : null;
 
             return (
                 <tr key={listing.id} id={rowHighlight} className="listings_th_td" onDoubleClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>
@@ -172,7 +174,7 @@ class Listings extends React.Component {
                     <td>{commodity}</td>
 
                     { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH
-                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`} onClick={this.handleFetchListings}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></td>
+                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`} onClick={this.handleFetchListings}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link>{renderConnectSymbol}</td>
                         :   null
                     }
 
@@ -296,7 +298,8 @@ const mapStateToProps = (state) => {
         openListingsRendered: state.listings.openListingsRendered,
         closedListingsRendered: state.listings.closedListingsRendered,
         myInterestsRendered: state.listings.myInterestsRendered,
-        countUserInterestsListings: state.listings.countUserInterestsListings
+        countUserInterestsListings: state.listings.countUserInterestsListings,
+        userConnects: state.connects.userConnects
     }
 }
 
