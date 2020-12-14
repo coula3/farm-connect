@@ -47,12 +47,6 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
-        case "REFRESH_USER":
-            return {
-                ...state,
-                userAttributes: action.user.data.attributes,
-            }
-
         case "SIGN_OUT":
             return {
                 ...state,
