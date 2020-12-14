@@ -16,11 +16,11 @@ const HeadNavBar = (props) => {
     return (
         <div className="HeaderNavBar_main_div">
             { props.userPhoto
-                ?   <img className="header_img" src={userPhoto(props.userPhoto)} alt="user avatar" />
-                :   <img className="header_img" src={avatar} alt="anonymous avatar" />
+                ?   <span className="header_img_span"><img className="header_img" src={userPhoto(props.userPhoto)} alt="user avatar" /></span>
+                :   <span className="header_img_span"><img className="header_img" src={avatar} alt="anonymous avatar" /></span>
             }
             <Link id="hnb_name_link" to={`/users/${props.userId}`} title="View Profile">{getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}</Link>
-            <span id="user_type_span"><strong>{userType(props.userAttributes.type)}</strong></span>
+            <span id="user_type_global_span"><span id="user_type_span"><strong>{userType(props.userAttributes.type)}</strong></span></span>
             <Link id="signout_link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut}>Sign Out</Link>
         </div>
     )
