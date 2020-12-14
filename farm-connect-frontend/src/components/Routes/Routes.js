@@ -69,7 +69,9 @@ const Routes = (props) => {
                 prospect={props.prospect}
                 userId={props.userId}
                 userAttributes={props.userAttributes}
+                userConnects={props.userConnects}
                 requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
+                acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} />}
             />
             <Route exact path="/users/:id/listings" component={Listings}/>
