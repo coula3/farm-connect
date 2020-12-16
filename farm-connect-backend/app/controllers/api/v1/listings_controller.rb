@@ -61,7 +61,7 @@ class Api::V1::ListingsController < ApplicationController
         listing =  Listing.find_by(id: params[:id])
         user = Listing.find_by(id: params[:id]).user
 
-        if listing.destroy
+        if listing && listing.destroy
             render json: { user: UserSerializer.new(user), messages: ["Delete successful"] }
         else
             render json: { messages: ["Delete unsuccesful"] }
