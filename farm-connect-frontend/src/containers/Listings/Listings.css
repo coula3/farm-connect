@@ -1,6 +1,7 @@
 .Listings_main_div {
     display: inline;
     float: left;
+    min-height: 65.5vh;
     width: 57.6%;
     margin-left: 1.2%;
     margin-right: 1.2%;
