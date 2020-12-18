@@ -1,5 +1,13 @@
 import React from 'react';
 
+export const setFocusSignIn = () => {
+    const emailInput = document.getElementById("signin-email");
+    const emailPassword = document.getElementById("signin-password");
+    emailInput.focus();
+    emailInput.style.cssText = "border-color: red";
+    emailPassword.style.cssText = "border-color: red";
+}
+
 export const firstNameError = (errorMessages) => {
     const firstName = errorMessages.filter( msg => msg.startsWith("First name"));
 
