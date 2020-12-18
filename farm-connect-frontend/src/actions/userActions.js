@@ -37,6 +37,7 @@ export const signInUser = (payload, ownProps) => {
                 type: "ADD_ERROR_MESSAGES",
                 errorMessages: "email and password required"
             })
+            document.getElementById("signin-email").focus();
         } else {
             dispatch({type: "LOADING_USER"});
             fetch(`http://localhost:3000/api/v1/signin`, {
