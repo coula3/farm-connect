@@ -28,7 +28,7 @@ class SignUp extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signUpUser(this.state);
+        this.props.signUpUser(this.state, this.props.errorMessages);
 
         this.setState({
             user: {
@@ -50,7 +50,19 @@ class SignUp extends Component {
     render(){
         return(
             <div className="main_div">
-                <SignUpForm firstName={this.state.user.firstName} lastName={this.state.user.lastName} dateOfBirth={this.state.user.dateOfBirth} email={this.state.user.email} password={this.state.user.password} type={this.state.user.type} errorMessages={this.props.errorMessages} handleSubmit={this.handleSubmit} handleChange={this.handleChange} handleSwitchToSignUp={this.handleSwitchToSignUp} />
+                <SignUpForm
+                    firstName={this.state.user.firstName}
+                    lastName={this.state.user.lastName}
+                    dateOfBirth={this.state.user.dateOfBirth}
+                    email={this.state.user.email}
+                    password={this.state.user.password}
+                    type={this.state.user.type}
+                    errorMessages={this.props.errorMessages}
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
+                    handleSwitchToSignUp={this.handleSwitchToSignUp}
+                />
+
                 <button className="SignUp_signin_button" onClick={this.handleSwitchToSignIn}>Sign In</button>
             </div>
         )
@@ -69,7 +81,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        signUpUser: (payload) => dispatch(signUpUser(payload, ownProps)),
+        signUpUser: (payload, errorMessages) => dispatch(signUpUser(payload, errorMessages, ownProps)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
