@@ -5,16 +5,21 @@ import * as messages from '../../utils/errorsUtils/userErrors';
 const SignUpForm = props => (
     <>
         <form id="signup_form" onSubmit={props.handleSubmit}>
-            <p className="inputs_p"><input className="sign_up_in_input" type="text" name="firstName" placeholder="first name" value={props.firstName} onChange={props.handleChange} /></p>
+            <p className="inputs_p"><input id="signup_firstname_input" className="sign_up_in_input" type="text" name="firstName" placeholder="first name" value={props.firstName} onChange={props.handleChange} /></p>
             <p className="errors_p errors_p_margin">{messages.firstNameError(props.errorMessages)}</p>
-            <p className="inputs_p"><input className="sign_up_in_input" type="text" name="lastName" placeholder="last name" value={props.lastName} onChange={props.handleChange} /></p>
+
+            <p className="inputs_p"><input id="signup_lastname_input" className="sign_up_in_input" type="text" name="lastName" placeholder="last name" value={props.lastName} onChange={props.handleChange} /></p>
             <p className="errors_p errors_p_margin">{messages.lastNameError(props.errorMessages)}</p>
-            <p id="dob_p"><span id="dob_span">date of birth</span><input id="dob_input" type="date" name="dateOfBirth" value={props.dateOfBirth} onChange={props.handleChange} /></p>
+
+            <p id="dob_p"><span id="dob_span">date of birth</span><input id="signup_dob_input" type="date" name="dateOfBirth" value={props.dateOfBirth} onChange={props.handleChange} /></p>
             <p className="errors_p errors_p_margin">{messages.dateOfBirthError(props.errorMessages)}</p>
-            <p className="inputs_p"><input className="sign_up_in_input" type="text" name="email" placeholder="email" value={props.email} onChange={props.handleChange} /></p>
+
+            <p className="inputs_p"><input id="signup_email_input" className="sign_up_in_input" type="text" name="email" placeholder="email" value={props.email} onChange={props.handleChange} /></p>
             <p className="errors_p errors_p_margin">{messages.emailError(props.errorMessages)}</p>
-            <p className="inputs_p"><input className="sign_up_in_input" type="password" name="password" placeholder="password" value={props.password} onChange={props.handleChange} /></p>
+
+            <p className="inputs_p"><input id="signup_password_input" className="sign_up_in_input" type="password" name="password" placeholder="password" value={props.password} onChange={props.handleChange} /></p>
             <p className="errors_p errors_p_margin">{messages.passwordError(props.errorMessages)}</p>
+
             <div id="type_div">
                 <div id="farmer_type_div">
                     <label className="type_lbl" htmlFor="farmer">farmer</label>
