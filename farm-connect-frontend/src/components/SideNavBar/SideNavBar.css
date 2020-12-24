@@ -5,6 +5,7 @@
     height: 68vh;
     background-color: #FFF;
     border-radius: 15px;
+    position: relative;
 }
 
 #my_listings_span {
@@ -77,6 +78,11 @@
     margin-top: 10px;
 }
 
-#signout_p {
-    position: relative;
+#bottom_signout_link {
+    position: absolute;
+    display: block;
+    margin-bottom: 20px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

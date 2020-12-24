@@ -90,8 +90,7 @@ const SideNavBar = (props) => {
                 <h4 id="search_h4">Search</h4>
                 <p id="search_links_p"><Link to="/users/search-farmers" onClick={handleRemoveMsgHeader}>Farmers</Link> | <Link to="/users/search-prospects" onClick={handleRemoveMsgHeader}>Prospects</Link></p>
 
-                <br />
-                <p id="signout_p"><Link to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link></p>
+                <Link id="bottom_signout_link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link>
             </div>
         </div>
     )
