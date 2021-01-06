@@ -33,7 +33,7 @@ const FarmerProfile = (props) => {
        return `http://localhost:3000/${farmerPhoto}`;
     }
 
-    const displayMyOrName = (farmerId) => {
+    const displayMyOrFarmer = (farmerId) => {
         let listingPluralized;
         props.farmer.attributes.listings.length > 1 ? listingPluralized = "Listings" : listingPluralized = "Listing";
         return isCurrentUser(farmerId) ? `My ${listingPluralized}` : `Farmer's ${listingPluralized}`;
@@ -86,7 +86,7 @@ const FarmerProfile = (props) => {
                                                         :   <div className="connect_btn_div"><button className="unconnect_btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
                             :   null
                         }
-                        <div id="listing_btn_div"><button id="listings_btn" className="global_btn" onClick={handleViewListings}>{displayMyOrName(props.farmer.id)}</button></div>
+                        <div id="listing_btn_div"><button id="listings_btn" className="global_btn" onClick={handleViewListings}>{displayMyOrFarmer(props.farmer.id)}</button></div>
                     </div>
             }
         </div>
