@@ -45,10 +45,19 @@ class SignIn extends Component {
         this.props.history.push("/signup");
     }
 
+
     render() {
         return (
             <div className="SignIn_main_div">
-                <SignInForm email={this.state.user.email} password={this.state.user.password} handleSubmit={this.handleSubmit} handleChange={this.handleChange} handleSwitchToSignUp={this.handleSwitchToSignUp} errorMessages={this.props.errorMessages} />
+                <SignInForm
+                    email={this.state.user.email}
+                    password={this.state.user.password}
+                    errorMessages={this.props.errorMessages}
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
+                    handleSwitchToSignUp={this.handleSwitchToSignUp}
+                    clearErrorMessages={() => this.props.clearErrorMessages()}
+                />
             </div>
         )
     }
