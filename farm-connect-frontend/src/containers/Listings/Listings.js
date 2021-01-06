@@ -155,7 +155,7 @@ class Listings extends React.Component {
 
         let searchInputPlaceholderTexts;
         if(this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH){
-            searchInputPlaceholderTexts = "search list data, commodity or farmer";
+            searchInputPlaceholderTexts = "search list date, commodity or farmer";
         } else {
             searchInputPlaceholderTexts = "search list date or commodity";
         }
