@@ -11,7 +11,7 @@ class User < ApplicationRecord
     has_many :listings
 
     validates :type, :first_name, :last_name, :date_of_birth, :email, presence: true
-    validates :first_name, :last_name, format: { with: /\A[a-zA-Z\-\s]+\z/, message: "only allows letters, hyphen and space" }, :if => lambda{first_name.present? || last_name.present?}
+    validates :first_name, :last_name, format: { with: /\A[a-zA-Z\-]+\z/, message: "only allows letters and hyphen" }, :if => lambda{ first_name.present? || last_name.present? }
     validates :first_name, :length => { :maximum => 14 }, :if => lambda{ first_name.present? }
     validates :last_name, :length => { :maximum => 20 }, :if => lambda{ last_name.present? }
     validates :email, email: true
