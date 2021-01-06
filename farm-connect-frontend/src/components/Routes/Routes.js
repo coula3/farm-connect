@@ -52,6 +52,7 @@ const Routes = (props) => {
                 userId={props.userId}
                 userConnects={props.userConnects}
                 farmerPhoto={props.farmerPhoto}
+                fetchListings={(farmerId, routerProps) => props.fetchListings(farmerId, routerProps)}
                 requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
                 acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} /> }

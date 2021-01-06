@@ -1,6 +1,7 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
+import { withRouter } from 'react-router-dom';
 import { getDate, getFullName } from '../../utils/miscellaneousUtils';
 import './FarmerProfile.css';
 
@@ -50,7 +51,8 @@ const FarmerProfile = (props) => {
     }
 
     const handleViewListings = () => {
-        props.history.push(`/farmers/${props.farmer.id}/listings`);
+        props.fetchListings(props.farmer.id, props)
+        // props.history.push(`/farmers/${props.farmer.id}/listings`);
     }
 
     return (
@@ -93,4 +95,4 @@ const FarmerProfile = (props) => {
     )
 }
 
-export default FarmerProfile;
+export default withRouter(FarmerProfile);

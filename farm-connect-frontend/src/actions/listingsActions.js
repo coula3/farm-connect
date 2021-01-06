@@ -1,6 +1,6 @@
 import { fetchListingsInterests } from './interestsActions';
 
-export const fetchListings = () => {
+export const fetchListings = (farmerId, routerProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_LISTINGS"});
         fetch(`http://localhost:3000/api/v1/listings`, {
@@ -15,11 +15,12 @@ export const fetchListings = () => {
                 type: "ADD_OPEN_LISTINGS",
                 listings: json.data
             });
+            farmerId && routerProps.history.push(`/farmers/${farmerId}/listings`);
         });
     }
 }
 
-export const createListing = (payload, ownProps) => {
+export const createListing = (payload, routerProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_LISTING"})
         fetch(`http://localhost:3000/api/v1/listings`, {
@@ -38,7 +39,7 @@ export const createListing = (payload, ownProps) => {
                     listing: json.data
                 });
                 dispatch(fetchListings());
-                ownProps.history.push(`/listings/${json.data.id}`);
+                routerProps.history.push(`/listings/${json.data.id}`);
             } else {
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",

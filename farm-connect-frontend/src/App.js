@@ -101,7 +101,7 @@ class App extends Component {
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
               fetchProspect={(prospectId) => this.props.fetchProspect(prospectId)}
-              fetchListings={() => this.props.fetchListings()}
+              fetchListings={(farmerId, routerProps) => this.props.fetchListings(farmerId, routerProps)}
             />
 
             { this.props.isAuthenticated
@@ -164,7 +164,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchUserClosedListings: (props) => dispatch(listingsActions.fetchUserClosedListings(props)),
     listingsRendered: () => dispatch(listingsActions.listingsRendered()),
     listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
-    fetchListings: () => dispatch(listingsActions.fetchListings()),
+    fetchListings: (farmer, routerProps) => dispatch(listingsActions.fetchListings(farmer, routerProps)),
     fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
     fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId)),
     fetchListingsInterests: () => dispatch(fetchListingsInterests()),
