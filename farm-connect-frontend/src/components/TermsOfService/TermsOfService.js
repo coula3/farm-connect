@@ -4,8 +4,8 @@ import './TermsOfService.css';
 const TermsOfService = (props) => (
     <div className="TermsOfService_main_div">
         <div id="btn_div">
-            <button className="global_btn" onClick={() => props.history.goBack()}>Back</button>
-            <button className="global_btn" onClick={() => props.history.push("/")}>Home</button>
+            <button className="tos_btn global_btn" onClick={() => props.history.goBack()}>Back</button>
+            <button className="tos_btn global_btn" onClick={() => props.history.push("/")}>Home</button>
         </div>
 
         <h3>Terms of Service</h3>
