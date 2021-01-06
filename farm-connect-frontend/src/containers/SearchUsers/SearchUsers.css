@@ -7,9 +7,9 @@
 .search_users_card {
     text-align: center;
     border: #3a5f0b solid 1px;
-    padding: 25px 0px 25px 0px;
+    padding: 25px 0px 10px 0px;
     width: 50%;
-    height: 60vh;
+    min-height: 60vh;
     background-color: #FFF;
     margin: auto;
     box-shadow: 6px 8px #3a5f0b
