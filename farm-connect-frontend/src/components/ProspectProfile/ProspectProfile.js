@@ -52,8 +52,8 @@ const ProspectProfile = (props) => {
 
                         <div id="img_div">
                             { props.prospect.attributes.image
-                                ?   <img className="img" src={prospectPhoto(props.prospect.attributes.image)} alt="user avatar" />
-                                :   <img className="img" src={avatar} alt="anonymous avatar" />
+                                ?   <img className="prospect_img" src={prospectPhoto(props.prospect.attributes.image)} alt="user avatar" />
+                                :   <img className="prospect_img" src={avatar} alt="anonymous avatar" />
                             }
                         </div>
 
