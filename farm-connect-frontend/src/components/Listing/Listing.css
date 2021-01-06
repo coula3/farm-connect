@@ -36,7 +36,8 @@
 }
 
 #info_p {
-    margin: 10px 135px 0px 135px;
+    width: 80%;
+    margin: auto;
 }
 
 .color_lbl {
