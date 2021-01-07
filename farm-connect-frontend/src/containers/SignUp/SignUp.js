@@ -28,7 +28,7 @@ class SignUp extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signUpUser(this.state, this.props.errorMessages);
+        this.props.signUpUser(this.state);
 
         this.setState({
             user: {
@@ -81,7 +81,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        signUpUser: (payload, errorMessages) => dispatch(signUpUser(payload, errorMessages, ownProps)),
+        signUpUser: (payload) => dispatch(signUpUser(payload, ownProps)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }

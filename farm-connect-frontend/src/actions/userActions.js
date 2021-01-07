@@ -1,7 +1,7 @@
 import { fetchListings } from './listingsActions';
 import { setFocusSignIn } from '../utils/errorsUtils/userErrors';
 
-export const signUpUser = (payload, errorMessages, ownProps) => {
+export const signUpUser = (payload, ownProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users`, {
