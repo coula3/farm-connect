@@ -26,20 +26,10 @@ class SignUp extends Component {
         });
     }
 
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signUpUser(this.state);
-
-        this.setState({
-            user: {
-                firstName: "",
-                lastName: "",
-                dateOfBirth: "",
-                email: "",
-                password: "",
-                type: ""
-            }
-        });
     }
 
     handleSwitchToSignIn = () => {
