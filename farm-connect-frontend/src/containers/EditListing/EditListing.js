@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { fetchListingsInterests } from '../../actions/interestsActions';
 import { getDate, padIds } from '../../utils/miscellaneousUtils';
 import EditListingForm from '../../components/EditListingForm/EditListingForm';
 import './EditListing.css';
@@ -58,14 +57,19 @@ class EditListing extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.editListing(this.props.listing.id, this.state.listing);
 
+        let fetchInterestsListings;
         const listing = this.props.listingsInterests.find(listing => listing[0] === parseInt(this.props.listing.id));
 
         if(this.state.listing.closed && listing){
-            this.props.fetchListingsInterests();
+            fetchInterestsListings = true;
+        } else {
+            fetchInterestsListings = false;
         }
+
+        this.props.editListing(this.props.listing.id, this.state.listing, fetchInterestsListings);
     }
+
 
     convertToYesNo = (trueFalseValue) => {
         return trueFalseValue ? "Yes" : "No";
@@ -217,9 +221,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        editListing: (listingId, payload) => dispatch(editListing(listingId, payload, ownProps)),
-        clearErrorMessages: () => dispatch(clearErrorMessages()),
-        fetchListingsInterests: () => dispatch(fetchListingsInterests())
+        editListing: (listingId, payload, fetchInterestsListings) => dispatch(editListing(listingId, payload, fetchInterestsListings, ownProps)),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
 
