@@ -1,7 +1,7 @@
 import { fetchListings } from './listingsActions';
 import { setFocusSignIn } from '../utils/errorsUtils/userErrors';
 
-export const signUpUser = (payload, ownProps) => {
+export const signUpUser = (payload, routerProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_USER"});
         fetch(`http://localhost:3000/api/v1/users`, {
@@ -19,7 +19,7 @@ export const signUpUser = (payload, ownProps) => {
                     user: json.user
                 });
                 localStorage.setItem('jwt_token', json.jwt);
-                ownProps.history.push(`/listings`);
+                routerProps.history.push(`/listings`);
             } else {
                 dispatch({ type: "SIGN_UP_OR_LOGIN_FAILURE"});
                 dispatch({
@@ -31,7 +31,7 @@ export const signUpUser = (payload, ownProps) => {
     }
 }
 
-export const signInUser = (payload, ownProps) => {
+export const signInUser = (payload, routerProps) => {
     return (dispatch) => {
         if(!payload.user.email || !payload.user.password){
             dispatch({
@@ -57,7 +57,7 @@ export const signInUser = (payload, ownProps) => {
                         photo: json.photo
                     });
                     localStorage.setItem('jwt_token', json.jwt);
-                    ownProps.history.push(`/listings`);
+                    routerProps.history.push(`/listings`);
                 } else {
                     dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
                     dispatch({
@@ -70,7 +70,7 @@ export const signInUser = (payload, ownProps) => {
     }
 }
 
-export const editUser = (userId, payload, ownProps) => {
+export const editUser = (userId, payload, routerProps) => {
     const {firstName, lastName, dateOfBirth, email} = payload.user;
     const bodyData = {
         user: {firstName, lastName, dateOfBirth, email}
@@ -95,9 +95,9 @@ export const editUser = (userId, payload, ownProps) => {
                 });
                 dispatch(fetchListings());
                 if(!payload.user.photo.name){
-                    ownProps.history.push(`/users/${userId}`);
+                    routerProps.history.push(`/users/${userId}`);
                 } else {
-                    dispatch(uploadPhoto(payload.user.photo, userId, ownProps));
+                    dispatch(uploadPhoto(payload.user.photo, userId, routerProps));
                 }
             } else {
                 dispatch({
@@ -109,7 +109,7 @@ export const editUser = (userId, payload, ownProps) => {
     }
 }
 
-export const uploadPhoto = (photo, userId, ownProps) => {
+export const uploadPhoto = (photo, userId, routerProps) => {
     const formData = new FormData();
     formData.append('file', photo);
 
@@ -129,7 +129,7 @@ export const uploadPhoto = (photo, userId, ownProps) => {
                 user: json.user,
                 photo: json.photo
             });
-            ownProps.history.push(`/users/${userId}`);
+            routerProps.history.push(`/users/${userId}`);
         })
     }
 }

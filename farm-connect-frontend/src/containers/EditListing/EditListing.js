@@ -219,9 +219,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, routerProps) => {
     return {
-        editListing: (listingId, payload, fetchInterestsListings) => dispatch(editListing(listingId, payload, fetchInterestsListings, ownProps)),
+        editListing: (listingId, payload, fetchInterestsListings) => dispatch(editListing(listingId, payload, fetchInterestsListings, routerProps)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }

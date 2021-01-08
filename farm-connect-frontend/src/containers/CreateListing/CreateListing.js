@@ -104,9 +104,9 @@ const mapStateToProps = (state) => {
     };
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, routerProps) => {
     return {
-        createListing: (payload, userId ) => dispatch(createListing(payload, userId, ownProps)),
+        createListing: (payload, userId ) => dispatch(createListing(payload, userId, routerProps)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     };
 }

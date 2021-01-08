@@ -109,7 +109,7 @@ export const fetchMyInterestsListings = (id) => {
     }
 }
 
-export const editListing = (listingId, payload, fetchInterestsListings, ownProps) => {
+export const editListing = (listingId, payload, fetchInterestsListings, routerProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_LISTING"});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
@@ -128,7 +128,7 @@ export const editListing = (listingId, payload, fetchInterestsListings, ownProps
                     listing: json.data
                 });
                 fetchInterestsListings && dispatch(fetchListingsInterests());
-                ownProps.history.push(`/listings/${listingId}`);
+                routerProps.history.push(`/listings/${listingId}`);
             } else {
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",

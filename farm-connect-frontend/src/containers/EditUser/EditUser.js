@@ -122,9 +122,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProp = (dispatch, ownProps) => {
+const mapDispatchToProp = (dispatch, routerProps) => {
     return {
-        editUser: (userId, payload) => dispatch(editUser(userId, payload, ownProps)),
+        editUser: (userId, payload) => dispatch(editUser(userId, payload, routerProps)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }

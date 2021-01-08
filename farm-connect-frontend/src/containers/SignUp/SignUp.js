@@ -69,9 +69,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, routerProps) => {
     return {
-        signUpUser: (payload) => dispatch(signUpUser(payload, ownProps)),
+        signUpUser: (payload) => dispatch(signUpUser(payload, routerProps)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     }
 }
