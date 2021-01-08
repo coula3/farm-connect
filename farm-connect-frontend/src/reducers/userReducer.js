@@ -30,6 +30,15 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
+        case "UPDATE_CURRENT_USER":
+            return {
+                ...state,
+                userId: action.user.data.id,
+                userAttributes: action.user.data.attributes,
+                photo: action.photo,
+                isLoading: false
+            }
+
         case "EDIT_USER":
             return {
                 ...state,

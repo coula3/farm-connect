@@ -36,7 +36,7 @@ class CreateListing extends Component {
         e.preventDefault();
 
         const payload = {listing: {...this.state.listing, userId: this.props.userId}};
-        this.props.createListing(payload);
+        this.props.createListing(payload, this.props.userId);
 
         this.setState({
             listing: {
@@ -106,7 +106,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        createListing: (payload) => dispatch(createListing(payload, ownProps)),
+        createListing: (payload, userId ) => dispatch(createListing(payload, userId, ownProps)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     };
 }

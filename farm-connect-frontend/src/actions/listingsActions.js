@@ -1,4 +1,5 @@
 import { fetchListingsInterests } from './interestsActions';
+import { updateCurrentUser } from './userActions';
 
 export const fetchListings = (farmerId, routerProps) => {
     return (dispatch) => {
@@ -20,7 +21,7 @@ export const fetchListings = (farmerId, routerProps) => {
     }
 }
 
-export const createListing = (payload, routerProps) => {
+export const createListing = (payload, userId, routerProps) => {
     return (dispatch) => {
         dispatch({type: "LOADING_LISTING"})
         fetch(`http://localhost:3000/api/v1/listings`, {
@@ -39,6 +40,7 @@ export const createListing = (payload, routerProps) => {
                     listing: json.data
                 });
                 dispatch(fetchListings());
+                dispatch(updateCurrentUser(userId));
                 routerProps.history.push(`/listings/${json.data.id}`);
             } else {
                 dispatch({

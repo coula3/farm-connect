@@ -134,6 +134,27 @@ export const uploadPhoto = (photo, userId, ownProps) => {
     }
 }
 
+export const updateCurrentUser = (userId) => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_USER"});
+        fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            dispatch({
+                type: "UPDATE_CURRENT_USER",
+                user: data.user,
+                photo: data.photo
+            });
+        })
+    }
+}
+
 export const signOutUser = () => {
     return (dispatch) => {
         localStorage.removeItem('jwt_token');
