@@ -9,10 +9,10 @@ export const fetchListingsInterests = () => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "FETCH_LISTINGS_INTERESTS",
-                listingsInterests: json.interests
+                listingsInterests: object.interests
             });
         })
     }

@@ -9,10 +9,10 @@ export const fetchProspects = (userId) => {
       }
     })
     .then(response => response.json())
-    .then(json => {
+    .then(object => {
       dispatch({
         type: "FETCH_PROSPECTS",
-        prospects: json.data
+        prospects: object.data
       })
     })
   }
@@ -29,10 +29,10 @@ export const fetchProspect = (id) => {
       }
     })
     .then(response => response.json())
-    .then(json => {
+    .then(object => {
       dispatch({
         type: "FETCH_PROSPECT",
-        prospect: json.data
+        prospect: object.data
       });
     })
   }

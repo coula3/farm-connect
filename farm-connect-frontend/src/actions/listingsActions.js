@@ -11,10 +11,10 @@ export const fetchListings = (farmerId, routerProps) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_OPEN_LISTINGS",
-                listings: json.data
+                listings: object.data
             });
             farmerId && routerProps.history.push(`/farmers/${farmerId}/listings`);
         });
@@ -33,19 +33,19 @@ export const createListing = (payload, userId, routerProps) => {
             body: JSON.stringify(payload)
         })
         .then(response => response.json())
-        .then(json => {
-            if(json.data){
+        .then(object => {
+            if(object.data){
                 dispatch({
                     type: "CREATE_NEW_LISTING",
-                    listing: json.data
+                    listing: object.data
                 });
                 dispatch(fetchListings());
                 dispatch(updateCurrentUser(userId));
-                routerProps.history.push(`/listings/${json.data.id}`);
+                routerProps.history.push(`/listings/${object.data.id}`);
             } else {
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",
-                    errorMessages: json.messages
+                    errorMessages: object.messages
                 });
             }
         })
@@ -62,10 +62,10 @@ export const fetchListing = (id) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_LISTING",
-                listing: json.data
+                listing: object.data
             });
         })
     }
@@ -81,10 +81,10 @@ export const fetchUserInterestsListings = (id) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_USER_INTERESTS_LISTINGS",
-                listings: json.data
+                listings: object.data
             });
         });
     }
@@ -100,10 +100,10 @@ export const fetchMyInterestsListings = (id) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_USER_INTERESTS_LISTINGS_COUNT",
-                listings: json.data
+                listings: object.data
             });
         });
     }
@@ -121,18 +121,18 @@ export const editListing = (listingId, payload, fetchInterestsListings, routerPr
             body: JSON.stringify({listing: payload})
         })
         .then(response => response.json())
-        .then(json => {
-            if(json.data){
+        .then(object => {
+            if(object.data){
                 dispatch({
                     type: "EDIT_LISTING",
-                    listing: json.data
+                    listing: object.data
                 });
                 fetchInterestsListings && dispatch(fetchListingsInterests());
                 routerProps.history.push(`/listings/${listingId}`);
             } else {
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",
-                    errorMessages: json.messages
+                    errorMessages: object.messages
                 });
                 dispatch({type: "CLEAR_LOADING"});
             }
@@ -152,10 +152,10 @@ export const addUserListingInterest = (currentUserId, listingId) => {
             body: JSON.stringify({listing: {currentUserId: currentUserId}})
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_USER_INTEREST_TO_LISTING",
-                listing: json.data
+                listing: object.data
             })
             dispatch(fetchListingsInterests());
             dispatch(fetchMyInterestsListings(currentUserId));
@@ -175,10 +175,10 @@ export const removeUserListingInterest = (listingId, payload) => {
             body: JSON.stringify(payload)
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "REMOVE_USER_INTEREST_ON_LISTING",
-                listing: json.data
+                listing: object.data
             });
             dispatch(fetchListingsInterests());
             dispatch(fetchMyInterestsListings(payload.listing.currentUserId));
@@ -197,10 +197,10 @@ export const fetchUserClosedListings = (userId) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_USER_CLOSED_LISTINGS",
-                listings: json.data
+                listings: object.data
             });
         })
     }
@@ -228,16 +228,16 @@ export const deleteListing = (listingId) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
-            if(json.user){
+        .then(object => {
+            if(object.user){
                 dispatch({type: "RESET_DELETING"});
                 dispatch({
                     type: "REFRESH_USER",
-                    user: json.user
+                    user: object.user
                 });
                 dispatch(fetchListings());
             } else {
-                console.log(json)
+                console.log(object)
             }
         });
     }

@@ -9,10 +9,10 @@ export const searchUsers = (payload) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
              dispatch({
                 type: "ADD_SEARCH_RESULTS",
-                searchResults: json.users
+                searchResults: object.users
             });
         })
     }

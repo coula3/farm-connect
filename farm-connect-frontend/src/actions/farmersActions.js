@@ -8,11 +8,11 @@ export const fetchFarmer = (id) => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "FETCH_FARMER",
-                farmer: json.user.data,
-                photo: json.photo
+                farmer: object.user.data,
+                photo: object.photo
             });
         })
     }

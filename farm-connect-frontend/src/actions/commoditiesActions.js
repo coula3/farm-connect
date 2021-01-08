@@ -8,10 +8,10 @@ export const fetchCommodities = () => {
             }
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "FETCH_COMMODITIES",
-                commodities: json.data
+                commodities: object.data
             });
         })
     }

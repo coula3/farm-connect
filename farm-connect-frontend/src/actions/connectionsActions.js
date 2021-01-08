@@ -9,10 +9,10 @@ export const fetchMyConnects = (id) => {
             },
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_USER_CONNECTS",
-                userConnects: json.data
+                userConnects: object.data
             });
         })
     }
@@ -30,10 +30,10 @@ export const requestConnect = (currentUserId, connectId) => {
             body: JSON.stringify({connectId: connectId})
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "CONNECT_USERS",
-                userConnects: json.data
+                userConnects: object.data
             });
         })
     }
@@ -54,10 +54,10 @@ export const acceptConnect = (currentUserId, connectId) => {
             })
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ACCEPT_CONNECT",
-                userConnects: json.data
+                userConnects: object.data
             });
         })
     }
@@ -75,10 +75,10 @@ export const unConnectUsers = (currentUserId, connectId) => {
             body: JSON.stringify({connectId: connectId})
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "UNCONNECT_USERS",
-                userConnects: json.data
+                userConnects: object.data
             });
         })
     }

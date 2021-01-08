@@ -12,19 +12,19 @@ export const signUpUser = (payload, routerProps) => {
             body: JSON.stringify(payload)
         })
         .then(response => response.json())
-        .then(json => {
-            if(json.jwt){
+        .then(object => {
+            if(object.jwt){
                 dispatch({
                     type: "SIGN_UP_OR_LOGIN_SUCCESS",
-                    user: json.user
+                    user: object.user
                 });
-                localStorage.setItem('jwt_token', json.jwt);
+                localStorage.setItem('jwt_token', object.jwt);
                 routerProps.history.push(`/listings`);
             } else {
                 dispatch({ type: "SIGN_UP_OR_LOGIN_FAILURE"});
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",
-                    errorMessages: json.messages
+                    errorMessages: object.messages
                 });
             }
         })
@@ -49,20 +49,20 @@ export const signInUser = (payload, routerProps) => {
                 body: JSON.stringify(payload)
             })
             .then(response => response.json())
-            .then(json => {
-                if(json.jwt){
+            .then(object => {
+                if(object.jwt){
                     dispatch({
                         type: "SIGN_UP_OR_LOGIN_SUCCESS",
-                        user: json.user,
-                        photo: json.photo
+                        user: object.user,
+                        photo: object.photo
                     });
-                    localStorage.setItem('jwt_token', json.jwt);
+                    localStorage.setItem('jwt_token', object.jwt);
                     routerProps.history.push(`/listings`);
                 } else {
                     dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
                     dispatch({
                         type: "ADD_ERROR_MESSAGES",
-                        errorMessages: json.messages
+                        errorMessages: object.messages
                     });
                 }
             })
@@ -87,11 +87,11 @@ export const editUser = (userId, payload, routerProps) => {
             body: JSON.stringify(bodyData)
         })
         .then(response => response.json())
-        .then(json => {
-            if(json.user){
+        .then(object => {
+            if(object.user){
                 dispatch({
                     type: "EDIT_USER",
-                    user: json.user
+                    user: object.user
                 });
                 dispatch(fetchListings());
                 if(!payload.user.photo.name){
@@ -102,7 +102,7 @@ export const editUser = (userId, payload, routerProps) => {
             } else {
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",
-                    errorMessages: json.messages
+                    errorMessages: object.messages
                 });
             }
         })
@@ -123,11 +123,11 @@ export const uploadPhoto = (photo, userId, routerProps) => {
             body: formData
         })
         .then(response => response.json())
-        .then(json => {
+        .then(object => {
             dispatch({
                 type: "ADD_USER_PHOTO",
-                user: json.user,
-                photo: json.photo
+                user: object.user,
+                photo: object.photo
             });
             routerProps.history.push(`/users/${userId}`);
         })
@@ -145,11 +145,11 @@ export const updateCurrentUser = (userId) => {
             }
         })
         .then(response => response.json())
-        .then(data => {
+        .then(object => {
             dispatch({
                 type: "UPDATE_CURRENT_USER",
-                user: data.user,
-                photo: data.photo
+                user: object.user,
+                photo: object.photo
             });
         })
     }
