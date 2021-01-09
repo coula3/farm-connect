@@ -79,7 +79,7 @@ class Api::V1::ListingsController < ApplicationController
 
     def update_closed_column(listing)
         if listing_params[:closed].present?
-            listing.update(closed: Time.now - seconds_to_deduct, available: false)
+            listing.update(closed: Time.now, available: false)
         end
     end
 
@@ -132,11 +132,5 @@ class Api::V1::ListingsController < ApplicationController
         listing.update(commodity_id: commodity.id)
         update_closed_column(listing)
         update_keys_array.slice(1..-2).each {|params_key| listing.update("#{params_key}": listing_params[params_key])}
-    end
-
-    def seconds_to_deduct
-        hour = 60 * 60
-
-        return Time.now.dst? ? hour * 4 : hour * 5
     end
 end
