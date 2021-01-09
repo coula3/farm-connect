@@ -6,8 +6,8 @@ export const getDate = (sourceDate) => {
 }
 
 export const getDateTime = (sourceDate) => {
-    const dateObject = new Date(sourceDate);
-    return `${months[dateObject.getUTCMonth()].slice(0, 3)} ${sourceDate.slice(8, 10)}, ${sourceDate.slice(0, 4)} ${sourceDate.slice(11, 19)}`;
+    const dateString = new Date(sourceDate).toString();
+    return `${dateString.slice(4, 8)} ${dateString.slice(8, 10)}, ${dateString.slice(11, 16)}  ${dateString.slice(16, 25)}`;
 }
 
 export const padIds = (id) => {
