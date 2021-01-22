@@ -101,6 +101,7 @@ class App extends Component {
               unConnectUsers={(currentUserId, farmerId) => this.handleUnconnectUsers(currentUserId, farmerId)}
               fetchFarmer={(farmerId) => this.props.fetchFarmer(farmerId)}
               fetchProspect={(prospectId) => this.props.fetchProspect(prospectId)}
+              fetchListing={(id) => this.props.fetchListing(id)}
               fetchListings={(farmerId, routerProps) => this.props.fetchListings(farmerId, routerProps)}
             />
 
