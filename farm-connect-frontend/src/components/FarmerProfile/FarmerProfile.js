@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
 import { withRouter } from 'react-router-dom';
@@ -6,7 +6,11 @@ import { getDate, getFullName } from '../../utils/miscellaneousUtils';
 import './FarmerProfile.css';
 
 const FarmerProfile = (props) => {
-    let usersConnected, pendingAcceptance;
+    let usersConnected, pendingAcceptance, toFetchFarmer;
+
+    useEffect(() => {
+        toFetchFarmer && props.fetchFarmer(props.match.params.id);
+    })
 
     const isCurrentUser = (farmerId) => {
         return props.userId === farmerId;
@@ -60,6 +64,7 @@ const FarmerProfile = (props) => {
             { props.isLoadingFarmer
                 ?   <Loader />
                 :   <div className="farmer_profile_card">
+                        {(() => toFetchFarmer = props.match.params.id !== props.farmer.id)()}
                         <h3>Farmer Profile</h3>
 
                         <div id="img_div">

@@ -53,6 +53,7 @@ const Routes = (props) => {
                 userId={props.userId}
                 userConnects={props.userConnects}
                 farmerPhoto={props.farmerPhoto}
+                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
                 fetchListings={(farmerId, routerProps) => props.fetchListings(farmerId, routerProps)}
                 requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
                 acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
@@ -72,6 +73,7 @@ const Routes = (props) => {
                 userId={props.userId}
                 userAttributes={props.userAttributes}
                 userConnects={props.userConnects}
+                fetchProspect={(prospectId) => props.fetchProspect(prospectId)}
                 requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
                 acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} />}

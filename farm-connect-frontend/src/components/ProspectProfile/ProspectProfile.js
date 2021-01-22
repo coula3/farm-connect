@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Loader from '../Loader/Loader';
 import avatar from '../../assets/avatar.png';
 import { getFullName, getDate } from '../../utils/miscellaneousUtils';
 import './ProspectProfile.css';
 
 const ProspectProfile = (props) => {
-    let usersConnected, pendingAcceptance;
+    let usersConnected, pendingAcceptance, toFetchProspect;
+
+    useEffect(() => {
+        toFetchProspect && props.fetchProspect(props.match.params.id,);
+    })
 
     const isCurrentUser = (prospectId) => {
         return props.userId === prospectId;
@@ -48,6 +52,7 @@ const ProspectProfile = (props) => {
             { props.isLoadingProspect
                 ?   <Loader />
                 :   <div className="prospect_profile_card">
+                        {(() => toFetchProspect = props.match.params.id !== props.prospect.id)()}
                         <h3>Prospect Profile</h3>
 
                         <div id="img_div">
