@@ -38,20 +38,8 @@ const Routes = (props) => {
             <ProtectedRoute exact path="/farmers/:id" component={FarmerProfile} />
             <ProtectedRoute exact path="/farmers/:id/listings" component={Listings} />
             <ProtectedRoute exact path="/prospects/:id" component={ProspectProfile} />
-            <Route exact path="/connect-requests" render={routerProps => <Connects
-                {...routerProps}
-                userId={props.userId}
-                userConnects={props.userConnects}
-                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
-                fetchProspect={(prospectId) => props.fetchProspect(prospectId)} />}
-            />
-            <Route exact path="/my-connects" render={routerProps => <Connects
-                {...routerProps}
-                userId={props.userId}
-                userConnects={props.userConnects}
-                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
-                fetchProspect={(prospectId) => props.fetchProspect(prospectId)} />}
-            />
+            <ProtectedRoute exact path="/connect-requests" component={Connects} />
+            <ProtectedRoute exact path="/my-connects" component={Connects} />
             <Route exact path="/terms-of-service" component={TermsOfService} />
             <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>
