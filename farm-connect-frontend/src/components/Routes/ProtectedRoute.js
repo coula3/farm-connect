@@ -92,7 +92,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeUserListingInterest: (listingId, payload) => dispatch(listingsActions.removeUserListingInterest(listingId, payload)),
+        removeUserListingInterest: (listingId, interestId, currentUserId) => dispatch(listingsActions.removeUserListingInterest(listingId, interestId, currentUserId)),
         addUserListingInterest: (currentUserId, listingId) => dispatch(listingsActions.addUserListingInterest(currentUserId, listingId)),
         requestConnect: (currentUserId, connectId) => dispatch(requestConnect(currentUserId, connectId)),
         acceptConnect: (currentUserId, connectId) => dispatch(acceptConnect(currentUserId, connectId)),

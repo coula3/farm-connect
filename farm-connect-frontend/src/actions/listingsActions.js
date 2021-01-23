@@ -163,7 +163,9 @@ export const addUserListingInterest = (currentUserId, listingId) => {
     }
 }
 
-export const removeUserListingInterest = (listingId, payload) => {
+export const removeUserListingInterest = (listingId, interestId, currentUserId) => {
+    const payload = {listing: {interestId: interestId, currentUserId: currentUserId}};
+
     return (dispatch) => {
         dispatch({type: "LOADING_LISTING"});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
