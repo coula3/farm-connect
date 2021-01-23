@@ -24,49 +24,20 @@ const Routes = (props) => {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signout" component={SignOut} />
             <ProtectedRoute exact path="/listings" component={Listings} />
-            <ProtectedRoute exact path="/users/search-farmers" component={SearchUsers} />
-            <ProtectedRoute exact path="/users/search-prospects" component={SearchUsers} />
             <ProtectedRoute exact path="/listings/other-farmers" component={Listings} />
             <ProtectedRoute exact path="/listings/my-interests" component={Listings} />
             <ProtectedRoute exact path="/listings/new" component={CreateListing} />
-            <ProtectedRoute exact path="/listings/:id" component={Listing} />
-            <Route exact path="/farmers/:id" render={ routerProps => <FarmerProfile
-                { ...routerProps}
-                farmer={props.farmer}
-                isLoadingFarmer={props.isLoadingFarmer}
-                userAttributes={props.userAttributes}
-                userId={props.userId}
-                userConnects={props.userConnects}
-                farmerPhoto={props.farmerPhoto}
-                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
-                fetchListings={(farmerId, routerProps) => props.fetchListings(farmerId, routerProps)}
-                requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
-                acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
-                unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} /> }
-            />
-            <Route exact path="/users/:id" render={ routerProps => <CurrentUser
-                {...routerProps}
-                userId={props.userId}
-                userAttributes={props.userAttributes}
-                userPhoto={props.userPhoto} /> }
-            />
             <ProtectedRoute exact path="/listings/:id/edit" component={EditListing} />
-            <Route exact path="/prospects/:id" render={(routerProps) => <ProspectProfile
-                {...routerProps}
-                isLoadingProspect={props.isLoadingProspect}
-                prospect={props.prospect}
-                userId={props.userId}
-                userAttributes={props.userAttributes}
-                userConnects={props.userConnects}
-                fetchProspect={(prospectId) => props.fetchProspect(prospectId)}
-                requestConnect={(currentUserId, connectId) => props.requestConnect(currentUserId, connectId)}
-                acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
-                unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} />}
-            />
-            <ProtectedRoute exact path="/users/:id/listings" component={Listings}/>
-            <ProtectedRoute exact path="/farmers/:id/listings" component={Listings} />
+            <ProtectedRoute exact path="/listings/:id" component={Listing} />
+            <ProtectedRoute exact path="/users/search-farmers" component={SearchUsers} />
+            <ProtectedRoute exact path="/users/search-prospects" component={SearchUsers} />
+            <ProtectedRoute exact path="/users/:id" component={CurrentUser} />
             <ProtectedRoute exact path="/users/:id/edit" component={EditUser} />
+            <ProtectedRoute exact path="/users/:id/listings" component={Listings}/>
             <ProtectedRoute exact path="/users/:id/closed-listings" component={Listings}/>
+            <ProtectedRoute exact path="/farmers/:id" component={FarmerProfile} />
+            <ProtectedRoute exact path="/farmers/:id/listings" component={Listings} />
+            <ProtectedRoute exact path="/prospects/:id" component={ProspectProfile} />
             <Route exact path="/connect-requests" render={routerProps => <Connects
                 {...routerProps}
                 userId={props.userId}

@@ -7,19 +7,32 @@ import { fetchProspect } from '../../actions/prospectsActions';
 import { fetchFarmer } from '../../actions/farmersActions';
 
 const ProtectedRoute = ({
-    isAuthenticated,
-    userId,
-    userAttributes,
-    hasListingChanged,
-    openListingsRendered,
-    removeUserListingInterest,
-    addUserListingInterest,
-    fetchFarmer,
-    fetchListing,
-    fetchListings,
-    commodities,
-    listing,
-    component: Component,
+        isAuthenticated,
+        userId,
+        userAttributes,
+        hasListingChanged,
+        openListingsRendered,
+        removeUserListingInterest,
+        addUserListingInterest,
+        fetchFarmer,
+        fetchListing,
+        fetchListings,
+        commodities,
+        listing,
+        isLoading,
+        isLoadingProspect,
+        prospect,
+        prospects,
+        isLoadingFarmer,
+        farmer,
+        userConnects,
+        farmerPhoto,
+        userPhoto,
+        fetchProspect,
+        requestConnect,
+        acceptConnect,
+        unConnectUsers,
+        component: Component,
         ...rest
     }) => {
     return (
@@ -31,11 +44,25 @@ const ProtectedRoute = ({
                         userAttributes={userAttributes}
                         hasListingChanged={hasListingChanged}
                         openListingsRendered={openListingsRendered}
-                        removeUserListingInterest={removeUserListingInterest}
                         fetchFarmer={fetchFarmer}
                         fetchListing={fetchListing}
                         fetchListings={fetchListings}
                         listing={listing}
+                        isLoading={isLoading}
+                        isLoadingProspect={isLoadingProspect}
+                        prospect={prospect}
+                        prospects={prospects}
+                        isLoadingFarmer={isLoadingFarmer}
+                        farmer={farmer}
+                        userConnects={userConnects}
+                        userPhoto={userPhoto}
+                        farmerPhoto={farmerPhoto}
+                        fetchProspect={fetchProspect}
+                        requestConnect={requestConnect}
+                        acceptConnect={acceptConnect}
+                        unConnectUsers={unConnectUsers}
+                        removeUserListingInterest={removeUserListingInterest}
+                        addUserListingInterest={addUserListingInterest}
                     />
                 :   <Redirect to="/" />
         }} />
@@ -55,6 +82,7 @@ const mapStateToProps = (state) => {
         isLoadingFarmer: state.farmers.isLoadingFarmer,
         farmer: state.farmers.farmer,
         isLoadingProspects: state.prospects.isLoadingProspects,
+        prospect: state.prospects.prospect,
         prospects: state.prospects.prospects,
         farmerPhoto: state.farmers.photo,
         userPhoto: state.currentUser.photo,
