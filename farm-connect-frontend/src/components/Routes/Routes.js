@@ -28,10 +28,7 @@ const Routes = (props) => {
             <ProtectedRoute exact path="/users/search-prospects" component={SearchUsers} />
             <ProtectedRoute exact path="/listings/other-farmers" component={Listings} />
             <ProtectedRoute exact path="/listings/my-interests" component={Listings} />
-            <Route exact path="/listings/new" render={routerProps => <CreateListing
-                {...routerProps}
-                commodities={props.commodities} /> }
-            />
+            <ProtectedRoute exact path="/listings/new" component={CreateListing} />
             <Route exact path="/listings/:id" render={ routerProps => <Listing
                 {...routerProps}
                 listing={props.listing}

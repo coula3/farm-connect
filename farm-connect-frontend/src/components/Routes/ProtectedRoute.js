@@ -4,13 +4,15 @@ import { Route, Redirect } from 'react-router-dom';
 
 const ProtectedRoute = ({
         isAuthenticated,
+        commodities,
         component: Component,
         ...rest
     }) => {
     return (
         <Route {...rest} render={(props) => {
             return isAuthenticated
-                ?   <Component {...props} />
+                ?   <Component {...props}
+                        commodities={commodities} />
                 :   <Redirect to="/" />
         }} />
     )
@@ -19,6 +21,7 @@ const ProtectedRoute = ({
 const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.currentUser.isAuthenticated,
+        commodities: state.commodities.commodities
     }
 }
 
