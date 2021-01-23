@@ -15,6 +15,7 @@ import SearchUsers from '../../containers/SearchUsers/SearchUsers';
 import TermsOfService from '../TermsOfService/TermsOfService';
 import NoMatch from '../NoMatch/NoMatch';
 import Connects from '../Connects/Connects';
+import ProtectedRoute from './ProtectedRoute';
 
 const Routes = (props) => {
     return (
@@ -22,11 +23,11 @@ const Routes = (props) => {
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signout" component={SignOut} />
-            <Route exact path="/listings" component={Listings} />
-            <Route exact path="/users/search-farmers" component={SearchUsers} />
-            <Route exact path="/users/search-prospects" component={SearchUsers} />
-            <Route exact path="/listings/other-farmers" component={Listings} />
-            <Route exact path="/listings/my-interests" component={Listings} />
+            <ProtectedRoute exact path="/listings" component={Listings} />
+            <ProtectedRoute exact path="/users/search-farmers" component={SearchUsers} />
+            <ProtectedRoute exact path="/users/search-prospects" component={SearchUsers} />
+            <ProtectedRoute exact path="/listings/other-farmers" component={Listings} />
+            <ProtectedRoute exact path="/listings/my-interests" component={Listings} />
             <Route exact path="/listings/new" render={routerProps => <CreateListing
                 {...routerProps}
                 commodities={props.commodities} /> }
@@ -65,7 +66,7 @@ const Routes = (props) => {
                 userAttributes={props.userAttributes}
                 userPhoto={props.userPhoto} /> }
             />
-            <Route exact path="/listings/:id/edit" component={EditListing} />
+            <ProtectedRoute exact path="/listings/:id/edit" component={EditListing} />
             <Route exact path="/prospects/:id" render={(routerProps) => <ProspectProfile
                 {...routerProps}
                 isLoadingProspect={props.isLoadingProspect}
@@ -78,10 +79,10 @@ const Routes = (props) => {
                 acceptConnect={(currentUserId, connectId) => props.acceptConnect(currentUserId, connectId)}
                 unConnectUsers={(currentUserId, connectId) => props.unConnectUsers(currentUserId, connectId)} />}
             />
-            <Route exact path="/users/:id/listings" component={Listings}/>
-            <Route exact path="/farmers/:id/listings" component={Listings} />
-            <Route exact path="/users/:id/edit" component={EditUser} />
-            <Route exact path="/users/:id/closed-listings" component={Listings}/>
+            <ProtectedRoute exact path="/users/:id/listings" component={Listings}/>
+            <ProtectedRoute exact path="/farmers/:id/listings" component={Listings} />
+            <ProtectedRoute exact path="/users/:id/edit" component={EditUser} />
+            <ProtectedRoute exact path="/users/:id/closed-listings" component={Listings}/>
             <Route exact path="/connect-requests" render={routerProps => <Connects
                 {...routerProps}
                 userId={props.userId}
