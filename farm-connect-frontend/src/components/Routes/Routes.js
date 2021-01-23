@@ -21,25 +21,25 @@ const Routes = (props) => {
     return (
         <Switch>
             <Route exact path="/" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/signout" component={SignOut} />
-            <ProtectedRoute exact path="/listings" component={Listings} />
-            <ProtectedRoute exact path="/listings/other-farmers" component={Listings} />
-            <ProtectedRoute exact path="/listings/my-interests" component={Listings} />
-            <ProtectedRoute exact path="/listings/new" component={CreateListing} />
-            <ProtectedRoute exact path="/listings/:id/edit" component={EditListing} />
-            <ProtectedRoute exact path="/listings/:id" component={Listing} />
-            <ProtectedRoute exact path="/users/search-farmers" component={SearchUsers} />
-            <ProtectedRoute exact path="/users/search-prospects" component={SearchUsers} />
-            <ProtectedRoute exact path="/users/:id" component={CurrentUser} />
-            <ProtectedRoute exact path="/users/:id/edit" component={EditUser} />
-            <ProtectedRoute exact path="/users/:id/listings" component={Listings}/>
-            <ProtectedRoute exact path="/users/:id/closed-listings" component={Listings}/>
-            <ProtectedRoute exact path="/farmers/:id" component={FarmerProfile} />
-            <ProtectedRoute exact path="/farmers/:id/listings" component={Listings} />
-            <ProtectedRoute exact path="/prospects/:id" component={ProspectProfile} />
-            <ProtectedRoute exact path="/connect-requests" component={Connects} />
-            <ProtectedRoute exact path="/my-connects" component={Connects} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/signout" component={SignOut} />
+            <ProtectedRoute path="/listings/new" component={CreateListing} />
+            <ProtectedRoute path="/listings/other-farmers" component={Listings} />
+            <ProtectedRoute path="/listings/my-interests" component={Listings} />
+            <ProtectedRoute path="/listings/:id/edit" component={EditListing} />
+            <ProtectedRoute path="/listings/:id" component={Listing} />
+            <ProtectedRoute path="/listings" component={Listings} />
+            <ProtectedRoute path="/users/search-farmers" component={SearchUsers} />
+            <ProtectedRoute path="/users/search-prospects" component={SearchUsers} />
+            <ProtectedRoute path="/users/:id/edit" component={EditUser} />
+            <ProtectedRoute path="/users/:id/listings" component={Listings}/>
+            <ProtectedRoute path="/users/:id/closed-listings" component={Listings}/>
+            <ProtectedRoute path="/users/:id" component={CurrentUser} />
+            <ProtectedRoute path="/farmers/:id/listings" component={Listings} />
+            <ProtectedRoute path="/farmers/:id" component={FarmerProfile} />
+            <ProtectedRoute path="/prospects/:id" component={ProspectProfile} />
+            <ProtectedRoute path="/connect-requests" component={Connects} />
+            <ProtectedRoute path="/my-connects" component={Connects} />
             <Route exact path="/terms-of-service" component={TermsOfService} />
             <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>
