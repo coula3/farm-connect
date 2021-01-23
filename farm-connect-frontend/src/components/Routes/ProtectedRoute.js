@@ -81,7 +81,7 @@ const mapStateToProps = (state) => {
         openListingsRendered: state.listings.openListingsRendered,
         isLoadingFarmer: state.farmers.isLoadingFarmer,
         farmer: state.farmers.farmer,
-        isLoadingProspects: state.prospects.isLoadingProspects,
+        isLoadingProspect: state.prospects.isLoadingProspect,
         prospect: state.prospects.prospect,
         prospects: state.prospects.prospects,
         farmerPhoto: state.farmers.photo,
