@@ -29,20 +29,7 @@ const Routes = (props) => {
             <ProtectedRoute exact path="/listings/other-farmers" component={Listings} />
             <ProtectedRoute exact path="/listings/my-interests" component={Listings} />
             <ProtectedRoute exact path="/listings/new" component={CreateListing} />
-            <Route exact path="/listings/:id" render={ routerProps => <Listing
-                {...routerProps}
-                listing={props.listing}
-                isLoading={props.isLoading}
-                userId={props.userId}
-                userAttributes={props.userAttributes}
-                hasListingChanged={props.hasListingChanged}
-                openListingsRendered={props.openListingsRendered}
-                removeUserListingInterest={(listingId, interestId, currentUserId) => props.removeUserListingInterest(listingId, interestId, currentUserId)}
-                addUserListingInterest={(currentUserId, listingId) => props.addUserListingInterest(currentUserId, listingId)}
-                fetchFarmer={(farmerId) => props.fetchFarmer(farmerId)}
-                fetchListing={(id) => props.fetchListing(id)}
-                fetchListings={() => props.fetchListings()}/> }
-            />
+            <ProtectedRoute exact path="/listings/:id" component={Listing} />
             <Route exact path="/farmers/:id" render={ routerProps => <FarmerProfile
                 { ...routerProps}
                 farmer={props.farmer}
