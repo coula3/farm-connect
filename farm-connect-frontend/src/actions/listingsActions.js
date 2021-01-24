@@ -7,6 +7,7 @@ export const fetchListings = (farmerId, routerProps) => {
         fetch(`http://localhost:3000/api/v1/listings`, {
             method: "GET",
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             }
         })
@@ -58,6 +59,7 @@ export const fetchListing = (id) => {
         fetch(`http://localhost:3000/api/v1/listings/${id}`, {
             method: "GET",
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             }
         })
@@ -77,6 +79,7 @@ export const fetchUserInterestsListings = (id) => {
         fetch(`http://localhost:3000/api/v1/listings?id=${id}&type=interests`, {
             method: "GET",
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             }
         })
@@ -96,6 +99,7 @@ export const fetchMyInterestsListings = (id) => {
         fetch(`http://localhost:3000/api/v1/listings?id=${id}&type=interests`, {
             method: "GET",
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             }
         })
@@ -226,6 +230,7 @@ export const deleteListing = (listingId) => {
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "DELETE",
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.getItem('jwt_token')}`
             }
         })
