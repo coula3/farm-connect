@@ -22,22 +22,21 @@ class Listings extends React.Component {
     }
 
     componentDidMount(){
-        this.switchListingsType();
-        !this.props.commodities[0] && this.props.fetchCommodities();
-        !this.props.countUserInterestsListings && this.props.fetchMyInterestsListings(this.props.userId);
         this.props.errorMessages[0] && this.props.clearErrorMessages();
     }
 
     stageApplication = () => {
-            this.props.fetchListings();
-            this.props.fetchProspects(this.props.userId);
-            this.props.fetchListingsInterests();
-            this.props.fetchMyConnects(this.props.userId);
-            this.props.listingsRendered();
+        this.props.fetchListings();
+        this.props.fetchProspects(this.props.userId);
+        this.props.fetchListingsInterests();
+        this.props.fetchMyConnects(this.props.userId);
+        this.props.listingsRendered();
+        !this.props.commodities[0] && this.props.fetchCommodities();
+        !this.props.countUserInterestsListings && this.props.fetchMyInterestsListings(this.props.userId);
     }
 
     componentDidUpdate(){
-       this.switchListingsType();
+        localStorage.getItem('jwt_token') && this.switchListingsType();
     }
 
     switchListingsType = () => {
