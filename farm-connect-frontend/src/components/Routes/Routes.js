@@ -16,13 +16,14 @@ import TermsOfService from '../TermsOfService/TermsOfService';
 import NoMatch from '../NoMatch/NoMatch';
 import Connects from '../Connects/Connects';
 import ProtectedRoute from './ProtectedRoute';
+import PublicRoute from './PublicRoute';
 
 const Routes = (props) => {
     return (
         <Switch>
-            <Route exact path="/" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signout" component={SignOut} />
+            <PublicRoute exact path="/" component={SignIn} />
+            <PublicRoute path="/signup" component={SignUp} />
+            <PublicRoute path="/signout" component={SignOut} />
             <ProtectedRoute path="/listings/new" component={CreateListing} />
             <ProtectedRoute path="/listings/other-farmers" component={Listings} />
             <ProtectedRoute path="/listings/my-interests" component={Listings} />
@@ -40,7 +41,7 @@ const Routes = (props) => {
             <ProtectedRoute path="/prospects/:id" component={ProspectProfile} />
             <ProtectedRoute path="/connect-requests" component={Connects} />
             <ProtectedRoute path="/my-connects" component={Connects} />
-            <Route exact path="/terms-of-service" component={TermsOfService} />
+            <PublicRoute exact path="/terms-of-service" component={TermsOfService} />
             <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>
     )
