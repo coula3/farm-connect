@@ -61,7 +61,9 @@ const FarmerProfile = (props) => {
 
     return (
         <div className="FarmerProfile_main_div">
-            { props.isLoadingFarmer
+            {!props.farmer.id && props.fetchFarmer(props.match.params.id)}
+
+            {!props.farmer.id
                 ?   <Loader />
                 :   <div className="farmer_profile_card">
                         {(() => toFetchFarmer = props.match.params.id !== props.farmer.id)()}
