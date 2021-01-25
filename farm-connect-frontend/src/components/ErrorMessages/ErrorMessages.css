@@ -1,0 +1,27 @@
+.ErrorMessage_main_div {
+    display: inline; 
+    float: left;
+    width: 60%;
+}
+
+.error_message_card {
+    text-align: center;
+    border: #ff0000 solid 1px;
+    padding: 0px 0px 25px 0px;
+    width: 45%;
+    background-color: #FFF;
+    margin: auto;
+    box-shadow: 3px 3px #ff0000;
+    border-radius: 15px;
+}
+
+#err_msg_close_btn {
+    float: right;
+    top: 0;
+    height: 30px;
+    outline: none;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    margin: 5px 5px 0px 0px;
+}
