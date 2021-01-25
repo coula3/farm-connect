@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
             photo = rails_blob_path(user.photo) if user.photo.attached?
             render json: { user: UserSerializer.new(user), photo: photo }
         else
-            render json: { message: "User does not exit" }, status: :not_acceptable
+            render json: { message: "User does not exist" }, status: :not_acceptable
         end
     end
 
