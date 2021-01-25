@@ -17,6 +17,7 @@ import NoMatch from '../NoMatch/NoMatch';
 import Connects from '../Connects/Connects';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
+import ErrorMessages from '../ErrorMessages/ErrorMessages';
 
 const Routes = (props) => {
     return (
@@ -41,6 +42,7 @@ const Routes = (props) => {
             <ProtectedRoute path="/prospects/:id" component={ProspectProfile} />
             <ProtectedRoute path="/connect-requests" component={Connects} />
             <ProtectedRoute path="/my-connects" component={Connects} />
+            <ProtectedRoute path="/error-messages" component={ErrorMessages} />
             <PublicRoute exact path="/terms-of-service" component={TermsOfService} />
             <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
         </Switch>

@@ -33,6 +33,7 @@ const mapStateToProps = (state) => {
         isLoading: state.listings.isLoading,
         isLoadingFarmer: state.farmers.isLoadingFarmer,
         farmer: state.farmers.farmer,
+        errMessage: state.farmers.errMessage,
         farmerPhoto: state.farmers.photo,
         isLoadingProspect: state.prospects.isLoadingProspect,
         prospect: state.prospects.prospect,
