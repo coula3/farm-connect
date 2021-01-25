@@ -3,8 +3,12 @@ class Api::V1::UsersController < ApplicationController
 
     def show
         user = User.find_by(id: params[:id])
-        photo = rails_blob_path(user.photo) if user.photo.attached?
-        render json: { user: UserSerializer.new(user), photo: photo }
+        if user
+            photo = rails_blob_path(user.photo) if user.photo.attached?
+            render json: { user: UserSerializer.new(user), photo: photo }
+        else
+            render json: { message: "User does not exit" }, status: :not_acceptable
+        end
     end
 
     def index
