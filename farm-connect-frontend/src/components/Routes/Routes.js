@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import SignUp from '../../containers/SignUp/SignUp';
 import SignIn from '../../containers/SignIn/SignIn';
 import SignOut from '../SignOut/SignOut';
@@ -44,7 +44,7 @@ const Routes = (props) => {
             <ProtectedRoute path="/my-connects" component={Connects} />
             <ProtectedRoute path="/error-messages" component={ErrorMessages} />
             <PublicRoute exact path="/terms-of-service" component={TermsOfService} />
-            <Route render={() => <NoMatch isAuthenticated={props.isAuthenticated} />} />
+            <ProtectedRoute component={NoMatch} />
         </Switch>
     )
 }
