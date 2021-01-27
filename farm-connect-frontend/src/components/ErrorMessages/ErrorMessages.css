@@ -25,3 +25,8 @@
     color: #fff;
     margin: 5px 5px 0px 0px;
 }
+
+#err_h5 {
+    clear: both;
+    margin-top: 40px;
+}
