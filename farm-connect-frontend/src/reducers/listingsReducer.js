@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     isLoading: false,
     isLoadingListings: false,
@@ -13,32 +15,32 @@ const initialState = {
 
 const listingsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "LOADING_LISTING":
+        case actionTypes.LOADING_LISTING:
             return {
                 ...state,
                 isLoading: true
             }
 
-        case "LOADING_LISTINGS":
+        case actionTypes.LOADING_LISTINGS:
             return {
                 ...state,
                 isLoadingListings: true
             };
 
-        case "CLEAR_LOADING":
+        case actionTypes.CLEAR_LOADING:
             return {
                 ...state,
                 isLoading: false
             }
 
-        case "CREATE_NEW_LISTING":
+        case actionTypes.CREATE_NEW_LISTING:
             return {
                 ...state,
                 listing: action.listing,
                 isLoading: false
             }
             
-        case "ADD_OPEN_LISTINGS":
+        case actionTypes.ADD_OPEN_LISTINGS:
             return {
                 ...state,
                 listings: action.listings,
@@ -46,7 +48,7 @@ const listingsReducer = (state = initialState, action) => {
                 hasListingChanged: false,
             }
 
-        case "ADD_USER_CLOSED_LISTINGS":
+        case actionTypes.ADD_USER_CLOSED_LISTINGS:
             return {
                 ...state,
                 listings: action.listings,
@@ -55,7 +57,7 @@ const listingsReducer = (state = initialState, action) => {
                 hasListingChanged: false
             }
 
-        case "ADD_USER_INTERESTS_LISTINGS":
+        case actionTypes.ADD_USER_INTERESTS_LISTINGS:
             return {
                 ...state,
                 listings: action.listings,
@@ -66,21 +68,21 @@ const listingsReducer = (state = initialState, action) => {
                 closedListingsRendered: false
             }
 
-        case "ADD_USER_INTERESTS_LISTINGS_COUNT":
+        case actionTypes.ADD_USER_INTERESTS_LISTINGS_COUNT:
             return {
                 ...state,
                 countUserInterestsListings: action.listings.length,
                 isLoadingListings: false
             }
 
-        case "ADD_LISTING":
+        case actionTypes.ADD_LISTING:
             return {
                 ...state,
                 listing: action.listing,
                 isLoading: false
             }
 
-        case "EDIT_LISTING":
+        case actionTypes.EDIT_LISTING:
             return {
                 ...state,
                 listing: action.listing,
@@ -88,7 +90,7 @@ const listingsReducer = (state = initialState, action) => {
                 hasListingChanged: true
             }
 
-        case "ADD_USER_INTEREST_TO_LISTING":
+        case actionTypes.ADD_USER_INTEREST_TO_LISTING:
             return {
                 ...state,
                 listing: action.listing,
@@ -96,7 +98,7 @@ const listingsReducer = (state = initialState, action) => {
                 hasListingChanged: true
             }
 
-        case "REMOVE_USER_INTEREST_ON_LISTING":
+        case actionTypes.REMOVE_USER_INTEREST_ON_LISTING:
             return {
                 ...state,
                 listing: action.listing,
@@ -104,7 +106,7 @@ const listingsReducer = (state = initialState, action) => {
                 hasListingChanged: true
             }
 
-        case "LISTINGS_RENDERED_TRUE":
+        case actionTypes.LISTINGS_RENDERED_TRUE:
             return {
                 ...state,
                 openListingsRendered: true,
@@ -112,26 +114,26 @@ const listingsReducer = (state = initialState, action) => {
                 myInterestsRendered: false
             }
 
-        case "LISTINGS_RENDERED_FALSE":
+        case actionTypes.LISTINGS_RENDERED_FALSE:
             return {
                 ...state,
                 openListingsRendered: false,
                 myInterestsRendered: false
             }
 
-        case "DELETING_LISTING":
+        case actionTypes.DELETING_LISTING:
             return {
                 ...state,
                 deleting: true
             }
 
-        case "RESET_DELETING":
+        case actionTypes.RESET_DELETING:
             return {
                 ...state,
                 deleting: false
             }
 
-        case "CLEAR_LISTINGS":
+        case actionTypes.CLEAR_LISTINGS:
             return {
                 ...state,
                 isLoading: false,

@@ -1,9 +1,10 @@
+import * as actionTypes from '../actionTypes';
 import { fetchListingsInterests } from './interestsActions';
 import { updateCurrentUser } from './userActions';
 
 export const fetchListings = (farmerId, routerProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTINGS"});
+        dispatch({type: actionTypes.LOADING_LISTINGS});
         fetch(`http://localhost:3000/api/v1/listings`, {
             method: "GET",
             headers: {
@@ -14,7 +15,7 @@ export const fetchListings = (farmerId, routerProps) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "ADD_OPEN_LISTINGS",
+                type: actionTypes.ADD_OPEN_LISTINGS,
                 listings: object.data
             });
             farmerId && routerProps.history.push(`/farmers/${farmerId}/listings`);
@@ -24,7 +25,7 @@ export const fetchListings = (farmerId, routerProps) => {
 
 export const createListing = (payload, userId, routerProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTING"})
+        dispatch({type: actionTypes.LOADING_LISTING})
         fetch(`http://localhost:3000/api/v1/listings`, {
             method: "POST",
             headers: {
@@ -37,7 +38,7 @@ export const createListing = (payload, userId, routerProps) => {
         .then(object => {
             if(object.data){
                 dispatch({
-                    type: "CREATE_NEW_LISTING",
+                    type: actionTypes.CREATE_NEW_LISTING,
                     listing: object.data
                 });
                 dispatch(fetchListings());
@@ -55,7 +56,7 @@ export const createListing = (payload, userId, routerProps) => {
 
 export const fetchListing = (id) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTING"})
+        dispatch({type: actionTypes.LOADING_LISTING})
         fetch(`http://localhost:3000/api/v1/listings/${id}`, {
             method: "GET",
             headers: {
@@ -66,7 +67,7 @@ export const fetchListing = (id) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "ADD_LISTING",
+                type: actionTypes.ADD_LISTING,
                 listing: object.data
             });
         })
@@ -75,7 +76,7 @@ export const fetchListing = (id) => {
 
 export const fetchUserInterestsListings = (id) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTINGS"});
+        dispatch({type: actionTypes.LOADING_LISTINGS});
         fetch(`http://localhost:3000/api/v1/listings?id=${id}&type=interests`, {
             method: "GET",
             headers: {
@@ -86,7 +87,7 @@ export const fetchUserInterestsListings = (id) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "ADD_USER_INTERESTS_LISTINGS",
+                type: actionTypes.ADD_USER_INTERESTS_LISTINGS,
                 listings: object.data
             });
         });
@@ -95,7 +96,7 @@ export const fetchUserInterestsListings = (id) => {
 
 export const fetchMyInterestsListings = (id) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTINGS"});
+        dispatch({type: actionTypes.LOADING_LISTINGS});
         fetch(`http://localhost:3000/api/v1/listings?id=${id}&type=interests`, {
             method: "GET",
             headers: {
@@ -106,7 +107,7 @@ export const fetchMyInterestsListings = (id) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "ADD_USER_INTERESTS_LISTINGS_COUNT",
+                type: actionTypes.ADD_USER_INTERESTS_LISTINGS_COUNT,
                 listings: object.data
             });
         });
@@ -115,7 +116,7 @@ export const fetchMyInterestsListings = (id) => {
 
 export const editListing = (listingId, payload, fetchInterestsListings, routerProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTING"});
+        dispatch({type: actionTypes.LOADING_LISTING});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
@@ -128,7 +129,7 @@ export const editListing = (listingId, payload, fetchInterestsListings, routerPr
         .then(object => {
             if(object.data){
                 dispatch({
-                    type: "EDIT_LISTING",
+                    type: actionTypes.EDIT_LISTING,
                     listing: object.data
                 });
                 fetchInterestsListings && dispatch(fetchListingsInterests());
@@ -138,7 +139,7 @@ export const editListing = (listingId, payload, fetchInterestsListings, routerPr
                     type: "ADD_ERROR_MESSAGES",
                     errorMessages: object.messages
                 });
-                dispatch({type: "CLEAR_LOADING"});
+                dispatch({type: actionTypes.CLEAR_LOADING});
             }
         })
     }
@@ -146,7 +147,7 @@ export const editListing = (listingId, payload, fetchInterestsListings, routerPr
 
 export const addUserListingInterest = (currentUserId, listingId) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTING"});
+        dispatch({type: actionTypes.LOADING_LISTING});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
@@ -158,7 +159,7 @@ export const addUserListingInterest = (currentUserId, listingId) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "ADD_USER_INTEREST_TO_LISTING",
+                type: actionTypes.ADD_USER_INTEREST_TO_LISTING,
                 listing: object.data
             })
             dispatch(fetchListingsInterests());
@@ -171,7 +172,7 @@ export const removeUserListingInterest = (listingId, interestId, currentUserId) 
     const payload = {listing: {interestId: interestId, currentUserId: currentUserId}};
 
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTING"});
+        dispatch({type: actionTypes.LOADING_LISTING});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "PATCH",
             headers: {
@@ -183,7 +184,7 @@ export const removeUserListingInterest = (listingId, interestId, currentUserId) 
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "REMOVE_USER_INTEREST_ON_LISTING",
+                type: actionTypes.REMOVE_USER_INTEREST_ON_LISTING,
                 listing: object.data
             });
             dispatch(fetchListingsInterests());
@@ -194,7 +195,7 @@ export const removeUserListingInterest = (listingId, interestId, currentUserId) 
 
 export const fetchUserClosedListings = (userId) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTINGS"});
+        dispatch({type: actionTypes.LOADING_LISTINGS});
         fetch(`http://localhost:3000/api/v1/listings?id=${userId}`, {
             method: "GET",
             headers: {
@@ -205,7 +206,7 @@ export const fetchUserClosedListings = (userId) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "ADD_USER_CLOSED_LISTINGS",
+                type: actionTypes.ADD_USER_CLOSED_LISTINGS,
                 listings: object.data
             });
         })
@@ -214,19 +215,19 @@ export const fetchUserClosedListings = (userId) => {
 
 export const listingsRendered = () => {
     return (dispatch) => {
-        dispatch({type: "LISTINGS_RENDERED_TRUE"})
+        dispatch({type: actionTypes.LISTINGS_RENDERED_TRUE})
     }
 }
 
 export const listingsUnrendered = () => {
     return (dispatch) => {
-        dispatch({type: "LISTINGS_RENDERED_FALSE"})
+        dispatch({type: actionTypes.LISTINGS_RENDERED_FALSE})
     }
 }
 
 export const deleteListing = (listingId) => {
     return (dispatch) => {
-        dispatch({type: "DELETING_LISTING"});
+        dispatch({type: actionTypes.DELETING_LISTING});
         fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
             method: "DELETE",
             headers: {
@@ -237,7 +238,7 @@ export const deleteListing = (listingId) => {
         .then(response => response.json())
         .then(object => {
             if(object.user){
-                dispatch({type: "RESET_DELETING"});
+                dispatch({type: actionTypes.RESET_DELETING});
                 dispatch({
                     type: "REFRESH_USER",
                     user: object.user
