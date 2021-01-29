@@ -1,8 +1,9 @@
+import * as actionTypes from '../actionTypes';
 import history from '../utils/history';
 
 export const fetchFarmer = (id) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_FARMER"})
+        dispatch({type: actionTypes.LOADING_FARMER})
         fetch(`http://localhost:3000/api/v1/users/${id}`, {
             method: "GET",
             headers: {
@@ -13,7 +14,7 @@ export const fetchFarmer = (id) => {
         .then(object => {
             if(object.user){
                 dispatch({
-                    type: "FETCH_FARMER",
+                    type: actionTypes.FETCH_FARMER,
                     farmer: object.user.data,
                     photo: object.photo
                 });
@@ -21,7 +22,7 @@ export const fetchFarmer = (id) => {
             } else {
                 history.replace("/error-messages");
                 dispatch({
-                    type: "ADD_FARMER_ERR_MESSAGE",
+                    type: actionTypes.ADD_FARMER_ERR_MESSAGE,
                     errMessage: `Farmer ID: ${id} is invalid`
                 })
             }

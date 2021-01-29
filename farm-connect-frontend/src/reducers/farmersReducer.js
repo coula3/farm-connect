@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     farmer: {},
     photo: null,
@@ -7,13 +9,13 @@ const initialState = {
 
 const farmersReducer = (state = initialState, action) => {
     switch(action.type){
-        case "LOADING_FARMER":
+        case actionTypes.LOADING_FARMER:
             return {
                 ...state,
                 isLoadingFarmer: true
             }
 
-        case "FETCH_FARMER":
+        case actionTypes.FETCH_FARMER:
             return {
                 ...state,
                 farmer: action.farmer,
@@ -21,14 +23,14 @@ const farmersReducer = (state = initialState, action) => {
                 isLoadingFarmer: false
             }
 
-        case "ADD_FARMER_ERR_MESSAGE":
+        case actionTypes.ADD_FARMER_ERR_MESSAGE:
             return {
                 ...state,
                 errMessage: action.errMessage,
                 isLoadingFarmer: false
             }
 
-        case "CLEAR_FARMER":
+        case actionTypes.CLEAR_FARMER:
             return {
                 ...state,
                 farmer: {},
