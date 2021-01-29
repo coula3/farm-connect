@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     isLoading: false,
     userConnects: null
@@ -5,41 +7,41 @@ const initialState = {
 
 const connectionsReducer = (state=initialState, action) => {
     switch(action.type) {
-        case "LOADING_CONNECTS":
+        case actionTypes.LOADING_CONNECTS:
             return {
                 ...state,
                 isLoading: true
             }
 
-        case "ADD_USER_CONNECTS":
+        case actionTypes.ADD_USER_CONNECTS:
             return {
                 ...state,
                 userConnects: action.userConnects,
                 isLoading: false
             }
 
-        case "CONNECT_USERS":
+        case actionTypes.CONNECT_USERS:
             return {
                 ...state,
                 userConnects: action.userConnects,
                 isLoading: false
             }
 
-        case "ACCEPT_CONNECT":
+        case actionTypes.ACCEPT_CONNECT:
             return {
                 ...state,
                 userConnects: action.userConnects,
                 isLoading: false
             }
 
-        case "UNCONNECT_USERS":
+        case actionTypes.UNCONNECT_USERS:
             return {
                 ...state,
                 userConnects: action.userConnects,
                 isLoading: false
             }
 
-        case "CLEAR_CONNECTIONS":
+        case actionTypes.CLEAR_CONNECTIONS:
             return {
                 ...state,
                 isLoading: false,
