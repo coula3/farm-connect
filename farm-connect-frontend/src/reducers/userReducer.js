@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     userId: "",
     userAttributes: {},
@@ -8,13 +10,13 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "LOADING_USER":
+        case actionTypes.LOADING_USER:
             return {
                 ...state,
                 isLoading: true
             }
 
-        case "SIGN_UP_OR_LOGIN_SUCCESS":
+        case actionTypes.SIGN_UP_OR_LOGIN_SUCCESS:
             return {
                 ...state,
                 userId: action.user.data.id,
@@ -24,30 +26,13 @@ const userReducer = (state = initialState, action) => {
                 isAuthenticated: true
             }
 
-        case "SIGN_UP_OR_LOGIN_FAILURE":
+        case actionTypes.SIGN_UP_OR_LOGIN_FAILURE:
             return {
                 ...state,
                 isLoading: false
             }
 
-        case "UPDATE_CURRENT_USER":
-            return {
-                ...state,
-                userId: action.user.data.id,
-                userAttributes: action.user.data.attributes,
-                photo: action.photo,
-                isLoading: false
-            }
-
-        case "EDIT_USER":
-            return {
-                ...state,
-                userId: action.user.data.id,
-                userAttributes: action.user.data.attributes,
-                isLoading: false
-            }
-
-        case "ADD_USER_PHOTO":
+        case actionTypes.UPDATE_CURRENT_USER:
             return {
                 ...state,
                 userId: action.user.data.id,
@@ -56,7 +41,24 @@ const userReducer = (state = initialState, action) => {
                 isLoading: false
             }
 
-        case "SIGN_OUT":
+        case actionTypes.EDIT_USER:
+            return {
+                ...state,
+                userId: action.user.data.id,
+                userAttributes: action.user.data.attributes,
+                isLoading: false
+            }
+
+        case actionTypes.ADD_USER_PHOTO:
+            return {
+                ...state,
+                userId: action.user.data.id,
+                userAttributes: action.user.data.attributes,
+                photo: action.photo,
+                isLoading: false
+            }
+
+        case actionTypes.SIGN_OUT:
             return {
                 ...state,
                 userId: "",

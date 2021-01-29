@@ -1,9 +1,10 @@
+import * as actionsTypes from '../actionTypes';
 import { fetchListings } from './listingsActions';
 import { setFocusSignIn } from '../utils/errorsUtils/userErrors';
 
 export const signUpUser = (payload, routerProps) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_USER"});
+        dispatch({type: actionsTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/users`, {
             method: "POST",
             headers: {
@@ -15,13 +16,13 @@ export const signUpUser = (payload, routerProps) => {
         .then(object => {
             if(object.jwt){
                 dispatch({
-                    type: "SIGN_UP_OR_LOGIN_SUCCESS",
+                    type: actionsTypes.SIGN_UP_OR_LOGIN_SUCCESS,
                     user: object.user
                 });
                 localStorage.setItem('jwt_token', object.jwt);
                 routerProps.history.push(`/listings`);
             } else {
-                dispatch({ type: "SIGN_UP_OR_LOGIN_FAILURE"});
+                dispatch({ type: actionsTypes.SIGN_UP_OR_LOGIN_FAILURE});
                 dispatch({
                     type: "ADD_ERROR_MESSAGES",
                     errorMessages: object.messages
@@ -40,7 +41,7 @@ export const signInUser = (payload, routerProps) => {
             })
             setFocusSignIn();
         } else {
-            dispatch({type: "LOADING_USER"});
+            dispatch({type: actionsTypes.LOADING_USER});
             fetch(`http://localhost:3000/api/v1/signin`, {
                 method: "POST",
                 headers: {
@@ -52,14 +53,14 @@ export const signInUser = (payload, routerProps) => {
             .then(object => {
                 if(object.jwt){
                     dispatch({
-                        type: "SIGN_UP_OR_LOGIN_SUCCESS",
+                        type: actionsTypes.SIGN_UP_OR_LOGIN_SUCCESS,
                         user: object.user,
                         photo: object.photo
                     });
                     localStorage.setItem('jwt_token', object.jwt);
                     routerProps.history.push(`/listings`);
                 } else {
-                    dispatch({type: "SIGN_UP_OR_LOGIN_FAILURE"});
+                    dispatch({type: actionsTypes.SIGN_UP_OR_LOGIN_FAILURE});
                     dispatch({
                         type: "ADD_ERROR_MESSAGES",
                         errorMessages: object.messages
@@ -77,7 +78,7 @@ export const editUser = (userId, payload, routerProps) => {
     };
 
     return (dispatch) => {
-        dispatch({type: "LOADING_USER"});
+        dispatch({type: actionsTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/users/${userId}`, {
             method: "PATCH",
             headers: {
@@ -90,7 +91,7 @@ export const editUser = (userId, payload, routerProps) => {
         .then(object => {
             if(object.user){
                 dispatch({
-                    type: "EDIT_USER",
+                    type: actionsTypes.EDIT_USER,
                     user: object.user
                 });
                 dispatch(fetchListings());
@@ -114,7 +115,7 @@ export const uploadPhoto = (photo, userId, routerProps) => {
     formData.append('file', photo);
 
     return (dispatch) => {
-        dispatch({type: "LOADING_USER"});
+        dispatch({type: actionsTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/photos/${userId}`, {
             method: "PATCH",
             headers: {
@@ -125,7 +126,7 @@ export const uploadPhoto = (photo, userId, routerProps) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "ADD_USER_PHOTO",
+                type: actionsTypes.ADD_USER_PHOTO,
                 user: object.user,
                 photo: object.photo
             });
@@ -136,7 +137,7 @@ export const uploadPhoto = (photo, userId, routerProps) => {
 
 export const updateCurrentUser = (userId) => {
     return (dispatch) => {
-        dispatch({type: "LOADING_USER"});
+        dispatch({type: actionsTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/users/${userId}`, {
             method: "GET",
             headers: {
@@ -147,7 +148,7 @@ export const updateCurrentUser = (userId) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "UPDATE_CURRENT_USER",
+                type: actionsTypes.UPDATE_CURRENT_USER,
                 user: object.user,
                 photo: object.photo
             });
@@ -158,7 +159,7 @@ export const updateCurrentUser = (userId) => {
 export const signOutUser = () => {
     return (dispatch) => {
         localStorage.removeItem('jwt_token');
-        dispatch({type: "SIGN_OUT"});
+        dispatch({type: actionsTypes.SIGN_OUT});
         dispatch({type: "CLEAR_LISTINGS"});
         dispatch({type: "CLEAR_COMMODITIES"});
         dispatch({type: "CLEAR_FARMER"});
