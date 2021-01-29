@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     isLoadingProspect: false,
     isLoadingProspects: false,
@@ -7,33 +9,33 @@ const initialState = {
 
 const prospectsReducer = (state=initialState, action) => {
     switch(action.type){
-        case "LOADING_PROSPECTS":
+        case actionTypes.LOADING_PROSPECTS:
             return {
                 ...state,
                 isLoadingProspects: true
             }
             
-        case "FETCH_PROSPECTS":
+        case actionTypes.FETCH_PROSPECTS:
             return {
                 ...state,
                 prospects: action.prospects,
                 isLoadingProspects: false
             }
 
-        case "LOADING_PROSPECT":
+        case actionTypes.LOADING_PROSPECT:
             return {
                 ...state,
                 isLoadingProspect: true
             }
 
-        case "FETCH_PROSPECT":
+        case actionTypes.FETCH_PROSPECT:
             return {
                 ...state,
                 prospect: action.prospect,
                 isLoadingProspect: false
             }
 
-        case "CLEAR_PROSPECTS":
+        case actionTypes.CLEAR_PROSPECTS:
             return {
                 ...state,
                 isLoadingProspect: false,

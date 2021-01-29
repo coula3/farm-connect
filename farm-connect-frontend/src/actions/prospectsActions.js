@@ -1,6 +1,8 @@
+import * as actionTypes from '../actionTypes';
+
 export const fetchProspects = (userId) => {
   return (dispatch) => {
-    dispatch({type: "LOADING_PROSPECTS"});
+    dispatch({type: actionTypes.LOADING_PROSPECTS});
     fetch(`http://localhost:3000/api/v1/prospects?id=${userId}`, {
       method: "GET",
       headers: {
@@ -11,7 +13,7 @@ export const fetchProspects = (userId) => {
     .then(response => response.json())
     .then(object => {
       dispatch({
-        type: "FETCH_PROSPECTS",
+        type: actionTypes.FETCH_PROSPECTS,
         prospects: object.data
       })
     })
@@ -20,7 +22,7 @@ export const fetchProspects = (userId) => {
 
 export const fetchProspect = (id) => {
   return (dispatch) => {
-    dispatch({type: "LOADING_PROSPECT"});
+    dispatch({type: actionTypes.LOADING_PROSPECT});
     fetch(`http://localhost:3000/api/v1/prospects/${id}`, {
       method: "GET",
       headers: {
@@ -31,7 +33,7 @@ export const fetchProspect = (id) => {
     .then(response => response.json())
     .then(object => {
       dispatch({
-        type: "FETCH_PROSPECT",
+        type: actionTypes.FETCH_PROSPECT,
         prospect: object.data
       });
     })
