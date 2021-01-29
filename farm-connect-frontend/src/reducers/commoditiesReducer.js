@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     isLoading: false,
     commodities: []
@@ -5,20 +7,20 @@ const initialState = {
 
 const commoditiesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case "LOADING_COMMODITIES":
+        case actionTypes.LOADING_COMMODITIES:
             return {
                 ...state,
                 isLoading: true
             }
         
-        case "FETCH_COMMODITIES":
+        case actionTypes.FETCH_COMMODITIES:
             return {
                 ...state,
                 commodities: action.commodities,
                 isLoading: false
             }
 
-        case "CLEAR_COMMODITIES":
+        case actionTypes.CLEAR_COMMODITIES:
             return {
                 ...state,
                 isLoading: false,

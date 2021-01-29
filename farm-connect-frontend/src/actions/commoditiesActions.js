@@ -1,6 +1,8 @@
+import * as actionTypes from '../actionTypes';
+
 export const fetchCommodities = () => {
     return (dispatch) => {
-        dispatch({type: "LOADING_COMMODITIES"});
+        dispatch({type: actionTypes.LOADING_COMMODITIES});
         fetch(`http://localhost:3000/api/v1/commodities`, {
             method: "GET",
             headers: {
@@ -10,7 +12,7 @@ export const fetchCommodities = () => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "FETCH_COMMODITIES",
+                type: actionTypes.FETCH_COMMODITIES,
                 commodities: object.data
             });
         })
