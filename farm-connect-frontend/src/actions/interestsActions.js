@@ -1,6 +1,8 @@
+import * as actionTypes from '../actionTypes';
+
 export const fetchListingsInterests = () => {
     return (dispatch) => {
-        dispatch({type: "LOADING_LISTINGS_INTERESTS"});
+        dispatch({type: actionTypes.LOADING_LISTINGS_INTERESTS});
         fetch(`http://localhost:3000/api/v1/interests`, {
            method: "GET",
            headers: {
@@ -11,7 +13,7 @@ export const fetchListingsInterests = () => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: "FETCH_LISTINGS_INTERESTS",
+                type: actionTypes.FETCH_LISTINGS_INTERESTS,
                 listingsInterests: object.interests
             });
         })

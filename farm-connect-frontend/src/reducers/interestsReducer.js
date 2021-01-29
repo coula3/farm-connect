@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     isLoadingInterests: false,
     listingsInterests: []
@@ -5,20 +7,20 @@ const initialState = {
 
 export const interestsReducer = (state = initialState, action) => {
     switch(action.type){
-        case "LOADING_LISTINGS_INTERESTS":
+        case actionTypes.LOADING_LISTINGS_INTERESTS:
             return {
                 ...state,
                 isLoadingInterests: true
             }
 
-        case "FETCH_LISTINGS_INTERESTS":
+        case actionTypes.FETCH_LISTINGS_INTERESTS:
             return {
                 ...state,
                 listingsInterests: action.listingsInterests,
                 isLoadingInterests: false
             }
 
-        case "CLEAR_INTERESTS":
+        case actionTypes.CLEAR_INTERESTS:
             return {
                 ...state,
                 isLoadingInterests: false,
