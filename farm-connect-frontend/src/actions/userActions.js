@@ -160,12 +160,12 @@ export const signOutUser = () => {
     return (dispatch) => {
         localStorage.removeItem('jwt_token');
         dispatch({type: actionTypes.SIGN_OUT});
-        dispatch({type: "CLEAR_LISTINGS"});
-        dispatch({type: "CLEAR_COMMODITIES"});
-        dispatch({type: "CLEAR_FARMER"});
-        dispatch({type: "CLEAR_PROSPECTS"});
-        dispatch({type: "CLEAR_INTERESTS"});
-        dispatch({type: "CLEAR_CONNECTIONS"});
-        dispatch({type: "CLEAR_ERROR_MESSAGES"});
+        dispatch({type: actionTypes.CLEAR_LISTINGS});
+        dispatch({type: actionTypes.CLEAR_COMMODITIES});
+        dispatch({type: actionTypes.CLEAR_FARMER});
+        dispatch({type: actionTypes.CLEAR_PROSPECTS});
+        dispatch({type: actionTypes.CLEAR_INTERESTS});
+        dispatch({type: actionTypes.CLEAR_CONNECTIONS});
+        dispatch({type: actionTypes.CLEAR_ERROR_MESSAGES});
     }
 }
