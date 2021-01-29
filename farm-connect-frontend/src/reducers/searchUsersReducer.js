@@ -1,3 +1,5 @@
+import * as actionTypes from '../actionTypes';
+
 const initialState = {
     isLoading: false,
     searchResults: []
@@ -5,20 +7,20 @@ const initialState = {
 
 const searchUsersReducer = (state = initialState, action) => {
     switch(action.type){
-        case "LOADING_RESULTS":
+        case actionTypes.LOADING_RESULTS:
             return {
                 ...state,
                 isLoading: true
             }
 
-        case "ADD_SEARCH_RESULTS":
+        case actionTypes.ADD_SEARCH_RESULTS:
             return {
                 ...state,
                 searchResults: action.searchResults,
                 isLoading: false
             }
 
-        case "CLEAR_SEARCH_RESULTS":
+        case actionTypes.CLEAR_SEARCH_RESULTS:
             return {
                 ...state,
                 searchResults: []
