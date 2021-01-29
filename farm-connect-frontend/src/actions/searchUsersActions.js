@@ -22,6 +22,6 @@ export const searchUsers = (payload) => {
 
 export const clearSearchResults = () => {
     return (dispatch) => {
-        dispatch({type: actionTypes .CLEAR_SEARCH_RESULTS});
+        dispatch({type: actionTypes.CLEAR_SEARCH_RESULTS});
     }
 }
