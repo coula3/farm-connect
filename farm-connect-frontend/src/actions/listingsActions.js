@@ -46,7 +46,7 @@ export const createListing = (payload, userId, routerProps) => {
                 routerProps.history.push(`/listings/${object.data.id}`);
             } else {
                 dispatch({
-                    type: "ADD_ERROR_MESSAGES",
+                    type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: object.messages
                 });
             }
@@ -136,7 +136,7 @@ export const editListing = (listingId, payload, fetchInterestsListings, routerPr
                 routerProps.history.push(`/listings/${listingId}`);
             } else {
                 dispatch({
-                    type: "ADD_ERROR_MESSAGES",
+                    type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: object.messages
                 });
                 dispatch({type: actionTypes.CLEAR_LOADING});

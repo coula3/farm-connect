@@ -1,10 +1,10 @@
-import * as actionsTypes from '../actionTypes';
+import * as actionTypes from '../actionTypes';
 import { fetchListings } from './listingsActions';
 import { setFocusSignIn } from '../utils/errorsUtils/userErrors';
 
 export const signUpUser = (payload, routerProps) => {
     return (dispatch) => {
-        dispatch({type: actionsTypes.LOADING_USER});
+        dispatch({type: actionTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/users`, {
             method: "POST",
             headers: {
@@ -16,15 +16,15 @@ export const signUpUser = (payload, routerProps) => {
         .then(object => {
             if(object.jwt){
                 dispatch({
-                    type: actionsTypes.SIGN_UP_OR_LOGIN_SUCCESS,
+                    type: actionTypes.SIGN_UP_OR_LOGIN_SUCCESS,
                     user: object.user
                 });
                 localStorage.setItem('jwt_token', object.jwt);
                 routerProps.history.push(`/listings`);
             } else {
-                dispatch({ type: actionsTypes.SIGN_UP_OR_LOGIN_FAILURE});
+                dispatch({ type: actionTypes.SIGN_UP_OR_LOGIN_FAILURE});
                 dispatch({
-                    type: "ADD_ERROR_MESSAGES",
+                    type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: object.messages
                 });
             }
@@ -36,12 +36,12 @@ export const signInUser = (payload, routerProps) => {
     return (dispatch) => {
         if(!payload.user.email || !payload.user.password){
             dispatch({
-                type: "ADD_ERROR_MESSAGES",
+                type: actionTypes.ADD_ERROR_MESSAGES,
                 errorMessages: "email and password required"
             })
             setFocusSignIn();
         } else {
-            dispatch({type: actionsTypes.LOADING_USER});
+            dispatch({type: actionTypes.LOADING_USER});
             fetch(`http://localhost:3000/api/v1/signin`, {
                 method: "POST",
                 headers: {
@@ -53,16 +53,16 @@ export const signInUser = (payload, routerProps) => {
             .then(object => {
                 if(object.jwt){
                     dispatch({
-                        type: actionsTypes.SIGN_UP_OR_LOGIN_SUCCESS,
+                        type: actionTypes.SIGN_UP_OR_LOGIN_SUCCESS,
                         user: object.user,
                         photo: object.photo
                     });
                     localStorage.setItem('jwt_token', object.jwt);
                     routerProps.history.push(`/listings`);
                 } else {
-                    dispatch({type: actionsTypes.SIGN_UP_OR_LOGIN_FAILURE});
+                    dispatch({type: actionTypes.SIGN_UP_OR_LOGIN_FAILURE});
                     dispatch({
-                        type: "ADD_ERROR_MESSAGES",
+                        type: actionTypes.ADD_ERROR_MESSAGES,
                         errorMessages: object.messages
                     });
                 }
@@ -78,7 +78,7 @@ export const editUser = (userId, payload, routerProps) => {
     };
 
     return (dispatch) => {
-        dispatch({type: actionsTypes.LOADING_USER});
+        dispatch({type: actionTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/users/${userId}`, {
             method: "PATCH",
             headers: {
@@ -91,7 +91,7 @@ export const editUser = (userId, payload, routerProps) => {
         .then(object => {
             if(object.user){
                 dispatch({
-                    type: actionsTypes.EDIT_USER,
+                    type: actionTypes.EDIT_USER,
                     user: object.user
                 });
                 dispatch(fetchListings());
@@ -102,7 +102,7 @@ export const editUser = (userId, payload, routerProps) => {
                 }
             } else {
                 dispatch({
-                    type: "ADD_ERROR_MESSAGES",
+                    type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: object.messages
                 });
             }
@@ -115,7 +115,7 @@ export const uploadPhoto = (photo, userId, routerProps) => {
     formData.append('file', photo);
 
     return (dispatch) => {
-        dispatch({type: actionsTypes.LOADING_USER});
+        dispatch({type: actionTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/photos/${userId}`, {
             method: "PATCH",
             headers: {
@@ -126,7 +126,7 @@ export const uploadPhoto = (photo, userId, routerProps) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: actionsTypes.ADD_USER_PHOTO,
+                type: actionTypes.ADD_USER_PHOTO,
                 user: object.user,
                 photo: object.photo
             });
@@ -137,7 +137,7 @@ export const uploadPhoto = (photo, userId, routerProps) => {
 
 export const updateCurrentUser = (userId) => {
     return (dispatch) => {
-        dispatch({type: actionsTypes.LOADING_USER});
+        dispatch({type: actionTypes.LOADING_USER});
         fetch(`http://localhost:3000/api/v1/users/${userId}`, {
             method: "GET",
             headers: {
@@ -148,7 +148,7 @@ export const updateCurrentUser = (userId) => {
         .then(response => response.json())
         .then(object => {
             dispatch({
-                type: actionsTypes.UPDATE_CURRENT_USER,
+                type: actionTypes.UPDATE_CURRENT_USER,
                 user: object.user,
                 photo: object.photo
             });
@@ -159,7 +159,7 @@ export const updateCurrentUser = (userId) => {
 export const signOutUser = () => {
     return (dispatch) => {
         localStorage.removeItem('jwt_token');
-        dispatch({type: actionsTypes.SIGN_OUT});
+        dispatch({type: actionTypes.SIGN_OUT});
         dispatch({type: "CLEAR_LISTINGS"});
         dispatch({type: "CLEAR_COMMODITIES"});
         dispatch({type: "CLEAR_FARMER"});
