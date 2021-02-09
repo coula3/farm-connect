@@ -6,19 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 17px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.sign_up_in_input {
-  width: 84%;
-  padding: 5px 10px;
-  font-size: 17px;
-  border: grey solid 1px;
-  border-radius: 5px;
 }
 
 .global_btn {
