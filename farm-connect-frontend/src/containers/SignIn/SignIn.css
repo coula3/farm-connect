@@ -1,6 +1,6 @@
 .SignIn_main_div {
     margin: auto;
-    width: 30%;
+    width: 500px;
     border: solid 1px grey;
     box-shadow: 10px 10px grey;
     border-radius: 10px;
@@ -14,9 +14,17 @@
 }
 
 #errors_p {
-    font-size: 12px;
+    font-size: .7rem;
     margin-top: 0px;
     color: red;
+}
+
+.signin_inputs {
+    width: 80%;
+    padding: 5px 10px;
+    font-size: 17px;
+    border: grey solid 1px;
+    border-radius: 5px;
 }
 
 #signin_button {
@@ -25,7 +33,7 @@
 
 .signin_button {
     width: 65%;
-    font-size: 17px;
+    font-size: 1rem;
     padding: 5px 10px;
     border-radius: 5px;
     border: grey solid 1px;
@@ -34,10 +42,21 @@
 
 .signup_button {
     width: 65%;
-    font-size: 17px;
+    font-size: 1rem;
     padding: 6px 10px;
     border-radius: 5px;
     border: grey solid 1px;
     background-color: #3a5f0b;
     color: #FFF;
+}
+
+@media (max-width: 600px) {
+    .SignIn_main_div {
+        width: 90%;
+        margin-top: 50px;
+    }
+
+    .signin_button, .signup_button, .signin_inputs {
+        font-size: 0.8rem;
+    }
 }
