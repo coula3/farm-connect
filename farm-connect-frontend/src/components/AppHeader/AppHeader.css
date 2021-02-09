@@ -1,18 +1,37 @@
 .AppHeader_main_div {
     width: 90%;
-    margin: 1.25% 5% 1% 5%;
-    padding: 1% 0% 1% 0%;
+    margin: 1.5rem 5%;
+    padding: 10px 0%;
     border-radius: 15px;
     background-color: #FFF;
 }
 
 #logo_img {
-    height: 5%;
-    width: 5%;
+    height: 5rem;
+    width: 5rem;
 }
 
 #name_div {
     color: #3a5f0b;
-    font-size: 50px; 
+    font-size: 4rem;
     font-family: 'Piedra';
+}
+
+.AppHeader_main_div span {
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    #logo_img {
+        height: 2.4rem;
+        width: 2.4rem;
+    }
+
+    #name_div {
+        font-size: 2.2rem;
+    }
+
+    .AppHeader_main_div span {
+        font-size: .6rem;
+    }
 }

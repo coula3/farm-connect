@@ -2,7 +2,7 @@
     clear: both;
     position: fixed;
     width: 90%;
-    margin: 0% 5% 0% 5%;
+    margin: 0% 5%;
     height: 75px;
     bottom: 20px;
     background-color: #FFF;
@@ -14,11 +14,21 @@
 #tos_p {
     margin: 5px 0px;
     color: #663300;
-    font-size: 14px;
+    font-size: .8rem;
     cursor: pointer;
 }
 
 #app_name_span {
     color: #3a5f0b;
     font-family: 'Piedra';
+}
+
+
+@media (max-width: 600px) {
+    #app_name_span {
+        font-size: .8rem;
+    }
+    #tos_p, .AppFooter_main_div small {
+        font-size: .6rem;
+    }
 }
