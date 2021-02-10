@@ -1,8 +1,5 @@
-.ResourcesBoard_main_div {
-    display: inline; 
-    float: left;
+.ResourcesBoard-main-div {
     background-color: #FFF;
-    width: 20%;
     height: 68vh;
     border-radius: 15px;
 }

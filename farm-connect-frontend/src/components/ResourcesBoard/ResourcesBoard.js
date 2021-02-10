@@ -6,7 +6,7 @@ import './ResourcesBoard.css';
 
 const ResourcesBoard = (props) => {
     return (
-        <div className="ResourcesBoard_main_div">
+        <div className="ResourcesBoard-main-div">
             <ListingsInterests {...props} />
             <SuggestedProspects {...props} userId={props.userId}/>
         </div>
