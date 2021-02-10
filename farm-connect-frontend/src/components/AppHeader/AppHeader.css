@@ -1,64 +1,63 @@
-.AppHeader_main_div {
+.AppHeader-main-div {
     width: 90%;
-    margin: 1.5rem 5%;
+    margin: 1rem 5%;
     padding: 10px 0;
     border-radius: 15px;
     background-color: #FFF;
 }
 
-#logo_img {
+#logo-img {
     height: 5rem;
     width: 5rem;
 }
 
-#name_div {
+#name-div {
     color: #3a5f0b;
     font-size: 4rem;
     font-family: 'Piedra';
 }
 
-.AppHeader_main_div span {
+.AppHeader-main-div span {
     font-size: 1rem;
 }
 
 
 @media (max-width: 800px) {
-    .AppHeader_main_div {
+    .AppHeader-main-div {
         margin: 1rem 5%;
         padding: 5px 0;
     }
 
-    #logo_img {
+    #logo-img {
         height: 3.5rem;
         width: 3.5rem;
     }
 
-    #name_div {
+    #name-div {
         font-size: 3rem;
     }
 
-    .AppHeader_main_div span {
-        font-size: .75rem;
+    .AppHeader-main-div span {
+        font-size: 0.75rem;
     }
 }
 
 
 @media (max-width: 600px) {
-    .AppHeader_main_div {
-        margin: 1rem 5%;
+    .AppHeader-main-div {
         padding: 5px 0;
     }
 
-    #logo_img {
+    #logo-img {
         height: 2rem;
         width: 2rem;
     }
 
-    #name_div {
+    #name-div {
         font-size: 1.8rem;
     }
 
     .AppHeader_main_div span {
-        font-size: .5rem;
+        font-size: 0.5rem;
     }
 }
