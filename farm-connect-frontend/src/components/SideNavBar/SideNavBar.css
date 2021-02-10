@@ -1,53 +1,49 @@
-.SideNavBar_main_div {
-    display: inline;
-    float: left;
-    width: 20%;
+.SideNavBar-main-div {
     height: 68vh;
     background-color: #FFF;
     border-radius: 15px;
     position: relative;
 }
 
-#my_listings_span {
+#my-listings-span {
     color: #3a5f0b;
 }
 
-.listings_panel {
+.listings-panel {
     background-color: #dde6d5;
     width: 70%;
     margin: auto;
 }
 
-#farmers_view_padding {
+#farmers-view-padding {
     padding: 0px 10px 10px 10px;
 }
 
-#create_listings_listings_padding {
+#create-listings-listings-padding {
     padding: 10px 10px 0px 10px;
 }
 
-#oth_farmer_p {
+#other-farmers-p {
     margin-top: 0px;
 }
 
-#listings_link_p {
+#listings-link-p {
     margin-bottom: 0px;
     padding-bottom: 16px;
 }
 
-#my_connect_space_span {
+#my-connect-space-span {
     padding-right: 10px;
 }
 
-.my_connects_tags {
+.my-connects-tags {
     padding-right: 10px;
     font-family: Satisfy;
     font-size: 20px;
     color: #3a5f0b;
-
 }
 
-.my_connects_span {
+.my-connects-span {
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 5px;
@@ -55,11 +51,11 @@
     color:  #663300;
 }
 
-.requests_interests_links {
+.requests-interests-links {
     padding-right: 10px;
 }
 
-.requests_interests_spans {
+.requests-interests-spans {
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 5px;
@@ -69,16 +65,16 @@
     background-color: #3a5f0b;
 }
 
-#search_h4 {
+#search-h4 {
     margin: 35px 0px 0px 0px; 
     color: #3a5f0b;
 }
 
-#search_links_p {
+#search-links-p {
     margin-top: 10px;
 }
 
-#bottom_signout_link {
+#bottom-signout-link {
     position: absolute;
     display: block;
     margin-bottom: 20px;

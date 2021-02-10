@@ -46,9 +46,9 @@ const SideNavBar = (props) => {
     const renderFarmerUserLinks = () => {
         if(props.userAttributes.type === "Farmer"){
             return (
-                <div id="farmers_view_padding" className="listings_panel">
-                    <p id="oth_farmer_p"><Link to={paths().OTHER_FARMERS_LISTINGS_PATH} onClick={handleFetchListings}>Other Farmers</Link></p>
-                    <h4 id="my_listings_span"><strong>My Listings</strong></h4>
+                <div id="farmers-view-padding" className="listings-panel">
+                    <p id="other-farmers-p"><Link to={paths().OTHER_FARMERS_LISTINGS_PATH} onClick={handleFetchListings}>Other Farmers</Link></p>
+                    <h4 id="my-listings-span"><strong>My Listings</strong></h4>
                     <p><Link to={`/users/${props.userId}/listings`} onClick={handleFetchListings}>Open</Link></p>
                     <p><Link to={`/users/${props.userId}/closed-listings`} onClick={handleFetchClosedUserListings}>Closed</Link></p>
                 </div>
@@ -58,21 +58,21 @@ const SideNavBar = (props) => {
 
     const renderMyConnectsLink = () => {
         if(totalConnects === 0){
-            return <p className="my_connects_tags">My Connects<span id="my_connect_space_span"></span><span className="my_connects_span">{totalConnects}</span></p>
+            return <p className="my-connects-tags">My Connects<span id="my-connect-space-span"></span><span className="my-connects-span">{totalConnects}</span></p>
         } else {
-            return <p><Link to="/my-connects" className="my_connects_tags">My Connects</Link><span className="my_connects_span">{totalConnects}</span></p>
+            return <p><Link to="/my-connects" className="my-connects-tags">My Connects</Link><span className="my-connects-span">{totalConnects}</span></p>
         }
     }
 
     return (
         <div>
-            <div className="SideNavBar_main_div">
+            <div className="SideNavBar-main-div">
                 <br />
                 <p><Link to={`/users/${props.userId}`}>Profile</Link></p>
 
-                <div id="create_listings_listings_padding" className="listings_panel">
+                <div id="create-listings-listings-padding" className="listings-panel">
                     {renderCreateListing()}
-                    <p id="listings_link_p"><Link to={paths().LISTINGS_PATH} onClick={handleFetchListings}>Listings</Link></p>
+                    <p id="listings-link-p"><Link to={paths().LISTINGS_PATH} onClick={handleFetchListings}>Listings</Link></p>
                 </div>
 
                 { renderFarmerUserLinks() }
@@ -80,15 +80,15 @@ const SideNavBar = (props) => {
                 <br />
                 { renderMyConnectsLink() }
                 {   totalConnectRequests
-                    ? <p><Link to="/connect-requests" className="requests_interests_links">Connect Requests</Link><span className="requests_interests_spans">{totalConnectRequests}</span></p>
+                    ? <p><Link to="/connect-requests" className="requests-interests-links">Connect Requests</Link><span className="requests-interests-spans">{totalConnectRequests}</span></p>
                     : null
                 }
-                <p><Link to="/listings/my-interests" className="requests_interests_links" onClick={() => handleFetchUserInterestsListings(props.userId)}>My Interests</Link><span className="requests_interests_spans">{totalInterests}</span></p>
+                <p><Link to="/listings/my-interests" className="requests-interests-links" onClick={() => handleFetchUserInterestsListings(props.userId)}>My Interests</Link><span className="requests-interests-spans">{totalInterests}</span></p>
 
-                <h4 id="search_h4">Search</h4>
-                <p id="search_links_p"><Link to="/users/search-farmers" onClick={handleRemoveMsgHeader}>Farmers</Link> | <Link to="/users/search-prospects" onClick={handleRemoveMsgHeader}>Prospects</Link></p>
+                <h4 id="search-h4">Search</h4>
+                <p id="search-links-p"><Link to="/users/search-farmers" onClick={handleRemoveMsgHeader}>Farmers</Link> | <Link to="/users/search-prospects" onClick={handleRemoveMsgHeader}>Prospects</Link></p>
 
-                <Link id="bottom_signout_link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link>
+                <Link id="bottom-signout-link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link>
             </div>
         </div>
     )
