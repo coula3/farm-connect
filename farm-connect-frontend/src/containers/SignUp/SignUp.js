@@ -39,7 +39,7 @@ class SignUp extends Component {
 
     render(){
         return(
-            <div className="main_div">
+            <div className="SignUp_main_div">
                 <SignUpForm
                     firstName={this.state.user.firstName}
                     lastName={this.state.user.lastName}
@@ -50,10 +50,9 @@ class SignUp extends Component {
                     errorMessages={this.props.errorMessages}
                     handleSubmit={this.handleSubmit}
                     handleChange={this.handleChange}
+                    handleSwitchToSignIn={this.handleSwitchToSignIn}
                     clearErrorMessages={() => this.props.clearErrorMessages()}
                 />
-
-                <button className="SignUp_signin_button" onClick={this.handleSwitchToSignIn}>Sign In</button>
             </div>
         )
     }
