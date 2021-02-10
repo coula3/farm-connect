@@ -40,41 +40,45 @@ class App extends Component {
               : null
             }
 
-            <div id="authenticated_div">
-              { this.props.isAuthenticated
-                ? <SideNavBar
-                    userSignOut={this.handleUserSignOut}
-                    userId={this.props.userId}
-                    userAttributes={this.props.userAttributes}
-                    hasListingChanged={this.props.hasListingChanged}
-                    countUserInterestsListings={this.props.countUserInterestsListings}
-                    openListingsRendered={this.props.openListingsRendered}
-                    myInterestsRendered={this.props.myInterestsRendered}
-                    userConnects={this.props.userConnects}
-                    fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
-                    listingsRendered={() => this.props.listingsRendered()}
-                    listingsUnrendered={() => this.props.listingsUnrendered()}
-                    fetchListings={() => this.props.fetchListings()}
-                    fetchListingsInterests={() => this.props.fetchListingsInterests()}
-                    fetchUserInterestsListings={(id) => this.props.fetchUserInterestsListings(id)}
-                  />
-                : null
-              }
+            <div id="authenticated-div">
+              <div className="flex-side-cols">
+                { this.props.isAuthenticated
+                  ? <SideNavBar
+                      userSignOut={this.handleUserSignOut}
+                      userId={this.props.userId}
+                      userAttributes={this.props.userAttributes}
+                      hasListingChanged={this.props.hasListingChanged}
+                      countUserInterestsListings={this.props.countUserInterestsListings}
+                      openListingsRendered={this.props.openListingsRendered}
+                      myInterestsRendered={this.props.myInterestsRendered}
+                      userConnects={this.props.userConnects}
+                      fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
+                      listingsRendered={() => this.props.listingsRendered()}
+                      listingsUnrendered={() => this.props.listingsUnrendered()}
+                      fetchListings={() => this.props.fetchListings()}
+                      fetchListingsInterests={() => this.props.fetchListingsInterests()}
+                      fetchUserInterestsListings={(id) => this.props.fetchUserInterestsListings(id)}
+                    />
+                  : null
+                }
+              </div>
 
               <Routes />
 
-              { this.props.isAuthenticated
-                ? <ResourcesBoard
-                    isLoadingProspects={this.props.isLoadingProspects}
-                    userId={this.props.userId}
-                    prospects={this.props.prospects}
-                    listingsInterests={this.props.listingsInterests}
-                    isLoadingInterests={this.props.isLoadingInterests}
-                    fetchProspect={(id) => this.fetchProspect(id)}
-                    fetchListing={(id) => this.props.fetchListing(id)}
-                  />
-                : null
-              }
+              <div className="flex-side-cols">
+                { this.props.isAuthenticated
+                  ? <ResourcesBoard
+                      isLoadingProspects={this.props.isLoadingProspects}
+                      userId={this.props.userId}
+                      prospects={this.props.prospects}
+                      listingsInterests={this.props.listingsInterests}
+                      isLoadingInterests={this.props.isLoadingInterests}
+                      fetchProspect={(id) => this.fetchProspect(id)}
+                      fetchListing={(id) => this.props.fetchListing(id)}
+                    />
+                  : null
+                }
+              </div>
             </div>
 
             { !this.props.isAuthenticated ? <AppFooter /> : null }
