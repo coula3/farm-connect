@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './SignOut.css';
 
 const SignOut = () => {
     return (
-        <div style={{marginTop:"45px"}}>
-            <span style={{fontFamily: "Satisfy", fontSize: "24px"}}>You've been signed out</span>
-            <div style={{marginTop:"30px"}}>
+        <div className="Main_Signout_div">
+            <span id="signout_msg">You've been signed out</span>
+            <div id="home_link_div">
                 <Link to="/">Home</Link>
             </div>
         </div>

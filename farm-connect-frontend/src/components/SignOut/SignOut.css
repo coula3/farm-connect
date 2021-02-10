@@ -1,0 +1,28 @@
+.Main_Signout_div {
+    margin-top: 30px;
+}
+
+#signout_msg {
+    font-family: Satisfy;
+    font-size: 1.5rem;
+}
+
+#home_link_div {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .Main_Signout_div {
+        margin-top: 15px;
+    }
+    
+    #signout_msg {
+        font-family: Satisfy;
+        font-size: 1rem;
+    }
+    
+    #home_link_div {
+        margin-top: 10px;
+        font-size: .8rem;
+    }
+}
