@@ -1,9 +1,9 @@
-.ListingsInterests_main_div {
+.ListingsInterests-main-div {
     display: inline;
     width: 20%;
 }
 
-#loader_div {
+#loader-div {
     height: 247px;
 }
 
@@ -12,12 +12,12 @@ h5 {
     margin-bottom: 0px;
 }
 
-#ul_interests {
+#ul-interests {
     list-style: none;
     padding-left: 0px;
 }
 
-#user_li {
+#user-li {
     background-color: #EEE8AA;
     border-radius: 15px;
     width: 85%;
@@ -25,17 +25,18 @@ h5 {
     padding: 5px 15px 5px 3px;
 }
 
-#balloon_img {
+#balloon-img {
     float: right;
-    width: 20px;
+    width: 15px;
     height: 20px;
 }
 
-#hil_h5 {
-    margin-top: 35px;
+#hil-h5 {
+    margin-top: 0;
+    padding-top: 35px;
 }
 
-#list_highlight_styles {
+#list-highlight-styles {
     background-color: #E8E8E8;
     padding: 5px 10px;
     border: none;

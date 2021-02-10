@@ -16,31 +16,31 @@ const ListingsInterests = (props) => {
     }
 
     const listStyles = (listing) => {
-        return listing[3] === parseInt(props.userId) ? "user_li" : null;
+        return listing[3] === parseInt(props.userId) ? "user-li" : null;
     }
 
     const renderBalloons = (listing) => {
-        return listing[3] === parseInt(props.userId) ? <img id="balloon_img" src={balloons} alt="celebratory balloons" /> : null;
+        return listing[3] === parseInt(props.userId) ? <img id="balloon-img" src={balloons} alt="celebratory balloons" /> : null;
     }
 
     const listHighlight = (listing) => {
-        return listing[0] === parseInt(listingPathId) && pathArray[1] === "listings" && listing[3] !== parseInt(props.userId) ? "list_highlight_styles" : null;
+        return listing[0] === parseInt(listingPathId) && pathArray[1] === "listings" && listing[3] !== parseInt(props.userId) ? "list-highlight-styles" : null;
     }
 
     const listingsInterests = props.listingsInterests.map((listing, idx) => {
         return (
-            <ul id="ul_interests" key={idx}>
+            <ul id="ul-interests" key={idx}>
                  <li id={listStyles(listing)}><span id={listHighlight(listing)}><Link to={`/listings/${listing[0]}`} onClick={() => handleClick(listing[0])}>{padIds(listing[0])}</Link> - {listing[2]} ({listing[1]}) {renderBalloons(listing)}</span></li>
             </ul>
         );
     });
 
     return (
-        <div className="ListingsInterests_main_div">
+        <div className="ListingsInterests-main-div">
             { props.isLoadingInterests
-                ?   <div id="loader_div"><Loader /></div>
+                ?   <div id="loader-div"><Loader /></div>
                 :   <>
-                        <h5 id="hil_h5">High Interest Listings</h5>
+                        <h5 id="hil-h5">High Interest Listings</h5>
                         {listingsInterests}
                     </>
             }
