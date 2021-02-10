@@ -74,7 +74,7 @@ code {
   border-radius: 5px;
 }
 
-.no_select {
+.no-select {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;

@@ -1,34 +1,43 @@
-.AppFooter_main_div {
-    clear: both;
+.AppFooter-main-div {
     position: fixed;
+    bottom: 0;
     width: 90%;
-    margin: 0% 5%;
+    margin: 20px 5% 10px 5%;
     height: 75px;
-    bottom: 20px;
     background-color: #FFF;
     padding-top: 10px;
     border-radius: 0px 0px 20px 20px;
     box-shadow: 5px 10px 18px #663300;
 }
 
-#tos_p {
+#tos-p {
     margin: 5px 0px;
     color: #663300;
     font-size: .8rem;
     cursor: pointer;
 }
 
-#app_name_span {
+#app-name-span {
     color: #3a5f0b;
     font-family: 'Piedra';
 }
 
 
 @media (max-width: 600px) {
-    #app_name_span {
+    .AppFooter-main-div {
+        height: 40px;
+        padding-top: 5px;
+    }
+
+    #app-name-span {
         font-size: .8rem;
     }
-    #tos_p, .AppFooter_main_div small {
+
+    #tos-p, .AppFooter-main-div small {
         font-size: .6rem;
+    }
+
+    #tos-p {
+        margin: 0px 0px;
     }
 }
