@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const setFocusSignIn = () => {
     const emailInput = document.getElementById("signin-email");
     const emailPassword = document.getElementById("signin-password");
@@ -70,6 +68,6 @@ export const typeError = (errorMessages) => {
     const type = errorMessages.filter(msg => msg.startsWith("Type"));
 
     if(type.length > 0){
-        return <span style={{marginTop:"0px", fontSize:12, color:"red"}}>selection of farmer or prospect required</span>;
+        return "selection required";
     }
 }
