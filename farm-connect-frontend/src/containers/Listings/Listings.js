@@ -107,11 +107,11 @@ class Listings extends React.Component {
     }
 
     getTableHeadSearchStyles = () => {
-        return this.state.searchInputFocused ? "search_styles" : null;
+        return this.state.searchInputFocused ? "search-styles" : null;
     }
 
     getAvailableStyles = () => {
-        return this.state.isAvailableSorted ? "available_span" : null;
+        return this.state.isAvailableSorted ? "available-span" : null;
     }
 
     render (){
@@ -167,18 +167,18 @@ class Listings extends React.Component {
             const commodity = listing.attributes.commodity.name;
             let available;
             listing.attributes.available ? available = "✓" : available = "";
-            const viewButtonColor = parseInt(this.props.userId) === listing.attributes.user.id ? "view_user_btn_color" : "view_btn_color";
+            const viewButtonColor = parseInt(this.props.userId) === listing.attributes.user.id ? "view-user-btn-color" : "view-btn-color";
             const dateDiff = ((new Date(listing.attributes.date) - new Date(listing.attributes.closed)) / oneDay);
-            const rowHighlight = listing.attributes.interests.length >= 5 ? "listings_td_g" : "listings_td";
+            const rowHighlight = listing.attributes.interests.length >= 5 ? "listings-td-g" : "listings-td";
 
-            renderLinkToFarmerProfile = <div id="link_div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={(e) => this.handleFetchFarmer(e, userId)}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></div>;
+            renderLinkToFarmerProfile = <div id="link-div"><Link to={`/farmers/${userId}`} title={`${firstName}'s Profile`} onClick={(e) => this.handleFetchFarmer(e, userId)}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link></div>;
 
             const connectedToUser = this.props.userConnects && this.props.userConnects.filter(connect => connect[0].status === "accepted").find(connect => (listing.attributes.user_id !== parseInt(this.props.userId) && listing.attributes.user_id === connect[0].user_id) || (listing.attributes.user_id !== parseInt(this.props.userId) && listing.attributes.user_id === connect[0].connect_id));
 
-            const renderConnectSymbol = connectedToUser ? <span id="connect_span_global"><span id="connect_span1"></span><span id="connect_span2"></span></span> : null;
+            const renderConnectSymbol = connectedToUser ? <span id="connect-span-global"><span id="connect-span1"></span><span id="connect-span2"></span></span> : null;
 
             return (
-                <tr key={listing.id} id={rowHighlight} className="listings_th_td" onDoubleClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>
+                <tr key={listing.id} id={rowHighlight} className="listings-th-td" onDoubleClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>
                     <td><Link to={`/listings/${listing.id}`} title="View Listing" onClick={() => this.handleFetchListing(listing.id)}>{padIds(listing.id)}</Link></td>
                     <td>{listDate}</td>
                     <td>{commodity}</td>
@@ -189,7 +189,7 @@ class Listings extends React.Component {
                     }
 
                     { this.props.match.path !== paths().USER_CLOSED_LISTINGS_PATH ?
-                        <td id="td_available" className="tooltip">{available}<span className="tooltiptext">{listing.attributes.availability.slice(0, 10)}</span></td> :
+                        <td id="td-available" className="tooltip">{available}<span className="tooltiptext">{listing.attributes.availability.slice(0, 10)}</span></td> :
                         null
                     }
 
@@ -203,10 +203,10 @@ class Listings extends React.Component {
                         :   null
                     }
 
-                    <td><button id={viewButtonColor} className="listings_btn" onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
+                    <td><button id={viewButtonColor} className="listings-btn" onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
 
                     { this.props.match.path === paths().USER_LISTINGS_PATH
-                        ?   <td><button id="listing_delete_btn" onClick={() => this.handleDeleteListing(listing.id)}>X</button></td>
+                        ?   <td><button id="listing-delete-btn" onClick={() => this.handleDeleteListing(listing.id)}>X</button></td>
                         :   null
                     }
                 </tr>
@@ -217,7 +217,7 @@ class Listings extends React.Component {
             return (
                 <table className="table">
                     <thead>
-                        <tr className="listings_th_td">
+                        <tr className="listings-th-td">
                             <th>LID</th>
                             <th><span className={this.getTableHeadSearchStyles()}>List Date</span></th>
                             <th><span className={this.getTableHeadSearchStyles()}>Commodity</span></th>
@@ -252,7 +252,7 @@ class Listings extends React.Component {
         }
 
         return (
-            <div className="Listings_main_div">
+            <div className="Listings-main-div">
                 { this.props.isLoadingListings
                     ?   <Loader />
                     :   this.props.userAttributes.listings.length === 0 && (this.props.match.path === paths().USER_LISTINGS_PATH || this.props.match.path === paths().USER_CLOSED_LISTINGS_PATH)
@@ -285,7 +285,7 @@ class Listings extends React.Component {
 
                                     { !this.props.listings[0]
                                         ? null
-                                        : <input id="listings_search_input" type="text" placeholder={searchInputPlaceholderTexts} value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
+                                        : <input id="listings-search-input" type="text" placeholder={searchInputPlaceholderTexts} value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
                                     }
 
                                     {this.props.listings[0] && renderListingsTable()}

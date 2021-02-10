@@ -1,13 +1,11 @@
-.Listings_main_div {
-    display: inline;
-    float: left;
-    min-height: 65.5vh;
-    width: 57.6%;
-    margin-left: 1.2%;
-    margin-right: 1.2%;
+.Listings-main-div {
+    flex: 4;
+    margin: 0 2%;
     padding-bottom: 25px;
     background-color: #FFF;
     border-radius: 15px;
+    max-height: 65.5vh;
+    overflow-x: auto;
 }
 
 .table {
@@ -16,58 +14,63 @@
     margin-top: 20px;
 }
 
-.listings_th_td {
+.listings-th-td {
     border-bottom: #DCDCDC solid 1px;
 }
 
-#listings_td:hover {
+#listings-td:hover {
     background-color: #dde6d5;
 }
 
-#listings_td_g:hover {
+#listings-td-g:hover {
     background-color: #EEE8AA;
 }
 
-#category, #td_available {
+#category {
+    margin-top: 0px;
+    padding-top: 25px;
+}
+
+#category, #td-available {
     color: #3a5f0b;
 }
 
-#td_available {
+#td-available {
     font-size: 18px;
 }
 
-#link_div {
+#link-div {
     margin-bottom: 20px;
 }
 
-#view_btn_color {
+#view-btn-color {
     background-color: #dde6d5;
 }
 
-#view_user_btn_color {
+#view-user-btn-color {
     background-color: #3a5f0b;
     color: #FFF;
 }
 
-.listings_btn {
+.listings-btn {
     width: 50px;
     border-radius: 5px;
 }
 
-#listing_delete_btn {
+#listing-delete-btn {
     background-color: #FFF;
     padding: 1px 5px;
     border-radius: 50%;
 }
 
-#available_span {
+#available-span {
     background-color: #E8E8E8;
     color: #663300;
     padding: 3% 10% 0% 10%;
     border-radius: 5px;
 }
 
-#listings_search_input {
+#listings-search-input {
     width: 80%;
     margin: auto;
     border: grey solid 1px;
@@ -77,7 +80,7 @@
     font-size: 17px;
 }
 
-.search_styles {
+.search-styles {
     background-color: #E8E8E8;
     color: #3a5f0b;
     padding: 3% 10% 0% 10%;
@@ -105,14 +108,14 @@
     visibility: visible;
 }
 
-#connect_span_global {
+#connect-span-global {
     position: relative;
     bottom: 4px;
     padding-left: 5px;
     color: #3a5f0b;
 }
 
-#connect_span1 {
+#connect-span1 {
     font-size: 2px;
     padding: 1.5px 3px;
     border: solid 2px;
@@ -120,7 +123,7 @@
     margin-right: -3px;
 }
 
-#connect_span2 {
+#connect-span2 {
     font-size: 2px;
     padding: 1.5px 3px;
     border: solid 2px;
