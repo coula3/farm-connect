@@ -22,7 +22,7 @@
 .signin_inputs {
     width: 80%;
     padding: 5px 10px;
-    font-size: 17px;
+    font-size: 1rem;
     border: grey solid 1px;
     border-radius: 5px;
 }
@@ -54,6 +54,11 @@
     .SignIn_main_div {
         width: 90%;
         margin-top: 50px;
+        box-shadow: none;
+    }
+
+    .signin_inputs {
+        padding: 3px 5px;
     }
 
     .signin_button, .signup_button, .signin_inputs {
