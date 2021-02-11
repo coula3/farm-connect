@@ -7,13 +7,13 @@
 }
 
 #logo-img {
-    height: 5rem;
-    width: 5rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 #name-div {
     color: #3a5f0b;
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: 'Piedra';
 }
 
@@ -29,12 +29,12 @@
     }
 
     #logo-img {
-        height: 3.5rem;
-        width: 3.5rem;
+        height: 3rem;
+        width: 3rem;
     }
 
     #name-div {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .AppHeader-main-div span {
@@ -49,15 +49,15 @@
     }
 
     #logo-img {
-        height: 2rem;
-        width: 2rem;
+        height: 2.5rem;
+        width: 2.5rem;
     }
 
     #name-div {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
-    .AppHeader_main_div span {
-        font-size: 0.5rem;
+    .AppHeader-main-div span {
+        font-size: 0.6rem;
     }
 }
