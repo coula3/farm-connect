@@ -9,12 +9,19 @@
 }
 
 .side-columns {
-  flex-basis:  225px;
+  flex-basis:  260px;
 }
 
 #routes-div {
   flex: 1;
   margin: 0 2%;
+}
+
+
+@media (max-width: 1450px) {
+  .side-columns {
+    flex-basis:  230px;
+  }
 }
 
 @media (max-width: 1300px) {
