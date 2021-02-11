@@ -5,6 +5,7 @@
     text-align: right;
     border-radius: 10px;
     background-color: #FFF;
+    display: flex;
 }
 
 .header-img-span {
@@ -22,7 +23,7 @@
 }
 
 #hnb-name-link {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 #user-type-span {
@@ -42,6 +43,29 @@
     padding-right: 15px;
 }
 
+#burger-menu-div {
+    display: inline-block;
+    margin: 5px 5px 0px 10px;
+    flex-basis: 20px;
+    padding: 5px 0 0 10px;
+}
+
+.burger-menus {
+    width: 15px;
+    margin: 3px auto;
+    border: 2px solid #3a5f0b;
+}
+
+#nav-user-profile {
+    flex: 1;
+}
+
+@media (min-width: 1300px) {
+    #burger-menu-div {
+        display: none;
+    }
+}
+
 @media (max-width: 600px) {
     #hnb-name-link, #signout-link, #user-type-span {
         font-size: 0.8rem;
@@ -57,5 +81,14 @@
         padding: .5px 3px;
         border-radius: 50%;
         margin-right: 5px;
+    }
+
+    #burger-menu-div {
+        padding-left: 0;
+    }
+
+    .burger-menus {
+        width: 10px;
+        margin: 2px auto;
     }
 }

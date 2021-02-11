@@ -15,13 +15,21 @@ const HeadNavBar = (props) => {
 
     return (
         <div className="HeaderNavBar-main-div">
-            { props.userPhoto
-                ?   <span className="header-img-span"><img className="header-img" src={userPhoto(props.userPhoto)} alt="user avatar" /></span>
-                :   <span className="header-img-span"><img className="header-img" src={avatar} alt="anonymous avatar" /></span>
-            }
-            <Link id="hnb-name-link" to={`/users/${props.userId}`} title="View Profile">{getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}</Link>
-            <span id="user-type-global-span"><span id="user-type-span"><strong>{userType(props.userAttributes.type)}</strong></span></span>
-            <Link id="signout-link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut}>Sign Out</Link>
+            <div id="burger-menu-div">
+                <div className="burger-menus"></div>
+                <div className="burger-menus"></div>
+                <div className="burger-menus"></div>
+            </div>
+
+            <div id="nav-user-profile">
+                { props.userPhoto
+                    ?   <span className="header-img-span"><img className="header-img" src={userPhoto(props.userPhoto)} alt="user avatar" /></span>
+                    :   <span className="header-img-span"><img className="header-img" src={avatar} alt="anonymous avatar" /></span>
+                }
+                <Link id="hnb-name-link" to={`/users/${props.userId}`} title="View Profile">{getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}</Link>
+                <span id="user-type-global-span"><span id="user-type-span"><strong>{userType(props.userAttributes.type)}</strong></span></span>
+                <Link id="signout-link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut}>Sign Out</Link>
+            </div>
         </div>
     )
 }
