@@ -13,19 +13,19 @@ const CurrentUser = (props) => {
         props.history.push(`/users/${props.userId}/edit`);
     }
 
-    const mainDivStyle = props.userAttributes.type === "Farmer" ? "CurrentFarmerUser_main_div" : "CurrentProspectUser_main_div";
+    const mainDivStyle = props.userAttributes.type === "Farmer" ? "CurrentFarmerUser-main-div" : "CurrentProspectUser-main-div";
 
     return (
         <div className={mainDivStyle}>
             { props.isLoading
                 ?   <Loader />
-                :   <div className="current_user_profile_card">
+                :   <div className="Current-user-profile-card">
                         <h3>My Profile</h3>
 
-                        <div id="img_div">
+                        <div id="img-div">
                             { props.userPhoto
-                                ?   <img className="current_user_img" src={userPhoto(props.userPhoto)} alt="user avatar" />
-                                :   <img className="current_user_img" src={avatar} alt="anonymous avatar" />
+                                ?   <img className="current-user-img" src={userPhoto(props.userPhoto)} alt="user avatar" />
+                                :   <img className="current-user-img" src={avatar} alt="anonymous avatar" />
                             }
                         </div>
 
@@ -37,7 +37,7 @@ const CurrentUser = (props) => {
                         <p><label><strong>Joined:</strong> </label>{getDate(props.userAttributes.created_at)}</p>
 
                         <div>
-                            <button id="cu_edit_btn" className="global_btn" onClick={handleClick}>Edit</button>
+                            <button id="cu-edit-btn" className="global-btn" onClick={handleClick}>Edit</button>
                         </div>
                     </div>
             }
