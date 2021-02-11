@@ -1,6 +1,5 @@
 .Listings-main-div {
-    flex: 4;
-    margin: 0 2%;
+    width: 100%;
     padding-bottom: 25px;
     background-color: #FFF;
     border-radius: 15px;

@@ -63,7 +63,9 @@ class App extends Component {
                 }
               </div>
 
-              <Routes />
+              <div id="routes-div">
+                <Routes />
+              </div>
 
               <div className="side-columns">
                 { this.props.isAuthenticated

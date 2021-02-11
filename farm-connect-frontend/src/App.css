@@ -12,9 +12,18 @@
   flex-basis:  225px;
 }
 
+#routes-div {
+  flex: 1;
+  margin: 0 2%;
+}
+
 @media (max-width: 1300px) {
   .side-columns {
     display: none;
+  }
+
+  #routes-div {
+    margin: 0 0;
   }
 }
 
