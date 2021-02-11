@@ -93,7 +93,8 @@
     border-radius: 5px;
     display: inline-block;
     padding: 3px 6px;
-    font-size: 17px;
+    font-size: inherit;
+    text-align: center;
 }
 
 .search-styles {
