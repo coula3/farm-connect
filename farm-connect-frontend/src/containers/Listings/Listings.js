@@ -193,7 +193,7 @@ class Listings extends React.Component {
                         null
                     }
 
-                    <td>{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
+                    <td className="listings-interests">{listing.attributes.interests.length > 0 ? listing.attributes.interests.length : null}</td>
 
                     { this.props.match.path === paths().USER_CLOSED_LISTINGS_PATH
                         ?   <>
@@ -203,7 +203,7 @@ class Listings extends React.Component {
                         :   null
                     }
 
-                    <td><button id={viewButtonColor} className="listings-btn" onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
+                    <td className="listings-view-btn"><button id={viewButtonColor} className="listings-btn" onClick={() => {this.handleFetchListing(listing.id); this.props.history.push(`/listings/${listing.id}`)}}>view</button></td>
 
                     { this.props.match.path === paths().USER_LISTINGS_PATH
                         ?   <td><button id="listing-delete-btn" onClick={() => this.handleDeleteListing(listing.id)}>X</button></td>
@@ -232,7 +232,7 @@ class Listings extends React.Component {
                                 :   null
                             }
 
-                            <th>Interests</th>
+                            <th className="listings-interests">Interests</th>
 
                             { this.props.match.path === paths().USER_CLOSED_LISTINGS_PATH
                                 ?   <>
@@ -241,7 +241,7 @@ class Listings extends React.Component {
                                     </>
                                 :    null
                             }
-                            <th></th>
+                            <th className="listings-view-btn"></th>
                         </tr>
                     </thead>
                     <tbody>

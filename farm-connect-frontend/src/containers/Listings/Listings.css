@@ -154,3 +154,15 @@
         width: 40px;
     }
 }
+
+@media (max-width: 1000px) {
+    .listings-view-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .listings-interests {
+        display: none;
+    }
+}
