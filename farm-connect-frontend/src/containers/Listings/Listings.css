@@ -17,6 +17,8 @@
     position: relative;
     top: 0;
     width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 6px solid #dde6d5;
 }
 
 #listings-main {
