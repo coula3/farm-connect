@@ -41,7 +41,7 @@ class App extends Component {
             }
 
             <div id="authenticated-div">
-              <div className="flex-side-cols">
+              <div className="side-columns">
                 { this.props.isAuthenticated
                   ? <SideNavBar
                       userSignOut={this.handleUserSignOut}
@@ -65,7 +65,7 @@ class App extends Component {
 
               <Routes />
 
-              <div className="flex-side-cols">
+              <div className="side-columns">
                 { this.props.isAuthenticated
                   ? <ResourcesBoard
                       isLoadingProspects={this.props.isLoadingProspects}

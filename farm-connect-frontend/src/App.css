@@ -8,8 +8,14 @@
   display: flex;
 }
 
-.flex-side-cols {
-  flex: 1.25;
+.side-columns {
+  flex-basis:  225px;
+}
+
+@media (max-width: 1300px) {
+  .side-columns {
+    display: none;
+  }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
