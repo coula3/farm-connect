@@ -148,3 +148,27 @@ a {
   margin-left: 18px;
   border-radius: 5px;
 }
+
+@media (max-width: 1350px) {
+  body {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 1225px) {
+  body {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    font-size: 0.5rem;
+  }
+}
