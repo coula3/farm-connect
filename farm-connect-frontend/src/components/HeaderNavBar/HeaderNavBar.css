@@ -47,12 +47,12 @@
     display: inline-block;
     margin: 5px 5px 0px 10px;
     flex-basis: 20px;
-    padding: 5px 0 0 10px;
+    padding: 6px 0 0 10px;
 }
 
 .burger-menus {
-    width: 15px;
-    margin: 3px auto;
+    width: 10px;
+    margin: 2px auto;
     border: 2px solid #3a5f0b;
 }
 
@@ -60,9 +60,15 @@
     flex: 1;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 700px) {
     #burger-menu-div {
         display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .HeaderNavBar-main-div {
+        padding-bottom: 5px;
     }
 }
 
