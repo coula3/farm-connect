@@ -21,8 +21,7 @@
     font-size: 1rem;
 }
 
-
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .AppHeader-main-div {
         margin: 1rem 5%;
         padding: 5px 0;
@@ -42,22 +41,22 @@
     }
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .AppHeader-main-div {
+        margin: 0.5rem 5%;
         padding: 5px 0;
     }
 
     #logo-img {
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 1.75rem;
+        width: 1.75rem;
     }
 
     #name-div {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .AppHeader-main-div span {
-        font-size: 0.6rem;
+        font-size: 0.4rem;
     }
 }
