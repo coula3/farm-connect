@@ -110,15 +110,16 @@
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 90px;
+    width: 80px;
     background-color: #FFF;
     border: solid 1px #3a5f0b;
-    text-align: center;
-    font-size: 15px;
-    padding: 0px 2px;
+    padding: 1px 2px;
+    font-size: 13px;
     border-radius: 5px;
     position: absolute;
     z-index: 1;
+    top: -5px;
+    right: 60%;
 }
 
 .tooltip:hover .tooltiptext {
