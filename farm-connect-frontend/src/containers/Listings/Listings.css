@@ -52,7 +52,7 @@
 }
 
 #td-available {
-    font-size: 18px;
+    font-size: inherit;
 }
 
 #link-div {
@@ -118,7 +118,7 @@
     border-radius: 5px;
     position: absolute;
     z-index: 1;
-    top: -5px;
+    top: -1px;
     right: 60%;
 }
 
