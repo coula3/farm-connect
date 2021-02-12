@@ -1,35 +1,68 @@
-.ProspectProfile_main_div {
-    display: inline;
-    float: left;
-    width: 57.6%;
-    margin-left: 1.2%;
-    margin-right: 1.2%;
-    background-color: #FFF;
-    height: 68vh;
-}
-
-#img_div {
+.ProspectProfile-main-div {
+    width: 500px;
     margin: auto;
-    height: 180px;
-    width: 150px;
 }
 
-.prospect_img {
+.prospect-img {
     width: 100%; 
     height: 100%;
     object-fit: fill;
 }
 
-.connect_btn_div {
-    padding-top: 15px;
-}
-
-.prospect_profile_card {
+.prospect-profile-card {
     text-align: center;
     border: #3a5f0b solid 1px;
     padding: 15px 0px 25px 0px;
-    width: 45%;
+    width: 100%;
     background-color: #FFF;
-    margin: auto;
     box-shadow: 6px 8px #3a5f0b
+}
+
+#prospect-request-btn, #prospect-accept-btn, #prospect-decline-btn,
+#prospect-cancel-request-btn, #prospect-unconnect-btn {
+    width: 175px;
+}
+
+#prospect-decline-btn {
+    background-color: #FFF;
+    color: #000;
+}
+
+#prospect-cancel-request-btn {
+    background-color: #FFF;
+    color: #000;
+}
+
+#prospect-unconnect-btn {
+    font-size: inherit;
+    background-color: #FFF;
+    color: #000;
+    padding: 6px 0px;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 1300px) {
+    .ProspectProfile-main-div {
+        width: 45%;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 1225px) {
+    #prospect-request-btn, #prospect-accept-btn, #prospect-decline-btn,
+    #prospect-cancel-request-btn, #prospect-unconnect-btn {
+        width: 120px;
+    }
+}
+
+@media (max-width: 500px) {
+    .prospect-profile-card {
+        box-shadow: none;
+    }
+
+    #prospect-request-btn, #prospect-accept-btn, #prospect-decline-btn,
+    #prospect-cancel-request-btn, #prospect-unconnect-btn {
+        width: 95px;
+    }
 }
