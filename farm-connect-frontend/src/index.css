@@ -19,7 +19,7 @@ code {
   padding: 6px 0px;
   background-color: #3a5f0b;
   color: #FFF;
-  font-size: 15px;
+  font-size: inherit;
   border-radius: 5px;
 }
 
