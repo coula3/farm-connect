@@ -29,6 +29,10 @@ code {
   border-radius: 5px;
 }
 
+.connect-btn-div {
+  padding-top: 15px;
+}
+
 .eu_el_btns {
   width: 100px;
 }
