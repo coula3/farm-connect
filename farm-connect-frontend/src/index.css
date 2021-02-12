@@ -27,23 +27,27 @@ code {
   width: 140px;
 }
 
-.accept_btn {
+.accept-btn {
   width: 140px;
 }
 
-.decline_btn {
-  width: 140px;
-  background-color: #FFF;
-  color: #000;
-}
-
-.cancel_request_btn {
+.decline-btn {
   width: 140px;
   background-color: #FFF;
   color: #000;
 }
 
-.unconnect_btn {
+.cancel-request-btn {
+  width: 140px;
+  background-color: #FFF;
+  color: #000;
+}
+
+.connect-btn-div {
+  padding-top: 15px;
+}
+
+.unconnect-btn {
   width: 140px;
   font-size: 15px;
   background-color: #FFF;
@@ -56,7 +60,7 @@ code {
   width: 100px;
 }
 
-.join_date_p {
+.join-date-p {
   margin-bottom: 30px;
 }
 
