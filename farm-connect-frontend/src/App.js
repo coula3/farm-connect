@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import AppHeader from './components/AppHeader/AppHeader';
 import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
@@ -80,7 +81,7 @@ class App extends Component {
               </div>
             </div>
 
-            { !this.props.isAuthenticated ? <AppFooter /> : null }
+            { !this.props.isAuthenticated && this.props.location.pathname !== "/signup" ? <AppFooter /> : null }
           </div>
       </div>
     );
@@ -119,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
