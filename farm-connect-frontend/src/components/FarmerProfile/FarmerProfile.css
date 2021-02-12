@@ -1,13 +1,6 @@
 .FarmerProfile-main-div {
-    display: inline; 
-    float: left;
-    width: 60%;
-}
-
-#img-div {
+    width: 500px;
     margin: auto;
-    height: 180px;
-    width: 150px;
 }
 
 .farmer-img {
@@ -23,17 +16,64 @@
 .farmer-profile-card {
     text-align: center;
     border: #663300 solid 1px;
-    padding: 15px 0px 25px 0px;
-    width: 45%;
+    padding: 10px 0px 15px 0px;
+    width: 100%;
     background-color: #FFF;
-    margin: auto;
-    box-shadow: 6px 8px #663300
+    box-shadow: 6px 8px #663300;
 }
 
 #listing-btn-div {
     margin-top: 10px;
 }
 
-#listings-btn {
-    width: 140px;
+#farmer-request-btn, #farmer-accept-btn, #farmer-decline-btn,
+#farmer-cancel-request-btn, #farmer-unconnect-btn, #listings-btn {
+    width: 175px;
+}
+
+#farmer-decline-btn {
+    background-color: #FFF;
+    color: #000;
+}
+
+#farmer-cancel-request-btn {
+    background-color: #FFF;
+    color: #000;
+}
+
+#farmer-connect-btn-div {
+    padding-top: 15px;
+}
+
+#farmer-unconnect-btn {
+    font-size: inherit;
+    background-color: #FFF;
+    color: #000;
+    padding: 6px 0px;
+    border-radius: 5px;
+}
+
+@media (max-width: 1300px) {
+    .FarmerProfile-main-div {
+        width: 45%;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 1225px) {
+    #farmer-request-btn, #farmer-accept-btn, #farmer-decline-btn,
+    #farmer-cancel-request-btn, #farmer-unconnect-btn, #listings-btn {
+        width: 120px;
+    }
+}
+
+@media (max-width: 500px) {
+    .farmer-profile-card {
+        box-shadow: none;
+    }
+
+    #farmer-request-btn, #farmer-accept-btn, #farmer-decline-btn,
+    #farmer-cancel-request-btn, #farmer-unconnect-btn, #listings-btn {
+        width: 95px;
+    }
 }

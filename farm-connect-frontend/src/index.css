@@ -14,7 +14,7 @@ code {
     monospace;
 }
 
-#img-div {
+.img-div {
   margin: auto;
   height: 180px;
   width: 150px;
@@ -26,39 +26,6 @@ code {
   background-color: #3a5f0b;
   color: #FFF;
   font-size: inherit;
-  border-radius: 5px;
-}
-
-.request_btn {
-  width: 140px;
-}
-
-.accept-btn {
-  width: 140px;
-}
-
-.decline-btn {
-  width: 140px;
-  background-color: #FFF;
-  color: #000;
-}
-
-.cancel-request-btn {
-  width: 140px;
-  background-color: #FFF;
-  color: #000;
-}
-
-.connect-btn-div {
-  padding-top: 15px;
-}
-
-.unconnect-btn {
-  width: 140px;
-  font-size: 15px;
-  background-color: #FFF;
-  color: #000;
-  padding: 6px 0px;
   border-radius: 5px;
 }
 
@@ -184,7 +151,7 @@ a {
 }
 
 @media (max-width: 500px) {
-  #img-div {
+  .img-div {
       margin: auto;
       height: 100px;
       width: 100px;
