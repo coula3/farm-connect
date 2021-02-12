@@ -16,12 +16,6 @@
     background-color: #FFF;
 }
 
-#img-div {
-    margin: auto;
-    height: 180px;
-    width: 150px;
-}
-
 .current-user-img {
     width: 100%;
     height: 100%;
@@ -45,12 +39,6 @@
 }
 
 @media (max-width: 500px) {
-    #img-div {
-        margin: auto;
-        height: 100px;
-        width: 100px;
-    }
-
     #user-joined-p {
         margin-top: 15px;
     }
