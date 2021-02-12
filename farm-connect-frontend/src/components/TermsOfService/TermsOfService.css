@@ -5,7 +5,7 @@
     padding: 25px;
     border-radius: 15px;
     max-height: 60vh;
-    overflow-x: auto;
+    overflow-y: auto;
 }
 
 #btn-div {
@@ -13,7 +13,7 @@
 }
 
 .tos-btn {
-    width: 100px
+    min-width: 80px;
 }
 
 #tos-text-div {
@@ -26,15 +26,7 @@
 }
 
 @media (max-width: 600px) {
-    .TermsOfService-main-div, .tos-btn {
-        font-size: 0.8rem;
-    }
-
     .TermsOfService-main-div {
         padding: 10px;
-    }
-
-    .tos-btn {
-        width: 75px;
     }
 }
