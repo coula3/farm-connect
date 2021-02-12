@@ -3,7 +3,7 @@
     padding-bottom: 25px;
     background-color: #FFF;
     border-radius: 15px;
-    height: 65.5vh;
+    min-height: 65.5vh;
     position: relative;
 }
 
@@ -25,9 +25,9 @@
     position: absolute;
     top: 140;
     width: 100%;
-    overflow-x: auto;
+    overflow-y: auto;
     border-top: 2px solid #3a5f0b;
-    max-height: 52vh;
+    height: 52vh;
 }
 
 .listings-th-td {
@@ -164,5 +164,11 @@
 @media (max-width: 850px) {
     .listings-interests {
         display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    #category {
+        padding-top: 10px;
     }
 }
