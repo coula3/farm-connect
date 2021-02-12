@@ -22,7 +22,7 @@ const CurrentUser = (props) => {
                 :   <div className="Current-user-profile-card">
                         <h3>My Profile</h3>
 
-                        <div id="img-div">
+                        <div className="img-div">
                             { props.userPhoto
                                 ?   <img className="current-user-img" src={userPhoto(props.userPhoto)} alt="user avatar" />
                                 :   <img className="current-user-img" src={avatar} alt="anonymous avatar" />

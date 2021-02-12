@@ -4,7 +4,7 @@
     padding: 15px 0px 25px 0px;
     background-color: #FFF;
     border: 1px solid #663300;
-    box-shadow: 6px 10px #663300
+    box-shadow: 6px 10px #663300;
 }
 
 .Farmer-profile-styles {
@@ -39,6 +39,10 @@
 }
 
 @media (max-width: 500px) {
+    .Current-user-profile-card {
+        box-shadow: none;
+    }
+
     #user-joined-p {
         margin-top: 15px;
     }
