@@ -13,7 +13,7 @@ const CurrentUser = (props) => {
         props.history.push(`/users/${props.userId}/edit`);
     }
 
-    const mainDivStyle = props.userAttributes.type === "Farmer" ? "CurrentFarmerUser-main-div" : "CurrentProspectUser-main-div";
+    const mainDivStyle = props.userAttributes.type === "Farmer" ? "Farmer-profile-styles" : "Prospect-profile-styles";
 
     return (
         <div className={mainDivStyle}>
@@ -33,8 +33,7 @@ const CurrentUser = (props) => {
                         <p><label><strong>Name:</strong> </label>{getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}</p>
                         <p><label><strong>Date of Birth:</strong> </label>{getDate(props.userAttributes.date_of_birth)}</p>
                         <p><label><strong>Email:</strong> </label>{props.userAttributes.email.toLowerCase()}</p>
-                        <br />
-                        <p><label><strong>Joined:</strong> </label>{getDate(props.userAttributes.created_at)}</p>
+                        <p id="user-joined-p"><label><strong>Joined:</strong> </label>{getDate(props.userAttributes.created_at)}</p>
 
                         <div>
                             <button id="cu-edit-btn" className="global-btn" onClick={handleClick}>Edit</button>
