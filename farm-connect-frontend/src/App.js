@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Router } from 'react-router-dom';
-import history from './utils/history';
 import { connect } from 'react-redux';
 import AppHeader from './components/AppHeader/AppHeader';
 import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
@@ -26,7 +24,6 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Router history={history}>
           <div>
             <AppHeader />
 
@@ -85,7 +82,6 @@ class App extends Component {
 
             { !this.props.isAuthenticated ? <AppFooter /> : null }
           </div>
-        </Router>
       </div>
     );
   }

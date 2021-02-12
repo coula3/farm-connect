@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Router } from 'react-router-dom';
 import rootReducer from './reducers'
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -9,6 +8,10 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/lib/integration/react';
+
+import App from './App';
+import history from './utils/history';
+import './index.css';
 
 const persistConfig = {
   key: 'root',
@@ -34,7 +37,9 @@ const persistor = persistStore(store);
 ReactDOM.render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <App />
+        <Router history={history}>
+          <App />
+        </Router>
       </PersistGate>
     </Provider>,
   document.getElementById('root')
