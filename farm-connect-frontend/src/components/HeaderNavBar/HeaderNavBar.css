@@ -27,6 +27,7 @@
 }
 
 #user-type-span {
+    font-size: 17px;
     padding: 2px 6px;
     border: solid 2px #3a5f0b;
     margin-right: 10px;
@@ -60,6 +61,21 @@
     flex: 1;
 }
 
+@media (max-width: 1225px) {
+    .header-img {
+        height: 1.4rem;
+        width: 1.4rem;
+        margin-right: 5px;
+    }
+
+    #user-type-span {
+        font-size: 14px;
+        padding: 0.6px 4px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+}
+
 @media (min-width: 700px) {
     #burger-menu-div {
         display: none;
@@ -72,21 +88,9 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     #hnb-name-link, #signout-link, #user-type-span {
-        font-size: 0.8rem;
-    }
-
-    .header-img {
-        height: 1.3rem;
-        width: 1.3rem;
-        margin-right: 5px;
-    }
-
-    #user-type-span {
-        padding: .5px 3px;
-        border-radius: 50%;
-        margin-right: 5px;
+        font-size: inherit;
     }
 
     #burger-menu-div {
