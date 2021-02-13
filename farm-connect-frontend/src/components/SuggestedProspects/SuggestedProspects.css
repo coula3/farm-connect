@@ -1,19 +1,19 @@
-.SuggestedProspects_main_div {
+.SuggestedProspects-main-div {
     display: inline;
     width: 20%;
 }
 
-.SuggestedProspects_main_div h4 {
+.SuggestedProspects-main-div h4 {
     color: #3a5f0b;
     margin-bottom: 0px;
 }
 
-#sp_ul {
+#suggested-prospects-ul {
     list-style: none;
     padding-left: 0px;
 }
 
-#sp_li_span {
+#suggested-prospects-li-span {
     position: relative;
     bottom: -6px;
 }

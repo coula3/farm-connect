@@ -27,14 +27,14 @@ const SuggestedProspects = (props) => {
 
     const prospects = props.prospects.map((prospect) => {
         return (
-            <ul id="sp_ul" key={prospect.id}>
-                <li><span id="sp_li_span"><Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{image(prospect.attributes.image)}</Link></span> <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
+            <ul id="suggested-prospects-ul" key={prospect.id}>
+                <li><span id="suggested-prospects-li-span"><Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{image(prospect.attributes.image)}</Link></span> <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
             </ul>
         )
     })
 
     return (
-        <div className="SuggestedProspects_main_div">
+        <div className="SuggestedProspects-main-div">
             { props.isLoadingProspects
                 ?   <Loader />
                 :   <>
