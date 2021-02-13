@@ -41,7 +41,7 @@ code {
   margin-bottom: 30px;
 }
 
-.update_btn {
+.update-btn {
   padding: 6px 0px;
   background-color: #3a5f0b;
   color: #FFF;
@@ -49,7 +49,7 @@ code {
   border-radius: 5px;
 }
 
-.update_btn_disabled {
+.update-btn-disabled {
   padding: 6px 0px;
   font-size: 15px;
   border-radius: 5px;
