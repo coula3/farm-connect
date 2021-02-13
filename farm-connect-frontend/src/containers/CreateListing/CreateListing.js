@@ -70,8 +70,8 @@ class CreateListing extends Component {
         const maxXterColor = this.state.maxInfoCharacters - this.state.listing.information.length <= 25 ? {color:"red"} : null;
 
         return (
-            <div className="CreateListing_main_div">
-                <div className="card">
+            <div className="CreateListing-main-div">
+                <div className="create-listing-card">
                     <h3>Create Listing</h3>
                     <CreateListingForm
                         commodity={this.state.listing.commodity}
