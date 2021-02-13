@@ -1,64 +1,147 @@
-.CreateListing_main_div {
-    display: inline; 
-    float: left;
-    width: 60%;
+.CreateListing-main-div {
+    width: 600px;
+    margin: auto;
+}
+
+.create-listing-card {
+    text-align: center;
+    border: #663300 solid 1px;
+    padding: 15px 0px 25px 0px;
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 6px 8px #663300
+}
+
+.create-listing-label {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 1px 5px;
+    background-color: #3a5f0b;
+    color: #fff;
+    border-radius: 6px;
+    margin-bottom: 1px;
+}
+
+.create-listing-label-margin {
+    margin-top: 10px;
+}
+
+.create-listing-commodity-select, .create-listing-availability-input,
+.create-listing-quantity-input, .create-listing-measure-select,
+.create-listing-available-select, .create-listing-textarea {
+    font-size: inherit;
+}
+
+.create-listing-commodity-select {
+    width: 80%;
+    margin: auto;
+    display: block;
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.create-listing-availability-input {
+    width: 78%;
+    margin: auto;
+    display: block;
+    padding: 3px 0px 3px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.create-listing-quantity-input {
+    width: 90px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.create-listing-measure-select {
+    width: 170px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.create-listing-available-select {
+    width: 75px;
+    display: block;
+    margin: auto;
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.create-listing-textarea {
+    width: 78%;
+    text-align: justify;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.create-listing-char-label {
+    display: block;
 }
 
 .p_inputs {
     margin-bottom: 0px
 }
 
-.p_errors {
+.create-listing-errors-span {
     font-size: 12px;
     color: red;
-    margin: 0px;
+    display: block;
 }
 
-.errors_padding_left {
-    padding-left: 16%;
-}
-
-#label_align {
-    vertical-align: top;
-}
-
-.card {
-    text-align: center;
-    border: #663300 solid 1px;
-    padding: 15px 0px 25px 0px;
-    width: 70%;
-    background-color: #FFF;
-    margin: auto;
-    box-shadow: 6px 8px #663300
-}
-
-.center {
-width: 85%;
-margin-left: auto;
-margin-right: auto;
-}
-
-#cl_measure_select {
-    width: 40%;
-    margin-left: 18px;
-}
-
-.commodity_td {
-    margin-right: 20px;
-    text-align: right;
-    vertical-align: top;
-}
-
-.listing_caption_td {
-    padding-top: 10px;
-    text-align: right;
-    vertical-align: top;
-}
-
-#cl_btn_p {
+#create-listing-btn-p {
     margin-top: 25px;
 }
 
-#cl_btn {
+#create-listing-btn {
     width: 100px;
+}
+
+@media (max-width: 1350px) {
+    .CreateListing-main-div {
+        width: 400px;
+    }
+
+    .create-listing-available-select {
+        width: 60px;
+        padding: 3px 5px;
+    }
+}
+
+@media (max-width: 1225px) {
+    .CreateListing-main-div {
+        width: 300px;
+    }
+
+    .create-listing-quantity-input {
+        width: 70px;
+    }
+
+    .create-listing-measure-select {
+        width: 150px;
+    }
+
+    .create-listing-available-select {
+        width: 50px;
+        padding: 3px 5px;
+    }
+}
+
+@media (max-width: 900px) {
+    .CreateListing-main-div {
+        width: 250px;
+    }
+
+    .create-listing-quantity-input {
+        width: 50px;
+    }
+
+    .create-listing-measure-select {
+        width: 125px;
+    }
 }
