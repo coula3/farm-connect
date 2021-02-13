@@ -3,52 +3,32 @@ import * as messages from '../../utils/errorsUtils/userErrors';
 
 const EditUserForm = props => (
     <>
-        <form id="signup_form"  onSubmit={props.handleSubmit}>
-            <table className="center">
-                <tbody>
-                    <tr>
-                        <td className="caption_td">First name</td>
-                        <td>
-                            <input className="user_inputs" type="text" name="firstName" value={props.getFirstName(props.firstName)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
-                            <br />
-                            <span id="" className="p_errors name_error_padding">{messages.firstNameError(props.errorMessages)}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="caption_td td_padding">Last name</td>
-                        <td>
-                            <input className="user_inputs input_margin" type="text" name="lastName" value={props.getLastName(props.lastName)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
-                            <br />
-                            <span className="p_errors name_error_padding">{messages.lastNameError(props.errorMessages)}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="caption_td td_padding">Date of birth</td>
-                        <td>
-                            <input className="user_inputs input_margin" type="date" name="dateOfBirth" value={props.getDateOfBirth(props.dateOfBirth)} onClick={props.handleSwitchState} onChange={props.handleChange}  />
-                            <br />
-                            <span id="dob_error_padding" className="p_errors">{messages.dateOfBirthError(props.errorMessages)}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="caption_td td_padding">Email</td>
-                        <td>
-                            <input className="user_inputs input_margin" type="text" name="email" value={props.getEmail(props.email)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
-                            <br />
-                            <span id="email_error_padding" className="p_errors error_padding">{messages.emailError(props.errorMessages)}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="caption_td td_padding">Upload Photo</td>
-                        <td><input id="photo_input" type="file" name="photo" accept="image/png, image/jpeg" onClick={props.handleSwitchState} onChange={props.handleChange} /></td>
-                    </tr>
-                </tbody>
-            </table>
+        <form id="edit-user-form"  onSubmit={props.handleSubmit}>
+            <label className="edit-user-label">First name</label>
+            <input className="edit-user-input" type="text" name="firstName" value={props.getFirstName(props.firstName)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
+            <span className="errors-span">{messages.firstNameError(props.errorMessages)}</span>
 
-            <div id="user_edit_btn_div">
-                <button className={`${props.setUpdateBtnColor()} eu_el_btns`} disabled={!props.editMode}>Update</button>
+            <label className="edit-user-label edit-user-label-margin">Last name</label>
+            <input className="edit-user-input" type="text" name="lastName" value={props.getLastName(props.lastName)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
+            <span className="errors-span">{messages.lastNameError(props.errorMessages)}</span>
+
+            <label className="edit-user-label edit-user-label-margin">Date of birth</label>
+            <input className="edit-user-input" type="date" name="dateOfBirth" value={props.getDateOfBirth(props.dateOfBirth)} onClick={props.handleSwitchState} onChange={props.handleChange}  />
+            <span className="errors-span">{messages.dateOfBirthError(props.errorMessages)}</span>
+
+            <label className="edit-user-label edit-user-label-margin">Email</label>
+            <input className="edit-user-input" type="text" name="email" value={props.getEmail(props.email)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
+            <span className="errors-span">{messages.emailError(props.errorMessages)}</span>
+
+            <label id="edit-user-photo-label-margin" className="edit-user-label">Upload Photo</label>
+            <p id="photo-p">
+                <input id="photo-input" type="file" name="photo" accept="image/png, image/jpeg" onClick={props.handleSwitchState} onChange={props.handleChange} />
+            </p>
+
+            <div id="user-edit-btn-div">
+                <button id="edit-user-update-btn" className={`${props.setUpdateBtnColor()}`} disabled={!props.editMode}>Update</button>
                 <br />
-                <button className="global_btn eu_el_btns" onClick={props.handleCancelEdit}>Cancel</button>
+                <button id="edit-user-cancel-btn" className="global-btn" onClick={props.handleCancelEdit}>Cancel</button>
             </div>
         </form>
     </>

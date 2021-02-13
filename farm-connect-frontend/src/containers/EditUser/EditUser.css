@@ -1,85 +1,121 @@
-.EditUser_main_div {
-    display: inline; 
-    float: left;
-    width: 60%;
+.EditUser-main-div {
+    width: 500px;
+    margin: auto;
 }
 
-#signup_form {
+.edit-user-profile-card {
+    text-align: center;
+    border: #663300 solid 1px;
+    padding: 15px 0px 25px 0px;
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 6px 8px #663300
+}
+
+#edit-user-form {
     padding: 10px; 
     margin-bottom: 5px
 }
 
-.p_inputs {
-    margin-bottom: 0px
+.edit-user-label, .edit-user-input, #photo-input, #edit-user-update-btn {
+    font-size: inherit;
 }
 
-.user_inputs {
-    width: 75%;
-    font-size: 17px;
+.edit-user-input {
+    width: 80%;
+    margin: auto;
     padding: 5px 10px;
-    float: left;
-    margin-left: 35px;
+    display: block;
     border-radius: 5px;
     border: grey solid 1px;
 }
 
-.input_margin {
+.edit-user-label {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 1px 5px;
+    background-color: #3a5f0b;
+    color: #fff;
+    border-radius: 6px;
+    margin-bottom: 1px;
+}
+
+.edit-user-label-margin, #edit-user-photo-label-margin {
     margin-top: 10px;
 }
 
-.caption_td {
-    text-align: right;
-    font-size: 17px;
-    vertical-align: top;
+#upload-photo-label {
+    margin-right: 10px;
 }
 
-.td_padding {
-    padding-top: 10px;
+#photo-p {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
 }
 
-#photo_input {
-    margin-top: 10px;
-    font-size: 17px;
-    float: left;
-    margin-left: 35px;
+#user-edit-btn-div {
+    margin-top: 30px;
 }
 
-#user_edit_btn_div {
-    margin-top: 40px;
+#edit-user-update-btn, #edit-user-cancel-btn {
+    width: 100px;
 }
 
-.p_errors {
+.errors-span {
     font-size: 12px;
     color: red;
-    margin: 0px;
-    display: inline-block;
-    clear: both;
+    display: block;
 }
 
-.name_error_padding {
-    padding-left: 35%;
+@media (max-width: 1300px) {
+    .EditUser-main-div {
+        width: 45%;
+        min-width: 250px;
+    }
 }
 
-#dob_error_padding {
-    padding-left: 30%;
+@media (max-width: 1225px) {
+    .errors-span {
+      font-size: 10px
+    }
 }
 
-#email_error_padding {
-    padding-left: 38%;
+@media (max-width: 1000px) {
+    .edit-user-input {
+        padding: 2px 5px;
+    }
 }
 
-.edit_user_profile_card {
-    text-align: center;
-    border: #663300 solid 1px;
-    padding: 15px 0px 25px 0px;
-    width: 70%;
-    background-color: #FFF;
-    margin: auto;
-    box-shadow: 6px 8px #663300
+@media (max-width: 900px) {
+    .errors-span {
+        font-size: 8px
+    }
 }
 
-.center {
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
+@media (max-width: 500px) {
+    .edit-user-profile-card {
+        box-shadow: none;
+        padding: 5px 0 10px 0;
+    }
+
+    #dit-user-h3 {
+        margin: 5px 0;
+    }
+
+    #edit-user-form {
+        padding: 0 10px;
+    }
+
+    #edit-user-update-btn, #edit-user-cancel-btn {
+        padding: 3px 0;
+    }
+
+    #user-edit-btn-div {
+        margin-top: 15px;
+    }
+
+    .edit-user-label-margin {
+        margin-top: 4px;
+    }
 }

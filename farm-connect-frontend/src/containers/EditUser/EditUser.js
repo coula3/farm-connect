@@ -62,7 +62,7 @@ class EditUser extends Component {
     }
 
     setUpdateBtnColor = () => {
-        return this.state.editMode ? "update_btn" : "update_btn_disabled";
+        return this.state.editMode ? "update-btn" : "update-btn-disabled";
     }
 
     handleCancelEdit = (e) => {
@@ -88,9 +88,9 @@ class EditUser extends Component {
 
     render(){
         return (
-            <div className="EditUser_main_div">
-                <div className="edit_user_profile_card">
-                    <h3>Edit Profile</h3>
+            <div className="EditUser-main-div">
+                <div className="edit-user-profile-card">
+                    <h3 id="edit-user-h3">Edit Profile</h3>
                     <EditUserForm
                         firstName={this.props.userAttributes.first_name}
                         lastName={this.props.userAttributes.last_name}
