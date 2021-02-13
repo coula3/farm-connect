@@ -1,14 +1,12 @@
 .Listing-main-div {
-    display: inline;
-    float: left;
-    width: 60%;
+    width: 600px;
+    margin: auto;
 }
 
 #listing-card {
     text-align: center;
     border: #3a5f0b solid 1px;
-    width: 70%;
-    margin: auto;
+    width: 100%;
     box-shadow: 6px 8px #663300;
     background-image: url('../../assets/wetLeaves.png');
     background-color: #FFF;
@@ -42,7 +40,7 @@
 }
 
 #listing-info-p {
-    width: 80%;
+    width: 90%;
     margin: 5px auto;
 }
 
@@ -51,17 +49,17 @@
 }
 
 .listing-label-padding {
-    padding-right: 8px;
+    padding-right: 5px;
 }
 
 #lisitng-name-link {
     color: #3a5f0b
 }
 
-#interest-div {
-    width: 150px;
+#listing-high-interest-span {
+    display: inline-block;
     margin: auto;
-    padding: 5px 0px;
+    padding: 5px 10px;
     border-radius: 5px;
     background-color: #FF0000;
     color: #FFF;
@@ -73,5 +71,54 @@
 }
 
 #listing-btn-div {
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+@media (max-width: 1350px) {
+    .Listing-main-div {
+        width: 400px;
+    }
+}
+
+@media (max-width: 1225px) {
+    .Listing-main-div {
+        width: 300px;
+    }
+
+    #heart-lbl {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .Listing-main-div {
+        width: 250px;
+    }
+
+    #heart-lbl {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    #listing-high-interest-span {
+        margin: 0;
+    }
+
+    #listing-details {
+        padding: 15px 0;
+    }
+
+    #listing-details h3, #listing-last-edit {
+        margin: 8px 0;
+    }
+
+    #listing-btn-div {
+        margin-top: 5px;
+    }
+
+    #listing-edit-btn, #listing-mylisting-btn, #listing-listings-btn {
+        width: 80px;
+        padding: 3px 0;
+    }
 }

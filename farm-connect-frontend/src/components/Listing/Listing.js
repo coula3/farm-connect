@@ -16,7 +16,6 @@ const Listing = (props) => {
             if(parseInt(currentUserId) === listingUserId){
                 return (
                     <>
-                        <br />
                         <button id="listing-edit-btn" className="global-btn" onClick={() => props.history.push(`/listings/${listingId}/edit`)}>Edit</button>
                     </>
                 );
@@ -77,9 +76,9 @@ const Listing = (props) => {
 
                         <div id="listing-details">
                             { props.listing.attributes.interests.length >= 5 && !props.listing.attributes.closed
-                                ?   <div id="interest-div">
+                                ?   <span id="listing-high-interest-span">
                                         <strong>HIGH INTEREST</strong>
-                                    </div>
+                                    </span>
                                 :   null
                             }
 
@@ -122,7 +121,7 @@ const Listing = (props) => {
 
                             { props.listing.attributes.quantity
                                 ?   <p>
-                                        <label className="listing-label-color listing-label-padding"><strong>Quantity:</strong> </label>
+                                        <label className="listing-label-color listing-label-padding"><strong>Quantity:</strong></label>
                                         {props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}
                                     </p>
                                 :   null
