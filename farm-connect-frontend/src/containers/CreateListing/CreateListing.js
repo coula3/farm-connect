@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import CreateListingForm from '../../components/CreateListingForm/CreateListingForm';
+import CreateListingForm from './CreateListingForm';
 import './CreateListing.css';
 
 class CreateListing extends Component {
