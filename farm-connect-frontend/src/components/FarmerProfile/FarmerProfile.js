@@ -94,7 +94,7 @@ const FarmerProfile = (props) => {
                                                         :   <div className="connect-btn-div"><button id="farmer-unconnect-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
                             :   null
                         }
-                        <div id="listing-btn-div"><button id="listings-btn" className="global-btn" onClick={handleViewListings}>{displayMyOrFarmer(props.farmer.id)}</button></div>
+                        <div id="farmer-profile-listing-btn-div"><button id="listings-btn" className="global-btn" onClick={handleViewListings}>{displayMyOrFarmer(props.farmer.id)}</button></div>
                     </div>
             }
         </div>
