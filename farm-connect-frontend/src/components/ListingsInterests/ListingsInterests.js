@@ -40,7 +40,7 @@ const ListingsInterests = (props) => {
             { props.isLoadingInterests
                 ?   <div id="loader-div"><Loader /></div>
                 :   <>
-                        <h5 id="hil-h5">High Interest Listings</h5>
+                        <h4>High Interest Listings</h4>
                         {listingsInterests}
                     </>
             }

@@ -7,9 +7,11 @@
     height: 247px;
 }
 
-h5 {
+.ListingsInterests-main-div h4 {
     color: #3a5f0b;
     margin-bottom: 0px;
+    margin-top: 0;
+    padding-top: 25px;
 }
 
 #ul-interests {
@@ -29,11 +31,6 @@ h5 {
     float: right;
     width: 15px;
     height: 20px;
-}
-
-#hil-h5 {
-    margin-top: 0;
-    padding-top: 35px;
 }
 
 #list-highlight-styles {

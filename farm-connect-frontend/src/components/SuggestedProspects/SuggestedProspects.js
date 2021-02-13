@@ -38,7 +38,7 @@ const SuggestedProspects = (props) => {
             { props.isLoadingProspects
                 ?   <Loader />
                 :   <>
-                        <h5>Suggested Prospects</h5>
+                        <h4>Suggested Prospects</h4>
                         {prospects}
                     </>
             }
