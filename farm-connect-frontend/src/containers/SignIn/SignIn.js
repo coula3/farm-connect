@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signInUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import SignInForm from '../../components/SignInForm/SignInForm';
+import SignInForm from './SignInForm';
 import './SignIn.css';
 
 class SignIn extends Component {
