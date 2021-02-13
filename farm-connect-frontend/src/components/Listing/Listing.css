@@ -3,7 +3,7 @@
     margin: auto;
 }
 
-#listing-card {
+.listing-card {
     text-align: center;
     border: #3a5f0b solid 1px;
     width: 100%;
@@ -120,5 +120,11 @@
     #listing-edit-btn, #listing-mylisting-btn, #listing-listings-btn {
         width: 80px;
         padding: 3px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .listing-card {
+        box-shadow: none;
     }
 }

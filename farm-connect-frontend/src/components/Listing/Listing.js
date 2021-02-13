@@ -71,7 +71,7 @@ const Listing = (props) => {
         <div className="Listing-main-div">
             { props.isLoading
                 ?   <Loader />
-                :   <div id="listing-card">
+                :   <div className="listing-card">
                         {(() => toFetchListing = props.match.params.id !== props.listing.id)()}
 
                         <div id="listing-details">

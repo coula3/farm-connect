@@ -145,3 +145,9 @@
         width: 125px;
     }
 }
+
+@media (max-width: 500px) {
+    .create-listing-card {
+        box-shadow: none;
+    }
+}
