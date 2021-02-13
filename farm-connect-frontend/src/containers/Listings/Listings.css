@@ -75,6 +75,7 @@
 
 #listing-delete-btn {
     background-color: #FFF;
+    font-size: inherit;
     padding: 1px 5px;
     border-radius: 50%;
 }
