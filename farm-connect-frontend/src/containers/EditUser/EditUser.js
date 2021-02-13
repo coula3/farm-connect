@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editUser } from '../../actions/userActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import EditUserForm from '../../components/EditUserForm/EditUserForm';
+import EditUserForm from './EditUserForm';
 import './EditUser.css';
 
 class EditUser extends Component {
