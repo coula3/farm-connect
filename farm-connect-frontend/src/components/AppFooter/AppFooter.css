@@ -41,3 +41,9 @@
         margin: 0px 0px;
     }
 }
+
+@media (max-width: 500px) {
+    .AppFooter-main-div {
+        box-shadow: none;
+    }
+}
