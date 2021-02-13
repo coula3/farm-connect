@@ -1,23 +1,10 @@
-.Listing_main_div {
+.Listing-main-div {
     display: inline;
     float: left;
     width: 60%;
 }
 
-#heart_lbl {
-    margin-right: 2px;
-    font-size: 30px;
-}
-
-#closed_listing {
-    color: red;
-}
-
-#listing_last_edit {
-    color: #000;
-}
-
-#listing_card {
+#listing-card {
     text-align: center;
     border: #3a5f0b solid 1px;
     width: 70%;
@@ -30,29 +17,48 @@
     background-size: 100% 100%;
 }
 
-#listing_details {
+#listing-id-span {
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: solid 1px #000;
+}
+
+#heart-lbl {
+    margin-right: 2px;
+    font-size: 30px;
+}
+
+#closed-listing {
+    color: red;
+}
+
+#listing-last-edit {
+    color: #000;
+}
+
+#listing-details {
     background:  rgba(255, 255, 255, 0.5);
     padding: 15px 0px 25px 0px;
 }
 
-#info_p {
+#listing-info-p {
     width: 80%;
     margin: 5px auto;
 }
 
-.color_lbl {
+.listing-label-color {
     color: #663300;
 }
 
-.padding_lbl {
-    padding-right: 5px;
+.listing-label-padding {
+    padding-right: 8px;
 }
 
-#name_link {
+#lisitng-name-link {
     color: #3a5f0b
 }
 
-#interest_div {
+#interest-div {
     width: 150px;
     margin: auto;
     padding: 5px 0px;
@@ -62,6 +68,10 @@
     margin-top: 15px;
 }
 
-.listing_btn {
+#listing-edit-btn, #listing-mylisting-btn, #listing-listings-btn {
     width: 100px;
+}
+
+#listing-btn-div {
+    margin-top: 20px;
 }
