@@ -44,6 +44,7 @@
 
 #search-result-li {
     list-style: none;
+    padding: 2px 0;
 }
 
 @media (max-width: 1225px) {
