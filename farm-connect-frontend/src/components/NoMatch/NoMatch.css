@@ -1,19 +1,18 @@
-.NoMatch_auth_main_div {
+.NoMatch-auth-main-div {
     width: 60%;
-    display: inline;
-    float: left;
+    margin: auto;
 }
 
-.NoMatch_no_auth_main_div {
+.NoMatch-no-auth-main-div {
     width: 90%;
-    margin: 0% 5% 0% 5%;
+    margin: auto;
 }
 
-#span_color {
+#span-color {
     color: red;
 }
 
-#emoji_img {
+#emoji-img {
     margin-top: 15px;
     height: 20px;
     width: 20px;

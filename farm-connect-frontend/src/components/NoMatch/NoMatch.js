@@ -5,14 +5,14 @@ import './NoMatch.css';
 
 const NoMatch = (props) => {
     let divStyle;
-    props.isAuthenticated ? divStyle = "NoMatch_auth_main_div" : divStyle = "NoMatch_no_auth_main_div";
+    props.isAuthenticated ? divStyle = "NoMatch-auth-main-div" : divStyle = "NoMatch-no-auth-main-div";
 
     return (
         <div className={divStyle}>
             <h4>
-                404 - Pathname <span id="span_color">"{props.location.pathname}"</span> not found
+                404 - Pathname <span id="span-color">"{props.location.pathname}"</span> not found
             </h4>
-            <img src={sadEmoji} alt="sad face" id="emoji_img"></img>
+            <img src={sadEmoji} alt="sad face" id="emoji-img"></img>
         </div>
     )
 }
