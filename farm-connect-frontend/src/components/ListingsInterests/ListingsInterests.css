@@ -19,12 +19,16 @@
     padding-left: 0px;
 }
 
-#user-li {
+.HIL-li {
+    cursor: pointer;
+}
+
+#user-HIL {
     background-color: #EEE8AA;
     border-radius: 15px;
     width: 85%;
     margin: auto;
-    padding: 5px 15px 5px 3px;
+    padding: 5px 10px 5px 3px;
 }
 
 #balloon-img {

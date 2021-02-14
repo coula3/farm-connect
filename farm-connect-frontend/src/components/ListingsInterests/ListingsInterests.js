@@ -15,7 +15,7 @@ const ListingsInterests = (props) => {
     }
 
     const listStyles = (listing) => {
-        return listing[3] === parseInt(props.userId) ? "user-li" : null;
+        return listing[3] === parseInt(props.userId) ? "user-HIL" : null;
     }
 
     const renderBalloons = (listing) => {
@@ -29,7 +29,7 @@ const ListingsInterests = (props) => {
     const renderListingsInterests = props.listingsInterests.map((listing) => {
         return (
             <ul id="ul-interests" key={listing[0]}>
-                <li id={listStyles(listing)} onClick={() => handleClick(listing[0])}><span id={listHighlight(listing)}>{padIds(listing[0])} - {listing[2]} ({listing[1]}) {renderBalloons(listing)}</span></li>
+                <li id={listStyles(listing)} className="HIL-li" onClick={() => handleClick(listing[0])}><span id={listHighlight(listing)}>{padIds(listing[0])} - {listing[2]} ({listing[1]}) {renderBalloons(listing)}</span></li>
             </ul>
         );
     });
