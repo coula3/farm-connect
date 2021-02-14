@@ -28,6 +28,10 @@ class SearchUsers extends Component {
             this.props.searchUsers(this.state);
         }
 
+        this.props.history.push({
+            search: `?text=${this.state.searchText}`
+        })
+
         this.setState({
             searchText: "",
             userType: ""
