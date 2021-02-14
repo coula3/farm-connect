@@ -33,10 +33,6 @@ code {
   padding-top: 15px;
 }
 
-.eu_el_btns {
-  width: 100px;
-}
-
 .join-date-p {
   margin-bottom: 30px;
 }
@@ -66,68 +62,6 @@ code {
 a {
   text-decoration: none;
   color: #663300;
-}
-
-
-.commodity_select {
-  width: 53%;
-  font-size: 15px;
-  padding: 3px 10px;
-  float: left;
-  margin-left: 18px;
-  border-radius: 5px;
-  border: grey solid 1px;
-}
-
-.availability_input {
-  width: 50%;
-  margin-top: 10px;
-  font-size: 15px;
-  padding: 3px 0px 3px 10px;
-  float: left;
-  margin-left: 18px;
-  border-radius: 5px;
-  border: grey solid 1px;
-}
-
-.quantity_input {
-  width: 35%;
-  margin-top: 10px;
-  font-size: 15px;
-  padding: 4px 10px;
-  float: left;
-  margin-left: 18px;
-  border-radius: 5px;
-  border: grey solid 1px;
-}
-
-.measure_select {
-  margin-top: 10px;
-  font-size: 15px;
-  padding: 3px 10px;
-  float: left;
-  border-radius: 5px;
-  border: grey solid 1px;
-}
-
-.available_select {
-  width: 20%;
-  margin-top: 10px;
-  font-size: 15px;
-  padding: 3px 10px;
-  float: left;
-  margin-left: 18px;
-  border-radius: 5px;
-  border: grey solid 1px;
-}
-
-.info_textarea {
-  margin-top: 10px;
-  font-size: 15px;
-  padding: 10px;
-  float: left;
-  margin-left: 18px;
-  border-radius: 5px;
 }
 
 @media (max-width: 1350px) {
