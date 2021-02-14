@@ -138,7 +138,7 @@ class EditListing extends Component {
     }
 
     closeListingWarning = () => {
-        return this.state.listing.closed ? "WARNING: closed listing becomes uneditable" : null;
+        return this.state.listing.closed ? "WARNING: closed listing cannot be edited" : null;
     }
 
     setUpdateBtnColor = () => {
