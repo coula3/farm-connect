@@ -4,7 +4,7 @@ import Loader from '../../components/Loader/Loader';
 import { editListing } from '../../actions/listingsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { getDate, padIds } from '../../utils/miscellaneousUtils';
-import EditListingForm from '../../components/EditListingForm/EditListingForm';
+import EditListingForm from './EditListingForm';
 import './EditListing.css';
 
 class EditListing extends Component {
