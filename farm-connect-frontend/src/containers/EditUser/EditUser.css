@@ -54,7 +54,7 @@
     text-align: center;
 }
 
-#user-edit-btn-div {
+#edit-user-btn-div {
     margin-top: 30px;
 }
 
@@ -62,7 +62,7 @@
     width: 100px;
 }
 
-.errors-span {
+.edit-user-errors-span {
     font-size: 12px;
     color: red;
     display: block;
@@ -76,7 +76,7 @@
 }
 
 @media (max-width: 1225px) {
-    .errors-span {
+    .edit-user-errors-span {
       font-size: 10px
     }
 }
@@ -88,7 +88,7 @@
 }
 
 @media (max-width: 900px) {
-    .errors-span {
+    .edit-user-errors-span {
         font-size: 8px
     }
 }
