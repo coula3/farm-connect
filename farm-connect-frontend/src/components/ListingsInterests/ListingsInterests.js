@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import { padIds } from '../../utils/miscellaneousUtils';
 import balloons from '../../assets/balloons.png';
@@ -7,12 +6,12 @@ import './ListingsInterests.css';
 
 const ListingsInterests = (props) => {
     const pathArray = props.location.pathname.split("/");
-    const listingPathId = pathArray[pathArray.length - 1];
 
     const handleClick = (listingId) => {
-        if(listingId !== parseInt(listingPathId)){
+        if(listingId !== parseInt(props.listing.id)){
             props.fetchListing(listingId);
         }
+        props.history.push(`/listings/${listingId}`);
     }
 
     const listStyles = (listing) => {
@@ -24,13 +23,13 @@ const ListingsInterests = (props) => {
     }
 
     const listHighlight = (listing) => {
-        return listing[0] === parseInt(listingPathId) && pathArray[1] === "listings" && listing[3] !== parseInt(props.userId) ? "list-highlight-styles" : null;
+        return listing[0] === parseInt(props.listing.id) && pathArray[1] === "listings" && listing[3] !== parseInt(props.userId) ? "list-highlight-styles" : null;
     }
 
     const renderListingsInterests = props.listingsInterests.map((listing) => {
         return (
             <ul id="ul-interests" key={listing[0]}>
-                 <li id={listStyles(listing)}><span id={listHighlight(listing)}><Link to={`/listings/${listing[0]}`} onClick={() => handleClick(listing[0])}>{padIds(listing[0])}</Link> - {listing[2]} ({listing[1]}) {renderBalloons(listing)}</span></li>
+                <li id={listStyles(listing)} onClick={() => handleClick(listing[0])}><span id={listHighlight(listing)}>{padIds(listing[0])} - {listing[2]} ({listing[1]}) {renderBalloons(listing)}</span></li>
             </ul>
         );
     });
