@@ -1,32 +1,64 @@
 .ErrorMessage-main-div {
-    display: inline; 
-    float: left;
-    width: 60%;
+    width: 500px;
+    margin: auto;
 }
 
 .error-message-card {
     text-align: center;
-    border: #ff0000 solid 1px;
-    padding: 0px 0px 25px 0px;
-    width: 45%;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-top: 30px;
     background-color: #FFF;
-    margin: auto;
     box-shadow: 3px 3px #ff0000;
+    border: #ff0000 solid 1px;
     border-radius: 15px;
 }
 
 #err-msg-close-btn {
+    font-size: inherit;
     float: right;
     top: 0;
-    height: 30px;
-    outline: none;
-    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    margin: -15px -15px 0 0;
     background-color: #000;
     color: #fff;
-    margin: 5px 5px 0px 0px;
+    outline: none;
+    border-radius: 50%;
+    border: #ff0000 solid 1px;
 }
 
 #err-msg-h5 {
     clear: both;
     margin-top: 40px;
+}
+
+@media (max-width: 1350px) {
+    .ErrorMessage-main-div {
+        width: 400px;
+    }
+}
+
+@media (max-width: 1225px) {
+    .ErrorMessage-main-div {
+        width: 300px;
+    }
+
+    #err-msg-close-btn {
+        height: 30px;
+        width: 30px;
+        margin: -12px -12px 0 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .ErrorMessage-main-div {
+        width: 250px;
+    }
+
+    #err-msg-close-btn {
+        height: 25px;
+        width: 25px;
+        margin: -9px -9px 0 0;
+    }
 }
