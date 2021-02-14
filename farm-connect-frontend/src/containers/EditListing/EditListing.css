@@ -1,84 +1,138 @@
-.EditListing_main_div {
-    display: inline; 
-    float: left;
-    width: 60%;
+.EditListing-main-div {
+    width: 600px;
+    margin: auto;
 }
 
-.p_inputs {
-    margin-bottom: 0px
-}
-
-.p_errors {
-    font-size: 12px;
-    color: red;
-    margin: 0px;
-    display: inline-block;
-    float: left;
-    clear: both;
-}
-
-#availability_span {
-    padding-left: 10%;
-}
-
-#label_align {
-    vertical-align: top;
-}
-
-#listing_close_warning_span {
-    color:  #ff0000;
-    border-radius: 15px;
-    border: solid 1px #ff0000;
-    padding: 5px 10px;
-    display: inline-block;
-    font-size: 14px;
-}
-
-.card {
+.edit-listing-card {
     text-align: center;
     border: #663300 solid 1px;
-    padding: 15px 0px 25px 0px;
-    width: 70%;
+    padding: 15px 0;
+    width: 100%;
     background-color: #FFF;
-    margin: auto;
     box-shadow: 6px 8px #663300
 }
 
-.center {
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
+.EditListing-main-div h3 {
+    margin: 5px 0 15px 0;
 }
 
-#update_button_p {
-    margin: 25px 0px 0px 0px;
+.edit-listing-label {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 1px 5px;
+    background-color: #3a5f0b;
+    color: #fff;
+    border-radius: 6px;
+    margin-bottom: 1px;
 }
 
-#critical_color {
+.edit-listing-label-margin {
+    margin-top: 7.5px;
+}
+
+#edit-listing-available-label {
+    display: block;
+    padding: 0 5px;
+}
+
+.edit-listing-commodity-select, .edit-listing-availability-input,
+.edit-listing-quantity-input, .edit-listing-measure-select,
+.edit-listing-available-select, .edit-listing-textarea, #edit-listing-update-btn {
+    font-size: inherit;
+}
+
+.edit-listing-commodity-select {
+    width: 80%;
+    margin: auto;
+    display: block;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.edit-listing-availability-input {
+    width: 78%;
+    margin: auto;
+    display: block;
+    padding: 2px 0px 3px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+#edit-listing-qty-measure-p {
+    display: inline;
+    padding: 0 10px;
+}
+
+.edit-listing-quantity-input {
+    width: 90px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.edit-listing-measure-select {
+    width: 200px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.edit-listing-available-select {
+    width: 75px;
+    display: block;
+    margin: auto;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: grey solid 1px;
+}
+
+.edit-listing-textarea {
+    width: 78%;
+    text-align: justify;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#close-listing-p {
+    margin: 10px 0 0 0;
+}
+
+#listing-close-warning-span {
+    color:  #ff0000;
+    border-radius: 15px;
+    border: solid 1px #ff0000;
+    padding: 3px 10px;
+    display: inline-block;
+    font-size: 0.8rem;
+}
+
+#edit-listing-update-btn-p {
+    margin: 15px 0px 0px 0px;
+}
+
+#xter-critical-color {
     color: #FF0000;
 }
 
-#measure_select_el {
-    width: 38%;
-    margin-left: 10%;
-}
-
-#id_date_p {
-    margin: 0px 0px 20px 0px;
-}
-
-#el_caption_span {
-    padding-right: 20px;
-}
-
-.el_id_span {
+#edit-listing-id-span {
     padding: 2px 8px;
+    display: inline-block;
+    margin-bottom: 5px;
     border-radius: 5px;
     border: solid 1px #000;
 }
 
-#el_dash_span {
-    padding: 0px 8px;
+#edit-listing-date-p {
+    margin: 5px 0 0 0;
+}
+
+.edit-listing-chars-span {
+    display: block;
+}
+
+#edit-listing-update-btn, #edit-listing-cancel-btn {
+    width: 100px;
 }
 
 #qty_error_p {
@@ -95,8 +149,77 @@
      padding-right: 18%;
 }
 
-.xter_span {
-    width: 50%;
-    clear: both;
+.p_errors {
+    font-size: 12px;
+    color: red;
+    margin: 0px;
     display: inline-block;
+    float: left;
+    clear: both;
+}
+
+#availability_span {
+    padding-left: 10%;
+}
+
+@media (max-width: 1350px) {
+    .EditListing-main-div {
+        width: 400px;
+    }
+
+    #edit-listing-qty-measure-p {
+        display: block;
+        margin: 0;
+    }
+
+    .edit-listing-quantity-input {
+        width: 80px;
+    }
+
+    .edit-listing-measure-select {
+        width: 110px;
+    }
+}
+
+
+@media (max-width: 1225px) {
+    .EditListing-main-div {
+        width: 300px;
+    }
+
+    .edit-listing-commodity-select, .edit-listing-measure-select,
+    .edit-listing-available-select {
+        padding: 2px 5px;
+    }
+    .edit-listing-quantity-input {
+        width: 65px;
+    }
+
+    .edit-listing-measure-select {
+        width: 90px;
+    }
+
+    .edit-listing-quantity-input {
+        width: 80px;
+    }
+
+    .edit-listing-available-select {
+        width: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .EditListing-main-div {
+        width: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    .edit-listing-card {
+        box-shadow: none;
+    }
+
+    #edit-listing-update-btn, #edit-listing-cancel-btn {
+        padding: 3px 0;
+    }
 }

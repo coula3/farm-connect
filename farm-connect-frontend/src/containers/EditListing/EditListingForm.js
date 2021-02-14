@@ -4,74 +4,55 @@ import * as messages from '../../utils/errorsUtils/listingErrors';
 const EditListingForm = props => (
     <>
         <form onSubmit={props.handleSubmit}>
-            <table className="center">
-                <tbody>
-                    <tr>
-                        <td className="commodity_td">Commodity</td>
-                        <td>
-                            <select className="commodity_select" name="commodity" disabled={props.listing.attributes.interests[0]} value={props.getCommodity(props.commodity)} onClick={props.handleSwitchState} onChange={props.handleChange}>
-                                { props.commodities.map((commodity, idx) =>
-                                    <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
-                                }
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="listing_caption_td">Estimated Availability</td>
-                        <td>
-                            <input className="availability_input" type="date" name="availability" value={props.getAvailability(props.availability)} onClick={props.handleSwitchState} onChange={props.handleChange} />
+            <label className="edit-listing-label edit-listing-label-margin">Commodity</label>
+            <select className="edit-listing-commodity-select" name="commodity" disabled={props.listing.attributes.interests[0]} value={props.getCommodity(props.commodity)} onClick={props.handleSwitchState} onChange={props.handleChange}>
+                { props.commodities.map((commodity, idx) =>
+                    <option key={idx} value={commodity.attributes.name}>{commodity.attributes.name}</option>)
+                }
+            </select>
 
-                            <span id="availability_span" className="p_errors">{messages.availabilityError(props.errorMessages)}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="listing_caption_td">Quantity</td>
-                        <td>
-                            <input className="quantity_input" type="number" name="quantity" min="0" value={props.getQuantity(props.quantity)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
+            <label className="edit-listing-label edit-listing-label-margin">Estimated Availability </label>
+            <input className="edit-listing-availability-input" type="date" name="availability" value={props.getAvailability(props.availability)} onClick={props.handleSwitchState} onChange={props.handleChange} />
+            <span id="availability_span" className="p_errors">{messages.availabilityError(props.errorMessages)}</span>
 
-                            <select id="measure_select_el" className="measure_select" name="measure" value={props.getMeasure(props.measure)} onClick={props.handleSwitchState} onChange={props.handleChange}>
-                                { props.getMeasuresList(props.measure).map((measure, idx) =>
-                                    <option key={idx} value={measure}>{measure}</option>)
-                                }
-                            </select>
+            <label className="edit-listing-label edit-listing-label-margin">Quantity</label>
+            <p id="edit-listing-qty-measure-p">
+                <input className="edit-listing-quantity-input" type="number" name="quantity" min="0" value={props.getQuantity(props.quantity)} onFocus={props.handleSwitchState} onChange={props.handleChange} />
+                <select className="edit-listing-measure-select" name="measure" value={props.getMeasure(props.measure)} onClick={props.handleSwitchState} onChange={props.handleChange}>
+                    { props.getMeasuresList(props.measure).map((measure, idx) =>
+                        <option key={idx} value={measure}>{measure}</option>)
+                    }
+                </select>
+            </p>
 
-                            <p id="qty_error_p" className="p_errors">
-                                {messages.quantityError(props.errorMessages)}
-                            </p>
-                            <p id="measure_error_p" className="p_errors">
-                                {messages.measureError(props.errorMessages)}
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="listing_caption_td">Availabe</td>
-                        <td>
-                            <select className="available_select"  name="available" value={props.getAvailable(props.available)} onClick={props.handleSwitchState} onChange={props.handleChange}>
-                                <option value="No">No</option>
-                                <option value="Yes">Yes</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="listing_caption_td">Supplementary Info</td>
-                        <td>
-                            <textarea className="info_textarea" name="information" id="information" rows="6" cols="48" maxLength="255" value={props.getSuppInfo(props.information)} onClick={props.handleSwitchState} onChange={props.handleChange}></textarea>
-                            <br />
-                            <span id={props.maxXterColor} className="xter_span">{props.maxInfoCharacters - props.getCharactersLength(props.information)}</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <p id="qty_error_p" className="p_errors">
+                {messages.quantityError(props.errorMessages)}
+            </p>
+            <p id="measure_error_p" className="p_errors">
+                {messages.measureError(props.errorMessages)}
+            </p>
 
-            <p>
+            <span id="edit-listing-available-label">
+                <label className="edit-listing-label edit-listing-label-margin">Available</label>
+            </span>
+            <select className="edit-listing-available-select"  name="available" value={props.getAvailable(props.available)} onClick={props.handleSwitchState} onChange={props.handleChange}>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+
+            <label className="edit-listing-label edit-listing-label-margin">Supplementary Info </label>
+            <textarea className="edit-listing-textarea" name="information" id="information" rows="7" maxLength="255" value={props.getSuppInfo(props.information)} onClick={props.handleSwitchState} onChange={props.handleChange}></textarea>
+            <span id={props.maxXterColor} className="edit-listing-chars-span">{props.maxInfoCharacters - props.getCharactersLength(props.information)}</span>
+
+            <p id="close-listing-p">
                 <label>Close Listing </label>
-                <input type="checkbox" name="closed" id="closeListing" value={props.closeListing(props.stringCurrentDate)} checked={props.closeListing(props.stringCurrentDate) !== props.stringCurrentDate} onFocus={props.handleSwitchState} onChange={props.handleChange}/>
+                <input type="checkbox" name="closed" value={props.closeListing(props.stringCurrentDate)} checked={props.closeListing(props.stringCurrentDate) !== props.stringCurrentDate} onFocus={props.handleSwitchState} onChange={props.handleChange}/>
             </p>
             <span id={props.warningMsgStyles}>{props.closeListingWarning()}</span>
 
-            <p id="update_button_p"><input className={`${props.setUpdateBtnColor()} eu_el_btns`} type="submit" value="Update" disabled={!props.editMode}/></p>
+            <p id="edit-listing-update-btn-p"><input id="edit-listing-update-btn" className={`${props.setUpdateBtnColor()}`} type="submit" value="Update" disabled={!props.editMode}/></p>
 
-            <input className="global_btn eu_el_btns" type="submit" value="Cancel" onClick={props.handleCancelEdit} />
+            <input id="edit-listing-cancel-btn" className="global-btn" type="submit" value="Cancel" onClick={props.handleCancelEdit} />
         </form>
     </>
 )

@@ -138,11 +138,11 @@ class EditListing extends Component {
     }
 
     closeListingWarning = () => {
-        return this.state.listing.closed ? "NOTICE: closed listing becomes uneditable" : null;
+        return this.state.listing.closed ? "WARNING: closed listing becomes uneditable" : null;
     }
 
     setUpdateBtnColor = () => {
-        return this.state.editMode ? "update_btn" : "update_btn_disabled";
+        return this.state.editMode ? "update-btn" : "update-btn-disabled";
     }
 
     handleCancelEdit = (e) => {
@@ -154,19 +154,19 @@ class EditListing extends Component {
     render(){
         const currentDate = new Date();
         const stringCurrentDate = currentDate.getFullYear() +"-"+ (currentDate.getMonth()+1) +"-"+ currentDate.getDate();
-        const maxXterColor = (this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)) <= 25 ? "critical_color" : null;
-        const warningMsgStyles = this.state.listing.closed ? "listing_close_warning_span" : null;
+        const maxXterColor = (this.state.maxInfoCharacters - this.getCharactersLength(this.props.listing.attributes.information)) <= 25 ? "xter-critical-color" : null;
+        const warningMsgStyles = this.state.listing.closed ? "listing-close-warning-span" : null;
 
         return (
-            <div className="EditListing_main_div">
+            <div className="EditListing-main-div">
                 { this.props.isLoadingEditedListing
                     ?   <Loader />
-                    :   <div className="card">
+                    :   <div className="edit-listing-card">
                             <h3>Edit Listing</h3>
-                            <p id="id_date_p">
-                                <span id="el_caption_span"><label><strong>LID and Date:</strong></label></span>
-                                <span className="el_id_span">{padIds(this.props.listing.id)}</span>
-                                <span id="el_dash_span">-</span>
+
+                            <span id="edit-listing-id-span">{padIds(this.props.listing.id)}</span>
+                            <p id="edit-listing-date-p">
+                                <label style={{marginRight: "5px"}}><strong>Listing Date:</strong></label>
                                 <span>{getDate(this.props.listing.attributes.date)}</span>
                             </p>
 
