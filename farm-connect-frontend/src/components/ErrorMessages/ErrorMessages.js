@@ -8,10 +8,10 @@ const ErrorMessages = (props) => {
     }, [props])
 
     return (
-        <div className="ErrorMessage_main_div">
-            <div className="error_message_card">
-                <input id="err_msg_close_btn" type="submit" value="X" onClick={() => history.goBack()}/>
-                <h5 id="err_h5">{props.errMessage}</h5>
+        <div className="ErrorMessage-main-div">
+            <div className="error-message-card">
+                <input id="err-msg-close-btn" type="submit" value="X" onClick={() => history.goBack()}/>
+                <h5 id="err-msg-h5">{props.errMessage}</h5>
             </div>
         </div>
     )
