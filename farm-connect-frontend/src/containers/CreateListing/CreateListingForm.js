@@ -33,9 +33,9 @@ const CreateListingForm = props => (
 
             <label className="create-listing-label create-listing-label-margin">Supplementary Info </label>
             <textarea className="create-listing-textarea" name="information" id="information" rows="8" maxLength={props.maxInfoCharacters} value={props.information} onChange={props.handleChange}></textarea>
-            <label className="create-listing-char-label" style={props.maxXterColor}>
-                {props.maxInfoCharacters - props.information.length}
-            </label>
+            <span className="create-listing-chars-span" style={props.maxXterColor}>
+                <strong>{props.maxInfoCharacters - props.information.length}</strong>
+            </span>
 
             <p id="create-listing-btn-p">
                 <input id="create-listing-btn" className="global-btn" type="submit" />
