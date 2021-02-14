@@ -68,22 +68,22 @@ class SearchUsers extends Component {
             });
 
             return (
-                <ol id="search_results_ul">
+                <ol id="search-results-ul">
                     {   searchResults.data[0]
                             ?   sortedSearchResults.map((user, idx) =>
-                                <li id="search_result_li" key={user.id}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
-                            : <h4 id="no_msg">No matching name</h4>
+                                <li id="search-result-li" key={user.id}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                            : <h4>No matching name</h4>
                     }
                 </ol>
             );
         };
 
         return (
-            <div className="SearchUsers_main_div">
-                <div className="search_users_card">
+            <div className="SearchUsers-main-div">
+                <div className="search-users-card">
                     <form onSubmit={this.handleSubmit}>
-                        <input id="search_input" type="text" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
-                        <input id="search_btn" type="submit" value="Search" />
+                        <input id="search-input" type="text" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
+                        <input id="search-btn" type="submit" value="Search" />
                     </form>
                     {   this.props.isLoading
                             ?   <Loader />

@@ -1,10 +1,10 @@
-.SearchUsers_main_div {
+.SearchUsers-main-div {
     display: inline;
     float: left;
     width: 60%;
 }
 
-.search_users_card {
+.search-users-card {
     text-align: center;
     border: #3a5f0b solid 1px;
     padding: 25px 0px 10px 0px;
@@ -15,7 +15,7 @@
     box-shadow: 6px 8px #3a5f0b
 }
 
-#search_input {
+#search-input {
     width: 70%;
     height: 16px;
     font-size: 17px;
@@ -24,7 +24,7 @@
     border: grey solid 1px;
 }
 
-#search_btn {
+#search-btn {
     font-size: 17px;
     padding: 2px 6px;
     border-radius: 0px 5px 5px 0px;
@@ -32,10 +32,10 @@
     color: #FFF;
 }
 
-#search_results_ul {
+#search-results-ul {
     padding: 0px 20px 0px 20px;
 }
 
-#search_result_li {
+#search-result-li {
     list-style: none;
 }
