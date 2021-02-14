@@ -15,6 +15,7 @@ class SearchUsers extends Component {
 
     handleChange = (e) => {
         const userType = this.props.match.path.endsWith("farmers") ? "F" : "P"
+
         this.setState({
             searchText: e.target.value,
             userType
@@ -26,6 +27,7 @@ class SearchUsers extends Component {
         if(this.state.searchText){
             this.props.searchUsers(this.state);
         }
+
         this.setState({
             searchText: "",
             userType: ""
@@ -87,7 +89,7 @@ class SearchUsers extends Component {
                     </form>
                     {   this.props.isLoading
                             ?   <Loader />
-                            :   this.props.searchResults.data && renderSearchResults(this.props.searchResults)
+                            :   this.props.searchResults.data && <div id="search-results-div">{renderSearchResults(this.props.searchResults)}</div>
                     }
                 </div>
             </div>
