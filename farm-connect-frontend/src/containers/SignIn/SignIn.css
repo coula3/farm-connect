@@ -1,4 +1,4 @@
-.SignIn_main_div {
+.SignIn-main-div {
     margin: auto;
     width: 500px;
     border: solid 1px grey;
@@ -8,18 +8,18 @@
     background-color: #FFF;
 }
 
-#signin_form {
+#signin-form {
     padding: 10px 0px;
     margin-bottom: 5px;
 }
 
-#errors_p {
+#signin-error-p {
     font-size: .7rem;
     margin-top: 0px;
     color: red;
 }
 
-.signin_inputs {
+.signin-inputs {
     width: 80%;
     padding: 5px 10px;
     font-size: 1rem;
@@ -27,11 +27,11 @@
     border-radius: 5px;
 }
 
-#signin_button {
+#signin-button {
     margin-top: 5px;
 }
 
-.signin_button {
+.signin-button {
     width: 65%;
     font-size: 1rem;
     padding: 5px 10px;
@@ -40,7 +40,7 @@
     background-color: #dde6d5;
 }
 
-.signup_button {
+#signin-signup-button {
     width: 65%;
     font-size: 1rem;
     padding: 6px 10px;
@@ -51,17 +51,17 @@
 }
 
 @media (max-width: 600px) {
-    .SignIn_main_div {
+    .SignIn-main-div {
         width: 90%;
         margin-top: 50px;
         box-shadow: none;
     }
 
-    .signin_inputs {
+    .signin-inputs {
         padding: 3px 5px;
     }
 
-    .signin_button, .signup_button, .signin_inputs {
+    .signin-button, #signin-signup-button, .signin-inputs {
         font-size: 0.8rem;
     }
 }

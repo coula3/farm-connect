@@ -48,7 +48,7 @@ class SignIn extends Component {
 
     render() {
         return (
-            <div className="SignIn_main_div">
+            <div className="SignIn-main-div">
                 <SignInForm
                     email={this.state.user.email}
                     password={this.state.user.password}
