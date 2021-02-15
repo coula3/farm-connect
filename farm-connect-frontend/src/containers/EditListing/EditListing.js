@@ -164,11 +164,10 @@ class EditListing extends Component {
                     :   <div className="edit-listing-card">
                             <h3>Edit Listing</h3>
 
-                            <span id="edit-listing-id-span">{padIds(this.props.listing.id)}</span>
-                            <p id="edit-listing-date-p">
-                                <label style={{marginRight: "5px"}}><strong>Listing Date:</strong></label>
-                                <span>{getDate(this.props.listing.attributes.date)}</span>
-                            </p>
+                            <span id="edit-listing-id-span" className="tooltip">
+                                {padIds(this.props.listing.id)}
+                                <span className="tooltiptext">Listing Date: {getDate(this.props.listing.attributes.date)}</span>
+                            </span>
 
                             <EditListingForm 
                                 commodity={this.props.listing.attributes.commodity.name}
