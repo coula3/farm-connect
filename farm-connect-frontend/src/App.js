@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import AppHeader from './components/AppHeader/AppHeader';
-import HeadNavBar from './components/HeaderNavBar/HeaderNavBar';
+import HeaderNavBar from './containers/HeaderNavBar/HeaderNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import { signOutUser } from './actions/userActions';
@@ -29,7 +29,7 @@ class App extends Component {
             <AppHeader />
 
             { this.props.isAuthenticated
-              ? <HeadNavBar
+              ? <HeaderNavBar
                   userId={this.props.userId}
                   userAttributes={this.props.userAttributes}
                   userSignOut={this.handleUserSignOut}
