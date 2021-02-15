@@ -39,7 +39,7 @@ class SignUp extends Component {
 
     render(){
         return(
-            <div className="SignUp_main_div">
+            <div className="SignUp-main-div">
                 <SignUpForm
                     firstName={this.state.user.firstName}
                     lastName={this.state.user.lastName}

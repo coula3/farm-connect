@@ -1,4 +1,4 @@
-.SignUp_main_div {
+.SignUp-main-div {
     width: 500px;
     margin: auto;
     border: solid 1px grey; 
@@ -8,16 +8,16 @@
     background-color: #FFF;
 }
 
-#signup_form {
+#signup-form {
     padding: 10px 0px;
     margin-bottom: 5px;
 }
 
-#switch_btn_div {
+#switch-btn-div {
     padding: 0 10px;
 }
 
-.signup_inputs {
+.signup-inputs {
     width: 80%;
     padding: 5px 10px;
     font-size: 1rem;
@@ -25,20 +25,20 @@
     border-radius: 5px;
 }
 
-.inputs_p {
+.signup-inputs-p {
     margin-bottom: 0px
 }
 
-.errors_p {
+.signup-errors-p {
     font-size: 0.75rem;
     color: red
 }
 
-.errors_p_margin {
+.signup-errors-p-margin {
     margin: 0px;
 }
 
-#dob_p {
+#signup-dob-p {
     width: 83%;
     height: 20px;
     margin: auto;
@@ -47,7 +47,7 @@
     border-radius: 5px;
 }
 
-#dob_label {
+#signup-dob-label {
     color: grey;
     padding: 3px 0px 0px 20px;
     font-size: 1rem;
@@ -58,7 +58,7 @@
     margin-top: 10px;
 }
 
-#signup_dob_input {
+#signup-dob-input {
     width: 100%;
     display: inline-block;
     border: none;
@@ -66,7 +66,7 @@
     color: grey;
 }
 
-#type_div {
+#type-div {
     width: 80%;
     height: 20px;
     margin: auto;
@@ -77,7 +77,7 @@
     display: flex;
 }
 
-#farmer_type_div {
+#farmer-type-div {
     display: inline;
     flex: 1;
     text-align: left;
@@ -86,7 +86,7 @@
     margin-bottom: 8px;
 }
 
-#prospect_type_div {
+#prospect-type-div {
     display: inline;
     flex: 1;
     text-align: right;
@@ -95,19 +95,19 @@
     margin-bottom: 8px;
 }
 
-.type_lbl {
+.user-type-label {
     padding-right: 10px;
 }
 
-.margin_radio_input {
+.margin-radio-input {
     margin-top: 6px;
 }
 
-#signup_button {
+#signup-button {
     margin-top: 5px;
 }
 
-.SignUp_signup_button {
+.signup-button {
     width: 65%;
     font-size: 1rem;
     padding: 6px 10px;
@@ -117,7 +117,7 @@
     color: #FFF;
 }
 
-.SignUp_signin_button {
+.signup-signin-button {
     width: 65%;
     font-size: 1rem;
     padding: 5px 10px;
@@ -126,75 +126,75 @@
     background-color: #dde6d5;
 }
 
-#service_terms_p {
+#signup-service-terms-p {
     padding-top: 20px;
     font-size: 0.65rem;
 }
 
-#service_terms_link {
+#service-terms-link {
     text-decoration: none;
     color: #3a5f0b;
 }
 
 @media (max-width: 600px) {
-    .SignUp_main_div {
+    .SignUp-main-div {
         width: 90%;
         padding-bottom: 20px;
         box-shadow: none;
     }
 
-    .SignUp_signup_button, .SignUp_signin_button,  .signup_inputs,
-    #dob_label, #farmer_type_div, #prospect_type_div,
-    #signup_dob_input {
+    .signup-button, .signup-signin-button,  .signup-inputs,
+    #signup-dob-label, #farmer-type-div, #prospect-type-div,
+    #signup-dob-input {
         font-size: 0.8rem;
     }
 
-    .signup_inputs, #type_div, #dob_label, #dob_p {
+    .signup-inputs, #type-div, #signup-dob-label, #signup-dob-p {
         width: 90%;
     }
 
-    .signup_inputs {
+    .signup-inputs {
         padding: 3px 5px;
     }
 
-    .inputs_p {
+    .signup-inputs-p {
         margin-top: 10px
     }
 
-    .errors_p {
+    .signup-errors-p {
         font-size: 0.6rem;
     }
 
-    #signup_form {
+    #signup-form {
         padding-bottom: 5px;
         margin-bottom: 0px;
     }
 
-    .SignUp_signup_button {
+    .signup-button {
         margin-top: 0;
     }
 
-    #dob_label {
+    #signup-dob-label {
         padding-left: 0px;
         margin-top: 2px;
     }
 
-    #dob_p {
+    #signup-dob-p {
         height: 15px;
         width: 91%;
         padding: 0px 2px 7px 2px;
     }
 
-    #type_div {
+    #type-div {
         margin-top: 10px;
         padding: 0px 5px 5px 5px;
     }
 
-    .type_lbl {
+    .user-type-label {
         padding-right: 5px;
     }
 
-    #service_terms_p {
+    #signup-service-terms-p {
         margin-top: 0px;
         margin-bottom: 3px;
     }
