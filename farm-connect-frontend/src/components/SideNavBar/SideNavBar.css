@@ -37,32 +37,33 @@
 }
 
 .my-connects-tags {
-    padding-right: 10px;
     font-family: Satisfy;
-    font-size: 20px;
+    font-size: 1.18rem;
+    padding-right: 10px;
     color: #3a5f0b;
 }
 
-.my-connects-span {
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 5px;
-    border: solid 1px;
-    color:  #663300;
-}
-
-.requests-interests-links {
-    padding-right: 10px;
-}
-
-.requests-interests-spans {
-    font-size: 12px;
+.my-connects-span, .requests-interests-spans {
+    font-size: inherit;
     padding: 2px 6px;
     border-radius: 5px;
     height: 50px;
     border: solid 1px;
+}
+
+.my-connects-span {
+    color:  #663300;
+}
+
+.requests-interests-spans {
     color: #FFF;
     background-color: #3a5f0b;
+}
+
+.requests-interests-links {
+    display: inline-block;
+    height: 20px;
+    padding-right: 10px;
 }
 
 #search-h4 {
@@ -82,3 +83,21 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@media (max-width: 1350px) {
+    .my-connects-tags {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 1225px) {
+    .my-connects-tags {
+      font-size: 0.88rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .my-connects-tags {
+      font-size: 0.76rem;
+    }
+  }
