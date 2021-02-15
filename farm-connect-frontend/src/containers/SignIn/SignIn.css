@@ -14,7 +14,7 @@
 }
 
 #signin-error-p {
-    font-size: .7rem;
+    font-size: 0.7rem;
     margin-top: 0px;
     color: red;
 }
@@ -22,18 +22,19 @@
 .signin-inputs {
     width: 80%;
     padding: 5px 10px;
-    font-size: 1rem;
+    font-size: inherit;
     border: grey solid 1px;
     border-radius: 5px;
 }
 
 #signin-button {
     margin-top: 5px;
+    font-size: inherit;
 }
 
 .signin-button {
     width: 65%;
-    font-size: 1rem;
+    font-size: inherit;
     padding: 5px 10px;
     border-radius: 5px;
     border: grey solid 1px;
@@ -42,7 +43,7 @@
 
 #signin-signup-button {
     width: 65%;
-    font-size: 1rem;
+    font-size: inherit;
     padding: 6px 10px;
     border-radius: 5px;
     border: grey solid 1px;
@@ -59,9 +60,5 @@
 
     .signin-inputs {
         padding: 3px 5px;
-    }
-
-    .signin-button, #signin-signup-button, .signin-inputs {
-        font-size: 0.8rem;
     }
 }
