@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Connects.css';
 
 const Connects = (props) => {
-    const headerStyles = props.match.path === "/my-connects" ? "my_connect_h3 connects_h3" : "connects_h3";
+    const headerStyles = props.match.path === "/my-connects" ? "my-connect-h3 connects-h3" : "connects-h3";
     const myConnects = !props.userConnects ? 0 : props.userConnects.filter(connect => connect[0].status === "accepted");
     const connectRequests = props.userConnects.filter(connect => connect[0].status === "pending" && connect[0].user_id !== parseInt(props.userId));
     const connects = props.match.path === "/my-connects" ? myConnects : connectRequests;
@@ -24,15 +24,15 @@ const Connects = (props) => {
     
     const renderRequestsList = (connect) => {
         const connectId = connect[0].user_id === parseInt(props.userId) ? connect[0].connect_id : connect[0].user_id;
-        const spanStyle = connect[3] === "Farmer" ? "user_list_type_span user_list_type_span_f" : "user_list_type_span";
-        return <li id="connect_li" key={connect[0].id}><Link to={`/${connect[3].toLowerCase() + "s"}/${connectId}`} onClick={() => fetchProfile(connectId, connect[3])}>{connect[1]} {connect[2]}</Link><span className={spanStyle}>{connect[3][0]}</span></li>;
+        const spanStyle = connect[3] === "Farmer" ? "user-list-type-span farmer-user-list-type-span" : "user-list-type-span";
+        return <li id="connect-list" key={connect[0].id}><Link to={`/${connect[3].toLowerCase() + "s"}/${connectId}`} onClick={() => fetchProfile(connectId, connect[3])}>{connect[1]} {connect[2]}</Link><span className={spanStyle}>{connect[3][0]}</span></li>;
     }
 
     return (
-        <div className="ConnectRequests_main_div">
-            <div className="connect_requests_card">
+        <div className="ConnectRequests-main-div">
+            <div className="connect-requests-card">
                 <h3 className={headerStyles}>{headerText}</h3>
-                <ul id="connect_requests_ul">
+                <ul id="connect-requests-ul">
                     {   sortedConnects.map(connect =>
                             renderRequestsList(connect))
                     }

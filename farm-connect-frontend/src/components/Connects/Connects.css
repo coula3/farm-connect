@@ -1,10 +1,10 @@
-.ConnectRequests_main_div {
+.ConnectRequests-main-div {
     display: inline;
     float: left;
     width: 60%;
 }
 
-.connect_requests_card {
+.connect-requests-card {
     text-align: center;
     border: #3a5f0b solid 1px;
     padding: 25px 0px 25px 0px;
@@ -15,25 +15,25 @@
     box-shadow: 6px 8px #3a5f0b
 }
 
-#connect_requests_ul {
+#connect-requests-ul {
     padding: 0px 20px 0px 20px;
 }
 
-.my_connect_h3 {
+.my-connect-h3 {
     color: #3a5f0b;
 }
 
-.connects_h3 {
+.connects-h3 {
     font-family: Satisfy;
     font-size: 24px;
 }
 
-#connect_li {
+#connect-list {
     list-style: none;
     padding-bottom: 3px;
 }
 
-.user_list_type_span {
+.user-list-type-span {
     padding: 1px 4px;
     font-size: 10px;
     font-weight: bold;
@@ -42,7 +42,7 @@
     border-radius: 50%;
 }
 
-.user_list_type_span_f {
+.farmer-user-list-type-span {
     background-color:  #3a5f0b;
     color: #FFF;
     padding: 2.5px 6px;
