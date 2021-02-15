@@ -105,28 +105,6 @@
     border-radius: 5px;
 }
 
-.tooltip {
-    position: relative;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 80px;
-    background-color: #FFF;
-    border: solid 1px #3a5f0b;
-    padding: 1px 2px;
-    font-size: 13px;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 1;
-    top: -1px;
-    right: 60%;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
 #connect-span-global {
     position: relative;
     bottom: 4px;
