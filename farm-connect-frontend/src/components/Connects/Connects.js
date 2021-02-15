@@ -32,11 +32,13 @@ const Connects = (props) => {
         <div className="ConnectRequests-main-div">
             <div className="connect-requests-card">
                 <h3 className={headerStyles}>{headerText}</h3>
-                <ul id="connect-requests-ul">
-                    {   sortedConnects.map(connect =>
-                            renderRequestsList(connect))
-                    }
-                </ul>
+                <div id="connects-div">
+                    <ul id="connect-requests-ul">
+                        {   sortedConnects.map(connect =>
+                                renderRequestsList(connect))
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     )
