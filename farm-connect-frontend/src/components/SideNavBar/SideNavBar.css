@@ -101,3 +101,10 @@
       font-size: 0.76rem;
     }
   }
+
+  @media (max-width: 700px) {
+    .SideNavBar-main-div {
+        border-radius: 0 15px 15px 0;
+        height: 85vh;
+    }
+}
