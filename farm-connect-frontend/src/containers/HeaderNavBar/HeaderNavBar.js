@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import Backdrop from '../../components/Backdrop/Backdrop';
+import Sidedrawer from '../../components/SideDrawer/SideDrawer';
 import { getFullName, paths } from '../../utils/miscellaneousUtils';
 import avatar from '../../assets/avatar.png';
 import './HeaderNavBar.css';
@@ -18,7 +20,8 @@ const HeadNavBar = (props) => {
 
     return (
         <>
-            <Backdrop show={show} closeBackdrop={() => setShow(false)}/>
+            <Sidedrawer show={show} closeBackdrop={() => setShow(false)} />
+            <Backdrop show={show} closeBackdrop={() => setShow(false)} />
             <div className="HeaderNavBar-main-div">
                 <div id="burger-menu-div" onClick={() => setShow(true)}>
                     <div className="burger-menus"></div>
