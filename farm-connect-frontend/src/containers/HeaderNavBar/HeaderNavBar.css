@@ -62,6 +62,11 @@
 }
 
 @media (max-width: 1225px) {
+    .header-img {
+        height: 1.4rem;
+        width: 1.4rem;
+    }
+
     #user-type-span {
         font-size: 14px;
         padding: 0.6px 4px;
@@ -81,7 +86,7 @@
 }
 
 @media (max-width: 500px) {
-    #hnb-name-link, #signout-link, #user-type-span {
+    #hnb-name-link, #signout-link {
         font-size: inherit;
     }
 
