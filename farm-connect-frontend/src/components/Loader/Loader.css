@@ -1,9 +1,9 @@
-.Loader_main_div {
+.Loader-main-div {
     display: inline;
     width: 60%;
     background-color: #FFF;
 }
 
-#img_width {
+#loader-img {
     width: 75px;
 }
