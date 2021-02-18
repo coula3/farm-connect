@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.6.2",
     "activestorage": "^5.2.4-4",
     "bootstrap": "^4.6.0",
+    "immer": "8.0.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-confirm-alert": "^2.7.0",
