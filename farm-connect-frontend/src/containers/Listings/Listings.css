@@ -127,6 +127,10 @@
     margin-left: -3px;
 }
 
+.react-confirm-alert-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 1225px) {
     .listings-btn {
         font-size: 0.4rem;
