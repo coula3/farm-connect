@@ -157,6 +157,7 @@
 
     .react-confirm-alert-body {
         width: 300px;
+        font-size: 0.7rem;
     }
 }
 
@@ -179,7 +180,11 @@
 
     .react-confirm-alert-body {
         width: 250px;
-        padding: 15px 20px;
+        padding: 15px;
         box-sizing: border-box;
+    }
+
+    .react-confirm-alert-button-group > button {
+        font-size: 0.6rem;
     }
 }
