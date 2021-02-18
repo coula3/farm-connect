@@ -9,3 +9,10 @@
     width: 75px;
     height: 75px;
 }
+
+@media (max-width: 500px) {
+    #loader-img {
+        width: 45px;
+        height: 45px;
+    }
+}
