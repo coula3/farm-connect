@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
 import Loader from '../../components/Loader/Loader';
 import * as listingsActions from '../../actions/listingsActions';
 import { fetchCommodities } from '../../actions/commoditiesActions';
@@ -12,6 +13,7 @@ import { fetchListingsInterests } from '../../actions/interestsActions';
 import { fetchMyConnects} from '../../actions/connectionsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
 import { padIds, oneDay, paths, getFullName } from '../../utils/miscellaneousUtils';
+
 import './Listings.css';
 
 class Listings extends React.Component {
