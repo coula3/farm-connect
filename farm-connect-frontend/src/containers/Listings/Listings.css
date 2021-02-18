@@ -154,6 +154,10 @@
     #connect-span2 {
         margin-left: -2px;
     }
+
+    .react-confirm-alert-body {
+        width: 300px;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -171,5 +175,11 @@
 @media (max-width: 400px) {
     #category {
         padding-top: 10px;
+    }
+
+    .react-confirm-alert-body {
+        width: 250px;
+        padding: 15px 20px;
+        box-sizing: border-box;
     }
 }
