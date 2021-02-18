@@ -72,11 +72,11 @@ class Listings extends React.Component {
             message: `Do you want to delete Listing ${id}?`,
             buttons: [
               {
-                label: 'Delete',
+                label: 'Yes',
                 onClick: () => this.props.deleteListing(id)
               },
               {
-                label: 'Cancel',
+                label: 'No',
               }
             ]
         });
