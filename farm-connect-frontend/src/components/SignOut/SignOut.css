@@ -7,6 +7,10 @@
     font-size: 1.5rem;
 }
 
+#home_link_div a {
+    font-size: inherit;
+}
+
 #home_link_div {
     margin-top: 20px;
 }
@@ -23,6 +27,5 @@
     
     #home_link_div {
         margin-top: 10px;
-        font-size: .8rem;
     }
 }
