@@ -29,7 +29,7 @@ class SearchUsers extends Component {
         }
 
         this.props.history.push({
-            search: `?text=${this.state.searchText}`
+            search: `?q=${this.state.searchText}`
         })
 
         this.setState({
