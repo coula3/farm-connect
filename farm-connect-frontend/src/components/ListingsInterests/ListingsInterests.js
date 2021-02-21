@@ -22,8 +22,10 @@ const ListingsInterests = (props) => {
         return listing[3] === parseInt(props.userId) ? <img id="balloon-img" src={balloons} alt="celebratory balloons" /> : null;
     }
 
+    const isListingPath = pathArray.includes("listings") && pathArray.length === 3 && !isNaN(parseInt(pathArray[2]));
+
     const listHighlight = (listing) => {
-        return listing[0] === parseInt(props.listing.id) && pathArray[1] === "listings" && listing[3] !== parseInt(props.userId) ? "list-highlight-styles" : null;
+        return isListingPath && listing[0] === parseInt(props.listing.id) && pathArray[1] === "listings" && listing[3] !== parseInt(props.userId) ? "list-highlight-styles" : null;
     }
 
     const renderListingsInterests = props.listingsInterests.map((listing) => {
