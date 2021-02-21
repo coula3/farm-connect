@@ -31,12 +31,26 @@ const HeadNavBar = (props) => {
 
                 <div id="nav-user-profile">
                     { props.userPhoto
-                        ?    <Link to={`/users/${props.userId}`} title="View Profile"><span className="header-img-span"><img className="header-img" src={userPhoto(props.userPhoto)} alt="user avatar" /></span></Link>
-                        :   <span className="header-img-span"><img className="header-img" src={avatar} alt="anonymous avatar" /></span>
+                        ?   <Link to={`/users/${props.userId}`} title="View Profile">
+                                <span className="header-img-span">
+                                    <img className="header-img" src={userPhoto(props.userPhoto)} alt="user avatar" />
+                                </span>
+                            </Link>
+                        :   <span className="header-img-span">
+                                <img className="header-img" src={avatar} alt="anonymous avatar" />
+                            </span>
                     }
-                    <Link id="hnb-name-link" to={`/users/${props.userId}`} title="View Profile">{getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}</Link>
-                    <span id="user-type-global-span"><span id="user-type-span"><strong>{userType(props.userAttributes.type)}</strong></span></span>
-                    <Link id="signout-link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut}>Sign Out</Link>
+                    <Link id="hnb-name-link" to={`/users/${props.userId}`} title="View Profile">
+                        {getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}
+                    </Link>
+                    <span id="user-type-global-span">
+                        <span id="user-type-span">
+                            <strong>{userType(props.userAttributes.type)}</strong>
+                        </span>
+                    </span>
+                    <Link id="signout-link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut}>
+                        Sign Out
+                    </Link>
                 </div>
             </div>
         </>

@@ -9,8 +9,12 @@ const AppFooter = (props) => {
 
     return (
         <div className="AppFooter-main-div">
-            <p id="tos-p" className="no-select" onClick={handleClick}>Terms of Service</p>
-            <small><span id="app-name-span"><strong>farmConnect</strong></span> &copy; {new Date().getUTCFullYear()}</small>
+            <p id="tos-p" className="no-select" onClick={handleClick}>
+                Terms of Service
+            </p>
+            <small>
+                <span id="app-name-span"><strong>farmConnect</strong></span> &copy; {new Date().getUTCFullYear()}
+            </small>
         </div>
     )
 }
