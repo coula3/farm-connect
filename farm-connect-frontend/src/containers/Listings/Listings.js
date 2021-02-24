@@ -288,7 +288,7 @@ class Listings extends React.Component {
 
                                             { !this.props.listings[0]
                                                 ? null
-                                                : <input id="listings-search-input" type="text" placeholder={searchInputPlaceholderTexts} value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
+                                                : <input id="listings-search-input" type="search" placeholder={searchInputPlaceholderTexts} value={this.state.searchText} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
                                             }
                                     </div>
 

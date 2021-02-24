@@ -88,7 +88,7 @@ class SearchUsers extends Component {
             <div className="SearchUsers-main-div">
                 <div className="search-users-card">
                     <form onSubmit={this.handleSubmit}>
-                        <input id="search-input" type="text" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
+                        <input id="search-input" type="search" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
                         <input id="search-btn" type="submit" value="Search" />
                     </form>
                     {   this.props.isLoading
