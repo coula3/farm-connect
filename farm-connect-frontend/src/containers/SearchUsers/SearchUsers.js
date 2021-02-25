@@ -39,7 +39,7 @@ class SearchUsers extends Component {
             userType: ""
         });
 
-        this.props.searchResults.data && this.props.clearSearchResults();
+        this.props.clearSearchResults();
         window.history.pushState({}, document.title, `${this.props.location.pathname}`);
     }
 
