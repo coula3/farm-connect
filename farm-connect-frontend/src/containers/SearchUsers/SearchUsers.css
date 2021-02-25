@@ -59,6 +59,10 @@
     padding: 6px 0 2px 0;
 }
 
+#search-btn, #resetSearchDivBtn {
+    cursor: pointer;
+}
+
 @media (max-width: 1225px) {
     .SearchUsers-main-div {
         width: 300px;
