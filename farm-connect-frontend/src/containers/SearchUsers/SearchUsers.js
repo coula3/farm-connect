@@ -26,16 +26,16 @@ class SearchUsers extends Component {
         e.preventDefault();
         if(this.state.searchText){
             this.props.searchUsers(this.state);
+
+            this.props.history.push({
+                search: `?q=${this.state.searchText}`
+            });
+
+            this.setState({
+                searchText: "",
+                userType: ""
+            });
         }
-
-        this.props.history.push({
-            search: `?q=${this.state.searchText}`
-        })
-
-        this.setState({
-            searchText: "",
-            userType: ""
-        });
     }
 
     handleClick = (id) => {
