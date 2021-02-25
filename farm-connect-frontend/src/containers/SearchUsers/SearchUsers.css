@@ -34,7 +34,7 @@
     overflow-y: auto;
 }
 
-#search-input , #search-btn, #resetSearchDiv {
+#search-input , #search-btn, #resetSearchDivBtn {
     font-size: inherit;
 }
 
@@ -47,7 +47,9 @@
     padding: 2px 0;
 }
 
-#resetSearchDiv {
+#resetSearchDivBtn {
+    background-color: #3a5f0b;
+    color: #fff;
     display: inline-block;
     width: 25px;
     height: 25px;
