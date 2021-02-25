@@ -30,13 +30,18 @@ class SearchUsers extends Component {
             this.props.history.push({
                 search: `?q=${this.state.searchText}`
             });
-
-            this.setState({
-                searchText: "",
-                userType: ""
-            });
         }
     }
+
+    resetSearchForm = () => {
+        this.setState({
+            searchText: "",
+            userType: ""
+        });
+
+        this.props.clearSearchResults();
+    }
+
 
     handleClick = (id) => {
         if(this.props.match.path.endsWith("farmers")){
@@ -90,6 +95,7 @@ class SearchUsers extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <input id="search-input" type="search" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
                         <input id="search-btn" type="submit" value="Search" />
+                        <div id="resetSearchDiv" onClick={this.resetSearchForm}>X</div>
                     </form>
                     {   this.props.isLoading
                             ?   <Loader />
