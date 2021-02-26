@@ -30,6 +30,8 @@ class SearchUsers extends Component {
             this.props.history.push({
                 search: `?q=${this.state.searchText}`
             });
+        } else {
+            this.props.searchResults.data && this.resetSearchForm();
         }
     }
 
