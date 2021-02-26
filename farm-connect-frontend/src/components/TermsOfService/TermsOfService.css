@@ -18,6 +18,8 @@
 
 #tos-text-div {
     text-align: justify;
+    column-span: all;
+    columns: 250px;
 }
 
 .tos-p {
