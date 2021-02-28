@@ -63,39 +63,43 @@ const FarmerProfile = (props) => {
 
     return (
         <div className="FarmerProfile-main-div">
-            { props.isLoadingFarmer || !props.farmer.id
+            { props.isLoadingFarmer
                 ?   <Loader />
                 :   <div className="farmer-profile-card">
                         {(() => toFetchFarmer = props.match.params.id !== props.farmer.id)()}
 
-                        <h3>Farmer Profile</h3>
+                        {   props.farmer.id &&
+                            <>
+                                <h3>Farmer Profile</h3>
 
-                        <div className="img-div">
-                            { props.farmerPhoto
-                                ?   <img src={farmerPhoto(props.farmerPhoto)} alt="user avatar" className="farmer-img" />
-                                :   <img src={avatar} alt="anonymous avatar" className="farmer-img" />
-                            }
-                        </div>
+                                <div className="img-div">
+                                    { props.farmerPhoto
+                                        ?   <img src={farmerPhoto(props.farmerPhoto)} alt="user avatar" className="farmer-img" />
+                                        :   <img src={avatar} alt="anonymous avatar" className="farmer-img" />
+                                    }
+                                </div>
 
-                        <p id="id-p"><label><strong>UID:</strong> </label>{props.farmer.id}</p>
-                        <p><label><strong>Name:</strong> </label>{getFullName(props.farmer.attributes.first_name, props.farmer.attributes.last_name)}</p>
-                        <p><label><strong>Email:</strong> </label>{props.farmer.attributes.email.toLowerCase()}</p>
-                        <p className="join-date-p"><label><strong>Joined:</strong> </label>{getDate(props.farmer.attributes.created_at)}</p>
+                                <p id="id-p"><label><strong>UID:</strong> </label>{props.farmer.id}</p>
+                                <p><label><strong>Name:</strong> </label>{getFullName(props.farmer.attributes.first_name, props.farmer.attributes.last_name)}</p>
+                                <p><label><strong>Email:</strong> </label>{props.farmer.attributes.email.toLowerCase()}</p>
+                                <p className="join-date-p"><label><strong>Joined:</strong> </label>{getDate(props.farmer.attributes.created_at)}</p>
 
-                        { !isCurrentUser(props.farmer.id)
-                            ?   !usersConnected
-                                ?   <button id="farmer-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Request Connect</button>
-                                    :   pendingAcceptance && !connectionByUser
-                                        ?   <>
-                                                <button id="farmer-accept-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Accept</button>
-                                                <button id="farmer-decline-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Decline</button>
-                                            </>
-                                                : pendingAcceptance && connectionByUser
-                                                    ?   <button id="farmer-cancel-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Cancel Request</button>
-                                                        :   <div className="connect-btn-div"><button id="farmer-unconnect-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
-                            :   null
+                                { !isCurrentUser(props.farmer.id)
+                                    ?   !usersConnected
+                                        ?   <button id="farmer-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Request Connect</button>
+                                            :   pendingAcceptance && !connectionByUser
+                                                ?   <>
+                                                        <button id="farmer-accept-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Accept</button>
+                                                        <button id="farmer-decline-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Decline</button>
+                                                    </>
+                                                        : pendingAcceptance && connectionByUser
+                                                            ?   <button id="farmer-cancel-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Cancel Request</button>
+                                                                :   <div className="connect-btn-div"><button id="farmer-unconnect-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
+                                    :   null
+                                }
+                                <div id="farmer-profile-listing-btn-div"><button id="listings-btn" className="global-btn" onClick={handleViewListings}>{displayMyOrFarmer(props.farmer.id)}</button></div>
+                            </>
                         }
-                        <div id="farmer-profile-listing-btn-div"><button id="listings-btn" className="global-btn" onClick={handleViewListings}>{displayMyOrFarmer(props.farmer.id)}</button></div>
                     </div>
             }
         </div>
