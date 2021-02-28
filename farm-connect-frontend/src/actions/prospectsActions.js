@@ -1,4 +1,5 @@
 import * as actionTypes from '../actionTypes';
+import history from '../utils/history';
 
 export const fetchProspects = (userId) => {
   return (dispatch) => {
@@ -32,10 +33,20 @@ export const fetchProspect = (id) => {
     })
     .then(response => response.json())
     .then(object => {
-      dispatch({
-        type: actionTypes.FETCH_PROSPECT,
-        prospect: object.data
-      });
+      if(object.prospect){
+        dispatch({
+          type: actionTypes.FETCH_PROSPECT,
+          prospect: object.prospect.data
+        });
+        history.push(`/prospects/${id}`)
+      } else {
+        history.replace("/error-messages");
+        dispatch({
+            type: actionTypes.ADD_ERROR_MESSAGES,
+            errorMessages: [`Prospect ID: ${id} is invalid`]
+        });
+        dispatch({type: actionTypes.CLEAR_LOADING_PROSPECT});
+      }
     })
   }
 }
