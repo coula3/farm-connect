@@ -9,9 +9,10 @@
     padding-bottom: 20px;
     margin-top: 30px;
     background-color: #FFF;
-    box-shadow: 3px 3px #ff0000;
-    border: #ff0000 solid 1px;
+    box-shadow: 3px 3px #663300;
+    border: #663300 solid 1px;
     border-radius: 15px;
+    color: #ff0000;
 }
 
 #err-msg-close-btn {
@@ -21,11 +22,11 @@
     height: 35px;
     width: 35px;
     margin: -15px -15px 0 0;
-    background-color: #000;
+    background-color: #ff0000;
     color: #fff;
     outline: none;
     border-radius: 50%;
-    border: #ff0000 solid 1px;
+    border: #663300 solid 1px;
 }
 
 #err-msg-h5 {
