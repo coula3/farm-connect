@@ -5,7 +5,7 @@ import { requestConnect, acceptConnect, unConnectUsers } from '../../actions/con
 import * as listingsActions from '../../actions/listingsActions';
 import { fetchProspect } from '../../actions/prospectsActions';
 import { fetchFarmer } from '../../actions/farmersActions';
-import { addErrorMessages } from '../../actions/errorActions';
+import { addErrorMessages, clearErrorMessages } from '../../actions/errorActions';
 
 const ProtectedRoute = ({
         isAuthenticated,
@@ -54,7 +54,8 @@ const mapDispatchToProps = (dispatch) => {
         requestConnect: (currentUserId, connectId) => dispatch(requestConnect(currentUserId, connectId)),
         acceptConnect: (currentUserId, connectId) => dispatch(acceptConnect(currentUserId, connectId)),
         unConnectUsers: (currentUserId, connectId) => dispatch(unConnectUsers(currentUserId, connectId)),
-        addErrorMessages: (message) => dispatch(addErrorMessages(message))
+        addErrorMessages: (message) => dispatch(addErrorMessages(message)),
+        clearErrorMessages: () => dispatch(clearErrorMessages())
     };
 }
 
