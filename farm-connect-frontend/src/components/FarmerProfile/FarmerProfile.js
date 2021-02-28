@@ -8,9 +8,11 @@ import './FarmerProfile.css';
 const FarmerProfile = (props) => {
     let usersConnected, pendingAcceptance, toFetchFarmer;
 
+    const { fetchFarmer, match } = props;
+
     useEffect(() => {
-        toFetchFarmer && props.fetchFarmer(props.match.params.id);
-    })
+        toFetchFarmer && fetchFarmer(match.params.id);
+    }, [toFetchFarmer, fetchFarmer, match])
 
     const isCurrentUser = (farmerId) => {
         return props.userId === farmerId;
@@ -61,12 +63,11 @@ const FarmerProfile = (props) => {
 
     return (
         <div className="FarmerProfile-main-div">
-            {!props.farmer.id && props.fetchFarmer(props.match.params.id)}
-
             { props.isLoadingFarmer || !props.farmer.id
                 ?   <Loader />
                 :   <div className="farmer-profile-card">
                         {(() => toFetchFarmer = props.match.params.id !== props.farmer.id)()}
+
                         <h3>Farmer Profile</h3>
 
                         <div className="img-div">
