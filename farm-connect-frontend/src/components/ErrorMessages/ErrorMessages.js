@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import './ErrorMessages.css';
-import history from '../../utils/history';
 
 const ErrorMessages = (props) => {
-    useEffect(() => {
-        !props.errorMessages && !props.farmer.id && props.history.replace("/listings");
+    const { errorMessages, history } = props;
 
-    }, [props])
+    useEffect(() => {
+        errorMessages.length === 0 && history.replace("/listings");
+
+    }, [errorMessages, history])
 
     return (
         <div className="ErrorMessage-main-div">
