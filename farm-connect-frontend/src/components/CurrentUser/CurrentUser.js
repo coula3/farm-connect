@@ -9,6 +9,18 @@ const CurrentUser = (props) => {
         return `http://localhost:3000/${userPhoto}`;
     }
 
+    const redirectOnUnavailableResource = () => {
+        const userPath = props.location.pathname.split("/")
+        const extractedUserId = !isNaN(parseInt(userPath[userPath.length -1])) && parseInt(userPath[userPath.length -1])
+        const isIdDifferent = extractedUserId !== parseInt(props.userId)
+
+        if(isNaN(parseInt(userPath[userPath.length -1]))) {
+            props.addErrorMessages(`You entered invalid User ID: ${userPath[userPath.length -1]}`)
+        } else if(isIdDifferent) {
+            props.addErrorMessages("Unauthorized Access Denied")
+        }
+    }
+
     const handleClick = () => {
         props.history.push(`/users/${props.userId}/edit`);
     }
@@ -20,6 +32,8 @@ const CurrentUser = (props) => {
             { props.isLoading
                 ?   <Loader />
                 :   <div className="Current-user-profile-card">
+                        {redirectOnUnavailableResource()}
+
                         <h3>My Profile</h3>
 
                         <div className="img-div">
