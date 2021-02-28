@@ -40,12 +40,12 @@ export const fetchProspect = (id) => {
         });
         history.push(`/prospects/${id}`)
       } else {
-        history.replace("/error-messages");
         dispatch({
-            type: actionTypes.ADD_ERROR_MESSAGES,
-            errorMessages: [`Prospect ID: ${id} is invalid`]
+          type: actionTypes.ADD_ERROR_MESSAGES,
+          errorMessages: [`Prospect ID: ${id} is invalid`]
         });
         dispatch({type: actionTypes.CLEAR_LOADING_PROSPECT});
+        history.replace("/error-messages");
       }
     })
   }
