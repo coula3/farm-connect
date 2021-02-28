@@ -76,7 +76,7 @@ export const fetchListing = (id) => {
             } else {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
-                    errorMessages: [`Listing ID: ${id} is invalid`]
+                    errorMessages: [`Invalid Listing ID: ${id}`]
                 });
                 history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING});

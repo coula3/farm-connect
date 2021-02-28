@@ -22,7 +22,7 @@ export const fetchFarmer = (id) => {
             } else {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
-                    errorMessages: [`Farmer ID: ${id} is invalid`]
+                    errorMessages: [`Invalid Farmer ID: ${id}`]
                 });
                 history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING_FARMER});

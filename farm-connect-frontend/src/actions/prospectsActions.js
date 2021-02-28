@@ -42,7 +42,7 @@ export const fetchProspect = (id) => {
       } else {
         dispatch({
           type: actionTypes.ADD_ERROR_MESSAGES,
-          errorMessages: [`Prospect ID: ${id} is invalid`]
+          errorMessages: [`Invalid Prospect ID: ${id}`]
         });
         dispatch({type: actionTypes.CLEAR_LOADING_PROSPECT});
         history.replace("/error-messages");
