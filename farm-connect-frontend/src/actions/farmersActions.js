@@ -24,7 +24,8 @@ export const fetchFarmer = (id) => {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: [`Farmer ID: ${id} is invalid`]
-                })
+                });
+                dispatch({type: actionTypes.CLEAR_LOADING_FARMER});
             }
         })
     }

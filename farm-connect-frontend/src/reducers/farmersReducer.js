@@ -22,6 +22,12 @@ const farmersReducer = (state = initialState, action) => {
                 isLoadingFarmer: false
             }
 
+        case actionTypes.CLEAR_LOADING_FARMER:
+            return {
+                ...state,
+                isLoadingFarmer: false
+            }
+
         case actionTypes.CLEAR_FARMER:
             return {
                 ...state,
