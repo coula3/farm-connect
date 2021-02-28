@@ -9,8 +9,9 @@ const NoMatch = (props) => {
 
     return (
         <div className={divStyle}>
+            <h1 id="h1-404">404</h1>
             <h4>
-                404 - Pathname <span id="span-color">"{props.location.pathname}"</span> not found
+                The page <span id="span-color">"{props.location.pathname}"</span> isn't available
             </h4>
             <img src={sadEmoji} alt="sad face" id="emoji-img"></img>
         </div>
