@@ -4,7 +4,8 @@ import history from '../../utils/history';
 
 const ErrorMessages = (props) => {
     useEffect(() => {
-        !props.errMessage && !props.farmer.id && props.history.replace("/listings");
+        !props.errorMessages && !props.farmer.id && props.history.replace("/listings");
+
     }, [props])
 
     return (
