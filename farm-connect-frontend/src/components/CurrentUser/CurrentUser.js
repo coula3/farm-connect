@@ -9,7 +9,7 @@ const CurrentUser = (props) => {
         return `http://localhost:3000/${userPhoto}`;
     }
 
-    const redirectOnUnavailableResource = () => {
+    const redirectOnInvalidUserId = () => {
         const userPath = props.location.pathname.split("/")
         const extractedUserId = !isNaN(parseInt(userPath[userPath.length -1])) && parseInt(userPath[userPath.length -1])
         const isIdDifferent = extractedUserId !== parseInt(props.userId)
@@ -32,7 +32,7 @@ const CurrentUser = (props) => {
             { props.isLoading
                 ?   <Loader />
                 :   <div className="Current-user-profile-card">
-                        {redirectOnUnavailableResource()}
+                        {redirectOnInvalidUserId()}
 
                         <h3>My Profile</h3>
 
