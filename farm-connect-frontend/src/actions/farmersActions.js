@@ -20,11 +20,11 @@ export const fetchFarmer = (id) => {
                 });
                 history.push(`/farmers/${id}`)
             } else {
-                history.replace("/error-messages");
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: [`Farmer ID: ${id} is invalid`]
                 });
+                history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING_FARMER});
             }
         })
