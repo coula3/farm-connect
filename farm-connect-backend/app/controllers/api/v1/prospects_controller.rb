@@ -1,10 +1,10 @@
 class Api::V1::ProspectsController < ApplicationController
     def show
         prospect = Prospect.find_by(id: params[:id])
-        @image = rails_blob_path(prospect.photo) if prospect.photo.attached?
-        prospect.image = @image
 
         if prospect
+            @image = rails_blob_path(prospect.photo) if prospect.photo.attached?
+            prospect.image = @image
             render json: { prospect: ProspectSerializer.new(prospect) }
         else
             render json: { message: "Prospect does not exist" }, status: :not_acceptable
