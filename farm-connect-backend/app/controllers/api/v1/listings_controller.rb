@@ -14,7 +14,12 @@ class Api::V1::ListingsController < ApplicationController
 
     def show
         listing = Listing.find_by(id: params[:id])
-        render json: ListingSerializer.new(listing)
+
+        if listing
+            render json: { listing: ListingSerializer.new(listing) }
+        else
+            render json: { message: "Listing does not exist"}, status: :not_acceptable
+        end
     end
 
     def create
