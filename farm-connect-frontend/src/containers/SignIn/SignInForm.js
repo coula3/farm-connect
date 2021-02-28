@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 
 const SignInForm = props => {
+    const { errorMessages, clearErrorMessages } = props;
+
     useEffect(() => {
-        return () => props.errorMessages[0] && props.clearErrorMessages();
-    })
+        return () => errorMessages[0] && clearErrorMessages();
+    }, [errorMessages, clearErrorMessages])
 
     return (
         <>
