@@ -6,10 +6,11 @@ import './Listing.css';
 
 const Listing = (props) => {
     let toFetchListing;
+    const { fetchListing, match } = props;
 
     useEffect(() => {
-        toFetchListing && props.fetchListing(props.match.params.id);
-    });
+        toFetchListing && fetchListing(match.params.id);
+    }, [fetchListing, match, toFetchListing ]);
 
     const renderEditButton = (currentUserId, listingUserId, listingId) => {
         if(!props.listing.attributes.closed){
@@ -74,91 +75,95 @@ const Listing = (props) => {
                 :   <div className="listing-card">
                         {(() => toFetchListing = props.match.params.id !== props.listing.id)()}
 
-                        <div id="listing-details">
-                            { props.listing.attributes.interests.length >= 5 && !props.listing.attributes.closed
-                                ?   <span id="listing-high-interest-span">
-                                        <strong>HIGH INTEREST</strong>
-                                    </span>
-                                :   null
-                            }
+                        {   props.listing.id &&
+                            <>
+                                <div id="listing-details">
+                                    { props.listing.attributes.interests.length >= 5 && !props.listing.attributes.closed
+                                        ?   <span id="listing-high-interest-span">
+                                                <strong>HIGH INTEREST</strong>
+                                            </span>
+                                        :   null
+                                    }
 
-                            <h3>Listing</h3>
+                                    <h3>Listing</h3>
 
-                            <p>
-                                <label className="listing-label-color listing-label-padding"><strong>LID:</strong> </label>
-                                <span className="listing-id-span">{padIds(props.listing.id)}</span>
-                            </p>
-
-                            <p>
-                                <label className="listing-label-color listing-label-padding"><strong>Listing Date:</strong></label>
-                                {getDate(props.listing.attributes.date)}
-                            </p>
-
-                            <p>
-                                <label className="listing-label-color listing-label-padding"><strong>Farmer:</strong></label>
-                                <Link id="listing-name-link" to={`/farmers/${props.listing.attributes.user.id}`} onClick={(e) => handleFetchFarmer(e, props.listing.attributes.user.id)}>
-                                    {getFullName(props.listing.attributes.user.first_name, props.listing.attributes.user.last_name)}
-                                </Link>
-                            </p>
-
-                            <p>
-                                <label className="listing-label-color listing-label-padding"><strong>Commodity:</strong></label>
-                                {props.listing.attributes.commodity.name}
-                            </p>
-
-                            <p>
-                                <label className="listing-label-color listing-label-padding"><strong>Estimated Availability:</strong></label>
-                                {props.listing.attributes.availability ? getDate(props.listing.attributes.availability) : null}
-                            </p>
-
-                            { props.listing.attributes.available
-                                ?   <p>
-                                        <label className="listing-label-color listing-label-padding"><strong>Available:</strong></label>
-                                        {convertTrueToYes(props.listing.attributes.available)}
+                                    <p>
+                                        <label className="listing-label-color listing-label-padding"><strong>LID:</strong> </label>
+                                        <span className="listing-id-span">{padIds(props.listing.id)}</span>
                                     </p>
-                                :   null
-                            }
 
-                            { props.listing.attributes.quantity
-                                ?   <p>
-                                        <label className="listing-label-color listing-label-padding"><strong>Quantity:</strong></label>
-                                        {props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}
+                                    <p>
+                                        <label className="listing-label-color listing-label-padding"><strong>Listing Date:</strong></label>
+                                        {getDate(props.listing.attributes.date)}
                                     </p>
-                                :   null
-                            }
 
-                            { props.listing.attributes.information
-                                ?   <>
-                                        <label className="listing-label-color"><strong>Supplementary Information</strong></label>
-                                        <p id="listing-info-p">{props.listing.attributes.information}</p>
-                                    </>
-                                :   null
-                            }
+                                    <p>
+                                        <label className="listing-label-color listing-label-padding"><strong>Farmer:</strong></label>
+                                        <Link id="listing-name-link" to={`/farmers/${props.listing.attributes.user.id}`} onClick={(e) => handleFetchFarmer(e, props.listing.attributes.user.id)}>
+                                            {getFullName(props.listing.attributes.user.first_name, props.listing.attributes.user.last_name)}
+                                        </Link>
+                                    </p>
 
-                            <p className="no-select">
-                                <label id="heart-lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>
-                                    {selectHeartType(props.userId, props.listing.attributes.interests)}
-                                </label>
-                                {props.listing.attributes.interests.length}
-                            </p>
+                                    <p>
+                                        <label className="listing-label-color listing-label-padding"><strong>Commodity:</strong></label>
+                                        {props.listing.attributes.commodity.name}
+                                    </p>
 
-                            { props.listing.attributes.closed
-                                ?   <h5 id="closed-listing">Closed on {getDateTime(props.listing.attributes.closed)}</h5>
-                                :   parseInt(props.userId) === props.listing.attributes.user.id
-                                    ?   <h5 id="listing-last-edit">Last edited on {getDateTime(props.listing.attributes.updated_at)}</h5>
-                                    :   null
-                            }
+                                    <p>
+                                        <label className="listing-label-color listing-label-padding"><strong>Estimated Availability:</strong></label>
+                                        {props.listing.attributes.availability ? getDate(props.listing.attributes.availability) : null}
+                                    </p>
 
-                            {renderEditButton(props.userId, props.listing.attributes.user.id, props.listing.id)}
+                                    { props.listing.attributes.available
+                                        ?   <p>
+                                                <label className="listing-label-color listing-label-padding"><strong>Available:</strong></label>
+                                                {convertTrueToYes(props.listing.attributes.available)}
+                                            </p>
+                                        :   null
+                                    }
 
-                            <div id="listing-btn-div">
-                                { props.userAttributes.type === "Farmer"
-                                    ?   <button id="listing-mylisting-btn" className="global-btn" onClick={handlePushToUserListings}>{listingPluralized}</button>
-                                    :   null
-                                }
-                                <button id="listing-listings-btn" className="global-btn" onClick={handlePushToListings}>Listings</button>
-                            </div>
-                        </div>
+                                    { props.listing.attributes.quantity
+                                        ?   <p>
+                                                <label className="listing-label-color listing-label-padding"><strong>Quantity:</strong></label>
+                                                {props.listing.attributes.quantity} {props.listing.attributes.quantity > 1 ? props.listing.attributes.measure + "s" : props.listing.attributes.measure}
+                                            </p>
+                                        :   null
+                                    }
+
+                                    { props.listing.attributes.information
+                                        ?   <>
+                                                <label className="listing-label-color"><strong>Supplementary Information</strong></label>
+                                                <p id="listing-info-p">{props.listing.attributes.information}</p>
+                                            </>
+                                        :   null
+                                    }
+
+                                    <p className="no-select">
+                                        <label id="heart-lbl" style={{color: setHeartColor(props.userId, props.listing.attributes.interests)}} onClick={() => handleUpdateUserListingInterest(props.userId, props.listing.attributes.user.id, props.listing.id, props.listing.attributes.interests)}>
+                                            {selectHeartType(props.userId, props.listing.attributes.interests)}
+                                        </label>
+                                        {props.listing.attributes.interests.length}
+                                    </p>
+
+                                    { props.listing.attributes.closed
+                                        ?   <h5 id="closed-listing">Closed on {getDateTime(props.listing.attributes.closed)}</h5>
+                                        :   parseInt(props.userId) === props.listing.attributes.user.id
+                                            ?   <h5 id="listing-last-edit">Last edited on {getDateTime(props.listing.attributes.updated_at)}</h5>
+                                            :   null
+                                    }
+
+                                    {renderEditButton(props.userId, props.listing.attributes.user.id, props.listing.id)}
+
+                                    <div id="listing-btn-div">
+                                        { props.userAttributes.type === "Farmer"
+                                            ?   <button id="listing-mylisting-btn" className="global-btn" onClick={handlePushToUserListings}>{listingPluralized}</button>
+                                            :   null
+                                        }
+                                        <button id="listing-listings-btn" className="global-btn" onClick={handlePushToListings}>Listings</button>
+                                    </div>
+                                </div>
+                            </>
+                        }
                     </div>
             }
         </div>
