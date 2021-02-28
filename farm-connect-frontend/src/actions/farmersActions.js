@@ -22,8 +22,8 @@ export const fetchFarmer = (id) => {
             } else {
                 history.replace("/error-messages");
                 dispatch({
-                    type: actionTypes.ADD_FARMER_ERR_MESSAGE,
-                    errMessage: `Farmer ID: ${id} is invalid`
+                    type: actionTypes.ADD_ERROR_MESSAGES,
+                    errorMessages: [`Farmer ID: ${id} is invalid`]
                 })
             }
         })

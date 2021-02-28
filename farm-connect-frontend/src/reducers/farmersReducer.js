@@ -3,7 +3,6 @@ import * as actionTypes from '../actionTypes';
 const initialState = {
     farmer: {},
     photo: null,
-    errMessage: "",
     isLoadingFarmer: false
 }
 
@@ -20,13 +19,6 @@ const farmersReducer = (state = initialState, action) => {
                 ...state,
                 farmer: action.farmer,
                 photo: action.photo,
-                isLoadingFarmer: false
-            }
-
-        case actionTypes.ADD_FARMER_ERR_MESSAGE:
-            return {
-                ...state,
-                errMessage: action.errMessage,
                 isLoadingFarmer: false
             }
 

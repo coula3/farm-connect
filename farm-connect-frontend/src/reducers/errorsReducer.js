@@ -6,7 +6,7 @@ export const errorsReducer = (state=initialState, action) => {
     switch(action.type) {
         case actionTypes.ADD_ERROR_MESSAGES:
             return {
-                ...state.messages,
+                ...state,
                 errorMessages: action.errorMessages
             }
 
