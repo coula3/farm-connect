@@ -20,11 +20,20 @@ class Listings extends React.Component {
     state = {
         searchText: "",
         searchInputFocused: false,
-        isAvailableSorted: false
+        isAvailableSorted: false,
+        windowWidth: window.innerWidth
+    }
+
+    handleResizeWindowWidth = () => {
+        this.setState({
+            ...this.state,
+            windowWidth: window.innerWidth
+        });
     }
 
     componentDidMount(){
         this.props.errorMessages[0] && this.props.clearErrorMessages();
+        window.addEventListener("resize", this.handleResizeWindowWidth);
     }
 
     stageApplication = () => {
