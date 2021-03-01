@@ -36,6 +36,10 @@ class Listings extends React.Component {
         window.addEventListener("resize", this.handleResizeWindowWidth);
     }
 
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.handleResizeWindowWidth);
+    }
+
     stageApplication = () => {
         this.props.fetchListings();
         this.props.fetchProspects(this.props.userId);
