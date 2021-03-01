@@ -40,3 +40,10 @@ export const getFullName = (firstName, lastName) => {
 
     return givenName + " " + familyName;
 }
+
+export const getInitialAndLastName = (firstName, lastName) => {
+    const initial = firstName[0].toUpperCase();
+    const familyName = lastName[0].toUpperCase().concat(lastName.toLowerCase().slice(1));
+
+    return initial + ". " + familyName;
+}
