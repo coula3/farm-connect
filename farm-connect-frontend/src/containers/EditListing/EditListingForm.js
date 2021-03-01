@@ -13,7 +13,7 @@ const EditListingForm = props => (
 
             <label className="edit-listing-label edit-listing-label-margin">Estimated Availability </label>
             <input className="edit-listing-availability-input" type="date" name="availability" value={props.getAvailability(props.availability)} onClick={props.handleSwitchState} onChange={props.handleChange} />
-            <span id="availability_span" className="p_errors">{messages.availabilityError(props.errorMessages)}</span>
+            <p className="signin-errors-p signin-errors-p-margin">{messages.availabilityError(props.errorMessages)}</p>
 
             <label className="edit-listing-label edit-listing-label-margin">Quantity</label>
             <p id="edit-listing-qty-measure-p">
@@ -25,12 +25,7 @@ const EditListingForm = props => (
                 </select>
             </p>
 
-            <p id="qty_error_p" className="p_errors">
-                {messages.quantityError(props.errorMessages)}
-            </p>
-            <p id="measure_error_p" className="p_errors">
-                {messages.measureError(props.errorMessages)}
-            </p>
+            <p className="signin-errors-p signin-errors-p-margin">{messages.quantityError(props.errorMessages)} {messages.measureError(props.errorMessages)}</p>
 
             <span id="edit-listing-available-label">
                 <label className="edit-listing-label edit-listing-label-margin">Available</label>
