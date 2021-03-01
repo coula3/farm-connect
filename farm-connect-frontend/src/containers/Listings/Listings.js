@@ -12,7 +12,7 @@ import { fetchProspects } from '../../actions/prospectsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { fetchMyConnects} from '../../actions/connectionsActions';
 import { clearErrorMessages } from '../../actions/errorActions';
-import { padIds, oneDay, paths, getFullName } from '../../utils/miscellaneousUtils';
+import { padIds, oneDay, paths, getFullName, getInitialAndLastName } from '../../utils/miscellaneousUtils';
 
 import './Listings.css';
 
@@ -116,6 +116,15 @@ class Listings extends React.Component {
         return this.state.isAvailableSorted ? "available-span" : null;
     }
 
+    getName = (firstName, lastName) => {
+        if(this.state.windowWidth < 375){
+            return getInitialAndLastName(firstName, lastName);
+
+        } else {
+            return getFullName(firstName, lastName);
+        }
+    }
+
     render (){
         let firstName, userId, listingsCategory, baseListings, sortedListings, listings, renderLinkToFarmerProfile;
 
@@ -186,7 +195,7 @@ class Listings extends React.Component {
                     <td>{commodity}</td>
 
                     { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH
-                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`} onClick={this.handleFetchListings}>{getFullName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link>{renderConnectSymbol}</td>
+                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`} onClick={this.handleFetchListings}>{this.getName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link>{renderConnectSymbol}</td>
                         :   null
                     }
 
