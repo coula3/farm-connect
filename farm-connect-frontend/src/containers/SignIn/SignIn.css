@@ -51,6 +51,18 @@
     color: #FFF;
 }
 
+@media (max-width: 1225px) {
+    #signin-error-p {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 900px) {
+    #signin-error-p {
+        font-size: 0.4rem;
+    }
+}
+
 @media (max-width: 600px) {
     .SignIn-main-div {
         width: 90%;

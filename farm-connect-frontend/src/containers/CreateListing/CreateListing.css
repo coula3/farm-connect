@@ -130,6 +130,10 @@
         width: 50px;
         padding: 3px 5px;
     }
+
+    .create-listing-errors-span {
+        font-size: 0.6rem;
+    }
 }
 
 @media (max-width: 900px) {
@@ -143,6 +147,10 @@
 
     .create-listing-measure-select {
         width: 125px;
+    }
+
+    .create-listing-errors-span {
+        font-size: 0.4rem;
     }
 }
 
