@@ -11,9 +11,9 @@ const SuggestedProspects = (props) => {
 
     const image = (image) => {
         if(image){
-            return <img src={prospectPhoto(image)} alt="prospect avatar" style={{height:25, width:25, borderRadius:"50%", marginRight:5}} />
+            return <img src={prospectPhoto(image)} alt="prospect avatar" className="prospect-image" />
         } else {
-            return <img src={avatar} alt="anonymous avatar" style={{height:25, width:25, borderRadius:"50%", marginRight:5}} />
+            return <img src={avatar} alt="anonymous avatar" className="prospect-image" />
         }
     }
 
