@@ -42,6 +42,12 @@
   }
 }
 
+@media (min-width: 700px) {
+  #mobile-resources-board {
+    display: none;
+  }
+}
+
 @media (max-width: 700px) {
   .side-columns {
     display: none;
@@ -49,6 +55,28 @@
 
   #routes-div {
     margin: 0 0;
+  }
+
+  #authenticated-div {
+    flex-direction: column;
+  }
+
+  #mobile-resources-board {
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border: 1px solid #000;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 500px) {
+  #mobile-resources-board {
+    flex-direction: column;
   }
 }
 

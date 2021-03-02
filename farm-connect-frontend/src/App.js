@@ -8,6 +8,8 @@ import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 import AppFooter from './components/AppFooter/AppFooter';
+import ListingsInterests from './components/ListingsInterests/ListingsInterests';
+import SuggestedProspects from './components/SuggestedProspects/SuggestedProspects';
 
 import * as listingsActions from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
@@ -67,6 +69,30 @@ class App extends Component {
               <div id="routes-div">
                 <Routes />
               </div>
+
+              { this.props.isAuthenticated
+                ? <div id="mobile-resources-board">
+                    <div id="mobile-HIL-div">
+                      <ListingsInterests
+                        listing={this.props.listing}
+                        fetchListing={this.props.fetchListing}
+                        listingsInterests={this.props.listingsInterests}
+                        location={this.props.location}
+                        history={this.props.history}
+                      />
+                    </div>
+
+                    <div id="mobile-suggested-prospects-div">
+                      <SuggestedProspects
+                        prospects={this.props.prospects}
+                        fetchProspect={this.props.fetchProspect}
+                        isLoadingProspects={this.props.isLoadingProspects}
+                        location={this.props.location}
+                      />
+                    </div>
+                  </div>
+                : null
+              }
 
               <div className="side-columns">
                 { this.props.isAuthenticated
