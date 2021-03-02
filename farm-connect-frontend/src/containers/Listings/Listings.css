@@ -1,33 +1,28 @@
 .Listings-main-div {
     width: 100%;
+    max-height: 65.5vh;
     padding-bottom: 25px;
     background-color: #FFF;
     border-radius: 15px;
-    min-height: 65.5vh;
-    position: relative;
-}
-
-.listings-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
 }
 
 #listings-header {
-    position: relative;
-    top: 0;
     width: 100%;
     padding-bottom: 15px;
     border-bottom: 8px solid #dde6d5;
 }
 
 #listings-main {
-    position: absolute;
-    top: 140;
     width: 100%;
+    max-height: 50vh;
     overflow-y: auto;
     border-top: 2px solid #3a5f0b;
-    height: 52vh;
+}
+
+.listings-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .listings-th-td {
@@ -186,5 +181,13 @@
 
     .react-confirm-alert-button-group > button {
         font-size: 0.6rem;
+    }
+
+    .Listings-main-div {
+        max-height: 70vh;
+    }
+
+    #listings-main {
+        max-height: 48vh;
     }
 }
