@@ -9,7 +9,7 @@ const SuggestedProspects = (props) => {
         return `http://localhost:3000/${image}`;
     }
 
-    const image = (image) => {
+    const getProspectPhoto = (image) => {
         if(image){
             return <img src={prospectPhoto(image)} alt="prospect avatar" className="prospect-image" />
         } else {
@@ -28,7 +28,7 @@ const SuggestedProspects = (props) => {
     const prospects = props.prospects.map((prospect) => {
         return (
             <ul id="suggested-prospects-ul" key={prospect.id}>
-                <li><span id="suggested-prospects-li-span"><Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{image(prospect.attributes.image)}</Link></span> <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
+                <li><span id="suggested-prospects-li-span"><Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{getProspectPhoto(prospect.attributes.image)}</Link></span> <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>{prospect.attributes.first_name} {prospect.attributes.last_name}</Link></li>
             </ul>
         )
     })

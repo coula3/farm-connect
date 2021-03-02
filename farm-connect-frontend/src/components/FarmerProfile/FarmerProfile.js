@@ -36,7 +36,7 @@ const FarmerProfile = (props) => {
         return connect[0].user_id === parseInt(props.userId) && connect[0].connect_id === parseInt(props.farmer.id);
     });
 
-    const farmerPhoto = (farmerPhoto) => {
+    const getFarmerPhoto = (farmerPhoto) => {
        return `http://localhost:3000/${farmerPhoto}`;
     }
 
@@ -58,7 +58,6 @@ const FarmerProfile = (props) => {
 
     const handleViewListings = () => {
         props.fetchListings(props.farmer.id, props)
-        // props.history.push(`/farmers/${props.farmer.id}/listings`);
     }
 
     return (
@@ -74,7 +73,7 @@ const FarmerProfile = (props) => {
 
                                 <div className="img-div">
                                     { props.farmerPhoto
-                                        ?   <img src={farmerPhoto(props.farmerPhoto)} alt="user avatar" className="farmer-img" />
+                                        ?   <img src={getFarmerPhoto(props.farmerPhoto)} alt="user avatar" className="farmer-img" />
                                         :   <img src={avatar} alt="anonymous avatar" className="farmer-img" />
                                     }
                                 </div>

@@ -5,7 +5,7 @@ import { getDate, getFullName } from '../../utils/miscellaneousUtils';
 import './CurrentUser.css';
 
 const CurrentUser = (props) => {
-    const userPhoto = (userPhoto) => {
+    const getUserPhoto = (userPhoto) => {
         return `http://localhost:3000/${userPhoto}`;
     }
 
@@ -38,7 +38,7 @@ const CurrentUser = (props) => {
 
                         <div className="img-div">
                             { props.userPhoto
-                                ?   <img className="current-user-img" src={userPhoto(props.userPhoto)} alt="user avatar" />
+                                ?   <img className="current-user-img" src={getUserPhoto(props.userPhoto)} alt="user avatar" />
                                 :   <img className="current-user-img" src={avatar} alt="anonymous avatar" />
                             }
                         </div>
