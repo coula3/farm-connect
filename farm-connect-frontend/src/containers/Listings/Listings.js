@@ -74,6 +74,13 @@ class Listings extends React.Component {
             this.props.fetchListings();
             this.props.listingsRendered();
         }
+
+        if(this.state.searchText){
+            this.setState({
+                ...this.state,
+                searchText: ""
+            });
+        }
     }
 
     handleFetchFarmer = (e, id) => {
