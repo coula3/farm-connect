@@ -31,9 +31,10 @@ const SideNavBar = (props) => {
     }
 
     const handleRemoveMsgHeader = () => {
-        const msgHeader = document.getElementById("no_msg");
-        if(msgHeader){
-            msgHeader.remove();
+        const noUserSearchResultHeader = document.getElementById("no-user-search-result");
+
+        if(noUserSearchResultHeader){
+            noUserSearchResultHeader.remove();
         }
     }
 

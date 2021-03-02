@@ -86,7 +86,7 @@ class SearchUsers extends Component {
                     {   searchResults.data[0]
                             ?   sortedSearchResults.map((user, idx) =>
                                 <li id="search-result-li" key={user.id}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
-                            : <h4>No matching name</h4>
+                            : <h4 id="no-user-search-result">No matching name</h4>
                     }
                 </ol>
             );
