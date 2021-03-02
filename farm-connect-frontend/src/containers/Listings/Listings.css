@@ -191,6 +191,10 @@
         max-height: 70vh;
     }
 
+    #listings-header h4 {
+        padding-top: 0;
+    }
+
     #listings-main {
         max-height: 48vh;
     }
