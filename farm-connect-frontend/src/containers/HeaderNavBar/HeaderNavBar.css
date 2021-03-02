@@ -52,9 +52,9 @@
 }
 
 .burger-menus {
-    width: 10px;
-    margin: 2px auto;
-    border: 2px solid #3a5f0b;
+    width: 15px;
+    margin: 3px auto;
+    border: 1px solid #3a5f0b;
 }
 
 #nav-user-profile {
@@ -92,10 +92,5 @@
 
     #burger-menu-div {
         padding-left: 0;
-    }
-
-    .burger-menus {
-        width: 10px;
-        margin: 2px auto;
     }
 }
