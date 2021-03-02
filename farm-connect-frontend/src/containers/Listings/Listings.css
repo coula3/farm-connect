@@ -25,6 +25,10 @@
     margin-top: 20px;
 }
 
+.Listings-main-div h4 {
+    padding-top: 20px;
+}
+
 .listings-th-td {
     border-bottom: #DCDCDC solid 1px;
 }
