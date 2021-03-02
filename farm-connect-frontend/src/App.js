@@ -31,7 +31,13 @@ class App extends Component {
     return (
       <div className="App">
           <div>
-            <AppHeader />
+            <AppHeader
+              openListingsRendered={this.props.openListingsRendered}
+              hasListingChanged={this.props.hasListingChanged}
+              fetchListings={this.props.fetchListings}
+              fetchListingsInterests={this.props.fetchListingsInterests}
+              listingsRendered={this.props.listingsRendered}
+            />
 
             { this.props.isAuthenticated
               ? <HeaderNavBar
