@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
-import { padIds } from '../../utils/miscellaneousUtils';
+import { padIds, scrollToTopOfPage } from '../../utils/miscellaneousUtils';
 import balloons from '../../assets/balloons.png';
 import './ListingsInterests.css';
 
@@ -11,6 +11,9 @@ const ListingsInterests = (props) => {
         if(listingId !== parseInt(props.listing.id)){
             props.fetchListing(listingId);
         }
+
+        scrollToTopOfPage();
+
         props.history.push(`/listings/${listingId}`);
     }
 

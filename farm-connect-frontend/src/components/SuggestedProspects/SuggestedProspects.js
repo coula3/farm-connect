@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import avatar from '../../assets/avatar.png';
 import Loader from '../Loader/Loader';
+import { scrollToTopOfPage } from '../../utils/miscellaneousUtils';
 import './SuggestedProspects.css';
 
 const SuggestedProspects = (props) => {
@@ -20,9 +21,12 @@ const SuggestedProspects = (props) => {
     const handleClick = (prospect) => {
         const pathArray = props.location.pathname.split("/");
         const pathProspectId = pathArray[pathArray.length - 1];
+
         if(pathProspectId !== prospect.id){
             props.fetchProspect(prospect.id);
         }
+
+        scrollToTopOfPage();
     }
 
     const prospects = props.prospects.map((prospect) => {
