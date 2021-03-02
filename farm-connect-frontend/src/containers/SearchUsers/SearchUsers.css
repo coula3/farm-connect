@@ -1,7 +1,7 @@
 .SearchUsers-main-div {
     width: 400px;
     margin: auto;
-    height: 60vh;
+    max-height: 60vh;
 }
 
 .search-users-card {
@@ -31,7 +31,7 @@
 
 #search-results-div {
     margin-top: 10px;
-    height: 90%;
+    max-height: 50vh;
     overflow-y: auto;
 }
 
@@ -93,6 +93,12 @@
 
     #resetSearchDivBtn {
         height: 14px;
+    }
+}
+
+@media (max-width: 700px){
+    #search-results-div {
+        max-height: 30vh;
     }
 }
 
