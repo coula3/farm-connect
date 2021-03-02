@@ -5,7 +5,7 @@ import './SignOut.css';
 const SignOut = () => {
     return (
         <div className="Main_Signout_div">
-            <span id="signout_msg">You've been signed out</span>
+            <span id="signout_msg">You've signed out</span>
             <div id="home_link_div">
                 <Link to="/">Home</Link>
             </div>
