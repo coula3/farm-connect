@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import sadEmoji from '../../assets/sadEmoji.png';
 import './NoMatch.css';
@@ -6,6 +6,11 @@ import './NoMatch.css';
 const NoMatch = (props) => {
     let divStyle;
     props.isAuthenticated ? divStyle = "NoMatch-auth-main-div" : divStyle = "NoMatch-no-auth-main-div";
+
+    useEffect(() => {
+        document.getElementById("mobile-resources-board").style.cssText += "display: none;";
+        return () => document.getElementById("mobile-resources-board").style.removeProperty('display');
+    }, [])
 
     return (
         <div className={divStyle}>
