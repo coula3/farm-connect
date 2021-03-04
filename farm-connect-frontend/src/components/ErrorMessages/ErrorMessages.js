@@ -12,6 +12,11 @@ const ErrorMessages = (props) => {
         }
     }, [errorMessages, history, clearErrorMessages])
 
+    useEffect(() => {
+        document.getElementById("mobile-resources-board").style.cssText += "display: none;";
+        return () => document.getElementById("mobile-resources-board").style.removeProperty('display');
+    }, []);
+
     return (
         <div className="ErrorMessage-main-div">
             <div className="error-message-card">
