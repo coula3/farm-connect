@@ -92,6 +92,14 @@ class SearchUsers extends Component {
             );
         };
 
+        const getSearchResultCountMessage = searchResults => {
+            if(searchResults.length === 1){
+                return `${searchResults.length} search result`;
+            } else if (searchResults.length > 1){
+                return `${searchResults.length} search results`;
+            }
+        }
+
         return (
             <div className="SearchUsers-main-div">
                 <div className="search-users-card">
@@ -102,7 +110,11 @@ class SearchUsers extends Component {
                     </form>
                     {   this.props.isLoading
                             ?   <Loader />
-                            :   this.props.searchResults.data && <div id="search-results-div">{renderSearchResults(this.props.searchResults)}</div>
+                            :   this.props.searchResults.data &&
+                                <>
+                                    <div id="search-count-msg-div">{getSearchResultCountMessage(this.props.searchResults.data)}</div>
+                                    <div id="search-results-div">{renderSearchResults(this.props.searchResults)}</div>
+                                </>
                     }
                 </div>
             </div>

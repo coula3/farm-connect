@@ -29,6 +29,12 @@
     color: #FFF;
 }
 
+#search-count-msg-div {
+    margin-top: 20px;
+    color: #3a5f0b;
+    font-weight: bold;
+}
+
 #search-results-div {
     margin-top: 10px;
     max-height: 50vh;
@@ -105,5 +111,9 @@
 @media (max-width: 500px) {
     .search-users-card {
         box-shadow: none;
+    }
+
+    #search-count-msg-div {
+        margin-top: 10px;
     }
 }
