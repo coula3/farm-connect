@@ -29,9 +29,7 @@ class App extends Component {
 
   componentDidMount(){
     if (JSON.parse(localStorage.getItem("bottom"))){
-      document.getElementById("arrow-down-scroll-span").style.display = "none";
-      document.getElementById("arrow-up-scroll-span").style.display = "inline";
-      document.getElementById("arrow-up-scroll-span").innerHTML = "⇪";
+      this.switchScrollArrows();
     }
   }
 
@@ -39,11 +37,18 @@ class App extends Component {
     window.scrollBy(0, 100);
 
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
-      document.getElementById("arrow-down-scroll-span").style.display = "none";
-      document.getElementById("arrow-up-scroll-span").style.display = "inline";
-      document.getElementById("arrow-up-scroll-span").innerHTML = "⇪";
+      this.switchScrollArrows();
       localStorage.setItem("bottom", true)
     }
+  }
+
+  switchScrollArrows = () => {
+    const scrollDownArrow = document.getElementById("arrow-down-scroll-span");
+    const scrollUpArrow = document.getElementById("arrow-up-scroll-span");
+
+    scrollDownArrow.style.display = "none";
+    scrollUpArrow.style.display = "inline";
+    scrollUpArrow.innerHTML = "⇪";
   }
 
   handleArrowUpScroll = (e) => {
@@ -54,10 +59,13 @@ class App extends Component {
     });
 
     window.addEventListener("scroll", function(){
+      const scrollDownArrow = document.getElementById("arrow-down-scroll-span");
+      const scrollUpArrow = document.getElementById("arrow-up-scroll-span");
+
       if(window.scrollY === 0){
-        document.getElementById("arrow-down-scroll-span").style.display = "inline";
-        document.getElementById("arrow-up-scroll-span").style.display = "none";
-        document.getElementById("arrow-down-scroll-span").innerHTML = "⇩";
+        scrollDownArrow.style.display = "inline";
+        scrollUpArrow.style.display = "none";
+        scrollDownArrow.innerHTML = "⇩";
         localStorage.setItem("bottom", false)
       }
     });
