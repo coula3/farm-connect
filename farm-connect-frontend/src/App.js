@@ -27,6 +27,42 @@ class App extends Component {
     this.props.fetchProspect(id);
   }
 
+  componentDidMount(){
+    if (JSON.parse(localStorage.getItem("bottom"))){
+      document.getElementById("arrow-down-scroll-span").style.display = "none";
+      document.getElementById("arrow-up-scroll-span").style.display = "inline";
+      document.getElementById("arrow-up-scroll-span").innerHTML = "⇪";
+    }
+  }
+
+  handleArrowDownScroll = (e) => {
+    window.scrollBy(0, 100);
+
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+      document.getElementById("arrow-down-scroll-span").style.display = "none";
+      document.getElementById("arrow-up-scroll-span").style.display = "inline";
+      document.getElementById("arrow-up-scroll-span").innerHTML = "⇪";
+      localStorage.setItem("bottom", true)
+    }
+  }
+
+  handleArrowUpScroll = (e) => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+
+    window.addEventListener("scroll", function(){
+      if(window.scrollY === 0){
+        document.getElementById("arrow-down-scroll-span").style.display = "inline";
+        document.getElementById("arrow-up-scroll-span").style.display = "none";
+        document.getElementById("arrow-down-scroll-span").innerHTML = "⇩";
+        localStorage.setItem("bottom", false)
+      }
+    });
+  }
+
   render(){
     return (
       <div className="App">
@@ -96,6 +132,10 @@ class App extends Component {
                         location={this.props.location}
                       />
                     </div>
+
+                    { <span id="arrow-down-scroll-span" onClick={this.handleArrowDownScroll}>⇩</span> }
+
+                    { <span id="arrow-up-scroll-span" onClick={this.handleArrowUpScroll}>⇪</span> }
                   </div>
                 : null
               }
