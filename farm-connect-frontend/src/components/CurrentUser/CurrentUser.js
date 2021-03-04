@@ -15,7 +15,7 @@ const CurrentUser = (props) => {
         const isIdDifferent = extractedUserId !== parseInt(props.userId)
 
         if(isNaN(parseInt(userPath[userPath.length -1]))) {
-            props.addErrorMessages(`Invalid User ID: ${userPath[userPath.length -1]}`)
+            props.addErrorMessages("Invalid Entry")
         } else if(isIdDifferent) {
             props.addErrorMessages("Unauthorized Access Denied")
         }
