@@ -22,6 +22,7 @@ const HeadNavBar = (props) => {
         <>
             <Sidedrawer show={show} closeBackdrop={() => setShow(false)} />
             <Backdrop show={show} closeBackdrop={() => setShow(false)} />
+
             <div className="HeaderNavBar-main-div">
                 <div id="burger-menu-div" onClick={() => setShow(true)}>
                     <div className="burger-menus"></div>
@@ -40,14 +41,17 @@ const HeadNavBar = (props) => {
                                 <img className="header-img" src={avatar} alt="anonymous avatar" />
                             </span>
                     }
+
                     <Link id="hnb-name-link" to={`/users/${props.userId}`} title="View Profile">
                         {getFullName(props.userAttributes.first_name, props.userAttributes.last_name)}
                     </Link>
+
                     <span id="user-type-global-span">
                         <span id="user-type-span">
                             <strong>{userType(props.userAttributes.type)}</strong>
                         </span>
                     </span>
+
                     <Link id="signout-link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut}>
                         Sign Out
                     </Link>
