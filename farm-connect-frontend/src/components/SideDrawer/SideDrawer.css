@@ -5,6 +5,15 @@
     top: 0;
     left: 0;
     z-index: 10;
+    transition: transform 0.3s ease-out;
+}
+
+.Open {
+    transform: translateX(0);
+}
+
+.Close {
+    transform: translateX(-100%);
 }
 
 @media (min-width: 700px) {
