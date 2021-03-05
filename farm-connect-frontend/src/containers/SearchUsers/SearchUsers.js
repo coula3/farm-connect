@@ -32,6 +32,7 @@ class SearchUsers extends Component {
             });
         } else {
             this.props.searchResults.data && this.resetSearchForm();
+            this.props.location.search && window.history.pushState({}, document.title, `${this.props.location.pathname}`);
         }
     }
 
