@@ -1,4 +1,5 @@
 import * as actionTypes from '../actionTypes';
+import { dispatchCatchErrorMessages } from '../utils/errorsUtils/catchErrorMessages';
 
 export const searchUsers = (payload, routerProps) => {
     return (dispatch) => {
@@ -18,12 +19,8 @@ export const searchUsers = (payload, routerProps) => {
             });
         })
         .catch(error => {
-            dispatch({type: actionTypes.CLEAR_LOADING_SEARCH_RESULTS})
-            dispatch({
-                type: actionTypes.ADD_ERROR_MESSAGES,
-                errorMessages: [`Network Connection: (${error})`]
-            });
-            routerProps.history.replace("/error-messages");
+            dispatch({type: actionTypes.CLEAR_LOADING_SEARCH_RESULTS});
+            dispatchCatchErrorMessages(dispatch, error, routerProps);
         })
     }
 }
