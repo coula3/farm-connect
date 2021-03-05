@@ -17,6 +17,9 @@
   margin: 0 2%;
 }
 
+#arrow-down-scroll-span, #arrow-up-scroll-span {
+  display: none;
+}
 
 @media (max-width: 1450px) {
   .side-columns {
@@ -80,30 +83,26 @@
     flex-direction: column;
   }
 
-  #arrow-down-scroll-span {
+  #arrow-down-scroll-span, #arrow-up-scroll-span {
     background-color: #3a5f0b;
     color: #fff;
-    padding: 2px 6px;
     border-radius: 50%;
     position: fixed;
     right: 5px;
     bottom: 5px;
     font-size: 0.85rem;
+  }
+
+  #arrow-down-scroll-span {
+    padding: 2px 6px;
     font-weight: bold;
+    display: inline;
   }
 
   #arrow-up-scroll-span {
-    background-color: #3a5f0b;
-    color: #fff;
     padding: 2px 5px 4px 5px;
-    border-radius: 50%;
-    position: fixed;
-    right: 5px;
-    bottom: 5px;
-    font-size: 0.85rem;
     display: none;
   }
-
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
