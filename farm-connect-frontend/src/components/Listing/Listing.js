@@ -42,13 +42,18 @@ const Listing = (props) => {
     }
 
     const handlePushToUserListings = () => {
-        props.hasListingChanged && props.openListingsRendered && props.fetchListings();
-        return props.history.push(`/users/${props.userId}/listings`);
+        getListings();
+        props.history.push(`/users/${props.userId}/listings`);
     }
 
     const handlePushToListings = () => {
+        getListings();
+        props.history.push("/listings");
+    }
+
+    const getListings = () => {
         props.hasListingChanged && props.openListingsRendered && props.fetchListings();
-        return props.history.push("/listings");
+        !props.openListingsRendered && props.fetchListings();
     }
 
     const setHeartColor = (currentUserId, listingInterests) => {
