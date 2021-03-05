@@ -7,7 +7,7 @@ const initialState = {
 
 const searchUsersReducer = (state = initialState, action) => {
     switch(action.type){
-        case actionTypes.LOADING_RESULTS:
+        case actionTypes.LOADING_SEARCH_RESULTS:
             return {
                 ...state,
                 isLoading: true
@@ -17,6 +17,12 @@ const searchUsersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchResults: action.searchResults,
+                isLoading: false
+            }
+
+        case actionTypes.CLEAR_LOADING_SEARCH_RESULTS:
+            return {
+                ...state,
                 isLoading: false
             }
 

@@ -129,9 +129,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, routerProps) => {
     return {
-        searchUsers: (payload) => dispatch(searchUsers(payload)),
+        searchUsers: (payload) => dispatch(searchUsers(payload, routerProps)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
         fetchProspect: (id) => dispatch(fetchProspect(id)),
         clearSearchResults: () => dispatch(clearSearchResults())
