@@ -25,13 +25,25 @@ const Connects = (props) => {
     const renderRequestsList = (connect) => {
         const connectId = connect[0].user_id === parseInt(props.userId) ? connect[0].connect_id : connect[0].user_id;
         const spanStyle = connect[3] === "Farmer" ? "user-list-type-span farmer-user-list-type-span" : "user-list-type-span";
-        return <li id="connect-list" key={connect[0].id}><Link to={`/${connect[3].toLowerCase() + "s"}/${connectId}`} onClick={() => fetchProfile(connectId, connect[3])}>{connect[1]} {connect[2]}</Link><span className={spanStyle}>{connect[3][0]}</span></li>;
+
+        return  <li id="connect-list" key={connect[0].id}>
+                    <Link to={`/${connect[3].toLowerCase() + "s"}/${connectId}`} onClick={() => fetchProfile(connectId, connect[3])}>
+                        {connect[1]} {connect[2]}
+                    </Link>
+
+                    <span className={spanStyle}>
+                        {connect[3][0]}
+                    </span>
+                </li>;
     }
 
     return (
         <div className="ConnectRequests-main-div">
             <div className="connect-requests-card">
+                <button id="x-close-btn" onClick={() => props.history.goBack()}>X</button>
+
                 <h3 className={headerStyles}>{headerText}</h3>
+
                 <div id="connects-div">
                     <ul id="connect-requests-ul">
                         {   sortedConnects.map(connect =>

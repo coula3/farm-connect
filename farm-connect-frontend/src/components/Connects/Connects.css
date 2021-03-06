@@ -11,7 +11,8 @@
     width: 100%;
     height: 100%;
     background-color: #FFF;
-    box-shadow: 6px 8px #3a5f0b
+    box-shadow: 6px 8px #3a5f0b;
+    position: relative;
 }
 
 #connect-requests-ul {
