@@ -20,6 +20,7 @@
     width: 100%;
     background-color: #FFF;
     box-shadow: 6px 8px #663300;
+    position: relative;
 }
 
 #farmer-profile-listing-btn-div {

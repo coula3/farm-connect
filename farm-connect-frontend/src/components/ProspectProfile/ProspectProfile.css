@@ -15,7 +15,8 @@
     padding: 15px 0px 25px 0px;
     width: 100%;
     background-color: #FFF;
-    box-shadow: 6px 8px #3a5f0b
+    box-shadow: 6px 8px #3a5f0b;
+    position: relative;
 }
 
 #prospect-request-btn, #prospect-accept-btn, #prospect-decline-btn,

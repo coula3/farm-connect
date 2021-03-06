@@ -69,6 +69,8 @@ const FarmerProfile = (props) => {
 
                         {   props.farmer.id &&
                             <>
+                                <button id="x-close-btn" onClick={() => props.history.goBack()}>X</button>
+
                                 <h3>Farmer Profile</h3>
 
                                 <div className="img-div">
