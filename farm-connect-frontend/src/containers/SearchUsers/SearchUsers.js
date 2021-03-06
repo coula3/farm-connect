@@ -104,11 +104,14 @@ class SearchUsers extends Component {
         return (
             <div className="SearchUsers-main-div">
                 <div className="search-users-card">
+                    <button id="search-x-close-btn" onClick={() => this.props.history.goBack()}>X</button>
+
                     <form onSubmit={this.handleSubmit}>
                         <input id="search-input" type="search" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
                         <input id="search-btn" type="submit" value="Search" />
                         {this.props.searchResults.data && <div id="resetSearchDivBtn" onClick={this.resetSearchForm}>X</div>}
                     </form>
+
                     {   this.props.isLoading
                             ?   <Loader />
                             :   this.props.searchResults.data &&
