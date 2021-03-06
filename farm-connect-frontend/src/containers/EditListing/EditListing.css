@@ -9,7 +9,8 @@
     padding: 15px 0;
     width: 100%;
     background-color: #FFF;
-    box-shadow: 6px 8px #663300
+    box-shadow: 6px 8px #663300;
+    position: relative;
 }
 
 .EditListing-main-div h3 {
@@ -153,7 +154,7 @@
 
 .signin-errors-p {
     font-size: 0.75rem;
-    color: red
+    color: red;
 }
 
 .signin-errors-p-margin {

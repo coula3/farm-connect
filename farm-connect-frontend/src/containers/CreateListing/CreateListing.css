@@ -9,7 +9,8 @@
     padding: 15px 0;
     width: 100%;
     background-color: #FFF;
-    box-shadow: 6px 8px #663300
+    box-shadow: 6px 8px #663300;
+    position: relative;
 }
 
 .create-listing-label {
@@ -85,7 +86,7 @@
 }
 
 .p_inputs {
-    margin-bottom: 0px
+    margin-bottom: 0px;
 }
 
 .create-listing-errors-span {

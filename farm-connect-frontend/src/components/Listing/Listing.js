@@ -80,6 +80,8 @@ const Listing = (props) => {
                 :   <div className="listing-card">
                         {(() => toFetchListing = props.match.params.id !== props.listing.id)()}
 
+                        <button id="x-close-btn" onClick={() => props.history.goBack()}>X</button>
+
                         {   props.listing.id &&
                             <>
                                 <div id="listing-details">

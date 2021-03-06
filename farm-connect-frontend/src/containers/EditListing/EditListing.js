@@ -162,6 +162,8 @@ class EditListing extends Component {
                 { this.props.isLoadingEditedListing
                     ?   <Loader />
                     :   <div className="edit-listing-card">
+                            <button id="x-close-btn" onClick={() => this.props.history.goBack()}>X</button>
+
                             <h3>Edit Listing</h3>
 
                             <span id="edit-listing-id-span" className="tooltip">
