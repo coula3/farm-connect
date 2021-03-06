@@ -5,6 +5,7 @@
     background-color: #FFF;
     border: 1px solid #663300;
     box-shadow: 6px 10px #663300;
+    position: relative;
 }
 
 .Farmer-profile-styles {
@@ -26,7 +27,7 @@
     margin-top: 35px;
 }
 
-#cu-edit-btn {
+#current-user-edit-btn {
     margin-top: 30px;
     width: 100px;
 }
@@ -47,7 +48,7 @@
         margin-top: 15px;
     }
 
-    #cu-edit-btn {
+    #current-user-edit-btn {
         font-size: 0.7rem;
         margin-top: 10px;
     }

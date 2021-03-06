@@ -90,7 +90,10 @@ class EditUser extends Component {
         return (
             <div className="EditUser-main-div">
                 <div className="edit-user-profile-card">
+                    <button id="x-close-btn" onClick={() => this.props.history.goBack()}>X</button>
+
                     <h3 id="edit-user-h3">Edit Profile</h3>
+
                     <EditUserForm
                         firstName={this.props.userAttributes.first_name}
                         lastName={this.props.userAttributes.last_name}

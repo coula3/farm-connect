@@ -34,6 +34,8 @@ const CurrentUser = (props) => {
                 :   <div className="Current-user-profile-card">
                         {redirectOnInvalidUserId()}
 
+                        <button id="x-close-btn" onClick={() => props.history.goBack()}>X</button>
+
                         <h3>My Profile</h3>
 
                         <div className="img-div">

@@ -9,12 +9,13 @@
     padding: 15px 0px 25px 0px;
     width: 100%;
     background-color: #FFF;
-    box-shadow: 6px 8px #663300
+    box-shadow: 6px 8px #663300;
+    position: relative;
 }
 
 #edit-user-form {
     padding: 10px; 
-    margin-bottom: 5px
+    margin-bottom: 5px;
 }
 
 .edit-user-label, .edit-user-input, #photo-input, #edit-user-update-btn {
@@ -77,7 +78,7 @@
 
 @media (max-width: 1225px) {
     .edit-user-errors-span {
-      font-size: 10px
+      font-size: 10px;
     }
 }
 
