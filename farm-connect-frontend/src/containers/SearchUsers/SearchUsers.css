@@ -55,7 +55,7 @@
     overflow-y: auto;
 }
 
-#search-input , #search-btn, #resetSearchDivBtn {
+#search-input , #search-btn {
     font-size: inherit;
 }
 
@@ -68,16 +68,17 @@
     padding: 2px 0;
 }
 
-#resetSearchDivBtn {
+#resetSearchBtn {
     background-color: #000;
     color: #fff;
-    display: inline-block;
     width: 25px;
-    height: 25px;
+    height: 35px;
+    font-size: 1.25rem;
+    font-family: inherit;
     border: 1px solid #000;
     border-radius: 5px;
     margin-left: 10px;
-    padding: 6px 0 2px 0;
+    padding: 0px 2px 5px 2px;
 }
 
 #search-btn, #resetSearchDivBtn {
@@ -85,8 +86,9 @@
 }
 
 @media (max-width: 1350px){
-    #resetSearchDivBtn {
-        height: 20px;
+    #resetSearchBtn {
+        height: 29px;
+        font-size: 1.20rem;
     }
 }
 
@@ -99,9 +101,10 @@
         width: 60%;
     }
 
-    #resetSearchDivBtn {
-        height: 17px;
-        padding: 6px 0 2px 0;
+    #resetSearchBtn {
+        height: 27px;
+        font-size: 1rem;
+        padding: 2px 0 7px 0;
         margin-left: 5px;
     }
 }
@@ -111,8 +114,10 @@
         width: 250px;
     }
 
-    #resetSearchDivBtn {
-        height: 14px;
+    #resetSearchBtn {
+        height: 26px;
+        font-size: 0.9rem;
+        padding: 2px 0 4px 0;
     }
 }
 
@@ -126,6 +131,12 @@
         right: -10px;
         font-size: 0.75rem;
         padding: 2px 5px;
+    }
+
+    #resetSearchBtn {
+        height: 25px;
+        font-size: 0.75rem;
+        padding: 2px 0 4px 0;
     }
 }
 

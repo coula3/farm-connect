@@ -109,7 +109,7 @@ class SearchUsers extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <input id="search-input" type="search" placeholder={`${this.userType()} first or last name`} value={this.state.searchText} onChange={this.handleChange} />
                         <input id="search-btn" type="submit" value="Search" />
-                        {this.props.searchResults.data && <div id="resetSearchDivBtn" onClick={this.resetSearchForm}>X</div>}
+                        {this.props.searchResults.data && <button id="resetSearchBtn" onClick={this.resetSearchForm}>↻</button>}
                     </form>
 
                     {   this.props.isLoading
