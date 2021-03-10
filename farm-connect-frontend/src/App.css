@@ -17,10 +17,6 @@
   margin: 0 2%;
 }
 
-#arrow-down-scroll-span, #arrow-up-scroll-span {
-  display: none;
-}
-
 @media (max-width: 1450px) {
   .side-columns {
     flex-basis:  230px;
@@ -45,12 +41,6 @@
   }
 }
 
-@media (min-width: 700px) {
-  #mobile-resources-board {
-    display: none;
-  }
-}
-
 @media (max-width: 700px) {
   .side-columns {
     display: none;
@@ -63,47 +53,8 @@
   #authenticated-div {
     flex-direction: column;
   }
-
-  #mobile-resources-board {
-    width: 70%;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border: 1px solid #000;
-    background-color: #fff;
-    box-shadow: 10px 10px #999;
-    display: flex;
-    justify-content: space-evenly;
-  }
 }
 
-@media (max-width: 500px) {
-  #mobile-resources-board {
-    flex-direction: column;
-  }
-
-  #arrow-down-scroll-span, #arrow-up-scroll-span {
-    background-color: #3a5f0b;
-    color: #fff;
-    border-radius: 50%;
-    position: fixed;
-    right: 5px;
-    bottom: 5px;
-    font-size: 0.85rem;
-  }
-
-  #arrow-down-scroll-span {
-    padding: 2px 6px;
-    font-weight: bold;
-    display: inline;
-  }
-
-  #arrow-up-scroll-span {
-    padding: 2px 5px 4px 5px;
-    display: none;
-  }
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
