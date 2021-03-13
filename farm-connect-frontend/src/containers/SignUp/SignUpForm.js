@@ -4,15 +4,20 @@ import * as messages from '../../utils/errorsUtils/userErrors';
 
 const SignUpForm = props => {
     const { errorMessages, clearErrorMessages } = props;
+    const signupEmailInputRef = React.useRef();
 
     useEffect(() => {
         return () => errorMessages[0] && clearErrorMessages();
-    }, [errorMessages, clearErrorMessages])
+    }, [errorMessages, clearErrorMessages]);
+
+    useEffect(() => {
+        signupEmailInputRef.current.focus();
+    }, []);
 
     return (
         <>
             <form id="signup-form" onSubmit={props.handleSubmit}>
-                <p className="signup-inputs-p"><input id="signup-firstname-input" className="signup-inputs" type="text" name="firstName" placeholder="first name" value={props.firstName} onChange={props.handleChange} /></p>
+                <p className="signup-inputs-p"><input id="signup-firstname-input" ref={signupEmailInputRef} className="signup-inputs" type="text" name="firstName" placeholder="first name" value={props.firstName} onChange={props.handleChange} /></p>
                 <p className="signup-errors-p signup-errors-p-margin">{messages.firstNameError(props.errorMessages)}</p>
 
                 <p className="signup-inputs-p"><input id="signup-lastname-input" className="signup-inputs" type="text" name="lastName" placeholder="last name" value={props.lastName} onChange={props.handleChange} /></p>
