@@ -46,6 +46,7 @@ export const createListing = (payload, userId, routerProps) => {
                 dispatch(updateCurrentUser(userId));
                 routerProps.history.push(`/listings/${object.data.id}`);
             } else {
+                dispatch({type: actionTypes.CLEAR_LOADING});
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: object.messages
