@@ -3,24 +3,3 @@
     height: 68vh;
     border-radius: 15px;
 }
-
-#mobile-resources-board {
-    width: 70%;
-    margin: auto;
-    height: 70vh;
-    padding: 15px;
-    border-radius: 15px;
-    background-color: #fff;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-
-@media (min-width: 700px) {
-    #mobile-resources-board {
-        display: none;
-    }
-}

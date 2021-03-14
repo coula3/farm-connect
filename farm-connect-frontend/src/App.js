@@ -8,7 +8,7 @@ import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 import AppFooter from './components/AppFooter/AppFooter';
-import MobileResourcesBoard from './components/ResourcesBoard/MobileResourcesBoard';
+import MobileResourcesBoard from './containers/MobileResourcesBoard/MobileResourcesBoard';
 
 import * as listingsActions from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';

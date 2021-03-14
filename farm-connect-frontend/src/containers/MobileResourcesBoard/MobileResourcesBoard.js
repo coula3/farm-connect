@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter} from 'react-router-dom';
 
-import BackDrop from '../Backdrop/Backdrop';
-import ListingsInterests from '../ListingsInterests/ListingsInterests';
-import SuggestedProspects from '../SuggestedProspects/SuggestedProspects';
-import './ResourcesBoard.css';
+import BackDrop from '../../components/Backdrop/Backdrop';
+import ListingsInterests from '../../components/ListingsInterests/ListingsInterests';
+import SuggestedProspects from '../../components/SuggestedProspects/SuggestedProspects';
+import './MobileResourcesBoard.css';
 
 const MobileResourcesBoard = (props) => {
     const [showBackDrop, setShowBackDrop] = useState(false);
