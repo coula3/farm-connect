@@ -18,7 +18,8 @@ const SuggestedProspects = (props) => {
         }
     }
 
-    const handleClick = (prospect) => {
+    const handleClick = (e, prospect) => {
+        e.preventDefault();
         const pathArray = props.location.pathname.split("/");
         const pathProspectId = pathArray[pathArray.length - 1];
 
@@ -34,12 +35,12 @@ const SuggestedProspects = (props) => {
             <ul id="suggested-prospects-ul" key={prospect.id}>
                 <li>
                     <span id="suggested-prospects-li-span">
-                        <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>
+                        <Link to={`/prospects/${prospect.id}`} onClick={(e) => handleClick(e, prospect)}>
                             {getProspectPhoto(prospect.attributes.image)}
                         </Link>
                     </span>
 
-                    <Link to={`/prospects/${prospect.id}`} onClick={() => handleClick(prospect)}>
+                    <Link to={`/prospects/${prospect.id}`} onClick={(e) => handleClick(e, prospect)}>
                         {prospect.attributes.first_name} {prospect.attributes.last_name}
                     </Link>
                 </li>
