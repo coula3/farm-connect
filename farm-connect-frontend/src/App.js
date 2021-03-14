@@ -8,11 +8,14 @@ import SideNavBar from './components/SideNavBar/SideNavBar';
 import Routes from './components/Routes/Routes';
 import ResourcesBoard from './components/ResourcesBoard/ResourcesBoard';
 import AppFooter from './components/AppFooter/AppFooter';
+import MobileResourcesBoard from './components/ResourcesBoard/MobileResourcesBoard';
 
 import * as listingsActions from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import { fetchListingsInterests } from './actions/interestsActions';
 import { signOutUser } from './actions/userActions';
+
+import { hideMobileResourcesBoard } from './actions/miscellaneousActions';
 
 import './App.css';
 
@@ -74,6 +77,11 @@ class App extends Component {
                 <Routes />
               </div>
 
+              { this.props.showMobileResourcesBoard
+                ? <MobileResourcesBoard hideMobileResourcesBoard={this.props.hideMobileResourcesBoard} />
+                : null
+              }
+
               <div className="side-columns">
                 { this.props.isAuthenticated
                   ? <ResourcesBoard
@@ -91,7 +99,7 @@ class App extends Component {
               </div>
             </div>
 
-            { !this.props.isAuthenticated && this.props.location.pathname !== "/signup" ? <AppFooter /> : null }
+            { !this.props.isAuthenticated && this.props.location.pathname !== "/signup" && <AppFooter /> }
           </div>
       </div>
     );
@@ -113,7 +121,8 @@ const mapStateToProps = (state) => {
     isLoadingInterests: state.interests.isLoadingInterests,
     openListingsRendered: state.listings.openListingsRendered,
     myInterestsRendered: state.listings.myInterestsRendered,
-    userConnects: state.connects.userConnects
+    userConnects: state.connects.userConnects,
+    showMobileResourcesBoard: state.miscellaneous.showMobileResourcesBoard,
   }
 }
 
@@ -127,7 +136,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchListings: (farmer, routerProps) => dispatch(listingsActions.fetchListings(farmer, routerProps)),
     fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId)),
     fetchListingsInterests: () => dispatch(fetchListingsInterests()),
-    fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id))
+    fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id)),
+    hideMobileResourcesBoard: () => dispatch(hideMobileResourcesBoard())
   };
 }
 
