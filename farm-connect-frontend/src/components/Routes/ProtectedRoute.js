@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { requestConnect, acceptConnect, unConnectUsers } from '../../actions/connectionsActions';
 import * as listingsActions from '../../actions/listingsActions';
 import { fetchProspect } from '../../actions/prospectsActions';
@@ -43,12 +43,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch, routerProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId, routerProps)),
+        fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
         fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId)),
         fetchListing: (id) => dispatch(listingsActions.fetchListing(id)),
-        fetchListings: (farmer, routerProps) => dispatch(listingsActions.fetchListings(farmer, routerProps)),
+        fetchListings: (farmer, routerProps) => dispatch(listingsActions.fetchListings(farmer)),
         removeUserListingInterest: (listingId, interestId, currentUserId) => dispatch(listingsActions.removeUserListingInterest(listingId, interestId, currentUserId)),
         addUserListingInterest: (currentUserId, listingId) => dispatch(listingsActions.addUserListingInterest(currentUserId, listingId)),
         requestConnect: (currentUserId, connectId) => dispatch(requestConnect(currentUserId, connectId)),
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch, routerProps) => {
     };
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProtectedRoute));
+export default connect(mapStateToProps, mapDispatchToProps)(ProtectedRoute);
