@@ -4,6 +4,7 @@ import { withRouter} from 'react-router-dom';
 import BackDrop from '../../components/Backdrop/Backdrop';
 import ListingsInterests from '../../components/ListingsInterests/ListingsInterests';
 import SuggestedProspects from '../../components/SuggestedProspects/SuggestedProspects';
+
 import './MobileResourcesBoard.css';
 
 const MobileResourcesBoard = (props) => {

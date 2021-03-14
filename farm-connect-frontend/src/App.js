@@ -28,6 +28,17 @@ class App extends Component {
   }
 
   render(){
+    const sameProps = {
+      isLoadingProspects: this.props.isLoadingProspects,
+      userId: this.props.userId,
+      prospects: this.props.prospects,
+      listingsInterests: this.props.listingsInterests,
+      listing: this.props.listing,
+      isLoadingInterests: this.props.isLoadingInterests,
+      fetchProspect: (id) => this.fetchProspect(id),
+      fetchListing: (id) => this.props.fetchListing(id)
+    }
+
     return (
       <div className="App">
           <div>
@@ -76,29 +87,15 @@ class App extends Component {
 
               { this.props.showMobileResourcesBoard &&
                 <MobileResourcesBoard
-                  hideMobileResourcesBoard={this.props.hideMobileResourcesBoard}
-                  isLoadingProspects={this.props.isLoadingProspects}
-                  userId={this.props.userId}
-                  prospects={this.props.prospects}
-                  listingsInterests={this.props.listingsInterests}
-                  listing={this.props.listing}
-                  isLoadingInterests={this.props.isLoadingInterests}
-                  fetchProspect={(id) => this.fetchProspect(id)}
-                  fetchListing={(id) => this.props.fetchListing(id)}
+                  {...sameProps}
+                  hideMobileResourcesBoard={() => this.props.hideMobileResourcesBoard()}
                 />
               }
 
               <div className="side-columns">
                 { this.props.isAuthenticated &&
                   <ResourcesBoard
-                    isLoadingProspects={this.props.isLoadingProspects}
-                    userId={this.props.userId}
-                    prospects={this.props.prospects}
-                    listingsInterests={this.props.listingsInterests}
-                    listing={this.props.listing}
-                    isLoadingInterests={this.props.isLoadingInterests}
-                    fetchProspect={(id) => this.fetchProspect(id)}
-                    fetchListing={(id) => this.props.fetchListing(id)}
+                    {...sameProps}
                   />
                 }
               </div>
