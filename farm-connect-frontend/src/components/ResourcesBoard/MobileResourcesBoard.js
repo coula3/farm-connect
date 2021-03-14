@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter} from 'react-router-dom';
 
 import BackDrop from '../Backdrop/Backdrop';
+import ListingsInterests from '../ListingsInterests/ListingsInterests';
+import SuggestedProspects from '../SuggestedProspects/SuggestedProspects';
 import './ResourcesBoard.css';
 
 const MobileResourcesBoard = (props) => {
@@ -20,10 +23,11 @@ const MobileResourcesBoard = (props) => {
             <BackDrop show={showBackDrop} closeBackdrop={() => handleClick()} />
 
             <div id="mobile-resources-board" onClick={() => handleClick()}>
-                <h1>MobileResourcesBoard</h1>
+                <ListingsInterests {...props} />
+                <SuggestedProspects {...props} userId={props.userId}/>
             </div>
         </>
     )
 }
 
-export default MobileResourcesBoard;
+export default withRouter(MobileResourcesBoard);
