@@ -1,7 +1,7 @@
 import * as actionTypes from '../actionTypes';
 import { fetchListingsInterests } from './interestsActions';
 import { updateCurrentUser } from './userActions';
-import history from '../utils/history';
+// import history from '../utils/history';
 
 export const fetchListings = (farmerId, routerProps) => {
     return (dispatch) => {
@@ -56,7 +56,7 @@ export const createListing = (payload, userId, routerProps) => {
     }
 }
 
-export const fetchListing = (id) => {
+export const fetchListing = (id, routerProps) => {
     return (dispatch) => {
         dispatch({type: actionTypes.LOADING_LISTING})
         fetch(`http://localhost:3000/api/v1/listings/${id}`, {
@@ -73,13 +73,13 @@ export const fetchListing = (id) => {
                     type: actionTypes.ADD_LISTING,
                     listing: object.listing.data
                 });
-                history.push(`/listings/${id}`);
+                routerProps.history.push(`/listings/${id}`);
             } else {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: [`Invalid Listing ID: ${id}`]
                 });
-                history.replace("/error-messages");
+                routerProps.history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING});
             }
         })

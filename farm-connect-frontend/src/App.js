@@ -128,15 +128,15 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, routerProps) => {
   return {
     signOutUser: () => dispatch(signOutUser()),
-    fetchListing: (id) => dispatch(listingsActions.fetchListing(id)),
+    fetchListing: (id) => dispatch(listingsActions.fetchListing(id, routerProps)),
     fetchUserClosedListings: (props) => dispatch(listingsActions.fetchUserClosedListings(props)),
     listingsRendered: () => dispatch(listingsActions.listingsRendered()),
     listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
     fetchListings: (farmer, routerProps) => dispatch(listingsActions.fetchListings(farmer, routerProps)),
-    fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId)),
+    fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId, routerProps)),
     fetchListingsInterests: () => dispatch(fetchListingsInterests()),
     fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id)),
     hideMobileResourcesBoard: () => dispatch(hideMobileResourcesBoard())

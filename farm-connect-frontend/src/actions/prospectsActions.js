@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes';
-import history from '../utils/history';
+// import history from '../utils/history';
 
 export const fetchProspects = (userId) => {
   return (dispatch) => {
@@ -21,7 +21,7 @@ export const fetchProspects = (userId) => {
   }
 }
 
-export const fetchProspect = (id) => {
+export const fetchProspect = (id, routerProps) => {
   return (dispatch) => {
     dispatch({type: actionTypes.LOADING_PROSPECT});
     fetch(`http://localhost:3000/api/v1/prospects/${id}`, {
@@ -38,14 +38,14 @@ export const fetchProspect = (id) => {
           type: actionTypes.FETCH_PROSPECT,
           prospect: object.prospect.data
         });
-        history.push(`/prospects/${id}`)
+        routerProps.history.push(`/prospects/${id}`);
       } else {
         dispatch({
           type: actionTypes.ADD_ERROR_MESSAGES,
           errorMessages: [`Invalid Prospect ID: ${id}`]
         });
         dispatch({type: actionTypes.CLEAR_LOADING_PROSPECT});
-        history.replace("/error-messages");
+        routerProps.history.replace("/error-messages");
       }
     })
   }

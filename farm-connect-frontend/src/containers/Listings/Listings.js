@@ -348,11 +348,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, routerProps) => {
     return {
         fetchListings: () => dispatch(listingsActions.fetchListings()),
         fetchCommodities: () => dispatch(fetchCommodities()),
-        fetchListing: (id) => dispatch(listingsActions.fetchListing(id)),
+        fetchListing: (id) => dispatch(listingsActions.fetchListing(id, routerProps)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id)),
         fetchProspects: (userId) => dispatch(fetchProspects(userId)),
         fetchListingsInterests: () => dispatch(fetchListingsInterests()),
