@@ -56,7 +56,7 @@ class SearchUsers extends Component {
     }
 
     componentWillUnmount(){
-        this.props.clearSearchResults();
+        this.props.searchResults.data && this.props.clearSearchResults();
     }
 
     componentDidUpdate(){
