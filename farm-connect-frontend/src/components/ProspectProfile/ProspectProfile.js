@@ -9,7 +9,7 @@ const ProspectProfile = (props) => {
     const { fetchProspect, match } =  props;
 
     useEffect(() => {
-        toFetchProspect && fetchProspect(match.params.id,);
+        toFetchProspect && fetchProspect(match.params.id);
     }, [fetchProspect, match, toFetchProspect]);
 
     const isCurrentUser = (prospectId) => {
@@ -78,13 +78,15 @@ const ProspectProfile = (props) => {
                                     ?   !usersConnected
                                         ?   <button id="prospect-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Request Connect</button>
                                             :    pendingAcceptance && !connectionByUser
-                                                ?   <>
-                                                        <button id="prospect-accept-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Accept</button>
-                                                        <button id="prospect-decline-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Decline</button>
-                                                    </>
-                                                        :   pendingAcceptance && connectionByUser
-                                                            ?   <button id="prospect-cancel-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Cancel Request</button>
-                                                                :   <div className="connect-btn-div"><button  id="prospect-unconnect-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button></div>
+                                            ?   <>
+                                                    <button id="prospect-accept-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Accept</button>
+                                                    <button id="prospect-decline-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Decline</button>
+                                                </>
+                                                    :   pendingAcceptance && connectionByUser
+                                                        ?   <button id="prospect-cancel-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Cancel Request</button>
+                                                        :   <div className="connect-btn-div">
+                                                                <button  id="prospect-unconnect-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.prospect.id)}>Unconnect</button>
+                                                            </div>
                                     :   null
                                 }
                             </>
