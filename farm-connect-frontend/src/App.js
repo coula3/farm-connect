@@ -14,7 +14,6 @@ import * as listingsActions from './actions/listingsActions';
 import { fetchProspect } from './actions/prospectsActions';
 import { fetchListingsInterests } from './actions/interestsActions';
 import { signOutUser } from './actions/userActions';
-
 import { hideMobileResourcesBoard } from './actions/miscellaneousActions';
 
 import './App.css';
@@ -40,36 +39,34 @@ class App extends Component {
               listingsRendered={this.props.listingsRendered}
             />
 
-            { this.props.isAuthenticated
-              ? <HeaderNavBar
-                  userId={this.props.userId}
-                  userAttributes={this.props.userAttributes}
-                  userSignOut={this.handleUserSignOut}
-                  userPhoto={this.props.userPhoto}
-                />
-              : null
+            { this.props.isAuthenticated &&
+              <HeaderNavBar
+                userId={this.props.userId}
+                userAttributes={this.props.userAttributes}
+                userSignOut={this.handleUserSignOut}
+                userPhoto={this.props.userPhoto}
+              />
             }
 
             <div id="authenticated-div">
               <div className="side-columns">
-                { this.props.isAuthenticated
-                  ? <SideNavBar
-                      userSignOut={this.handleUserSignOut}
-                      userId={this.props.userId}
-                      userAttributes={this.props.userAttributes}
-                      hasListingChanged={this.props.hasListingChanged}
-                      countUserInterestsListings={this.props.countUserInterestsListings}
-                      openListingsRendered={this.props.openListingsRendered}
-                      myInterestsRendered={this.props.myInterestsRendered}
-                      userConnects={this.props.userConnects}
-                      fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
-                      listingsRendered={() => this.props.listingsRendered()}
-                      listingsUnrendered={() => this.props.listingsUnrendered()}
-                      fetchListings={() => this.props.fetchListings()}
-                      fetchListingsInterests={() => this.props.fetchListingsInterests()}
-                      fetchUserInterestsListings={(id) => this.props.fetchUserInterestsListings(id)}
-                    />
-                  : null
+                { this.props.isAuthenticated &&
+                  <SideNavBar
+                    userSignOut={this.handleUserSignOut}
+                    userId={this.props.userId}
+                    userAttributes={this.props.userAttributes}
+                    hasListingChanged={this.props.hasListingChanged}
+                    countUserInterestsListings={this.props.countUserInterestsListings}
+                    openListingsRendered={this.props.openListingsRendered}
+                    myInterestsRendered={this.props.myInterestsRendered}
+                    userConnects={this.props.userConnects}
+                    fetchUserClosedListings={(userId) => this.props.fetchUserClosedListings(userId)}
+                    listingsRendered={() => this.props.listingsRendered()}
+                    listingsUnrendered={() => this.props.listingsUnrendered()}
+                    fetchListings={() => this.props.fetchListings()}
+                    fetchListingsInterests={() => this.props.fetchListingsInterests()}
+                    fetchUserInterestsListings={(id) => this.props.fetchUserInterestsListings(id)}
+                  />
                 }
               </div>
 
@@ -77,9 +74,23 @@ class App extends Component {
                 <Routes />
               </div>
 
-              { this.props.showMobileResourcesBoard
-                ? <MobileResourcesBoard
-                    hideMobileResourcesBoard={this.props.hideMobileResourcesBoard}
+              { this.props.showMobileResourcesBoard &&
+                <MobileResourcesBoard
+                  hideMobileResourcesBoard={this.props.hideMobileResourcesBoard}
+                  isLoadingProspects={this.props.isLoadingProspects}
+                  userId={this.props.userId}
+                  prospects={this.props.prospects}
+                  listingsInterests={this.props.listingsInterests}
+                  listing={this.props.listing}
+                  isLoadingInterests={this.props.isLoadingInterests}
+                  fetchProspect={(id) => this.fetchProspect(id)}
+                  fetchListing={(id) => this.props.fetchListing(id)}
+                />
+              }
+
+              <div className="side-columns">
+                { this.props.isAuthenticated &&
+                  <ResourcesBoard
                     isLoadingProspects={this.props.isLoadingProspects}
                     userId={this.props.userId}
                     prospects={this.props.prospects}
@@ -89,22 +100,6 @@ class App extends Component {
                     fetchProspect={(id) => this.fetchProspect(id)}
                     fetchListing={(id) => this.props.fetchListing(id)}
                   />
-                : null
-              }
-
-              <div className="side-columns">
-                { this.props.isAuthenticated
-                  ? <ResourcesBoard
-                      isLoadingProspects={this.props.isLoadingProspects}
-                      userId={this.props.userId}
-                      prospects={this.props.prospects}
-                      listingsInterests={this.props.listingsInterests}
-                      listing={this.props.listing}
-                      isLoadingInterests={this.props.isLoadingInterests}
-                      fetchProspect={(id) => this.fetchProspect(id)}
-                      fetchListing={(id) => this.props.fetchListing(id)}
-                    />
-                  : null
                 }
               </div>
             </div>
