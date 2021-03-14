@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import sadEmoji from '../../assets/sadEmoji.png';
 import './NoMatch.css';
