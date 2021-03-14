@@ -7,11 +7,6 @@ const NoMatch = (props) => {
     let divStyle;
     props.isAuthenticated ? divStyle = "NoMatch-auth-main-div" : divStyle = "NoMatch-no-auth-main-div";
 
-    useEffect(() => {
-        document.getElementById("mobile-resources-board").style.cssText += "display: none;";
-        return () => document.getElementById("mobile-resources-board").style.removeProperty('display');
-    }, [])
-
     return (
         <div className={divStyle}>
             <h1 id="h1-404">404</h1>
