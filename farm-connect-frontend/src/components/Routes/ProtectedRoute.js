@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import { requestConnect, acceptConnect, unConnectUsers } from '../../actions/connectionsActions';
 import * as listingsActions from '../../actions/listingsActions';
 import { fetchProspect } from '../../actions/prospectsActions';
@@ -43,9 +43,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, routerProps) => {
     return {
-        fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId)),
+        fetchFarmer: (farmerId) => dispatch(fetchFarmer(farmerId, routerProps)),
         fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId)),
         fetchListing: (id) => dispatch(listingsActions.fetchListing(id)),
         fetchListings: (farmer, routerProps) => dispatch(listingsActions.fetchListings(farmer, routerProps)),
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProtectedRoute);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProtectedRoute));

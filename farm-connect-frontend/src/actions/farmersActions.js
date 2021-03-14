@@ -1,7 +1,7 @@
 import * as actionTypes from '../actionTypes';
 import history from '../utils/history';
 
-export const fetchFarmer = (id) => {
+export const fetchFarmer = (id, routerProps) => {
     return (dispatch) => {
         dispatch({type: actionTypes.LOADING_FARMER})
         fetch(`http://localhost:3000/api/v1/users/${id}`, {
@@ -18,13 +18,13 @@ export const fetchFarmer = (id) => {
                     farmer: object.user.data,
                     photo: object.photo
                 });
-                history.push(`/farmers/${id}`)
+                routerProps ? routerProps.history.push(`/farmers/${id}`) : history.push(`/farmers/${id}`)
             } else {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: [`Invalid Farmer ID: ${id}`]
                 });
-                history.replace("/error-messages");
+                routerProps ? routerProps.history.replace("/error-messages") : history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING_FARMER});
             }
         })

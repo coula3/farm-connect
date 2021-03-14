@@ -353,7 +353,7 @@ const mapDispatchToProps = (dispatch, routerProps) => {
         fetchListings: () => dispatch(listingsActions.fetchListings()),
         fetchCommodities: () => dispatch(fetchCommodities()),
         fetchListing: (id) => dispatch(listingsActions.fetchListing(id, routerProps)),
-        fetchFarmer: (id) => dispatch(fetchFarmer(id)),
+        fetchFarmer: (id) => dispatch(fetchFarmer(id, routerProps)),
         fetchProspects: (userId) => dispatch(fetchProspects(userId)),
         fetchListingsInterests: () => dispatch(fetchListingsInterests()),
         clearErrorMessages: () => dispatch(clearErrorMessages()),
