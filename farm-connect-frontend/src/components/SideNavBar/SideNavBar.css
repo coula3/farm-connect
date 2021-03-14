@@ -51,7 +51,7 @@
     border: solid 1px;
 }
 
-.my-connects-span {
+.my-connects-span, #discover-more {
     color:  #663300;
 }
 
@@ -90,19 +90,25 @@
     }
   }
 
-  @media (max-width: 1225px) {
+@media (max-width: 1225px) {
     .my-connects-tags {
-      font-size: 0.88rem;
+        font-size: 0.88rem;
     }
-  }
+}
 
-  @media (max-width: 900px) {
+@media (max-width: 900px) {
     .my-connects-tags {
-      font-size: 0.76rem;
+        font-size: 0.76rem;
     }
-  }
+}
 
-  @media (max-width: 700px) {
+@media (min-width: 700px) {
+    #discover-more {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
     .SideNavBar-main-div {
         border-radius: 0 15px 15px 0;
         height: 85vh;

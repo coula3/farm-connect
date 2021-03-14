@@ -1,7 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { paths } from '../../utils/miscellaneousUtils';
 import './SideNavBar.css';
+
+import { showMobileResourcesBoard } from '../../actions/miscellaneousActions';
+
 
 const SideNavBar = (props) => {
     const totalConnects = !props.userConnects ? 0 : props.userConnects.filter(connect => connect[0].status === "accepted").length;
@@ -113,6 +117,8 @@ const SideNavBar = (props) => {
                     <span className="requests-interests-spans">{totalInterests}</span>
                 </p>
 
+                <p id="discover-more" onClick={() => props.showMobileResourcesBoard()}>Discover More</p>
+
                 <h4 id="search-h4">Search</h4>
 
                 <p id="search-links-p">
@@ -125,4 +131,10 @@ const SideNavBar = (props) => {
     )
 }
 
-export default withRouter(SideNavBar);
+const mapDispatchToProps = dispatch => {
+    return {
+        showMobileResourcesBoard: () => dispatch(showMobileResourcesBoard())
+    }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(SideNavBar));
