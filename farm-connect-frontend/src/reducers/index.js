@@ -8,6 +8,7 @@ import { errorsReducer } from './errorsReducer';
 import { interestsReducer } from './interestsReducer';
 import searchUsersReducer from './searchUsersReducer';
 import connectionsReducer from './connectionsReducer';
+import miscellaneousReducer from './miscellaneousReducer';
 
 const rootReducer = combineReducers({
     currentUser: userReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     interests: interestsReducer,
     errorMessages: errorsReducer,
     searchUsers: searchUsersReducer,
-    connects: connectionsReducer
+    connects: connectionsReducer,
+    miscellaneous: miscellaneousReducer
 })
 
 export default rootReducer;
