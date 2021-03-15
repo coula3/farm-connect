@@ -31,15 +31,17 @@ const ListingsInterests = (props) => {
         return isListingPath && listing[0] === parseInt(props.listing.id) && pathArray[1] === "listings" && listing[3] !== parseInt(props.userId) ? "list-highlight-styles" : null;
     }
 
-    const renderListingsInterests = props.listingsInterests.map((listing) => {
-        return (
-            <ul id="ul-interests" key={listing[0]}>
-                <li id={listStyles(listing)} className="HIL-li" onClick={() => handleClick(listing[0])}>
-                    <span id={listHighlight(listing)}>{padIds(listing[0])} - {listing[2]} ({listing[1]}) {renderBalloons(listing)}</span>
-                </li>
-            </ul>
-        );
-    });
+    const renderListingsInterests = () => {
+        return props.listingsInterests.map((listing) => {
+            return (
+                <ul id="ul-interests" key={listing[0]}>
+                    <li id={listStyles(listing)} className="HIL-li" onClick={() => handleClick(listing[0])}>
+                        <span id={listHighlight(listing)}>{padIds(listing[0])} - {listing[2]} ({listing[1]}) {renderBalloons(listing)}</span>
+                    </li>
+                </ul>
+            );
+        });
+    };
 
     return (
         <div className="ListingsInterests-main-div">
@@ -47,7 +49,7 @@ const ListingsInterests = (props) => {
                 ?   <div id="loader-div"><Loader /></div>
                 :   <>
                         <h4>High Interest Listings</h4>
-                        {renderListingsInterests}
+                        {renderListingsInterests()}
                     </>
             }
             <br />
