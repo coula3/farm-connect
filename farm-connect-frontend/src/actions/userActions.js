@@ -65,6 +65,7 @@ export const signInUser = (payload, routerProps) => {
                         type: actionTypes.ADD_ERROR_MESSAGES,
                         errorMessages: object.messages
                     });
+                    setFocusSignIn();
                 }
             })
         }
