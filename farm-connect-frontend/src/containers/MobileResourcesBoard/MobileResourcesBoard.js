@@ -9,21 +9,24 @@ import './MobileResourcesBoard.css';
 
 const MobileResourcesBoard = (props) => {
     const [showBackDrop, setShowBackDrop] = useState(false);
+    const [assignedClass, setAssignedClass] = useState("CloseMobileResourcesBoard");
 
     useEffect(() => {
         setShowBackDrop(true);
+        setAssignedClass("OpenMobileResourcesBoard");
     }, []);
 
     const handleClick = () => {
+        setAssignedClass("CloseMobileResourcesBoard");
         setShowBackDrop(false);
-        props.hideMobileResourcesBoard();
+        setTimeout(() => props.hideMobileResourcesBoard(), 350);
     }
 
     return (
         <>
             <BackDrop show={showBackDrop} closeBackdrop={() => handleClick()} />
 
-            <div id="mobile-resources-board" onClick={() => handleClick()}>
+            <div id="mobile-resources-board" className={assignedClass} onClick={() => handleClick()}>
                 <ListingsInterests {...props} />
                 <SuggestedProspects {...props} userId={props.userId}/>
             </div>
