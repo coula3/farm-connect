@@ -73,13 +73,16 @@ export const fetchListing = (id, routerProps) => {
                     type: actionTypes.ADD_LISTING,
                     listing: object.listing.data
                 });
-                routerProps ? routerProps.history.push(`/listings/${id}`) : history.push(`/listings/${id}`);
+
+                if(!window.location.href.includes("/listings/")){
+                    routerProps.history.push(`/listings/${id}`);
+                }
             } else {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: [`Invalid Listing ID: ${id}`]
                 });
-                routerProps ? routerProps.history.replace("/error-messages") : history.replace("/error-messages");
+                history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING});
             }
         })

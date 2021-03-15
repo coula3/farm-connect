@@ -47,7 +47,9 @@ class SearchUsers extends Component {
     }
 
 
-    handleClick = (id) => {
+    handleClick = (e, id) => {
+        e.preventDefault();
+
         if(this.props.match.path.endsWith("farmers")){
             this.props.fetchFarmer(id);
         } else {
@@ -86,7 +88,7 @@ class SearchUsers extends Component {
                 <ol id="search-results-ul">
                     {   searchResults.data[0]
                             ?   sortedSearchResults.map((user, idx) =>
-                                <li id="search-result-li" key={user.id}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={() => this.handleClick(user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
+                                <li id="search-result-li" key={user.id}>{idx +1}. <Link to={`/${this.mainResource()}/${user.id}`} onClick={(e) => this.handleClick(e, user.id)}>{user.attributes.first_name} {user.attributes.last_name}</Link></li>)
                             : <h4 id="no-user-search-result">No matching name</h4>
                     }
                 </ol>
@@ -136,8 +138,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, routerProps) => {
     return {
         searchUsers: (payload) => dispatch(searchUsers(payload, routerProps)),
-        fetchFarmer: (id) => dispatch(fetchFarmer(id)),
-        fetchProspect: (id) => dispatch(fetchProspect(id)),
+        fetchFarmer: (id) => dispatch(fetchFarmer(id, routerProps)),
+        fetchProspect: (id) => dispatch(fetchProspect(id, routerProps)),
         clearSearchResults: () => dispatch(clearSearchResults())
     }
 }

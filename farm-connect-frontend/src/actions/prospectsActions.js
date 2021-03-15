@@ -38,14 +38,15 @@ export const fetchProspect = (id, routerProps) => {
           type: actionTypes.FETCH_PROSPECT,
           prospect: object.prospect.data
         });
-        routerProps ? routerProps.history.push(`/prospects/${id}`) : history.push(`/prospects/${id}`);
+
+        routerProps && routerProps.history.push(`/prospects/${id}`);
       } else {
         dispatch({
           type: actionTypes.ADD_ERROR_MESSAGES,
           errorMessages: [`Invalid Prospect ID: ${id}`]
         });
         dispatch({type: actionTypes.CLEAR_LOADING_PROSPECT});
-        routerProps ? routerProps.history.replace("/error-messages") : history.replace("/error-messages");
+        history.replace("/error-messages");
       }
     })
   }

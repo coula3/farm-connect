@@ -18,13 +18,16 @@ export const fetchFarmer = (id, routerProps) => {
                     farmer: object.user.data,
                     photo: object.photo
                 });
-                routerProps ? routerProps.history.push(`/farmers/${id}`) : history.push(`/farmers/${id}`)
+
+                if(routerProps || history){
+                    routerProps ? routerProps.history.push(`/farmers/${id}`) : history.push(`/farmers/${id}`);
+                }
             } else {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
                     errorMessages: [`Invalid Farmer ID: ${id}`]
                 });
-                routerProps ? routerProps.history.replace("/error-messages") : history.replace("/error-messages");
+                history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING_FARMER});
             }
         })
