@@ -69,9 +69,9 @@ class Listings extends React.Component {
         this.props.fetchListing(id);
     }
 
-    handleFetchListings = () => {
+    handleFetchListings = (id) => {
         if(this.props.match.path === "/listings/my-interests"){
-            this.props.fetchListings();
+            this.props.fetchListings(id);
             this.props.listingsRendered();
         }
 
@@ -217,7 +217,7 @@ class Listings extends React.Component {
                     <td>{commodity}</td>
 
                     { this.props.match.path === paths().LISTINGS_PATH || this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH || this.props.match.path === paths().MY_INTERESTS_PATH
-                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`} onClick={this.handleFetchListings}>{this.getName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link>{renderConnectSymbol}</td>
+                        ?   <td><Link to={`/farmers/${userId}/listings`} title={`${firstName}'s Listings`} onClick={() => this.handleFetchListings(listing.attributes.user_id)}>{this.getName(listing.attributes.user.first_name, listing.attributes.user.last_name)}</Link>{renderConnectSymbol}</td>
                         :   null
                     }
 
@@ -352,7 +352,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, routerProps) => {
     return {
-        fetchListings: () => dispatch(listingsActions.fetchListings()),
+        fetchListings: (id) => dispatch(listingsActions.fetchListings(id, routerProps)),
         fetchCommodities: () => dispatch(fetchCommodities()),
         fetchListing: (id) => dispatch(listingsActions.fetchListing(id, routerProps)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id, routerProps)),
