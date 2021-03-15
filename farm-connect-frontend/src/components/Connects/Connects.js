@@ -40,7 +40,7 @@ const Connects = (props) => {
     return (
         <div className="ConnectRequests-main-div">
             <div className="connect-requests-card">
-                <button id="x-close-btn" onClick={() => props.history.goBack()}>X</button>
+                <button id="x-close-btn" onClick={() => props.history.push("/listings")}>X</button>
 
                 <h3 className={headerStyles}>{headerText}</h3>
 

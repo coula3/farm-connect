@@ -56,7 +56,7 @@ const ProspectProfile = (props) => {
                 :   <div className="prospect-profile-card">
                         {(() => toFetchProspect = props.match.params.id !== props.prospect.id)()}
 
-                        <button id="x-close-btn" onClick={() => props.history.goBack()}>X</button>
+                        <button id="x-close-btn" onClick={() => props.history.push("/listings")}>X</button>
 
                         {   props.prospect.id &&
                             <>

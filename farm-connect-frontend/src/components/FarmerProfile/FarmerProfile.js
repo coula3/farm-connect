@@ -69,7 +69,7 @@ const FarmerProfile = (props) => {
 
                         {   props.farmer.id &&
                             <>
-                                <button id="x-close-btn" onClick={() => props.history.goBack()}>X</button>
+                                <button id="x-close-btn" onClick={() => props.history.push("/listings")}>X</button>
 
                                 <h3>Farmer Profile</h3>
 

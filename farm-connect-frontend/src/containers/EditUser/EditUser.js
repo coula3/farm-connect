@@ -90,7 +90,7 @@ class EditUser extends Component {
         return (
             <div className="EditUser-main-div">
                 <div className="edit-user-profile-card">
-                    <button id="x-close-btn" onClick={() => this.props.history.goBack()}>X</button>
+                    <button id="x-close-btn" onClick={() => this.props.history.push("/listings")}>X</button>
 
                     <h3 id="edit-user-h3">Edit Profile</h3>
 

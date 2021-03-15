@@ -72,7 +72,7 @@ class CreateListing extends Component {
         return (
             <div className="CreateListing-main-div">
                 <div className="create-listing-card">
-                    <button id="x-close-btn" onClick={() => this.props.history.goBack()}>X</button>
+                    <button id="x-close-btn" onClick={() => this.props.history.push("/listings")}>X</button>
 
                     <h3>Create Listing</h3>
 
