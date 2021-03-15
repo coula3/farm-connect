@@ -8,11 +8,11 @@
     transition: transform 0.3s ease-out;
 }
 
-.Open {
+.OpenSideDrawer {
     transform: translateX(0);
 }
 
-.Close {
+.CloseSideDrawer {
     transform: translateX(-100%);
 }
 

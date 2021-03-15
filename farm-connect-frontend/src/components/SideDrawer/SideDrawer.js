@@ -9,10 +9,10 @@ import { signOutUser } from '../../actions/userActions';
 import './SideDrawer.css';
 
 const SideDrawer = (props) => {
-    let assignedClasses = ["SideDrawer", "Close"];
+    let assignedClasses = ["SideDrawer", "CloseSideDrawer"];
 
     if(props.show) {
-        assignedClasses = ["SideDrawer", "Open"];
+        assignedClasses = ["SideDrawer", "OpenSideDrawer"];
     }
 
     return (
