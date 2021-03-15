@@ -88,14 +88,14 @@ const FarmerProfile = (props) => {
                                 { !isCurrentUser(props.farmer.id)
                                     ?   !usersConnected
                                         ?   <button id="farmer-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Request Connect</button>
-                                            :   pendingAcceptance && !connectionByUser
-                                                ?   <>
-                                                        <button id="farmer-accept-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Accept</button>
-                                                        <button id="farmer-decline-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Decline</button>
-                                                    </>
-                                                        : pendingAcceptance && connectionByUser
-                                                            ?   <button id="farmer-cancel-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Cancel Request</button>
-                                                                :   <div className="connect-btn-div"><button id="farmer-unconnect-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
+                                        :   pendingAcceptance && !connectionByUser
+                                            ?   <>
+                                                    <button id="farmer-accept-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Accept</button>
+                                                    <button id="farmer-decline-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Decline</button>
+                                                </>
+                                            : pendingAcceptance && connectionByUser
+                                                ?   <button id="farmer-cancel-request-btn" className="global-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Cancel Request</button>
+                                                :   <div className="connect-btn-div"><button id="farmer-unconnect-btn" onClick={(e) => connectUnconnectUsers(e, props.userId, props.farmer.id)}>Unconnect</button></div>
                                     :   null
                                 }
                                 <div id="farmer-profile-listing-btn-div"><button id="listings-btn" className="global-btn" onClick={handleViewListings}>{displayMyOrFarmer(props.farmer.id)}</button></div>
