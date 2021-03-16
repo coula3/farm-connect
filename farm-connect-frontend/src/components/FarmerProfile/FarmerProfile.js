@@ -57,7 +57,7 @@ const FarmerProfile = (props) => {
     }
 
     const handleViewListings = () => {
-        props.fetchListings(props.farmer.id, props)
+        props.fetchListings(props.farmer.id)
     }
 
     return (

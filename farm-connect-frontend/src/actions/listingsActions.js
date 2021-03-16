@@ -19,9 +19,11 @@ export const fetchListings = (farmerId, routerProps) => {
                 type: actionTypes.ADD_OPEN_LISTINGS,
                 listings: object.data
             });
-            farmerId && routerProps.history.push(`/farmers/${farmerId}/listings`);
+
+            farmerId && routerProps && routerProps.history.push(`/farmers/${farmerId}/listings`);
+            farmerId && history.push(`/farmers/${farmerId}/listings`);
         });
-    }
+    };
 }
 
 export const createListing = (payload, userId, routerProps) => {
