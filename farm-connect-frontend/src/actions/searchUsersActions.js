@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes';
-import { dispatchCatchErrorMessages } from '../utils/errorsUtils/catchErrorMessages';
+import { dispatchCatchErrorMessages } from './errorActions.js';
 
 export const searchUsers = (payload, routerProps) => {
     return (dispatch) => {
