@@ -15,6 +15,7 @@ import { fetchProspect } from './actions/prospectsActions';
 import { fetchListingsInterests } from './actions/interestsActions';
 import { signOutUser } from './actions/userActions';
 import { hideMobileResourcesBoard } from './actions/miscellaneousActions';
+import { clearSearchResults } from './actions/searchUsersActions';
 
 import './App.css';
 
@@ -77,6 +78,7 @@ class App extends Component {
                     fetchListings={() => this.props.fetchListings()}
                     fetchListingsInterests={() => this.props.fetchListingsInterests()}
                     fetchUserInterestsListings={(id) => this.props.fetchUserInterestsListings(id)}
+                    clearSearchResults={() => this.props.clearSearchResults()}
                   />
                 }
               </div>
@@ -139,7 +141,8 @@ const mapDispatchToProps = (dispatch, routerProps) => {
     fetchProspect: (prospectId) => dispatch(fetchProspect(prospectId, routerProps)),
     fetchListingsInterests: () => dispatch(fetchListingsInterests()),
     fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id)),
-    hideMobileResourcesBoard: () => dispatch(hideMobileResourcesBoard())
+    hideMobileResourcesBoard: () => dispatch(hideMobileResourcesBoard()),
+    clearSearchResults: () => dispatch(clearSearchResults())
   };
 }
 

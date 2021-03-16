@@ -5,6 +5,7 @@ import SideNavBar from '../SideNavBar/SideNavBar';
 import * as listingsActions from '../../actions/listingsActions';
 import { fetchListingsInterests } from '../../actions/interestsActions';
 import { signOutUser } from '../../actions/userActions';
+import { clearSearchResults } from '../../actions/searchUsersActions';
 
 import './SideDrawer.css';
 
@@ -32,6 +33,7 @@ const SideDrawer = (props) => {
                 fetchListings={() => props.fetchListings()}
                 fetchListingsInterests={() => props.fetchListingsInterests()}
                 fetchUserInterestsListings={(userId) => props.fetchUserInterestsListings(userId)}
+                clearSearchResults={() => props.clearSearchResults()}
             />
         </div>
     )
@@ -57,7 +59,8 @@ const mapDispatchToProps = (dispatch) => {
         listingsUnrendered: () => dispatch(listingsActions.listingsUnrendered()),
         fetchListings: () => dispatch(listingsActions.fetchListings()),
         fetchListingsInterests: () => dispatch(fetchListingsInterests()),
-        fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id))
+        fetchUserInterestsListings: (id) => dispatch(listingsActions.fetchUserInterestsListings(id)),
+        clearSearchResults: () => dispatch(clearSearchResults())
     };
 }
 

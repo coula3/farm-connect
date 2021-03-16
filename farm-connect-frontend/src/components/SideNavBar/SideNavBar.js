@@ -34,12 +34,13 @@ const SideNavBar = (props) => {
         }
     }
 
-    const handleRemoveMsgHeader = () => {
+    const handleSearchOptionClick = () => {
         const noUserSearchResultHeader = document.getElementById("no-user-search-result");
 
         if(noUserSearchResultHeader){
             noUserSearchResultHeader.remove();
         }
+        props.clearSearchResults();
     }
 
     const renderCreateListing = () => {
@@ -122,7 +123,7 @@ const SideNavBar = (props) => {
                 <h4 id="search-h4">Search</h4>
 
                 <p id="search-links-p">
-                    <Link to="/users/search-farmers" onClick={handleRemoveMsgHeader}>Farmers</Link> | <Link to="/users/search-prospects" onClick={handleRemoveMsgHeader}>Prospects</Link>
+                    <Link to="/users/search-farmers" onClick={handleSearchOptionClick}>Farmers</Link> | <Link to="/users/search-prospects" onClick={handleSearchOptionClick}>Prospects</Link>
                 </p>
 
                 <Link id="bottom-signout-link" to={paths().SIGNOUT_PATH} onClick={props.userSignOut} >Sign Out</Link>
