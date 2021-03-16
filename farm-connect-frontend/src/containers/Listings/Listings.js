@@ -34,6 +34,7 @@ class Listings extends React.Component {
     componentDidMount(){
         this.props.errorMessages[0] && this.props.clearErrorMessages();
         window.addEventListener("resize", this.handleResizeWindowWidth);
+        localStorage.getItem('jwt_token') && this.switchListingsType();
     }
 
     componentWillUnmount(){
