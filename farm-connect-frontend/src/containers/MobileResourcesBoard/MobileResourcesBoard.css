@@ -1,7 +1,9 @@
 #mobile-resources-board {
-    width: 70%;
+    width: 65%;
+    max-width: 225px;
     margin: auto;
     height: 70vh;
+    max-height: 335px;
     padding: 15px;
     border-radius: 15px 0 0 15px;
     background-color: #fff;
