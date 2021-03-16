@@ -57,7 +57,7 @@ class Listings extends React.Component {
     switchListingsType = () => {
         if(!this.props.openListingsRendered && (this.props.match.path === "/listings" || this.props.match.path === "/listings/other-farmers" ||  this.props.match.path === "/users/:id/listings")){
             this.stageApplication();
-        } else if(!this.props.myInterestsRendered && (this.props.openListingsRendered || this.props.closedListingsRendered) && this.props.match.path === "/listings/my-interests"){
+        } else if(!this.props.myInterestsRendered && this.props.match.path === "/listings/my-interests"){
             this.props.fetchUserInterestsListings(this.props.userId);
         } else if((this.props.openListingsRendered || this.props.myInterestsRendered) && this.props.match.path === "/users/:id/closed-listings") {
             this.props.fetchUserClosedListings(this.props.userId);
