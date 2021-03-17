@@ -16,9 +16,13 @@ class Api::V1::ListingsController < ApplicationController
         listing = Listing.find_by(id: params[:id])
 
         if listing
-            render json: { listing: ListingSerializer.new(listing) }
+            unless listing.closed && listing.user_id != current_user.id
+                render json: { listing: ListingSerializer.new(listing) }
+            else
+                render json: { message: "Unauthorized Access Denied"}, status: :not_acceptable
+            end
         else
-            render json: { message: "Listing does not exist"}, status: :not_acceptable
+            render json: { message: "Invalid Listing ID: #{params[:id]}"}, status: :not_acceptable
         end
     end
 

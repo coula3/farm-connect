@@ -82,7 +82,7 @@ export const fetchListing = (id, routerProps) => {
             } else {
                 dispatch({
                     type: actionTypes.ADD_ERROR_MESSAGES,
-                    errorMessages: [`Invalid Listing ID: ${id}`]
+                    errorMessages: [`${object.message}`]
                 });
                 history.replace("/error-messages");
                 dispatch({type: actionTypes.CLEAR_LOADING});
