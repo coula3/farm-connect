@@ -7,7 +7,7 @@ import { fetchListingsInterests } from '../../actions/interestsActions';
 import { signOutUser } from '../../actions/userActions';
 import { clearSearchResults } from '../../actions/searchUsersActions';
 
-import './SideDrawer.css';
+import './MobileSideNavBar.css';
 
 const SideDrawer = (props) => {
     let assignedClasses = ["SideDrawer", "CloseSideDrawer"];
