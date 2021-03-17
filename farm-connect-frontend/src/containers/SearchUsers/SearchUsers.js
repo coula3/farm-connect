@@ -5,6 +5,8 @@ import Loader from '../../components/Loader/Loader';
 import { searchUsers, clearSearchResults } from '../../actions/searchUsersActions';
 import { fetchFarmer } from '../../actions/farmersActions';
 import { fetchProspect } from '../../actions/prospectsActions';
+import { addErrorMessages } from '../../actions/errorActions';
+
 import './SearchUsers.css'
 
 class SearchUsers extends Component {
@@ -24,21 +26,30 @@ class SearchUsers extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if(this.state.searchText){
-            this.props.searchUsers(this.state);
 
-            this.props.history.push({
-                search: `?q=${this.state.searchText}`
-            });
-
-            this.setState({
-                searchText: "",
-                userType: ""
-            });
+        if(this.state.searchText.match(/[^a-zA-Z]/)) {
+            this.pushSearchParamsToAddressBar();
+            this.props.addErrorMessages("Search text contained invalid character(s)");
         } else {
-            this.props.searchResults.data && this.resetSearchForm();
-            this.props.location.search && window.history.pushState({}, document.title, `${this.props.location.pathname}`);
+            if(this.state.searchText){
+                this.props.searchUsers(this.state);
+                this.pushSearchParamsToAddressBar();
+
+                this.setState({
+                    searchText: "",
+                    userType: ""
+                });
+            } else {
+                this.props.searchResults.data && this.resetSearchForm();
+                this.props.location.search && window.history.pushState({}, document.title, `${this.props.location.pathname}`);
+            }
         }
+    }
+
+    pushSearchParamsToAddressBar = () => {
+        this.props.history.push({
+            search: `?q=${this.state.searchText}`
+        });
     }
 
     resetSearchForm = () => {
@@ -140,6 +151,7 @@ const mapDispatchToProps = (dispatch, routerProps) => {
         searchUsers: (payload) => dispatch(searchUsers(payload, routerProps)),
         fetchFarmer: (id) => dispatch(fetchFarmer(id, routerProps)),
         fetchProspect: (id) => dispatch(fetchProspect(id, routerProps)),
+        addErrorMessages: (message) => dispatch(addErrorMessages(message)),
         clearSearchResults: () => dispatch(clearSearchResults())
     }
 }
