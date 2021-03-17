@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createListing } from '../../actions/listingsActions';
-import { clearErrorMessages } from '../../actions/errorActions';
+import { addErrorMessages, clearErrorMessages } from '../../actions/errorActions';
 import CreateListingForm from './CreateListingForm';
 import './CreateListing.css';
 
@@ -17,6 +17,12 @@ class CreateListing extends Component {
         },
         maxInfoCharacters: 255,
         disableMeasure: true
+    }
+
+    componentDidMount(){
+        if(this.props.userAttribute.type !== "Farmer"){
+            this.props.addErrorMessages("Unauthorized Access Denied");
+        }
     }
 
     componentWillUnmount(){
@@ -102,6 +108,7 @@ class CreateListing extends Component {
 const mapStateToProps = (state) => {
     return {
         userId: state.currentUser.userId,
+        userAttribute: state.currentUser.userAttributes,
         listing: state.listings.listing,
         errorMessages: state.errorMessages.errorMessages
     };
@@ -110,6 +117,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, routerProps) => {
     return {
         createListing: (payload, userId ) => dispatch(createListing(payload, userId, routerProps)),
+        addErrorMessages: (message) => dispatch(addErrorMessages(message)),
         clearErrorMessages: () => dispatch(clearErrorMessages())
     };
 }
