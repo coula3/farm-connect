@@ -5,6 +5,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 import Loader from "../../components/Loader/Loader";
+import SearchListings from "./SearchListings";
 
 import * as listingsActions from "../../actions/listingsActions";
 import { fetchCommodities } from "../../actions/commoditiesActions";
@@ -240,17 +241,6 @@ class Listings extends React.Component {
       );
     } else {
       listings = sortedListings;
-    }
-
-    let searchInputPlaceholderTexts;
-    if (
-      this.props.match.path === paths().LISTINGS_PATH ||
-      this.props.match.path === paths().OTHER_FARMERS_LISTINGS_PATH ||
-      this.props.match.path === paths().MY_INTERESTS_PATH
-    ) {
-      searchInputPlaceholderTexts = "search list date, commodity or farmer";
-    } else {
-      searchInputPlaceholderTexts = "search list date or commodity";
     }
 
     const renderListings = listings.map((listing) => {
@@ -503,14 +493,12 @@ class Listings extends React.Component {
               )}
 
               {!this.props.listings[0] ? null : (
-                <input
-                  id="listings-search-input"
-                  type="search"
-                  placeholder={searchInputPlaceholderTexts}
-                  value={this.state.searchText}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleBlur}
-                  onChange={this.handleChange}
+                <SearchListings
+                  searchText={this.state.searchText}
+                  {...this.props}
+                  handleChange={(e) => this.handleChange(e)}
+                  handleFocus={() => this.handleFocus()}
+                  handleBlur={() => this.handleBlur()}
                 />
               )}
             </div>
