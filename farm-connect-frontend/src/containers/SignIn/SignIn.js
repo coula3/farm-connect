@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import SignInForm from "./SignInForm";
@@ -8,34 +8,23 @@ import { clearErrorMessages } from "../../actions/errorActions";
 
 import "./SignIn.css";
 
-class SignIn extends Component {
-  state = {
-    user: {
-      email: "",
-      password: "",
-    },
-  };
+const SignIn = (props) => {
+  const [state, setState] = useState({ user: { email: "", password: "" } });
 
-  handleChange = (e) => {
-    this.setState({
+  const handleChange = (e) => {
+    setState((previousState) => ({
       user: {
-        ...this.state.user,
+        ...previousState.user,
         [e.target.name]: e.target.value,
       },
-    });
+    }));
   };
 
-  componentDidMount() {
-    if (this.props.isAuthenticated) {
-      this.props.history.push("/listings");
-    }
-  }
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signInUser(this.state);
+    props.signInUser(state);
 
-    this.setState({
+    setState({
       user: {
         email: "",
         password: "",
@@ -43,27 +32,25 @@ class SignIn extends Component {
     });
   };
 
-  handleSwitchToSignUp = () => {
-    this.props.errorMessages[0] && this.props.clearErrorMessages();
-    this.props.history.push("/signup");
+  const handleSwitchToSignUp = () => {
+    props.errorMessages[0] && props.clearErrorMessages();
+    props.history.push("/signup");
   };
 
-  render() {
-    return (
-      <div className="SignIn-main-div">
-        <SignInForm
-          email={this.state.user.email}
-          password={this.state.user.password}
-          errorMessages={this.props.errorMessages}
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          handleSwitchToSignUp={this.handleSwitchToSignUp}
-          clearErrorMessages={() => this.props.clearErrorMessages()}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="SignIn-main-div">
+      <SignInForm
+        email={state.user.email}
+        password={state.user.password}
+        errorMessages={props.errorMessages}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleSwitchToSignUp={handleSwitchToSignUp}
+        clearErrorMessages={() => props.clearErrorMessages()}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
