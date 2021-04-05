@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import SignUpForm from "./SignUpForm";
@@ -8,8 +8,8 @@ import { clearErrorMessages } from "../../actions/errorActions";
 
 import "./SignUp.css";
 
-class SignUp extends Component {
-  state = {
+const SignUp = (props) => {
+  const [state, setState] = useState({
     user: {
       firstName: "",
       lastName: "",
@@ -18,47 +18,45 @@ class SignUp extends Component {
       password: "",
       type: "",
     },
-  };
+  });
 
-  handleChange = (e) => {
-    this.setState({
+  const handleChange = (e) => {
+    setState((previousState) => ({
       user: {
-        ...this.state.user,
+        ...previousState.user,
         [e.target.name]: e.target.value,
       },
-    });
+    }));
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signUpUser(this.state);
+    props.signUpUser(state);
   };
 
-  handleSwitchToSignIn = () => {
-    this.props.errorMessages[0] && this.props.clearErrorMessages();
-    this.props.history.push("/");
+  const handleSwitchToSignIn = () => {
+    props.errorMessages[0] && props.clearErrorMessages();
+    props.history.push("/");
   };
 
-  render() {
-    return (
-      <div className="SignUp-main-div">
-        <SignUpForm
-          firstName={this.state.user.firstName}
-          lastName={this.state.user.lastName}
-          dateOfBirth={this.state.user.dateOfBirth}
-          email={this.state.user.email}
-          password={this.state.user.password}
-          type={this.state.user.type}
-          errorMessages={this.props.errorMessages}
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          handleSwitchToSignIn={this.handleSwitchToSignIn}
-          clearErrorMessages={() => this.props.clearErrorMessages()}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="SignUp-main-div">
+      <SignUpForm
+        firstName={state.user.firstName}
+        lastName={state.user.lastName}
+        dateOfBirth={state.user.dateOfBirth}
+        email={state.user.email}
+        password={state.user.password}
+        type={state.user.type}
+        errorMessages={props.errorMessages}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        handleSwitchToSignIn={handleSwitchToSignIn}
+        clearErrorMessages={() => props.clearErrorMessages()}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
