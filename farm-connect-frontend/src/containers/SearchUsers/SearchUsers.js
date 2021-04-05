@@ -32,7 +32,7 @@ class SearchUsers extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    if (this.state.searchText.match(/[^a-zA-Z]/)) {
+    if (this.state.searchText.match(/[^a-zA-Z\s]/)) {
       this.pushSearchParamsToAddressBar();
       this.props.addErrorMessages("Search text contained invalid character(s)");
     } else {
