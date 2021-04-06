@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -14,101 +14,110 @@ import { addErrorMessages } from "../../actions/errorActions";
 
 import "./SearchUsers.css";
 
-class SearchUsers extends Component {
-  state = {
-    searchText: "",
-    userType: "",
-  };
+const SearchUsers = (props) => {
+  const [state, setState] = useState({ searchText: "", userType: "" });
 
-  handleChange = (e) => {
-    const userType = this.props.match.path.endsWith("farmers") ? "F" : "P";
+  useEffect(() => {
+      if (props.searchResults.data && props.searchResults.data[0]) {
+        props.match.path === "/users/search-farmers" &&
+          props.searchResults.data[0].attributes.type === "Prospect" &&
+          resetSearchForm();
+        props.match.path === "/users/search-prospects" &&
+          props.searchResults.data[0].attributes.type === "Farmer" &&
+          resetSearchForm();
+      }
+      return () =>  props.searchResults.data && props.clearSearchResults();
+  })
 
-    this.setState({
+  const handleChange = (e) => {
+    const userType = props.match.path.endsWith("farmers") ? "F" : "P";
+
+    setState({
       searchText: e.target.value,
       userType,
-    });
+    })
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (this.state.searchText.match(/[^a-zA-Z\s]/)) {
-      this.pushSearchParamsToAddressBar();
-      this.props.addErrorMessages("Search text contained invalid character(s)");
+    if (state.searchText.match(/[^a-zA-Z\s]/)) {
+      pushSearchParamsToAddressBar();
+      props.addErrorMessages("Search text contained invalid character(s)");
     } else {
-      if (this.state.searchText) {
-        this.props.searchUsers(this.state);
-        this.pushSearchParamsToAddressBar();
+      if (state.searchText) {
+        props.searchUsers(state);
+        pushSearchParamsToAddressBar();
 
-        this.setState({
+        setState({
           searchText: "",
           userType: "",
         });
       } else {
-        this.props.searchResults.data && this.resetSearchForm();
-        this.props.location.search &&
+        props.searchResults.data && resetSearchForm();
+        props.location.search &&
           window.history.pushState(
             {},
             document.title,
-            `${this.props.location.pathname}`
+            `${props.location.pathname}`
           );
       }
     }
   };
 
-  pushSearchParamsToAddressBar = () => {
-    this.props.history.push({
-      search: `?q=${this.state.searchText}`,
+  const pushSearchParamsToAddressBar = () => {
+    props.history.push({
+      search: `?q=${state.searchText}`,
     });
   };
 
-  resetSearchForm = () => {
-    this.props.clearSearchResults();
+  const resetSearchForm = () => {
+    props.clearSearchResults();
     window.history.pushState(
       {},
       document.title,
-      `${this.props.location.pathname}`
+      `${props.location.pathname}`
     );
   };
 
-  handleClick = (e, id) => {
+  const handleClick = (e, id) => {
     e.preventDefault();
 
-    if (this.props.match.path.endsWith("farmers")) {
-      this.props.fetchFarmer(id);
+    if (props.match.path.endsWith("farmers")) {
+      props.fetchFarmer(id);
     } else {
-      this.props.fetchProspect(id);
+      props.fetchProspect(id);
     }
   };
 
-  componentWillUnmount() {
-    this.props.searchResults.data && this.props.clearSearchResults();
-  }
+  // componentWillUnmount() {
+  //   props.searchResults.data && props.clearSearchResults();
+  // }
 
-  componentDidUpdate() {
-    if (this.props.searchResults.data && this.props.searchResults.data[0]) {
-      this.props.match.path === "/users/search-farmers" &&
-        this.props.searchResults.data[0].attributes.type === "Prospect" &&
-        this.resetSearchForm();
-      this.props.match.path === "/users/search-prospects" &&
-        this.props.searchResults.data[0].attributes.type === "Farmer" &&
-        this.resetSearchForm();
-    }
-  }
+  // componentDidUpdate() {
+  //   if (this.props.searchResults.data && this.props.searchResults.data[0]) {
+  //     this.props.match.path === "/users/search-farmers" &&
+  //       this.props.searchResults.data[0].attributes.type === "Prospect" &&
+  //       this.resetSearchForm();
+  //     this.props.match.path === "/users/search-prospects" &&
+  //       this.props.searchResults.data[0].attributes.type === "Farmer" &&
+  //       this.resetSearchForm();
+  //   }
+  // }
 
-  userType = () => {
-    return this.props.match.path === "/users/search-farmers"
+  const userType = () => {
+    return props.match.path === "/users/search-farmers"
       ? "farmer's"
       : "prospect's";
   };
 
-  mainResource = () => {
-    return this.props.match.path === "/users/search-farmers"
+  const mainResource = () => {
+    return props.match.path === "/users/search-farmers"
       ? "farmers"
       : "prospects";
   };
 
-  render() {
+  // render() {
     const renderSearchResults = (searchResults) => {
       const sortedSearchResults = [...searchResults.data].sort((a, b) => {
         if (a.attributes.first_name < b.attributes.first_name) {
@@ -127,8 +136,8 @@ class SearchUsers extends Component {
               <li id="search-result-li" key={user.id}>
                 {idx + 1}.{" "}
                 <Link
-                  to={`/${this.mainResource()}/${user.id}`}
-                  onClick={(e) => this.handleClick(e, user.id)}
+                  to={`/${mainResource()}/${user.id}`}
+                  onClick={(e) => handleClick(e, user.id)}
                 >
                   {user.attributes.first_name} {user.attributes.last_name}
                 </Link>
@@ -154,37 +163,37 @@ class SearchUsers extends Component {
         <div className="search-users-card">
           <button
             id="search-x-close-btn"
-            onClick={() => this.props.history.push("/listings")}
+            onClick={() => props.history.push("/listings")}
           >
             X
           </button>
 
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <input
               id="search-input"
               type="search"
-              placeholder={`${this.userType()} first or last name`}
-              value={this.state.searchText}
-              onChange={this.handleChange}
+              placeholder={`${userType()} first or last name`}
+              value={state.searchText}
+              onChange={handleChange}
             />
             <input id="search-btn" type="submit" value="Search" />
-            {this.props.searchResults.data && (
-              <button id="resetSearchBtn" onClick={this.resetSearchForm}>
+            {props.searchResults.data && (
+              <button id="resetSearchBtn" onClick={resetSearchForm}>
                 ↻
               </button>
             )}
           </form>
 
-          {this.props.isLoading ? (
+          {props.isLoading ? (
             <Loader />
           ) : (
-            this.props.searchResults.data && (
+            props.searchResults.data && (
               <>
                 <div id="search-count-msg-div">
-                  {getSearchResultCountMessage(this.props.searchResults.data)}
+                  {getSearchResultCountMessage(props.searchResults.data)}
                 </div>
                 <div id="search-results-div">
-                  {renderSearchResults(this.props.searchResults)}
+                  {renderSearchResults(props.searchResults)}
                 </div>
               </>
             )
@@ -192,7 +201,7 @@ class SearchUsers extends Component {
         </div>
       </div>
     );
-  }
+  // }
 }
 
 const mapStateToProps = (state) => {
