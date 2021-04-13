@@ -14,7 +14,7 @@
 
 #listings-main {
     width: 100%;
-    max-height: 50vh;
+    max-height: 49vh;
     overflow-y: auto;
     border-top: 2px solid #3a5f0b;
 }
