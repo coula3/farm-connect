@@ -12,11 +12,15 @@ import "./Listing.css";
 
 const Listing = (props) => {
   let toFetchListing;
-  const { fetchListing, match } = props;
+  const { fetchListing, match, addErrorMessages } = props;
 
   useEffect(() => {
+    if(isNaN(parseInt(match.params.id))){
+      addErrorMessages("Invalid Entry");
+    } else {
     toFetchListing && fetchListing(match.params.id);
-  }, [fetchListing, match, toFetchListing]);
+    }
+  }, [fetchListing, match, toFetchListing, addErrorMessages]);
 
   const renderEditButton = (currentUserId, listingUserId, listingId) => {
     if (!props.listing.attributes.closed) {
