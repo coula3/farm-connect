@@ -172,6 +172,14 @@ class Listings extends React.Component {
       listings,
       renderLinkToFarmerProfile;
 
+    if (
+      (this.props.match.path === paths().USER_LISTINGS_PATH ||
+        this.props.match.path === paths().USER_CLOSED_LISTINGS_PATH) &&
+      this.props.match.params.id !== this.props.userId
+    ) {
+      this.props.addErrorMessages("Unauthorized Access Denied");
+    }
+
     if (this.props.match.path === paths().USER_LISTINGS_PATH) {
       baseListings = this.props.listings.filter(
         (listing) => listing.attributes.user_id === parseInt(this.props.userId)
