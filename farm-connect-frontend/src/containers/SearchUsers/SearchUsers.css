@@ -1,7 +1,7 @@
 .SearchUsers-main-div {
     width: 400px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 40px;
     max-height: 60vh;
 }
 
@@ -18,14 +18,14 @@
 
 #search-x-close-btn {
     position: absolute;
-    top: -15px;
+    top: -30px;
     right: -15px;
-    padding: 4px 8px;
-    border-radius: 50%;
-    border-color: #3a5f0b;
-    color: #3a5f0b;
+    width: 60px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
     font-family: inherit;
-    outline: none;
+    font-weight: bold;
 }
 
 #search-input {
