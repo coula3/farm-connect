@@ -145,7 +145,7 @@ const SearchUsers = (props) => {
           id="search-x-close-btn"
           onClick={() => props.history.push("/listings")}
         >
-          Close
+          CLOSE
         </button>
 
         <form onSubmit={handleSubmit}>

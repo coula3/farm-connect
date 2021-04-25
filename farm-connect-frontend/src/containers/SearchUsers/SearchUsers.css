@@ -127,8 +127,8 @@
     }
 
     #search-x-close-btn {
-        top: -10px;
-        right: -10px;
+        top: -30px;
+        right: -15px;
         font-size: 0.75rem;
         padding: 2px 5px;
     }
