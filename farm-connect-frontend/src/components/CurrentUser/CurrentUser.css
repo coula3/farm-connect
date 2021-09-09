@@ -44,6 +44,10 @@
         box-shadow: none;
     }
 
+    .Current-user-profile-card h3 {
+        font-size: 0.8rem;
+    }
+
     #user-joined-p {
         margin-top: 15px;
     }
